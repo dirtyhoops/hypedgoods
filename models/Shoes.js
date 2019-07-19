@@ -13,6 +13,11 @@ const ShoesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  color: [
+    {
+      type: String
+    }
+  ],
   retail_price: {
     type: Number
   },
@@ -20,11 +25,11 @@ const ShoesSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  created_at: {
+  date_added: {
     type: Date,
     default: Date.now()
   },
-  pairs: [
+  attributes: [
     {
       size: {
         type: Number,
@@ -39,7 +44,16 @@ const ShoesSchema = new mongoose.Schema({
         required: true
       }
     }
-  ]
+  ],
+  categories: [
+    {
+      type: String
+    }
+  ],
+  isUsed: {
+    type: Boolean,
+    required: true
+  }
 });
 
 module.exports = Shoes = mongoose.model('shoes', ShoesSchema);
