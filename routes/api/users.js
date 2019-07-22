@@ -29,7 +29,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    // just deconstruct name, email, and password from req.body;
+    // just deconstruct name, email, and password, isAdmin from req.body;
     const { name, email, password, isAdmin } = req.body;
 
     try {

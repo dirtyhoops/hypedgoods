@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// @Todo:
+// 1. make sure to add "name" or something to "images" this is to make sure that we keep track of the poster image, and the angles of the images,
+// 2. figure out how to make the object inside an array "required: true"
 const ShoesSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -16,7 +19,7 @@ const ShoesSchema = new mongoose.Schema({
   colorway: {
     type: String
   },
-  color: {
+  colors: {
     type: [String]
   },
   retail_price: {
@@ -49,11 +52,7 @@ const ShoesSchema = new mongoose.Schema({
   categories: {
     type: [String]
   },
-  isUsed: {
-    type: Boolean,
-    required: true
-  },
-  //once everything is working good, make sure to change images to required: true
+  //once everything is working good, make sure to change images to required: true, also try to have a name with it ("1", "2". "3", etc, "1" will be the poster picture that will show up in shoe lists).
   images: {
     type: [String]
   }
