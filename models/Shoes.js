@@ -9,15 +9,16 @@ const ShoesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  colorway: {
+  product_id: {
     type: String,
     required: true
   },
-  color: [
-    {
-      type: String
-    }
-  ],
+  colorway: {
+    type: String
+  },
+  color: {
+    type: [String]
+  },
   retail_price: {
     type: Number
   },
@@ -45,14 +46,16 @@ const ShoesSchema = new mongoose.Schema({
       }
     }
   ],
-  categories: [
-    {
-      type: String
-    }
-  ],
+  categories: {
+    type: [String]
+  },
   isUsed: {
     type: Boolean,
     required: true
+  },
+  //once everything is working good, make sure to change images to required: true
+  images: {
+    type: [String]
   }
 });
 
