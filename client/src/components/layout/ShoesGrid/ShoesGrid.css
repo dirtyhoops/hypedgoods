@@ -1,0 +1,33 @@
+.header-latestrelease {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.grid-latestrelease-column {
+  margin: 15px 0px;
+}
+
+.shoes-image {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.shoes-image img {
+  width: 95%;
+}
+
+.shoes-info p {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.shoes-info h1 {
+  font-size: 28px;
+
+  color: rgb(168, 145, 145);
+  margin-top: -15px;
+}
