@@ -19,6 +19,10 @@
   width: 95%;
 }
 
+.shoes-info {
+  text-align: center;
+}
+
 .shoes-info p {
   font-size: 15px;
   text-transform: uppercase;
@@ -28,6 +32,6 @@
 .shoes-info h1 {
   font-size: 28px;
 
-  color: rgb(168, 145, 145);
+  color: rgb(151, 136, 136);
   margin-top: -15px;
 }

@@ -2,24 +2,31 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 6vh;
+  min-height: 5vh;
   background-color: #0a0a0a;
   font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+  width: 25%;
+  text-align: center;
+  margin-top: 4px;
 }
 
 .logo h2 a {
   color: rgb(226, 226, 226);
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 25px;
+  font-size: 29px;
   font-weight: bolder;
   text-decoration: none;
+  vertical-align: middle;
 }
 
 .nav-links {
   display: flex;
-  justify-content: space-around;
-  width: 35%;
+  justify-content: space-evenly;
+  width: 55%;
   margin-top: 15px;
 }
 
@@ -34,14 +41,18 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 1px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .right-nav-links {
   display: flex;
-  justify-content: space-around;
-  width: 10%;
+  justify-content: flex-end;
+  width: 20%;
   margin-top: 15px;
+}
+
+.right-nav-links li {
+  margin-right: 25px;
 }
 
 /************** BURGER BUTTON ************************/
@@ -89,27 +100,26 @@ nav {
 }
 
 .drawer-toggleButton {
-  margin: 18px 15px;
+  margin: 5px 20px;
+  color: white;
+  font-size: 30px;
+  text-align: right;
 }
 
-@media screen and (max-width: 1024px) {
-  .nav-links {
-    width: 45%;
-  }
-
-  .right-nav-links {
-    width: 15%;
-  }
-}
-
+/* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   nav {
     height: 7vh;
   }
 
+  .logo {
+    width: 55%;
+    padding-top: 2px;
+  }
+
   .logo h2 a {
     letter-spacing: 3px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bolder;
     text-decoration: none;
   }
@@ -119,19 +129,30 @@ nav {
   }
 
   .right-nav-links {
-    width: 25%;
+    width: 30%;
+    text-align: right;
+    margin-top: 12px;
   }
 
-  .nav-links li {
-    opacity: 0;
+  .right-nav-links a {
+    font-size: 21px;
+  }
+
+  .account-nav-item {
+    display: none;
+  }
+
+  .nav-burger {
+    width: 15%;
   }
 
   .burger-button {
     display: flex;
   }
 
+  /**************** SIDE DRAWER ***************/
   .nav-links-mobile {
-    margin-top: 20px;
+    margin-top: 7px;
   }
 
   .nav-links-mobile ul li a {
@@ -146,6 +167,7 @@ nav {
     margin: 0;
     padding: 0;
   }
+
   .nav-links-mobile li {
     padding: 15px;
     border-bottom: 1px solid rgb(75, 73, 73);

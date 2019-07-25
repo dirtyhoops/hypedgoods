@@ -26,8 +26,8 @@ const SideDrawer = props => {
   }
   return (
     <div className={drawerClasses}>
-      <div className='drawer-toggleButton'>
-        <NavbarToggleButton click={props.drawerClickHandler} />
+      <div className='drawer-toggleButton' onClick={props.drawerClickHandler}>
+        <i class='fa fa-window-close' />
       </div>
       <div className='nav-links-mobile'>
         <ul>
@@ -39,6 +39,9 @@ const SideDrawer = props => {
           </li>
           <li>
             <a href='/'>SHOP WOMEN'S SHIRT</a>
+          </li>
+          <li>
+            <a href='/'>Login/Sign Up</a>
           </li>
         </ul>
       </div>
