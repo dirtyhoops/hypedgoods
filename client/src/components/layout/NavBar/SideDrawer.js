@@ -12,7 +12,7 @@ const SideDrawer = props => {
   return (
     <div className={drawerClasses}>
       <div className='drawer-toggleButton' onClick={props.drawerClickHandler}>
-        <i class='fa fa-window-close' />
+        <i className='fa fa-window-close' />
       </div>
       <div className='nav-links-mobile'>
         <ul>

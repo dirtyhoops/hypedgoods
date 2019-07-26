@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import './Login.css';
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -32,13 +32,18 @@ const Register = ({ setAlert, register }) => {
     }
   };
 
+  // Redirects to /account after a successful registration
+  if (isAuthenticated) {
+    return <Redirect to='/account' />;
+  }
+
   return (
     <div className='wrapper-register'>
       <h1 className='large text-dark'>create an account</h1>
 
       <form onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
-          <label for='firstname'>first name</label>
+          <label htmlFor='firstname'>first name</label>
           <input
             className='form-control'
             type='text'
@@ -48,7 +53,7 @@ const Register = ({ setAlert, register }) => {
           />
         </div>
         <div className='form-group'>
-          <label for='lastname'>last name</label>
+          <label htmlFor='lastname'>last name</label>
           <input
             className='form-control'
             type='text'
@@ -58,7 +63,7 @@ const Register = ({ setAlert, register }) => {
           />
         </div>
         <div className='form-group'>
-          <label for='email'>email</label>
+          <label htmlFor='email'>email</label>
           <input
             className='form-control'
             type='email'
@@ -68,7 +73,7 @@ const Register = ({ setAlert, register }) => {
           />
         </div>
         <div className='form-group'>
-          <label for='password'>password</label>
+          <label htmlFor='password'>password</label>
           <input
             className='form-control'
             type='password'
@@ -79,7 +84,7 @@ const Register = ({ setAlert, register }) => {
           />
         </div>
         <div className='form-group'>
-          <label for='password'>confirm password</label>
+          <label htmlFor='password'>confirm password</label>
           <input
             className='form-control'
             type='password'
@@ -109,7 +114,11 @@ Register.propTypes = {
   register: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { setAlert, register }
 )(Register);

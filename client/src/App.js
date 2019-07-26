@@ -8,16 +8,26 @@ import Footer from './components/layout/Footer/Footer';
 import Alert from './components/layout/Alert/Alert';
 import SideDrawer from './components/layout/NavBar/SideDrawer';
 import Backdrop from './components/layout/Backdrop/Backdrop';
+import { loadUser } from './actions/auth';
+import setAuthToken from './utilities/setAuthToken';
 import './App.css';
 
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
 
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 class App extends Component {
   state = {
     sideDrawerOpen: false
   };
+
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
 
   //change this to REACT HOOK because this.setstate is outdated
   drawerToggleClickHandler = () => {

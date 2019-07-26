@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
 
 import './Login.css';
+import { stat } from 'fs';
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -17,16 +21,20 @@ const Login = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-
-    console.log(formData);
+    login(email, password);
   };
+
+  // Redirects to /account after a successful login
+  if (isAuthenticated) {
+    return <Redirect to='/account' />;
+  }
 
   return (
     <div className='wrapper-login'>
       <h1>Login</h1>
       <form onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
-          <label for='email'>Email</label>
+          <label htmlFor='email'>Email</label>
           <input
             className='form-control'
             type='email'
@@ -37,7 +45,7 @@ const Login = () => {
           />
         </div>
         <div className='form-group'>
-          <label for='password'>Password</label>
+          <label htmlFor='password'>Password</label>
           <input
             className='form-control'
             type='password'
@@ -64,4 +72,16 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);
