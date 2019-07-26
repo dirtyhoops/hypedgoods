@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
 import './Login.css';
-import { stat } from 'fs';
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({

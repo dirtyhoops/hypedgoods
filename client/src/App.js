@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/layout/NavBar/NavBar';
 import HomePage from './components/pages/Homepage/Homepage';
@@ -20,59 +20,60 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-class App extends Component {
-  state = {
-    sideDrawerOpen: false
-  };
+const App = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const drawerToggleClickHandler = () => setIsDrawerOpen(!isDrawerOpen);
 
-  componentDidMount() {
+  const backdropClickHandler = () => setIsDrawerOpen(!isDrawerOpen);
+  let backdrop;
+  if (isDrawerOpen) {
+    backdrop = <Backdrop click={backdropClickHandler} />;
+  }
+
+  useEffect(() => {
     store.dispatch(loadUser());
-  }
+  }, []);
 
-  //change this to REACT HOOK because this.setstate is outdated
-  drawerToggleClickHandler = () => {
-    this.setState(prevState => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
-  };
+  return (
+    // //change this to useeffect
+    // componentDidMount() {
+    //   store.dispatch(loadUser());
+    // }
 
-  backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false });
-  };
+    // backdropClickHandler = () => {
+    //   this.setState({ sideDrawerOpen: false });
+    // };
 
-  render() {
-    let backdrop;
+    // let backdrop;
 
-    if (this.state.sideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />;
-    }
+    // if (this.state.sideDrawerOpen) {
+    //   backdrop = <Backdrop click={this.backdropClickHandler} />;
+    // }
 
-    return (
-      <Provider store={store}>
-        <Router>
-          <Fragment>
-            <div className='App'>
-              <NavBar drawerClickHandler={this.drawerToggleClickHandler} />
-              <SideDrawer
-                show={this.state.sideDrawerOpen}
-                drawerClickHandler={this.drawerToggleClickHandler}
-              />
-              {backdrop}
-              <Route exact path='/' component={HomePage} />
-              <section className='container'>
-                <Alert />
-                <Switch>
-                  <Route exact path='/account/login' component={Login} />
-                  <Route exact path='/account/register' component={Register} />
-                </Switch>
-              </section>
-              <Footer />
-            </div>
-          </Fragment>
-        </Router>
-      </Provider>
-    );
-  }
-}
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <div className='App'>
+            <NavBar drawerClickHandler={drawerToggleClickHandler} />
+            <SideDrawer
+              show={isDrawerOpen}
+              drawerClickHandler={drawerToggleClickHandler}
+            />
+            {backdrop}
+            <Route exact path='/' component={HomePage} />
+            <section className='container'>
+              <Alert />
+              <Switch>
+                <Route exact path='/account/login' component={Login} />
+                <Route exact path='/account/register' component={Register} />
+              </Switch>
+            </section>
+            <Footer />
+          </div>
+        </Fragment>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;
