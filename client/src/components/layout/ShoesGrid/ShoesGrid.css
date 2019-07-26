@@ -1,18 +1,22 @@
 .header-latestrelease {
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 25px;
-  font-weight: 800;
-  font-family: 'Architects Daughter', cursive;
+  letter-spacing: 1px;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Roboto Slab', serif;
+}
+
+.grid-latestrelease {
+  margin-top: -15px;
 }
 
 .grid-latestrelease-column {
-  margin: 15px 0px;
+  margin: 0.5em 0;
 }
 
 .shoes-image {
-  margin-bottom: 15px;
+  margin-bottom: 0.5em;
   text-align: center;
 }
 
@@ -25,18 +29,41 @@
 }
 
 .shoes-info p {
-  font-size: 15px;
+  font-size: 14px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-family: 'Fredoka One', cursive;
 }
 
 .shoes-info h1 {
-  font-size: 28px;
-
+  font-size: 23px;
+  font-family: 'Fredoka One', cursive;
   color: rgb(151, 136, 136);
   margin-top: -15px;
 }
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
+  .header-latestrelease {
+    letter-spacing: 0px;
+    font-size: 25px;
+  }
+
+  .grid-latestrelease-column {
+    margin: 0.2em 0;
+  }
+
+  .shoes-image {
+    margin-bottom: 0.4em;
+  }
+
+  .shoes-info p {
+    font-size: 12px;
+  }
+
+  .shoes-info h1 {
+    font-size: 18px;
+    font-family: 'Fredoka One', cursive;
+    color: rgb(151, 136, 136);
+    margin-top: -15px;
+  }
 }

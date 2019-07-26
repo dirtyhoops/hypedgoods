@@ -9,9 +9,9 @@ nav {
 
 .logo {
   width: 25%;
-  text-align: center;
-  margin-top: 4px;
+  text-align: left;
   font-family: 'Permanent Marker', cursive;
+  padding-left: 40px;
 }
 
 .logo h2 a {
@@ -19,7 +19,6 @@ nav {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 29px;
-  font-weight: bolder;
   text-decoration: none;
   vertical-align: middle;
 }
@@ -30,6 +29,7 @@ nav {
   width: 55%;
   margin-top: 15px;
   font-family: 'Muli', sans-serif;
+  padding: 0px 10px;
 }
 
 .right-nav-links {
@@ -37,6 +37,7 @@ nav {
   justify-content: flex-end;
   width: 20%;
   margin-top: 15px;
+  padding-right: 40px;
 }
 
 .nav-links li,
@@ -50,11 +51,15 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.right-nav-links a {
   font-size: 18px;
 }
 
 .right-nav-links li {
-  margin-right: 25px;
+  margin-left: 30px;
 }
 
 /************** BURGER BUTTON ************************/
@@ -110,20 +115,14 @@ nav {
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
-  nav {
-    height: 7vh;
-  }
-
   .logo {
     width: 55%;
-    padding-top: 2px;
+    padding-left: 25px;
   }
 
   .logo h2 a {
     letter-spacing: 3px;
     font-size: 24px;
-    font-weight: bolder;
-    text-decoration: none;
   }
 
   .nav-links {
@@ -134,6 +133,7 @@ nav {
     width: 30%;
     text-align: right;
     margin-top: 12px;
+    padding-right: 0px;
   }
 
   .right-nav-links a {
@@ -150,6 +150,10 @@ nav {
 
   .burger-button {
     display: flex;
+  }
+
+  .right-nav-links li {
+    margin-right: 25px;
   }
 
   /**************** SIDE DRAWER ***************/

@@ -14,10 +14,13 @@ const User = require('../../models/User');
 router.post(
   '/',
   [
-    check('name', 'Name is required')
+    check('firstname', 'First Name is required')
       .not()
       .isEmpty(),
-    check('email', 'Email include a valid email').isEmail(),
+    check('lastname', 'Lastname Name is required')
+      .not()
+      .isEmpty(),
+    check('email', 'Include a valid email').isEmail(),
     check(
       'password',
       'Please enter a password with 6 or more characters'
@@ -29,8 +32,8 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    // just deconstruct name, email, and password, isAdmin from req.body;
-    const { name, email, password, isAdmin } = req.body;
+    // just deconstruct firstname, lastname, email, and password, isAdmin from req.body;
+    const { firstname, lastname, email, password, isAdmin } = req.body;
 
     try {
       // See if user exists
@@ -43,7 +46,8 @@ router.post(
       }
 
       user = new User({
-        name,
+        firstname,
+        lastname,
         email,
         password,
         isAdmin

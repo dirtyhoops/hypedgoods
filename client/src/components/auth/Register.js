@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 import './Login.css';
 
-const Register = props => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -24,10 +25,10 @@ const Register = props => {
   const onSubmit = e => {
     e.preventDefault();
     if (password !== password2) {
-      props.setAlert('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger');
       console.log('Passwords do not match');
     } else {
-      console.log(formData);
+      register({ firstname, lastname, email, password });
     }
   };
 
@@ -44,7 +45,6 @@ const Register = props => {
             name='firstname'
             value={firstname}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className='form-group'>
@@ -55,7 +55,6 @@ const Register = props => {
             name='lastname'
             value={lastname}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className='form-group'>
@@ -66,7 +65,6 @@ const Register = props => {
             name='email'
             value={email}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className='form-group'>
@@ -78,7 +76,6 @@ const Register = props => {
             value={password}
             onChange={e => onChange(e)}
             minLength='6'
-            required
           />
         </div>
         <div className='form-group'>
@@ -108,10 +105,11 @@ const Register = props => {
 };
 
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { setAlert }
+  { setAlert, register }
 )(Register);

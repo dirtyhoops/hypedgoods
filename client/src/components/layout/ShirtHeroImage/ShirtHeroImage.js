@@ -19,7 +19,7 @@ const ShirtHeroImage = () => {
           </div>
         </div>
       </div>
-      <div className='wrapper-women-shirt'>
+      {/* <div className='wrapper-women-shirt'>
         <div className='women-shirt-image'>
           <img
             src='https://images.pexels.com/photos/2522683/pexels-photo-2522683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
@@ -33,7 +33,7 @@ const ShirtHeroImage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
