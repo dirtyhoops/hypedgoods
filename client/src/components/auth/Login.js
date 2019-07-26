@@ -23,13 +23,13 @@ const Login = () => {
 
   return (
     <div className='wrapper-login'>
-      <h1 className='large text-dark'>Login</h1>
-
-      <form className='form' onSubmit={e => onSubmit(e)}>
+      <h1>Login</h1>
+      <form onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
+          <label for='email'>Email</label>
           <input
+            className='form-control'
             type='email'
-            placeholder='Email Address'
             name='email'
             value={email}
             onChange={e => onChange(e)}
@@ -37,9 +37,10 @@ const Login = () => {
           />
         </div>
         <div className='form-group'>
+          <label for='password'>Password</label>
           <input
+            className='form-control'
             type='password'
-            placeholder='Password'
             name='password'
             value={password}
             onChange={e => onChange(e)}
@@ -47,10 +48,17 @@ const Login = () => {
             required
           />
         </div>
-        <input type='submit' className='btn btn-dark' value='Login' />
+        <div className='login-button'>
+          <input
+            type='submit'
+            className='btn btn-dark btn-block'
+            value='Login'
+          />
+        </div>
       </form>
-      <p className='my-1'>
-        Don't have an account? <Link to='/account/register'>Register</Link>
+      <p>
+        Don't have an account?{' '}
+        <Link to='/account/register'>Create an account</Link>
       </p>
     </div>
   );

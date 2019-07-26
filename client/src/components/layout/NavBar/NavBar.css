@@ -11,6 +11,7 @@ nav {
   width: 25%;
   text-align: center;
   margin-top: 4px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .logo h2 a {
@@ -28,6 +29,14 @@ nav {
   justify-content: space-evenly;
   width: 55%;
   margin-top: 15px;
+  font-family: 'Muli', sans-serif;
+}
+
+.right-nav-links {
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+  margin-top: 15px;
 }
 
 .nav-links li,
@@ -42,13 +51,6 @@ nav {
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 18px;
-}
-
-.right-nav-links {
-  display: flex;
-  justify-content: flex-end;
-  width: 20%;
-  margin-top: 15px;
 }
 
 .right-nav-links li {
@@ -119,7 +121,7 @@ nav {
 
   .logo h2 a {
     letter-spacing: 3px;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bolder;
     text-decoration: none;
   }

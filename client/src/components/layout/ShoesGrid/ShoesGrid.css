@@ -4,6 +4,7 @@
   letter-spacing: 3px;
   font-size: 25px;
   font-weight: 800;
+  font-family: 'Architects Daughter', cursive;
 }
 
 .grid-latestrelease-column {
@@ -34,4 +35,8 @@
 
   color: rgb(151, 136, 136);
   margin-top: -15px;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
 }

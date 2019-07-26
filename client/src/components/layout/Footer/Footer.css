@@ -6,3 +6,11 @@
   line-height: 3vh;
   font-size: 15px;
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper-footer {
+    height: 4vh;
+    line-height: 4vh;
+    font-size: 10px;
+  }
+}

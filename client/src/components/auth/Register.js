@@ -33,13 +33,14 @@ const Register = props => {
 
   return (
     <div className='wrapper-register'>
-      <h1 className='large text-dark'>Create Your Account</h1>
+      <h1 className='large text-dark'>create an account</h1>
 
-      <form className='form' onSubmit={e => onSubmit(e)}>
+      <form onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
+          <label for='firstname'>first name</label>
           <input
+            className='form-control'
             type='text'
-            placeholder='First Name'
             name='firstname'
             value={firstname}
             onChange={e => onChange(e)}
@@ -47,9 +48,10 @@ const Register = props => {
           />
         </div>
         <div className='form-group'>
+          <label for='lastname'>last name</label>
           <input
+            className='form-control'
             type='text'
-            placeholder='Last Name'
             name='lastname'
             value={lastname}
             onChange={e => onChange(e)}
@@ -57,9 +59,10 @@ const Register = props => {
           />
         </div>
         <div className='form-group'>
+          <label for='email'>email</label>
           <input
+            className='form-control'
             type='email'
-            placeholder='Email Address'
             name='email'
             value={email}
             onChange={e => onChange(e)}
@@ -67,9 +70,10 @@ const Register = props => {
           />
         </div>
         <div className='form-group'>
+          <label for='password'>password</label>
           <input
+            className='form-control'
             type='password'
-            placeholder='Password'
             name='password'
             value={password}
             onChange={e => onChange(e)}
@@ -78,18 +82,25 @@ const Register = props => {
           />
         </div>
         <div className='form-group'>
+          <label for='password'>confirm password</label>
           <input
+            className='form-control'
             type='password'
-            placeholder='Confirm Password'
             name='password2'
             value={password2}
             onChange={e => onChange(e)}
             minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-dark' value='Register' />
+        <div className='register-button'>
+          <input
+            type='submit'
+            className='btn btn-dark btn-block'
+            value='Register'
+          />
+        </div>
       </form>
-      <p className='my-1'>
+      <p>
         Already have an account? <Link to='/account/login'>Sign In</Link>
       </p>
     </div>
