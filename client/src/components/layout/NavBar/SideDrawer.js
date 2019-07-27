@@ -25,9 +25,6 @@ const SideDrawer = props => {
           <li>
             <Link to='/shirts/women'>shop women's shirt</Link>
           </li>
-          <li>
-            <a href='/account/login'>Login/Sign Up</a>
-          </li>
         </ul>
       </div>
     </div>

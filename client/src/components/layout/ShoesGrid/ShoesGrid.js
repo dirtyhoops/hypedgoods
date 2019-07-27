@@ -1,3 +1,6 @@
+// @Todo
+//  MAKE THIS A HOOK USESTATE AND NOT A CLASS COMPONENT
+
 import React, { Component } from 'react';
 
 import './ShoesGrid.css';

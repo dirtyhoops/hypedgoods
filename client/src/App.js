@@ -4,6 +4,7 @@ import NavBar from './components/layout/NavBar/NavBar';
 import HomePage from './components/pages/Homepage/Homepage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Account from './components/auth/Account';
 import Footer from './components/layout/Footer/Footer';
 import Alert from './components/layout/Alert/Alert';
 import SideDrawer from './components/layout/NavBar/SideDrawer';
@@ -35,21 +36,6 @@ const App = () => {
   }, []);
 
   return (
-    // //change this to useeffect
-    // componentDidMount() {
-    //   store.dispatch(loadUser());
-    // }
-
-    // backdropClickHandler = () => {
-    //   this.setState({ sideDrawerOpen: false });
-    // };
-
-    // let backdrop;
-
-    // if (this.state.sideDrawerOpen) {
-    //   backdrop = <Backdrop click={this.backdropClickHandler} />;
-    // }
-
     <Provider store={store}>
       <Router>
         <Fragment>
@@ -66,6 +52,7 @@ const App = () => {
               <Switch>
                 <Route exact path='/account/login' component={Login} />
                 <Route exact path='/account/register' component={Register} />
+                <Route exact path='/account' component={Account} />
               </Switch>
             </section>
             <Footer />

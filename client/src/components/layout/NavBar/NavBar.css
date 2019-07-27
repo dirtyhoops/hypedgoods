@@ -17,7 +17,7 @@ nav {
 .logo h2 a {
   color: rgb(226, 226, 226);
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   font-size: 29px;
   text-decoration: none;
   vertical-align: middle;
@@ -27,9 +27,9 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 55%;
-  margin-top: 15px;
   font-family: 'Muli', sans-serif;
   padding: 0px 10px;
+  margin-top: 15px;
 }
 
 .right-nav-links {
@@ -68,7 +68,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  height: 19px;
+  height: 18px;
   width: 30px;
   background: transparent;
   border: none;
@@ -81,7 +81,7 @@ nav {
 }
 
 .burger-line {
-  width: 28px;
+  width: 27px;
   height: 2px;
   background-color: rgb(255, 255, 255);
 }
@@ -121,8 +121,8 @@ nav {
   }
 
   .logo h2 a {
-    letter-spacing: 3px;
-    font-size: 24px;
+    letter-spacing: 1px;
+    font-size: 22px;
   }
 
   .nav-links {
@@ -132,16 +132,19 @@ nav {
   .right-nav-links {
     width: 30%;
     text-align: right;
-    margin-top: 12px;
     padding-right: 0px;
   }
 
-  .right-nav-links a {
-    font-size: 21px;
+  .account-nav-item {
+    margin-right: -10px;
   }
 
-  .account-nav-item {
-    display: none;
+  .cart-nav-item {
+    margin-right: 20px;
+  }
+
+  .right-nav-links a {
+    font-size: 18px;
   }
 
   .nav-burger {
@@ -150,10 +153,6 @@ nav {
 
   .burger-button {
     display: flex;
-  }
-
-  .right-nav-links li {
-    margin-right: 25px;
   }
 
   /**************** SIDE DRAWER ***************/

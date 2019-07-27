@@ -4,6 +4,7 @@
   white-space: nowrap;
   font-size: 0;
   border: 1px solid rgba(59, 33, 33, 0.822);
+  font-family: 'Raleway', sans-serif;
 }
 
 /* .wrapper-women-shirt, */
@@ -41,6 +42,7 @@
 .btn-dark {
   border: 1px solid rgb(68, 66, 66);
   text-transform: uppercase;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 768px) {
@@ -64,6 +66,6 @@
   .btn-dark {
     height: 5vh;
     width: 45vw;
-    font-size: 13px;
+    font-size: 14px;
   }
 }
