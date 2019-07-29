@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/layout/NavBar/NavBar';
-import HomePage from './components/pages/Homepage/Homepage';
+import HomePage from './components/homepage/page/Homepage';
+import ShoeDetailsPage from './components/shoedetailspage/page/ShoeDetailsPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Account from './components/auth/Account';
@@ -48,6 +49,11 @@ const App = () => {
             />
             {backdrop}
             <Route exact path='/' component={HomePage} />
+            <Route
+              exact
+              path='/products/shoes/:id'
+              component={ShoeDetailsPage}
+            />
             <section className='container'>
               <Alert />
               <Switch>

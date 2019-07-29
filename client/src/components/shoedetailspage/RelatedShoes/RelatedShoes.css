@@ -1,0 +1,31 @@
+/***********************************RELATED SHOES***************************/
+.wrapper-related-shoes {
+  background-color: rgb(247, 239, 239);
+  width: 100%;
+  padding: 20px 0;
+}
+
+.related-shoes-grid {
+  margin-top: 20px;
+}
+
+.related-shoes-grid img {
+  width: 100%;
+}
+
+.wrapper-related-shoes h3 {
+  text-align: center;
+}
+.shoes-info-related {
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: -15px;
+  margin-bottom: 10%;
+  height: 85px;
+}
+
+.shoes-info-related p,
+.shoes-info-related h1 {
+  font-size: 12px;
+}

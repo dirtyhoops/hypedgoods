@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
-import ShirtHeroImage from '../../layout/ShirtHeroImage/ShirtHeroImage';
-import ShoesGrid from '../../layout/ShoesGrid/ShoesGrid';
+import ShirtHeroImage from '../ShirtHeroImage/ShirtHeroImage';
+import ShoesGrid from '../ShoesGrid/ShoesGrid';
 
 const Homepage = () => {
   return (

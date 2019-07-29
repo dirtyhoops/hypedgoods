@@ -13,10 +13,31 @@ const Shoes = require('../../models/Shoes');
 router.get('/', async (req, res) => {
   try {
     // Once the Shoe collection is somehat populated, try this one
-    const allShoes = await Shoes.find().populate('shoes');
+    const allShoes = await Shoes.find().populate();
     res.json(allShoes);
   } catch (err) {
     console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route    GET api/shoes/:shoe_id
+// @desc     Get shoe by ID
+// @access   Public
+router.get('/:shoe_id', async (req, res) => {
+  try {
+    const selectedShoe = await Shoes.findById(req.params.shoe_id).populate();
+
+    if (!selectedShoe) {
+      return res.status(400).json({ msg: 'Shoe is not found' });
+    }
+
+    res.json(selectedShoe);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(400).json({ msg: 'Shoe is not found' });
+    }
     res.status(500).send('Server Error');
   }
 });

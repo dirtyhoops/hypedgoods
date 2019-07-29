@@ -18,3 +18,29 @@ export const getShoes = () => async dispatch => {
     });
   }
 };
+
+export const getShoe = id => async dispatch => {
+  try {
+    const res = await axios.get(`/api/shoes/${id}`);
+
+    dispatch({
+      type: GET_SHOE,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: SHOE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// export const getMovie = id => async dispatch => {
+//   const res = await axios.get(
+//     `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+//   );
+//   dispatch({
+//     type: GET_MOVIE,
+//     payload: res.data
+//   });
+// };

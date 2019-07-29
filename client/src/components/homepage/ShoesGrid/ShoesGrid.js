@@ -12,11 +12,11 @@ const ShoesGrid = ({ getShoes, shoes }) => {
   }, []);
 
   return (
-    <div class='wrapper-latestrelease-homepage'>
-      <div class='header-latestrelease'>
+    <div className='wrapper-latestrelease-homepage'>
+      <div className='header-latestrelease'>
         <p>latest kicks</p>
       </div>
-      <div class='grid-latestrelease'>
+      <div className='grid-latestrelease'>
         {shoes ? (
           <div className='row'>
             {shoes.map(shoe => (

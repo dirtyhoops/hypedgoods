@@ -17,6 +17,12 @@ export default function(state = initialState, action) {
         shoes: payload,
         loading: false
       };
+    case GET_SHOE:
+      return {
+        ...state,
+        selectedShoe: payload,
+        loading: false
+      };
     case SHOE_ERROR:
       return {
         ...state,

@@ -25,19 +25,19 @@ const UserSchema = new mongoose.Schema({
   address: {
     street: {
       type: String,
-      required: true
+      default: '123 awesome st.'
     },
     city: {
       type: String,
-      required: true
+      default: 'san jose'
     },
     state: {
       type: String,
-      required: true
+      default: 'CA'
     },
     zipcode: {
-      type: Number,
-      required: true
+      type: String,
+      default: '90039'
     }
   }
 });

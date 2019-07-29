@@ -1,10 +1,14 @@
+.wrapper-latestrelease-homepage {
+  margin-bottom: 2em;
+}
+
 .header-latestrelease {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 30px;
-  font-weight: 700;
-  font-family: 'Roboto Slab', serif;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .grid-latestrelease {
@@ -13,6 +17,14 @@
 
 .grid-latestrelease-column {
   margin: 0.5em 0;
+}
+
+.grid-latestrelease-column a {
+  text-decoration: none;
+}
+
+.grid-latestrelease-column:hover {
+  opacity: 0.5;
 }
 
 .shoes-image {
@@ -31,18 +43,28 @@
 .shoes-info p {
   font-size: 14px;
   text-transform: uppercase;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: black;
+}
+
+.shoe-info p a {
+  text-decoration: none;
 }
 
 .shoes-info h1 {
   font-size: 23px;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Montserrat', sans-serif;
   color: rgb(151, 136, 136);
   margin-top: -15px;
 }
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
+  .wrapper-latestrelease-homepage {
+    margin-bottom: 1em;
+  }
+
   .header-latestrelease {
     letter-spacing: 0px;
     font-size: 25px;
@@ -57,12 +79,13 @@
   }
 
   .shoes-info p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
   }
 
   .shoes-info h1 {
     font-size: 18px;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Montserrat', sans-serif;
     color: rgb(151, 136, 136);
     margin-top: -15px;
   }

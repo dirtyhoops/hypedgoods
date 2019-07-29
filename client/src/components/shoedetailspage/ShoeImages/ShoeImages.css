@@ -1,0 +1,49 @@
+.wrapper-shoe-images {
+  width: 59.5%;
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+/* .product-images-main {
+} */
+
+.product-images-main img {
+  width: 100%;
+}
+
+.product-images-other {
+  margin: 20px 10px;
+}
+
+.shoes-diff-images-col {
+  padding: 8px 8px;
+}
+
+.shoes-diff-images-col img {
+  width: 100%;
+}
+
+.active-shoes-image {
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .wrapper-shoe-images {
+    width: 100%;
+    display: block;
+    padding: 25px;
+  }
+
+  /* .product-images-main {
+  } */
+
+  .product-images-other {
+    margin: 10px;
+  }
+
+  .shoes-diff-images-col {
+    padding: 2px;
+  }
+}

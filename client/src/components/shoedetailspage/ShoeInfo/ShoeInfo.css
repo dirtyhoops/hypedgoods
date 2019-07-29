@@ -1,0 +1,132 @@
+.wrapper-shoe-info {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 30px 10px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  text-transform: uppercase;
+}
+
+.product-info {
+  letter-spacing: 1px;
+}
+
+.product-info-brand {
+  font-weight: bold;
+  font-family: 'Krona One', sans-serif;
+}
+
+.product-info-price {
+  font-weight: bold;
+  font-family: 'Krona One', sans-serif;
+  font-size: 30px;
+}
+
+.product-info-name {
+  font-size: 22px;
+}
+
+.product-info-p {
+  font-size: 16px;
+}
+.product-info span {
+  font-weight: bold;
+}
+
+.product-sizes {
+  margin: 20px auto;
+}
+.product-sizes-buttons {
+  width: 90%;
+  margin: 0 auto 20px;
+}
+
+.product-sizes-buttons button {
+  width: 150%;
+  margin: 5px 0px;
+}
+
+/* this is how you do a container and flex */
+.button-size-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.button-size {
+  color: #000;
+  user-select: none;
+  cursor: pointer;
+  width: 14%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 5px;
+  border: 1px solid #d0d0d0;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .wrapper-shoe-info {
+    width: 100%;
+    display: block;
+    padding: 20px 10px;
+    border-top: 3px solid rgba(39, 235, 176, 0.377);
+  }
+
+  .product-info-brand {
+    font-size: 27px;
+  }
+
+  .product-info-price {
+    font-weight: bolder;
+    font-family: 'Krona One', sans-serif;
+    font-size: 21px;
+  }
+
+  .product-info-name {
+    font-size: 19px;
+  }
+
+  .product-info-p {
+    font-size: 14px;
+  }
+
+  .product-sizes {
+    margin: 10px auto;
+  }
+  .product-sizes-buttons {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .product-sizes-buttons button {
+    width: 150%;
+    margin: 5px 0px;
+  }
+
+  /* this is how you do a container and flex */
+  .button-size-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+  }
+
+  .button-size {
+    color: #000;
+    user-select: none;
+    cursor: pointer;
+    width: 14%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+}
