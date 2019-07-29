@@ -11,6 +11,7 @@ import SideDrawer from './components/layout/NavBar/SideDrawer';
 import Backdrop from './components/layout/Backdrop/Backdrop';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utilities/setAuthToken';
+import PrivateRoute from './components/routing/PrivateRoute';
 import './App.css';
 
 // Redux
@@ -52,7 +53,7 @@ const App = () => {
               <Switch>
                 <Route exact path='/account/login' component={Login} />
                 <Route exact path='/account/register' component={Register} />
-                <Route exact path='/account' component={Account} />
+                <PrivateRoute exact path='/account' component={Account} />
               </Switch>
             </section>
             <Footer />

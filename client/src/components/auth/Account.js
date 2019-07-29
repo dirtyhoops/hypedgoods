@@ -16,7 +16,7 @@ const Account = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         <p className='capitalize'>Daryll Osis</p>
         <p>dosis@csumb.edu</p>
         <p className='capitalize'>123 awesome St. San Jose, CA. 95125</p>
-        <button className='btn btn-primary btn-sm'>edit profile</button>
+        <button className='btn btn-primary btn-sm'>edit address</button>
       </div>
       <div className='recent-orders'>
         <h4>RECENT ORDERS</h4>
@@ -41,6 +41,7 @@ Account.propTypes = {
 const mapStateToProps = state => ({
   auth: state.auth
 });
+
 export default connect(
   mapStateToProps,
   { logout }
