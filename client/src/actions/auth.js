@@ -7,7 +7,9 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  CHECK_ADMIN,
+  MAKE_ADMIN
 } from './types';
 import setAuthToken from '../utilities/setAuthToken';
 
@@ -19,6 +21,9 @@ export const loadUser = () => async dispatch => {
 
   try {
     const res = await axios.get('/api/auth');
+    if (res.data.isAdmin) {
+      dispatch({ type: MAKE_ADMIN });
+    }
 
     dispatch({
       type: USER_LOADED,

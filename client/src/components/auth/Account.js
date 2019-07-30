@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 
-const Account = ({ auth: { loading, user }, logout }) => {
+const Account = ({ auth: { loading, user }, logout, admin_check }) => {
   return (
     <div className='wrapper-account'>
       <div className='account-header'>
         <h1>my account</h1>
       </div>
-
       {user ? (
         <div className='account-details'>
           <h4>ACCOUNT INFORMATION</h4>

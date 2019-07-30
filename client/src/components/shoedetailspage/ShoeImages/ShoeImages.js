@@ -29,7 +29,7 @@ const ShoeImages = ({ selectedShoe }) => {
 };
 
 ShoeImages.propTypes = {
-  selectedShoe: PropTypes.object.isRequired
+  selectedShoe: PropTypes.object
 };
 
 const mapStateToProps = state => ({

@@ -20,7 +20,7 @@ const ShoesGrid = ({ getShoes, shoes }) => {
         {shoes ? (
           <div className='row'>
             {shoes.map(shoe => (
-              <Shoe key={shoe.id} shoe={shoe} />
+              <Shoe key={shoe._id} shoe={shoe} />
             ))}
           </div>
         ) : null}
@@ -91,7 +91,7 @@ const ShoesGrid = ({ getShoes, shoes }) => {
 };
 
 ShoesGrid.propTypes = {
-  getShoes: PropTypes.object.isRequired,
+  getShoes: PropTypes.func.isRequired,
   shoes: PropTypes.array.isRequired
 };
 

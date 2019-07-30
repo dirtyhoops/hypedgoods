@@ -5,7 +5,8 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  MAKE_ADMIN
 } from '../actions/types';
 
 //add isAdmin later to authenticate if the current user is an admin (maybe just check user.isAdmin once we get the user and put it in the state)
@@ -13,7 +14,8 @@ const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: true,
-  user: null
+  user: null,
+  isAdmin: false
 };
 
 export default function(state = initialState, action) {
@@ -45,7 +47,13 @@ export default function(state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
-        loading: false
+        loading: false,
+        isAdmin: false
+      };
+    case MAKE_ADMIN:
+      return {
+        ...state,
+        isAdmin: true
       };
     default:
       return state;

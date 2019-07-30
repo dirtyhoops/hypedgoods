@@ -10,3 +10,4 @@ export const LOGOUT = 'LOGOUT';
 export const GET_SHOES = 'GET_SHOES';
 export const GET_SHOE = 'GET_SHOE';
 export const SHOE_ERROR = 'SHOE_ERROR';
+export const MAKE_ADMIN = 'MAKE_ADMIN';

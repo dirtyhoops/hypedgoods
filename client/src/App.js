@@ -13,6 +13,8 @@ import Backdrop from './components/layout/Backdrop/Backdrop';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utilities/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
+import AdminRoute from './components/routing/AdminRoute';
+import ShoesForm from './components/forms/ShoesForm/ShoesForm';
 import './App.css';
 
 // Redux
@@ -60,6 +62,11 @@ const App = () => {
                 <Route exact path='/account/login' component={Login} />
                 <Route exact path='/account/register' component={Register} />
                 <PrivateRoute exact path='/account' component={Account} />
+                <AdminRoute
+                  exact
+                  path='/products/shoes/add'
+                  component={ShoesForm}
+                />
               </Switch>
             </section>
             <Footer />
