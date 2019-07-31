@@ -1,0 +1,29 @@
+.header-shoelistpage {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.container-sorting-options {
+  display: flex;
+}
+
+.sorting-left {
+  width: 50%;
+  text-align: left;
+}
+
+.sorting-right {
+  width: 50%;
+  text-align: right;
+}
+
+.container-shoes-list {
+  display: flex;
+}
+
+.shoes-list-filter {
+  width: 25%;
+  background: pink;
+  height: 500px;
+}

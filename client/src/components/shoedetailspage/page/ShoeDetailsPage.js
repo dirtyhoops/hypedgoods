@@ -5,6 +5,7 @@ import { getShoe } from '../../../actions/shoe';
 
 import ShoeImages from '../ShoeImages/ShoeImages';
 import ShoeInfo from '../ShoeInfo/ShoeInfo';
+import RelatedShoes from '../RelatedShoes/RelatedShoes';
 
 import './ShoeDetailsPage.css';
 
@@ -14,30 +15,23 @@ const ShoeDetailsPage = ({
   },
   getShoe
 }) => {
+  // gets the selected shoes and loads the data to this page
   useEffect(() => {
     getShoe(id);
   }, []);
 
-  // const {
-  //   brand,
-  //   name,
-  //   product_id,
-  //   release_date,
-  //   colorway,
-  //   colors,
-  //   categories,
-  //   images,
-  //   retail_price
-  // } = selectedShoe;
+  // Scrolls the window all the way to top every time this page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>
-      <section className='container'>
-        <div className='wrapper-shoedetails'>
-          <ShoeImages />
-          <ShoeInfo />
-        </div>
-      </section>
+      <div className='wrapper-shoedetails'>
+        <ShoeImages />
+        <ShoeInfo />
+        <RelatedShoes />
+      </div>
     </Fragment>
   );
 };

@@ -1,0 +1,41 @@
+.row {
+  width: 98%;
+  margin: 0 auto;
+}
+
+.shoes-list-grid {
+  width: 75%;
+}
+
+.shoes-grid-column {
+  padding: 0;
+}
+
+.shoes-list-image {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.shoes-list-image img {
+  width: 90%;
+}
+
+.shoes-list-info {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.shoes-list-brand {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.shoes-list-name {
+  margin-top: -15px;
+  text-transform: capitalize;
+  color: rgb(190, 185, 185);
+}
+
+.shoes-list-price {
+  margin-top: -8px;
+}

@@ -34,13 +34,3 @@ export const getShoe = id => async dispatch => {
     });
   }
 };
-
-// export const getMovie = id => async dispatch => {
-//   const res = await axios.get(
-//     `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
-//   );
-//   dispatch({
-//     type: GET_MOVIE,
-//     payload: res.data
-//   });
-// };

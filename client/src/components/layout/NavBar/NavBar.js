@@ -15,10 +15,10 @@ const NavBar = props => {
       </div>
       <ul className='nav-links'>
         <li>
-          <Link to='/sneakers'>shop sneakers</Link>
+          <Link to='/products/shoes'>shop sneakers</Link>
         </li>
         <li>
-          <Link to='/shirts'>shop shirts</Link>
+          <Link to='/products/shirts'>shop shirts</Link>
         </li>
       </ul>
       <ul className='right-nav-links'>

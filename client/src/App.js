@@ -15,6 +15,7 @@ import setAuthToken from './utilities/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 import AdminRoute from './components/routing/AdminRoute';
 import ShoesForm from './components/forms/ShoesForm/ShoesForm';
+import ShoesListPage from './components/shoeslistpage/page/ShoesListPage';
 import './App.css';
 
 // Redux
@@ -51,14 +52,16 @@ const App = () => {
             />
             {backdrop}
             <Route exact path='/' component={HomePage} />
-            <Route
-              exact
-              path='/products/shoes/:id'
-              component={ShoeDetailsPage}
-            />
+
             <section className='container'>
               <Alert />
               <Switch>
+                <Route exact path='/products/shoes' component={ShoesListPage} />
+                <Route
+                  exact
+                  path='/products/shoes/:id'
+                  component={ShoeDetailsPage}
+                />
                 <Route exact path='/account/login' component={Login} />
                 <Route exact path='/account/register' component={Register} />
                 <PrivateRoute exact path='/account' component={Account} />

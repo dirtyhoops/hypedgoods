@@ -1,22 +1,43 @@
 /***********************************RELATED SHOES***************************/
 .wrapper-related-shoes {
-  background-color: rgb(247, 239, 239);
+  /* background-color: rgb(247, 239, 239); */
   width: 100%;
   padding: 20px 0;
 }
 
-.related-shoes-grid {
-  margin-top: 20px;
+.header-related-shoes {
+  text-transform: uppercase;
+  text-align: center;
+  border-top: 1px solid rgb(201, 138, 138);
+  padding-top: 20px;
+  margin: 3em 0;
 }
 
-.related-shoes-grid img {
+.header-related-shoes h1 {
+  font-size: 27px;
+}
+
+.container-related-shoes {
+  display: flex;
+
+  justify-content: center;
+}
+
+.column-related-shoes {
+  width: 19%;
+  margin: 2px;
+}
+
+.related-shoes-image {
   width: 100%;
-}
-
-.wrapper-related-shoes h3 {
   text-align: center;
 }
-.shoes-info-related {
+
+.related-shoes-image img {
+  width: 95%;
+}
+
+.related-shoes-info {
   background-color: white;
   text-align: center;
   padding: 10px;
@@ -25,7 +46,7 @@
   height: 85px;
 }
 
-.shoes-info-related p,
-.shoes-info-related h1 {
+.related-shoes-info p,
+.related-shoes-info h1 {
   font-size: 12px;
 }

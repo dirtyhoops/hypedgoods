@@ -17,13 +17,13 @@ const SideDrawer = props => {
       <div className='nav-links-mobile'>
         <ul>
           <li className='first'>
-            <Link to='/sneakers'>shop sneakers</Link>
+            <Link to='/products/shoes'>shop sneakers</Link>
           </li>
           <li>
-            <Link to='/shirts/men'>shop men's shirt</Link>
+            <Link to='/products/shirts/men'>shop men's shirts</Link>
           </li>
           <li>
-            <Link to='/shirts/women'>shop women's shirt</Link>
+            <Link to='/products/shirts/women'>shop women's shirts</Link>
           </li>
         </ul>
       </div>
