@@ -21,6 +21,20 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route     GET api/shoes/model/:model
+// @desc      Get all the shoes that meets the param(model)
+// @access    Public
+router.get('/model/:model', async (req, res) => {
+  try {
+    // Once the Shoe collection is somewhat populated, try this one
+    const allShoes = await Shoes.find({ brand: req.params.model }).populate();
+    res.json(allShoes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 // @route    GET api/shoes/:shoe_id
 // @desc     Get shoe by ID
 // @access   Public

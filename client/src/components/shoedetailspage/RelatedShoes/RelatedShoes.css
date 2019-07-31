@@ -17,13 +17,8 @@
   font-size: 27px;
 }
 
-.container-related-shoes {
-  display: flex;
-
-  justify-content: center;
-}
-
 .column-related-shoes {
+  display: inline-block;
   width: 19%;
   margin: 2px;
 }

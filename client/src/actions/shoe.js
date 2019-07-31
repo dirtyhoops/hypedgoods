@@ -1,4 +1,4 @@
-import { GET_SHOES, GET_SHOE, SHOE_ERROR } from './types';
+import { GET_SHOES, GET_SHOE, SHOE_ERROR, GET_SHOES_SAME_MODEL } from './types';
 
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -25,6 +25,22 @@ export const getShoe = id => async dispatch => {
 
     dispatch({
       type: GET_SHOE,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: SHOE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const getShoeModel = model => async dispatch => {
+  try {
+    const res = await axios.get(`/api/shoes/model/${model}`);
+
+    dispatch({
+      type: GET_SHOES_SAME_MODEL,
       payload: res.data
     });
   } catch (err) {

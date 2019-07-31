@@ -1,62 +1,54 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { getShoeModel } from '../../../actions/shoe';
 
 import './RelatedShoes.css';
 
-const RelatedShoes = () => {
+const RelatedShoes = ({ shoesWithModel, getShoeModel }) => {
+  //change it to params
+  useEffect(() => {
+    getShoeModel('nike');
+  }, []);
+
   return (
     <div className='wrapper-related-shoes'>
       <div className='header-related-shoes'>
         <h1>Related Shoes</h1>
       </div>
-      <div className='container-related-shoes'>
-        <div className='column-related-shoes'>
-          <div class='related-shoes-image'>
-            <img src='https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/806102_01.jpg' />
-          </div>
-          <div class='related-shoes-info'>
-            <p>nike air fear of god 1 "light bone"</p>
-            <h1>$800.00</h1>
-          </div>
+
+      {shoesWithModel ? (
+        <div className='container-related-shoes'>
+          {shoesWithModel.map(shoe => (
+            <div className='column-related-shoes'>
+              <div class='related-shoes-image'>
+                <img src={shoe.images[0]} />
+              </div>
+              <div class='related-shoes-info'>
+                <p>
+                  {shoe.brand} {shoe.name}
+                </p>
+                <h1>{shoe.retail_price}+</h1>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className='column-related-shoes'>
-          <div class='related-shoes-image'>
-            <img src='https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/806102_01.jpg' />
-          </div>
-          <div class='related-shoes-info'>
-            <p>nike air fear of god 1 "light bone"</p>
-            <h1>$800.00</h1>
-          </div>
-        </div>
-        <div className='column-related-shoes'>
-          <div class='related-shoes-image'>
-            <img src='https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/806102_01.jpg' />
-          </div>
-          <div class='related-shoes-info'>
-            <p>nike air fear of god 1 "light bone"</p>
-            <h1>$800.00</h1>
-          </div>
-        </div>
-        <div className='column-related-shoes'>
-          <div class='related-shoes-image'>
-            <img src='https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/806102_01.jpg' />
-          </div>
-          <div class='related-shoes-info'>
-            <p>nike air fear of god 1 "light bone"</p>
-            <h1>$800.00</h1>
-          </div>
-        </div>
-        <div className='column-related-shoes'>
-          <div class='related-shoes-image'>
-            <img src='https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/806102_01.jpg' />
-          </div>
-          <div class='related-shoes-info'>
-            <p>nike air fear of god 1 "light bone"</p>
-            <h1>$800.00</h1>
-          </div>
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 };
 
-export default RelatedShoes;
+RelatedShoes.propTypes = {
+  shoesWithModel: PropTypes.array.isRequired,
+  getShoeModel: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  shoesWithModel: state.shoe.shoesWithModel
+});
+
+export default connect(
+  mapStateToProps,
+  { getShoeModel }
+)(RelatedShoes);
