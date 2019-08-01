@@ -10,37 +10,45 @@ import RelatedShoes from '../RelatedShoes/RelatedShoes';
 import './ShoeDetailsPage.css';
 
 const ShoeDetailsPage = ({
+  getShoe,
   match: {
     params: { id }
   },
-  getShoe
+  shoe: { selectedShoe, loadingSelectedShoe }
 }) => {
   // gets the selected shoes and loads the data to this page
   useEffect(() => {
+    selectShoe(id);
+  }, []);
+
+  const selectShoe = id => {
     getShoe(id);
-  }, []);
-
-  // Scrolls the window all the way to top every time this page loads
-  useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  };
 
-  return (
+  return selectedShoe === null ? (
+    <p>PAGEEEEEEEEEEE IS LOADINGGGGGG </p>
+  ) : (
     <Fragment>
       <div className='wrapper-shoedetails'>
-        <ShoeImages />
-        <ShoeInfo />
-        <RelatedShoes />
+        <ShoeImages images={selectedShoe.images} />
+        <ShoeInfo selectedShoe={selectedShoe} />
+        <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} />
       </div>
     </Fragment>
   );
 };
 
+const mapStateToProps = state => ({
+  shoe: state.shoe
+});
+
 ShoeDetailsPage.propTypes = {
-  getShoe: PropTypes.func.isRequired
+  getShoe: PropTypes.func.isRequired,
+  shoe: PropTypes.object.isRequired
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   { getShoe }
 )(ShoeDetailsPage);

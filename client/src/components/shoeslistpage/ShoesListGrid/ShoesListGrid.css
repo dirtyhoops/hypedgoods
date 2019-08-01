@@ -11,6 +11,14 @@
   padding: 0;
 }
 
+.shoes-grid-column a:hover {
+  background: yellow;
+}
+
+.shoes-grid-column a {
+  text-decoration: none;
+}
+
 .shoes-list-image {
   margin-bottom: 15px;
   text-align: center;
@@ -21,21 +29,24 @@
 }
 
 .shoes-list-info {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-size: 0.8em;
+  color: black;
 }
 
 .shoes-list-brand {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .shoes-list-name {
   margin-top: -15px;
   text-transform: capitalize;
-  color: rgb(190, 185, 185);
+  color: rgb(153, 145, 145);
 }
 
 .shoes-list-price {
   margin-top: -8px;
+  font-weight: 600;
 }

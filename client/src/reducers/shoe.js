@@ -8,9 +8,11 @@ import {
 const initialState = {
   selectedShoe: null, // for the latest shoe you clicked on // maybve change it to {} instead of null later
   shoes: [], // for all the shoes
-  loading: true,
+  loadingShoes: true,
   error: {},
-  shoesWithModel: []
+  shoesWithModel: [],
+  loadingShoesWithModel: true,
+  loadingSelectedShoe: true
 };
 
 export default function(state = initialState, action) {
@@ -21,19 +23,21 @@ export default function(state = initialState, action) {
       return {
         ...state,
         shoes: payload,
-        loading: false
+        loadingShoes: false,
+        loadingShoesWithModel: true,
+        selectedShoe: null
       };
     case GET_SHOE:
       return {
         ...state,
         selectedShoe: payload,
-        loading: false
+        loadingSelectedShoe: false
       };
     case GET_SHOES_SAME_MODEL:
       return {
         ...state,
         shoesWithModel: payload,
-        loading: false
+        loadingShoesWithModel: false
       };
     case SHOE_ERROR:
       return {
@@ -41,6 +45,7 @@ export default function(state = initialState, action) {
         error: payload,
         loading: false
       };
+
     default:
       return state;
   }

@@ -8,7 +8,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CHECK_ADMIN,
   MAKE_ADMIN
 } from './types';
 import setAuthToken from '../utilities/setAuthToken';

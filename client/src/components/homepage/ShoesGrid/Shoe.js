@@ -9,7 +9,7 @@ const Shoe = ({ shoe: { _id, name, brand, images } }) => {
     <div className='grid-latestrelease-column col-6 col-lg-4 col-md-4 col-sm-6'>
       <Link to={`/products/shoes/${_id}`}>
         <div className='shoes-image'>
-          <img src={images[0]} />
+          <img src={images[0]} alt='main_image' />
         </div>
         <div className='shoes-info'>
           <p>
