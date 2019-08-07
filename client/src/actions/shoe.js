@@ -5,7 +5,9 @@ import {
   GET_SHOES_SAME_MODEL,
   CLEAR_SELECTED_SHOE,
   ADD_PRODUCT_SHOES_SUCCESS,
-  GET_SHOES_VARIANTS
+  GET_SHOES_VARIANTS,
+  ADD_SHOES_VARIANTS_SUCCESS,
+  EDIT_SHOES_VARIANTS
 } from './types';
 
 import axios from 'axios';
@@ -78,6 +80,34 @@ export const getShoesVariants = shoes_id => async dispatch => {
       type: SHOE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
+  }
+};
+
+// Add shoe variant (size)
+export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const res = await axios.post(
+      `/api/shoes/${shoes_id}/variants`,
+      formData,
+      config
+    );
+
+    dispatch({
+      type: ADD_SHOES_VARIANTS_SUCCESS,
+      payload: res.data
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
   }
 };
 

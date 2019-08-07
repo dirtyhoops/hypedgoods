@@ -1,16 +1,27 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import { Redirect } from 'react-router-dom';
 
-import { getShoesVariants, getShoe } from '../../../actions/shoe';
+import {
+  getShoesVariants,
+  getShoe,
+  addShoesVariants
+} from '../../../actions/shoe';
 
 import './ShoesVariantsPage.css';
 
 const ShoesVariantsPage = ({
   getShoesVariants,
   getShoe,
-  shoe: { selectedShoeVariants, selectedShoe },
+  addShoesVariants,
+  shoe: {
+    selectedShoeVariants,
+    selectedShoe,
+    isAddingVariantSuccess,
+    loadingSelectedShoes
+  },
   match: {
     params: { shoes_id }
   }
@@ -19,6 +30,28 @@ const ShoesVariantsPage = ({
     getShoe(shoes_id);
     getShoesVariants(shoes_id);
   }, []);
+
+  const [formData, setFormData] = useState({
+    size: '',
+    price: '',
+    quantity: ''
+  });
+
+  const { size, price, quantity } = formData;
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    addShoesVariants({ formData }, shoes_id);
+    setFormData('');
+  };
+
+  if (isAddingVariantSuccess) {
+    getShoesVariants(shoes_id);
+    return <Redirect to={`/products/shoes/${shoes_id}/variants`} />;
+  }
 
   return (
     <div className='wrapper-shoesvariantspage'>
@@ -60,7 +93,49 @@ const ShoesVariantsPage = ({
               : null}
           </tbody>
         </table>
-        <button className='btn btn-success'>Add a Size</button>
+        <div>
+          <form onSubmit={e => onSubmit(e)}>
+            <div className='form-group'>
+              <label htmlFor='size'>Size</label>
+              <input
+                className='form-control'
+                type='text'
+                name='size'
+                value={size}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='price'>Price</label>
+              <input
+                className='form-control'
+                type='text'
+                name='price'
+                value={price}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='quantity'>Quantity</label>
+              <input
+                className='form-control'
+                type='text'
+                name='quantity'
+                value={quantity}
+                onChange={e => onChange(e)}
+              />
+            </div>
+
+            <div className='add-variant-button'>
+              <input
+                type='submit'
+                className='btn btn-dark btn-block'
+                value='Add Size'
+              />
+            </div>
+          </form>
+        </div>
+        {/* <button className='btn btn-success'>Add a Size</button> */}
       </div>
     </div>
   );
@@ -69,7 +144,8 @@ const ShoesVariantsPage = ({
 ShoesVariantsPage.propTypes = {
   shoes: PropTypes.object.isRequired,
   getShoesVariants: PropTypes.func.isRequired,
-  getShoe: PropTypes.func.isRequired
+  getShoe: PropTypes.func.isRequired,
+  addShoesVariants: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -78,5 +154,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getShoesVariants, getShoe }
+  { getShoesVariants, getShoe, addShoesVariants }
 )(ShoesVariantsPage);

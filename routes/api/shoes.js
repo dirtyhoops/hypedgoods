@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 router.get('/model/:model', async (req, res) => {
   try {
     // Once the Shoe collection is somewhat populated, try this one
-    let allShoes = await Shoes.find({ brand: req.params.model }).populate();
+    let allShoes = await Shoes.find({ brand: req.params.model });
     res.json(allShoes);
   } catch (err) {
     console.error(err.message);
@@ -41,7 +41,7 @@ router.get('/model/:model', async (req, res) => {
 // @access   Public
 router.get('/:shoes_id', async (req, res) => {
   try {
-    let selectedShoe = await Shoes.findById(req.params.shoes_id).populate();
+    let selectedShoe = await Shoes.findById(req.params.shoes_id);
 
     if (!selectedShoe) {
       return res.status(400).json({ msg: 'Shoe is not found' });
@@ -207,12 +207,23 @@ router.post(
 
       // Checks if the user is an admin with admin priviledge
       if (isUserAdmin) {
-        console.log('checking if shoes exists');
-        console.log('shoe id is', req.params.shoes_id);
         const shoes = await Shoes.findById(req.params.shoes_id);
 
         if (shoes) {
           // Creates the new variant
+          const shoeVariant = await Variants.find({
+            $and: [
+              { shoes_id: variantsFields.shoes_id },
+              { size: variantsFields.size }
+            ]
+          });
+
+          if (shoeVariant.length > 0) {
+            return res.send(
+              'You cant add this size, it already is in the inventory'
+            );
+          }
+
           let newVariant = new Variants(variantsFields);
           await newVariant.save();
           res.json(newVariant);
