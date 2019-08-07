@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 import './ShoeInfo.css';
 
 const ShoeInfo = props => {
@@ -18,7 +19,10 @@ const ShoeInfo = props => {
         <h1 className='product-info-brand'>{brand}</h1>
         <p className='product-info-name'>{name}</p>
         <p className='product-info-p'>
-          release date: <span>{release_date}</span>
+          release date:{' '}
+          <span>
+            <Moment format='YYYY/MM/DD'>{release_date}</Moment>
+          </span>
         </p>
         <p className='product-info-p'>
           retail price: <span>${retail_price}</span>
@@ -109,7 +113,7 @@ const ShoeInfo = props => {
       </div>
       {props.isAdmin ? (
         <Link
-          to={`/admin/products/shoes/${_id}/variants`}
+          to={`/products/shoes/${_id}/variants`}
           type='button'
           className='btn btn-primary btn-lg btn-block btn-sm'
         >

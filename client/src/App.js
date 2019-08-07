@@ -71,9 +71,9 @@ const App = () => {
                   path='/products/add/shoes'
                   component={ShoesForm}
                 />
-                <Route
+                <AdminRoute
                   exact
-                  path='/admin/products/shoes/:shoes_id/variants'
+                  path='/products/shoes/:shoes_id/variants'
                   component={ShoesVariantsPage}
                 />
               </Switch>
