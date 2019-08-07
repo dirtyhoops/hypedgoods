@@ -7,13 +7,18 @@ import './ShoesListGrid.css';
 
 const ShoesListGrid = ({ shoes }) => {
   // Sorts the collection (desc date_added)
-  const myShoes = []
-    .concat(shoes)
-    .sort((a, b) => -1)
-    .map(item => <Shoe key={item._id} shoe={item} />);
+
   return (
     <div className='shoes-list-grid'>
-      <div className='row'>{myShoes}</div>
+      <div className='row'>
+        {shoes ? (
+          <div className='row'>
+            {shoes.map(shoe => (
+              <Shoe key={shoe._id} shoe={shoe} />
+            ))}
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };

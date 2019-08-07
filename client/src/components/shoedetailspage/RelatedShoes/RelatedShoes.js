@@ -24,21 +24,19 @@ const RelatedShoes = ({
 
   return (
     <div className='wrapper-related-shoes'>
-      <div className='header-related-shoes'>
-        <h1>Related Shoes</h1>
-      </div>
+      <h1>Related Shoes</h1>
 
       {loadingShoesWithModel && shoesWithModel === null ? (
         <p>related shoes are loading </p>
       ) : (
         <div className='container-related-shoes'>
-          {shoesWithModel.map((shoe, index) => (
+          {shoesWithModel.slice(0, 8).map((shoe, index) => (
             <Link
               key={index}
               to={`/products/shoes/${shoe._id}`}
               onClick={() => changeShoes(shoe._id, shoe.brand)}
             >
-              <div className='column-related-shoes'>
+              <div className='column-related-shoes item'>
                 <div className='related-shoes-image'>
                   <img src={shoe.images[0]} alt='relatedshoe_image' />
                 </div>

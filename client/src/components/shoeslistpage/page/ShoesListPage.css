@@ -2,6 +2,11 @@
   text-transform: uppercase;
   text-align: center;
   margin: 1.5em 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-shoelistpage h1 {
+  font-size: 29px;
 }
 
 .container-sorting-options {
@@ -18,12 +23,41 @@
   text-align: right;
 }
 
-.container-shoes-list {
-  display: flex;
-}
-
 .shoes-list-filter {
   width: 25%;
   background: pink;
   height: 500px;
+}
+
+.container-shoes-list {
+  display: flex;
+}
+
+.show-filter-button {
+  display: none;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .header-shoelistpage {
+    margin: 1em 0;
+    font-size: 22px;
+  }
+
+  .header-shoelistpage h1 {
+    font-size: 22px;
+  }
+
+  .shoes-list-filter {
+    display: block;
+    width: 100%;
+  }
+
+  .container-shoes-list {
+    display: block;
+  }
+
+  .show-filter-button {
+    display: block;
+  }
 }

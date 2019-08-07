@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 
-const Account = ({ auth: { loading, user }, logout, admin_check }) => {
+// @Todo:
+// 1. make the admin button looks better
+// 2. add option to add shoes and shirts (1 button each for shoes and shirt)
+const Account = ({ auth: { loading, user, isAdmin }, logout, admin_check }) => {
   return (
     <div className='wrapper-account'>
       <div className='account-header'>
         <h1>my account</h1>
+        {isAdmin && <a href='/products/add/shoes'>Admin ADD Shoes</a>}
       </div>
       {user ? (
         <div className='account-details'>
@@ -43,8 +47,6 @@ const Account = ({ auth: { loading, user }, logout, admin_check }) => {
         </button>
       </Link>
     </div>
-
-    // <div>{isAuthenticated ? <p onClick={logout}>Logout</p> : null}</div>
   );
 };
 

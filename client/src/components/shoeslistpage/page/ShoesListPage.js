@@ -33,7 +33,11 @@ const ShoesListPage = ({ getShoes }) => {
         </div>
       </div>
       <div className='container-shoes-list'>
-        <div className='shoes-list-filter'>FILTER LEFT SODE</div>
+        <div className='shoes-list-filter'>
+          <div className='show-filter-button'>
+            <h1>show button</h1>
+          </div>
+        </div>
         <ShoesListGrid />
       </div>
     </div>

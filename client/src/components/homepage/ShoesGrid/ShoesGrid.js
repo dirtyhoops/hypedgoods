@@ -19,7 +19,7 @@ const ShoesGrid = ({ getShoes, shoes }) => {
       <div className='grid-latestrelease'>
         {shoes ? (
           <div className='row'>
-            {shoes.map(shoe => (
+            {shoes.slice(0, 12).map(shoe => (
               <Shoe key={shoe._id} shoe={shoe} />
             ))}
           </div>

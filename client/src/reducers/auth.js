@@ -12,7 +12,7 @@ import {
 //add isAdmin later to authenticate if the current user is an admin (maybe just check user.isAdmin once we get the user and put it in the state)
 const initialState = {
   token: localStorage.getItem('token'),
-  isAuthenticated: null,
+  isAuthenticated: false,
   loading: true,
   user: null,
   isAdmin: false

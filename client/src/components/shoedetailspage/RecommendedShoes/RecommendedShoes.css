@@ -1,37 +1,37 @@
-.wrapper-related-shoes {
+.wrapper-recommended-shoes {
   /* background-color: rgb(247, 239, 239); */
   width: 100%;
   border-top: 1px solid rgb(235, 214, 214);
   font-family: 'Montserrat', sans-serif;
   padding-top: 25px;
-  margin: 2em 0 0.8em 0;
   text-align: center;
+  margin: 2em 0 0.8em 0;
 }
 
-.wrapper-related-shoes h1 {
+.wrapper-recommended-shoes h1 {
   text-transform: uppercase;
   font-size: 27px;
   margin-bottom: 0.5em;
 }
 
-.column-related-shoes {
+.column-recommended-shoes {
   display: inline-block;
   width: 19%;
   margin: 2px;
   vertical-align: top;
 }
 
-.related-shoes-image {
+.recommended-shoes-image {
   width: 100%;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.related-shoes-image img {
+.recommended-shoes-image img {
   width: 95%;
 }
 
-.related-shoes-info {
+.recommended-shoes-info {
   color: black;
   text-align: center;
   padding: 10px;
@@ -39,38 +39,38 @@
   text-transform: capitalize;
 }
 
-.related-shoes-info p {
+.recommended-shoes-info p {
   font-size: 13px;
 }
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
-  .wrapper-related-shoes {
+  .wrapper-recommended-shoes {
     margin: 1em 0;
   }
 
-  .wrapper-related-shoes h1 {
+  .wrapper-recommended-shoes h1 {
     font-size: 20px;
   }
 
-  .column-related-shoes {
+  .column-recommended-shoes {
     display: inline-block;
     width: 30%;
     margin: 2px;
     vertical-align: top;
   }
 
-  .related-shoes-image {
+  .recommended-shoes-image {
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
   }
 
-  .related-shoes-image img {
+  .recommended-shoes-image img {
     width: 95%;
   }
 
-  .related-shoes-info {
+  .recommended-shoes-info {
     color: black;
     text-align: center;
     padding: 10px;
@@ -78,7 +78,7 @@
     text-transform: capitalize;
   }
 
-  .related-shoes-info p {
+  .recommended-shoes-info p {
     font-size: 11px;
   }
 }

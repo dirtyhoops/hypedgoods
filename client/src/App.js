@@ -16,6 +16,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import AdminRoute from './components/routing/AdminRoute';
 import ShoesForm from './components/forms/ShoesForm/ShoesForm';
 import ShoesListPage from './components/shoeslistpage/page/ShoesListPage';
+import ShoesVariantsPage from './components/shoesvariantspage/page/ShoesVariantsPage';
 import './App.css';
 
 // Redux
@@ -67,8 +68,13 @@ const App = () => {
                 <PrivateRoute exact path='/account' component={Account} />
                 <AdminRoute
                   exact
-                  path='/products/shoes/add'
+                  path='/products/add/shoes'
                   component={ShoesForm}
+                />
+                <Route
+                  exact
+                  path='/admin/products/shoes/:shoes_id/variants'
+                  component={ShoesVariantsPage}
                 />
               </Switch>
             </section>

@@ -12,10 +12,6 @@ const ShoesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  product_id: {
-    type: String,
-    required: true
-  },
   colorway: {
     type: String
   },
@@ -23,7 +19,8 @@ const ShoesSchema = new mongoose.Schema({
     type: [String]
   },
   retail_price: {
-    type: Number
+    type: Number,
+    required: true
   },
   release_date: {
     type: Date,
@@ -33,24 +30,9 @@ const ShoesSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
-  attributes: [
-    {
-      size: {
-        type: Number,
-        required: true
-      },
-      price: {
-        type: Number,
-        required: true
-      },
-      quantity: {
-        type: Number,
-        required: true
-      }
-    }
-  ],
-  categories: {
-    type: [String]
+  model: {
+    type: String,
+    required: true
   },
   //once everything is working good, make sure to change images to required: true, also try to have a name with it ("1", "2". "3", etc, "1" will be the poster picture that will show up in shoe lists).
   images: {

@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './ShoeImages.css';
 
 const ShoeImages = props => {
   // @todo: 1. have a state and change the state of the main image on every click of the small images
   const { images } = props;
+
+  const [mainImage, setMainImage] = useState({
+    mainImage: images[0]
+  });
+
+  console.log(mainImage);
+
   return (
     <div className='wrapper-shoe-images'>
       <div className='product-images-main'>
-        <img src={images[0]} alt='big_shoes_image' />
+        <img src={mainImage.mainImage} alt='big_shoes_image' />
       </div>
 
       <div className='product-images-other'>

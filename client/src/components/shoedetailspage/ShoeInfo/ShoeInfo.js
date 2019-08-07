@@ -1,15 +1,17 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './ShoeInfo.css';
 
 const ShoeInfo = props => {
   const {
+    _id,
     brand,
     name,
     release_date,
     retail_price,
     colorway
   } = props.selectedShoe;
+
   return (
     <div className='wrapper-shoe-info'>
       <div className='product-info'>
@@ -33,10 +35,19 @@ const ShoeInfo = props => {
         <p className='product-info-p'>Available Sizes (all sizes in us mens)</p>
         <div className='product-sizes-buttons'>
           <div className='button-size-container'>
-            <div className='button-size' data-value='5'>
+            {props.selectedShoeVariants ? (
+              props.selectedShoeVariants.map(shoevariant => (
+                <div className='button-size' data-value={shoevariant.size}>
+                  {shoevariant.size}
+                </div>
+              ))
+            ) : (
+              <p>SOLD OUT</p>
+            )}
+            {/* <div className='button-size' data-value='5'>
               5
-            </div>
-            <div className='button-size' data-value='5.5'>
+            </div> */}
+            {/* <div className='button-size' data-value='5.5'>
               5.5
             </div>
             <div className='button-size' data-value='6'>
@@ -86,7 +97,7 @@ const ShoeInfo = props => {
             </div>
             <div className='button-size' data-value='14'>
               14
-            </div>
+            </div> */}
           </div>
         </div>
         <button
@@ -96,6 +107,15 @@ const ShoeInfo = props => {
           Add to cart
         </button>
       </div>
+      {props.isAdmin ? (
+        <Link
+          to={`/admin/products/shoes/${_id}/variants`}
+          type='button'
+          className='btn btn-primary btn-lg btn-block btn-sm'
+        >
+          Edit/Add a Size
+        </Link>
+      ) : null}
     </div>
   );
 };

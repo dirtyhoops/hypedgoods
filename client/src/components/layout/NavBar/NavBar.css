@@ -5,6 +5,9 @@ nav {
   min-height: 5vh;
   background-color: #0a0a0a;
   font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .logo {
@@ -27,7 +30,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 55%;
-  font-family: 'Muli', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 0px 10px;
   margin-top: 15px;
 }
@@ -99,7 +102,7 @@ nav {
   left: 0;
   z-index: 200;
   transform: translateX(143%);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .side-drawer.open {

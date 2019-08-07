@@ -2,7 +2,10 @@ import {
   GET_SHOES,
   GET_SHOE,
   SHOE_ERROR,
-  GET_SHOES_SAME_MODEL
+  GET_SHOES_SAME_MODEL,
+  CLEAR_SELECTED_SHOE,
+  ADD_PRODUCT_SHOES_SUCCESS,
+  GET_SHOES_VARIANTS
 } from '../actions/types';
 
 const initialState = {
@@ -12,7 +15,9 @@ const initialState = {
   error: {},
   shoesWithModel: [],
   loadingShoesWithModel: true,
-  loadingSelectedShoe: true
+  loadingSelectedShoe: true,
+  isAddingShoesSuccessful: false,
+  selectedShoeVariants: null
 };
 
 export default function(state = initialState, action) {
@@ -24,8 +29,8 @@ export default function(state = initialState, action) {
         ...state,
         shoes: payload,
         loadingShoes: false,
-        loadingShoesWithModel: true,
-        selectedShoe: null
+        isAddingShoesSuccessful: false
+        // selectedShoe: null
       };
     case GET_SHOE:
       return {
@@ -38,6 +43,23 @@ export default function(state = initialState, action) {
         ...state,
         shoesWithModel: payload,
         loadingShoesWithModel: false
+      };
+    case CLEAR_SELECTED_SHOE:
+      return {
+        ...state,
+        selectedShoe: null,
+        loadingSelectedShoe: false
+      };
+    case GET_SHOES_VARIANTS:
+      return {
+        ...state,
+        selectedShoeVariants: payload
+      };
+    case ADD_PRODUCT_SHOES_SUCCESS:
+      return {
+        ...state,
+        ...payload,
+        isAddingShoesSuccessful: true
       };
     case SHOE_ERROR:
       return {

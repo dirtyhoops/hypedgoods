@@ -1,36 +1,67 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
+import { addProductShoes } from '../../../actions/shoe';
 
 import './ShoesForm.css';
 
-const ShoesForm = ({ auth }) => {
+const ShoesForm = ({
+  auth: { isAdmin },
+  shoe: { isAddingShoesSuccessful },
+  addProductShoes
+}) => {
+  const [formData, setFormData] = useState({
+    brand: '',
+    name: '',
+    release_date: '',
+    retail_price: '',
+    colorway: '',
+    colors: '',
+    model: '',
+    images: ''
+  });
+
+  const {
+    brand,
+    name,
+    release_date,
+    retail_price,
+    colorway,
+    colors,
+    model,
+    images
+  } = formData;
+
+  // Changes the value of the target every keystroke
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    addProductShoes({ formData });
+  };
+
+  if (isAddingShoesSuccessful) {
+    return <Redirect to='/products/shoes' />;
+  }
+
   return (
     <>
-      {auth.isAdmin ? (
+      {isAdmin ? (
         <div className='wrapper-shoesform'>
           <h1 className='large text-dark'>add shoes to inventory</h1>
 
-          <form>
+          <form onSubmit={e => onSubmit(e)}>
             <div className='firsthalfform'>
-              <div className='form-group'>
-                <label htmlFor='product_id'>product id</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='product_id'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
-                />
-              </div>
               <div className='form-group'>
                 <label htmlFor='brand'>brand</label>
                 <input
                   className='form-control'
                   type='text'
                   name='brand'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
+                  value={brand}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
@@ -39,8 +70,8 @@ const ShoesForm = ({ auth }) => {
                   className='form-control'
                   type='text'
                   name='name'
-                  // value={lastname}
-                  // onChange={e => onChange(e)}
+                  value={name}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
@@ -49,8 +80,8 @@ const ShoesForm = ({ auth }) => {
                   className='form-control'
                   type='text'
                   name='release_date'
-                  // value={email}
-                  // onChange={e => onChange(e)}
+                  value={release_date}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
@@ -59,50 +90,38 @@ const ShoesForm = ({ auth }) => {
                   className='form-control'
                   type='text'
                   name='retail_price'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
+                  value={retail_price}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='color'>color</label>
+                <label htmlFor='colorway'>colorway</label>
                 <input
                   className='form-control'
                   type='text'
-                  name='color'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
+                  name='colorway'
+                  value={colorway}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='categories'>categories</label>
+                <label htmlFor='colors'>colors</label>
                 <input
                   className='form-control'
                   type='text'
-                  name='categories'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
+                  name='colors'
+                  value={colors}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='images'>images</label>
+                <label htmlFor='model'>model</label>
                 <input
                   className='form-control'
                   type='text'
-                  name='images'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
-                />
-              </div>
-            </div>
-            <div className='secondhalfform'>
-              <div className='form-group'>
-                <label htmlFor='categories'>categories</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='categories'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
+                  name='model'
+                  value={model}
+                  onChange={e => onChange(e)}
                 />
               </div>
               <div className='form-group'>
@@ -111,11 +130,12 @@ const ShoesForm = ({ auth }) => {
                   className='form-control'
                   type='text'
                   name='images'
-                  // value={firstname}
-                  // onChange={e => onChange(e)}
+                  value={images}
+                  onChange={e => onChange(e)}
                 />
               </div>
             </div>
+
             <div className='add-shoes-button'>
               <input
                 type='submit'
@@ -131,11 +151,17 @@ const ShoesForm = ({ auth }) => {
 };
 
 ShoesForm.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  addProductShoes: PropTypes.func.isRequired,
+  shoe: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  shoe: state.shoe
 });
 
-export default connect(mapStateToProps)(ShoesForm);
+export default connect(
+  mapStateToProps,
+  { addProductShoes }
+)(ShoesForm);
