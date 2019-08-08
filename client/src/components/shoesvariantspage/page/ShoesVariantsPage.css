@@ -49,6 +49,14 @@
   margin-right: 5px;
 }
 
+.form-row {
+  margin: 0 auto;
+}
+.variants-form button {
+  margin: 0 auto;
+  width: 80%;
+}
+
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .wrapper-shoesvariantspage {

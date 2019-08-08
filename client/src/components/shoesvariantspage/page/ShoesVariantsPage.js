@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { Redirect, Link } from 'react-router-dom';
+import Spinner from '../../layout/Spinner/Spinner';
 
 import {
   getShoesVariants,
@@ -88,7 +89,9 @@ const ShoesVariantsPage = ({
             <button className='btn btn-primary btn-sm'>Edit Shoes</button>
           </div>
         </div>
-      ) : null}
+      ) : (
+        <Spinner />
+      )}
       <div className='table-variants'>
         <table className='table table-sm'>
           <thead className='thead-dark'>
@@ -120,41 +123,43 @@ const ShoesVariantsPage = ({
         </button>
         {toggleVariantForm ? (
           <div className='variants-form'>
-            <form onSubmit={e => onSubmit(e)} className='form-inline'>
-              <div className='form-group mx-2'>
-                <label htmlFor='size'>Size</label>
-                <input
-                  className='form-control form-control-sm'
-                  type='text'
-                  name='size'
-                  value={size}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group mx-2'>
-                <label htmlFor='price'>Price</label>
-                <input
-                  className='form-control form-control-sm'
-                  type='text'
-                  name='price'
-                  value={price}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group mx-2'>
-                <label htmlFor='quantity'>Quantity</label>
-                <input
-                  className='form-control form-control-sm'
-                  type='text'
-                  name='quantity'
-                  value={quantity}
-                  onChange={e => onChange(e)}
-                />
-              </div>
+            <form onSubmit={e => onSubmit(e)}>
+              <div className='form-row'>
+                <div className='form-group col-4'>
+                  <label htmlFor='size'>Size</label>
+                  <input
+                    className='form-control form-control-sm'
+                    type='text'
+                    name='size'
+                    value={size}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+                <div className='form-group col-4'>
+                  <label htmlFor='price'>Price</label>
+                  <input
+                    className='form-control form-control-sm'
+                    type='text'
+                    name='price'
+                    value={price}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+                <div className='form-group col-4'>
+                  <label htmlFor='quantity'>Quantity</label>
+                  <input
+                    className='form-control form-control-sm'
+                    type='text'
+                    name='quantity'
+                    value={quantity}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
 
-              <button type='submit' className='btn btn-dark btn-sm'>
-                Add Size
-              </button>
+                <button type='submit' className='btn btn-dark btn-sm '>
+                  Add Size
+                </button>
+              </div>
             </form>
           </div>
         ) : null}

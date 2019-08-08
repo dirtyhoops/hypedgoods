@@ -12,6 +12,7 @@ import ShoeImages from '../ShoeImages/ShoeImages';
 import ShoeInfo from '../ShoeInfo/ShoeInfo';
 import RelatedShoes from '../RelatedShoes/RelatedShoes';
 import RecommendedShoes from '../RecommendedShoes/RecommendedShoes';
+import Spinner from '../../layout/Spinner/Spinner';
 
 import './ShoeDetailsPage.css';
 
@@ -40,7 +41,7 @@ const ShoeDetailsPage = ({
   };
 
   return selectedShoe === null ? (
-    <p>PAGEEEEEEEEEEE IS LOADINGGGGGG </p>
+    <Spinner />
   ) : (
     <Fragment>
       <div className='wrapper-shoedetails'>

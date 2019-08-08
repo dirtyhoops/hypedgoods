@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 
+import Spinner from '../layout/Spinner/Spinner';
+
 // @Todo:
 // 1. make the admin button looks better
 // 2. add option to add shoes and shirts (1 button each for shoes and shirt)
@@ -34,8 +36,7 @@ const Account = ({ auth: { loading, user, isAdmin }, logout, admin_check }) => {
           )}
         </div>
       ) : (
-        //get a spinner
-        <p>loading</p>
+        <Spinner />
       )}
       <div className='recent-orders'>
         <h4>RECENT ORDERS</h4>
