@@ -104,20 +104,15 @@ const ShoeInfo = props => {
             </div> */}
           </div>
         </div>
-        <button
-          type='button'
-          className='btn btn-secondary btn-lg btn-block btn-sm'
-        >
+        <button className='btn btn-secondary btn-block btn-sm'>
           Add to cart
         </button>
       </div>
       {props.isAdmin ? (
-        <Link
-          to={`/products/shoes/${_id}/variants`}
-          type='button'
-          className='btn btn-primary btn-lg btn-block btn-sm'
-        >
-          Edit/Add a Size
+        <Link to={`/products/shoes/${_id}/variants`}>
+          <button className='btn btn-primary  btn-block btn-sm'>
+            Edit/Add a Size
+          </button>
         </Link>
       ) : null}
     </div>

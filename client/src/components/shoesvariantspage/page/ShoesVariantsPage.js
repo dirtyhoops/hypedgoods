@@ -2,7 +2,7 @@ import React, { useEffect, Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import {
   getShoesVariants,
@@ -16,12 +16,7 @@ const ShoesVariantsPage = ({
   getShoesVariants,
   getShoe,
   addShoesVariants,
-  shoe: {
-    selectedShoeVariants,
-    selectedShoe,
-    isAddingVariantSuccess,
-    loadingSelectedShoes
-  },
+  shoe: { selectedShoeVariants, selectedShoe, isAddingVariantSuccess },
   match: {
     params: { shoes_id }
   }
@@ -37,6 +32,8 @@ const ShoesVariantsPage = ({
     quantity: ''
   });
 
+  const [toggleVariantForm, setToggleVariantForm] = useState(false);
+
   const { size, price, quantity } = formData;
 
   const onChange = e =>
@@ -46,6 +43,7 @@ const ShoesVariantsPage = ({
     e.preventDefault();
     addShoesVariants({ formData }, shoes_id);
     setFormData('');
+    setToggleVariantForm(false);
   };
 
   if (isAddingVariantSuccess) {
@@ -53,23 +51,47 @@ const ShoesVariantsPage = ({
     return <Redirect to={`/products/shoes/${shoes_id}/variants`} />;
   }
 
+  function toggle() {
+    toggleVariantForm
+      ? setToggleVariantForm(false)
+      : setToggleVariantForm(true);
+  }
+
   return (
     <div className='wrapper-shoesvariantspage'>
       {selectedShoe ? (
-        <div>
-          <p>Brand: {selectedShoe.brand}</p>
-          <p>Name: {selectedShoe.name}</p>
-          <p>
-            Release Date:{' '}
-            <Moment format='YYYY/MM/DD'>{selectedShoe.release_date}</Moment>
-          </p>
-          <p>Retail Price: ${selectedShoe.retail_price}</p>
-          <p>Colorway: {selectedShoe.colorway}</p>
+        <div className='variant-shoes-info'>
+          <div className='variant-shoes-image'>
+            <Link to={`/products/shoes/${shoes_id}`}>
+              <img src={selectedShoe.images[0]} />
+            </Link>
+          </div>
+          <div className='variant-shoes-text'>
+            <p>
+              Brand: <span>{selectedShoe.brand}</span>
+            </p>
+            <p>
+              Name: <span>{selectedShoe.name}</span>
+            </p>
+            <p>
+              Release Date:{' '}
+              <span>
+                <Moment format='YYYY/MM/DD'>{selectedShoe.release_date}</Moment>
+              </span>
+            </p>
+            <p>
+              Retail Price: <span>${selectedShoe.retail_price}</span>
+            </p>
+            <p>
+              Colorway: <span>{selectedShoe.colorway}</span>
+            </p>
+            <button className='btn btn-primary btn-sm'>Edit Shoes</button>
+          </div>
         </div>
       ) : null}
-      <div>
-        <table class='table'>
-          <thead class='thead-dark'>
+      <div className='table-variants'>
+        <table className='table table-sm'>
+          <thead className='thead-dark'>
             <tr>
               <th scope='col'>Size</th>
               <th scope='col'>Price</th>
@@ -82,7 +104,7 @@ const ShoesVariantsPage = ({
               ? selectedShoeVariants.map(variant => (
                   <tr>
                     <th scope='row'>{variant.size}</th>
-                    <td>{variant.price}</td>
+                    <td>${variant.price}</td>
                     <td>{variant.quantity}</td>
                     <td>
                       <button className='btn btn-primary btn-sm'>Edit</button>
@@ -93,49 +115,49 @@ const ShoesVariantsPage = ({
               : null}
           </tbody>
         </table>
-        <div>
-          <form onSubmit={e => onSubmit(e)}>
-            <div className='form-group'>
-              <label htmlFor='size'>Size</label>
-              <input
-                className='form-control'
-                type='text'
-                name='size'
-                value={size}
-                onChange={e => onChange(e)}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='price'>Price</label>
-              <input
-                className='form-control'
-                type='text'
-                name='price'
-                value={price}
-                onChange={e => onChange(e)}
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='quantity'>Quantity</label>
-              <input
-                className='form-control'
-                type='text'
-                name='quantity'
-                value={quantity}
-                onChange={e => onChange(e)}
-              />
-            </div>
+        <button className='btn btn-success btn-sm' onClick={toggle}>
+          {toggleVariantForm ? <>Hide Form</> : <>Add New Size</>}
+        </button>
+        {toggleVariantForm ? (
+          <div className='variants-form'>
+            <form onSubmit={e => onSubmit(e)} className='form-inline'>
+              <div className='form-group mx-2'>
+                <label htmlFor='size'>Size</label>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  name='size'
+                  value={size}
+                  onChange={e => onChange(e)}
+                />
+              </div>
+              <div className='form-group mx-2'>
+                <label htmlFor='price'>Price</label>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  name='price'
+                  value={price}
+                  onChange={e => onChange(e)}
+                />
+              </div>
+              <div className='form-group mx-2'>
+                <label htmlFor='quantity'>Quantity</label>
+                <input
+                  className='form-control form-control-sm'
+                  type='text'
+                  name='quantity'
+                  value={quantity}
+                  onChange={e => onChange(e)}
+                />
+              </div>
 
-            <div className='add-variant-button'>
-              <input
-                type='submit'
-                className='btn btn-dark btn-block'
-                value='Add Size'
-              />
-            </div>
-          </form>
-        </div>
-        {/* <button className='btn btn-success'>Add a Size</button> */}
+              <button type='submit' className='btn btn-dark btn-sm'>
+                Add Size
+              </button>
+            </form>
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -219,9 +219,13 @@ router.post(
           });
 
           if (shoeVariant.length > 0) {
-            return res.send(
-              'You cant add this size, it already is in the inventory'
-            );
+            return res.status(400).json({
+              errors: [
+                {
+                  msg: 'You cant add this size, it already is in the inventory'
+                }
+              ]
+            });
           }
 
           let newVariant = new Variants(variantsFields);

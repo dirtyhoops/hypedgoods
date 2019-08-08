@@ -53,87 +53,85 @@ const ShoesForm = ({
           <h1 className='large text-dark'>add shoes to inventory</h1>
 
           <form onSubmit={e => onSubmit(e)}>
-            <div className='firsthalfform'>
-              <div className='form-group'>
-                <label htmlFor='brand'>brand</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='brand'
-                  value={brand}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='name'>name</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='name'
-                  value={name}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='release_date'>release date</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='release_date'
-                  value={release_date}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='retail_price'>retail price</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='retail_price'
-                  value={retail_price}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='colorway'>colorway</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='colorway'
-                  value={colorway}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='colors'>colors</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='colors'
-                  value={colors}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='model'>model</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='model'
-                  value={model}
-                  onChange={e => onChange(e)}
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor='images'>images</label>
-                <input
-                  className='form-control'
-                  type='text'
-                  name='images'
-                  value={images}
-                  onChange={e => onChange(e)}
-                />
-              </div>
+            <div className='form-group'>
+              <label htmlFor='brand'>brand</label>
+              <input
+                className='form-control'
+                type='text'
+                name='brand'
+                value={brand}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='name'>name</label>
+              <input
+                className='form-control'
+                type='text'
+                name='name'
+                value={name}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='release_date'>release date</label>
+              <input
+                className='form-control'
+                type='text'
+                name='release_date'
+                value={release_date}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='retail_price'>retail price</label>
+              <input
+                className='form-control'
+                type='text'
+                name='retail_price'
+                value={retail_price}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='colorway'>colorway</label>
+              <input
+                className='form-control'
+                type='text'
+                name='colorway'
+                value={colorway}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='colors'>colors</label>
+              <input
+                className='form-control'
+                type='text'
+                name='colors'
+                value={colors}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='model'>model</label>
+              <input
+                className='form-control'
+                type='text'
+                name='model'
+                value={model}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='images'>images</label>
+              <textarea
+                className='form-control'
+                rows='3'
+                name='images'
+                value={images}
+                onChange={e => onChange(e)}
+              />
             </div>
 
             <div className='add-shoes-button'>
