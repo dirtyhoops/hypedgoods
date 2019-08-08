@@ -48,73 +48,24 @@ const ShoeInfo = props => {
             ) : (
               <p>SOLD OUT</p>
             )}
-            {/* <div className='button-size' data-value='5'>
-              5
-            </div> */}
-            {/* <div className='button-size' data-value='5.5'>
-              5.5
-            </div>
-            <div className='button-size' data-value='6'>
-              6
-            </div>
-            <div className='button-size' data-value='6.5'>
-              6.5
-            </div>
-            <div className='button-size' data-value='7'>
-              7
-            </div>
-            <div className='button-size' data-value='7.5'>
-              7.5
-            </div>
-            <div className='button-size' data-value='8'>
-              8
-            </div>
-            <div className='button-size' data-value='8.5'>
-              8.5
-            </div>
-            <div className='button-size' data-value='9'>
-              9
-            </div>
-            <div className='button-size' data-value='9.5'>
-              9.5
-            </div>
-            <div className='button-size' data-value='10'>
-              10
-            </div>
-            <div className='button-size' data-value='10.5'>
-              10.5
-            </div>
-            <div className='button-size' data-value='11'>
-              11
-            </div>
-            <div className='button-size' data-value='11.5'>
-              11.5
-            </div>
-            <div className='button-size' data-value='12'>
-              12
-            </div>
-            <div className='button-size' data-value='12.5'>
-              12.5
-            </div>
-            <div className='button-size' data-value='13'>
-              13
-            </div>
-            <div className='button-size' data-value='14'>
-              14
-            </div> */}
           </div>
         </div>
         <button className='btn btn-secondary btn-block btn-sm'>
           Add to cart
         </button>
+        {props.isAdmin ? (
+          <>
+            <Link to={`/products/shoes/${_id}/variants`}>
+              <button className='btn btn-primary btn-block btn-sm'>
+                Edit/Add a Size
+              </button>
+            </Link>
+            <button className='btn btn-danger btn-block btn-sm'>
+              Delete Shoes
+            </button>
+          </>
+        ) : null}
       </div>
-      {props.isAdmin ? (
-        <Link to={`/products/shoes/${_id}/variants`}>
-          <button className='btn btn-primary  btn-block btn-sm'>
-            Edit/Add a Size
-          </button>
-        </Link>
-      ) : null}
     </div>
   );
 };

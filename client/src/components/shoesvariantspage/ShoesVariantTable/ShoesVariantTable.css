@@ -1,0 +1,17 @@
+.table-variants button {
+  margin-left: 10px;
+}
+
+.table-variants {
+  font-family: 'Montserrat', sans-serif;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .table-variants {
+    font-size: 0.8em;
+  }
+}

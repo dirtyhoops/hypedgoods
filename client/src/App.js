@@ -45,41 +45,39 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <div className='App'>
-            <NavBar drawerClickHandler={drawerToggleClickHandler} />
-            <SideDrawer
-              show={isDrawerOpen}
-              drawerClickHandler={drawerToggleClickHandler}
-            />
-            {backdrop}
-            <Route exact path='/' component={HomePage} />
+          <NavBar drawerClickHandler={drawerToggleClickHandler} />
+          <SideDrawer
+            show={isDrawerOpen}
+            drawerClickHandler={drawerToggleClickHandler}
+          />
+          {backdrop}
+          <Route exact path='/' component={HomePage} />
 
-            <section className='container'>
-              <Alert />
-              <Switch>
-                <Route exact path='/products/shoes' component={ShoesListPage} />
-                <Route
-                  exact
-                  path='/products/shoes/:id'
-                  component={ShoeDetailsPage}
-                />
-                <Route exact path='/account/login' component={Login} />
-                <Route exact path='/account/register' component={Register} />
-                <PrivateRoute exact path='/account' component={Account} />
-                <AdminRoute
-                  exact
-                  path='/products/add/shoes'
-                  component={ShoesForm}
-                />
-                <AdminRoute
-                  exact
-                  path='/products/shoes/:shoes_id/variants'
-                  component={ShoesVariantsPage}
-                />
-              </Switch>
-            </section>
-            <Footer />
-          </div>
+          <section className='container'>
+            <Alert />
+            <Switch>
+              <Route exact path='/products/shoes' component={ShoesListPage} />
+              <Route
+                exact
+                path='/products/shoes/:id'
+                component={ShoeDetailsPage}
+              />
+              <Route exact path='/account/login' component={Login} />
+              <Route exact path='/account/register' component={Register} />
+              <PrivateRoute exact path='/account' component={Account} />
+              <AdminRoute
+                exact
+                path='/products/add/shoes'
+                component={ShoesForm}
+              />
+              <AdminRoute
+                exact
+                path='/products/shoes/:shoes_id/variants'
+                component={ShoesVariantsPage}
+              />
+            </Switch>
+          </section>
+          <Footer />
         </Fragment>
       </Router>
     </Provider>

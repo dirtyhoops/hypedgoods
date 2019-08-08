@@ -1,0 +1,47 @@
+.variant-shoes-info {
+  text-transform: uppercase;
+  display: flex;
+  margin: 2em auto;
+  width: 90%;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+.variant-shoes-image {
+  width: 49%;
+  text-align: center;
+}
+
+.variant-shoes-text {
+  width: 49%;
+  padding-top: 2em;
+}
+
+.variant-shoes-image img {
+  width: 70%;
+}
+
+.variant-shoes-text span {
+  font-weight: bold;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .variant-shoes-info {
+    display: block;
+    margin: 1em auto;
+  }
+
+  .variant-shoes-image {
+    width: 100%;
+  }
+
+  .variant-shoes-text {
+    width: 100%;
+  }
+
+  .variant-shoes-info p {
+    font-size: 0.8em;
+    line-height: 5px;
+  }
+}

@@ -44,16 +44,14 @@ const ShoeDetailsPage = ({
     <Spinner />
   ) : (
     <Fragment>
-      <div className='wrapper-shoedetails'>
-        <ShoeImages images={selectedShoe.images} />
-        <ShoeInfo
-          selectedShoe={selectedShoe}
-          selectedShoeVariants={selectedShoeVariants}
-          isAdmin={isAdmin}
-        />
-        <RecommendedShoes recommendedShoes={shoes} click={selectShoe} />
-        <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} />
-      </div>
+      <ShoeImages images={selectedShoe.images} />
+      <ShoeInfo
+        selectedShoe={selectedShoe}
+        selectedShoeVariants={selectedShoeVariants}
+        isAdmin={isAdmin}
+      />
+      <RecommendedShoes recommendedShoes={shoes} click={selectShoe} />
+      <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} />
     </Fragment>
   );
 };
