@@ -25,8 +25,11 @@
 
 .shoes-list-filter {
   width: 25%;
+}
+
+.shoes-list-filter-content {
+  height: 400px;
   background: pink;
-  height: 500px;
 }
 
 .container-shoes-list {
@@ -34,6 +37,10 @@
 }
 
 .show-filter-button {
+  display: none;
+}
+
+.shoes-list-filter-content-mobile {
   display: none;
 }
 
@@ -51,6 +58,13 @@
   .shoes-list-filter {
     display: block;
     width: 100%;
+    margin: 0.5em auto;
+  }
+
+  .shoes-list-filter-content-mobile {
+    height: 400px;
+    background: pink;
+    display: block;
   }
 
   .container-shoes-list {
@@ -59,5 +73,9 @@
 
   .show-filter-button {
     display: block;
+  }
+
+  .shoes-list-filter-content {
+    display: none;
   }
 }

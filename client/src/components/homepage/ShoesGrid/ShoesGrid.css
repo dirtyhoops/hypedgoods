@@ -13,6 +13,7 @@
 
 .grid-latestrelease {
   margin-top: -15px;
+  text-align: center;
 }
 
 .grid-latestrelease-column {
@@ -66,6 +67,9 @@
 .shoes-info-price {
   margin-top: -8px;
   font-weight: 600;
+}
+.grid-latestrelease button {
+  margin-top: 1em;
 }
 
 /* for mobile phone(iphone x and lower) */

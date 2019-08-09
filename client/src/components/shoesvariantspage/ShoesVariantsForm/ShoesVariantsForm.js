@@ -23,11 +23,12 @@ const ShoesVariantsForm = props => {
     setToggleVariantForm(false);
   };
 
-  function toggle() {
+  const toggle = () => {
     toggleVariantForm
       ? setToggleVariantForm(false)
       : setToggleVariantForm(true);
-  }
+  };
+
   return (
     <div className='wrapper-shoesvariants-form'>
       <button

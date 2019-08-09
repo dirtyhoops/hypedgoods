@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getShoes } from '../../../actions/shoe';
+import Spinner from '../../layout/Spinner/Spinner';
 import Shoe from './Shoe';
 
 import './ShoesGrid.css';
 
-const ShoesGrid = ({ getShoes, shoes }) => {
+const ShoesGrid = ({ getShoes, shoes, loadingShoes }) => {
   useEffect(() => {
     getShoes();
   }, []);
@@ -16,15 +18,20 @@ const ShoesGrid = ({ getShoes, shoes }) => {
       <div className='header-latestrelease'>
         <p>latest kicks</p>
       </div>
-      <div className='grid-latestrelease'>
-        {shoes ? (
+      {shoes.length > 0 ? (
+        <div className='grid-latestrelease'>
           <div className='row'>
             {shoes.slice(0, 12).map(shoe => (
               <Shoe key={shoe._id} shoe={shoe} />
             ))}
           </div>
-        ) : null}
-      </div>
+          <Link to='/products/shoes'>
+            <button className='btn btn-outline-dark'>See More Shoes</button>
+          </Link>
+        </div>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };

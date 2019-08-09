@@ -6,16 +6,18 @@ const ShoeImages = props => {
   // @todo: 1. have a state and change the state of the main image on every click of the small images
   const { images } = props;
 
-  const [mainImage, setMainImage] = useState({
-    mainImage: images[0]
-  });
+  const [mainImage, setMainImage] = useState(images[0]);
 
   console.log(mainImage);
+
+  const changeMainImage = image => {
+    setMainImage(image);
+  };
 
   return (
     <div className='wrapper-shoe-images'>
       <div className='product-images-main'>
-        <img src={mainImage.mainImage} alt='big_shoes_image' />
+        <img src={mainImage} alt='big_shoes_image' />
       </div>
 
       <div className='product-images-other'>
@@ -23,7 +25,8 @@ const ShoeImages = props => {
           {images.map((shoeImage, index) => (
             <div
               key={index}
-              className='shoes-diff-images-col col-3 col-sm-2 my-2 '
+              className='shoes-diff-images-col col-3 col-sm-2 my-2'
+              onClick={changeMainImage.bind(this, shoeImage)}
             >
               <img src={shoeImage} alt='small_shoes_images' />
             </div>
