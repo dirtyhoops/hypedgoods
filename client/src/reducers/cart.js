@@ -1,7 +1,8 @@
-import { GET_CART, ADD_ITEM_TO_CART } from '../actions/types';
+import { UPDATE_CART_ITEM_COUNT, ADD_ITEM_TO_CART } from '../actions/types';
 
 const initialState = {
-  items: []
+  items: [],
+  cartItemCount: 0
 };
 
 // @TODO
@@ -14,6 +15,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: [...state.items, payload]
+      };
+    case UPDATE_CART_ITEM_COUNT:
+      return {
+        ...state,
+        cartItemCount: payload
       };
     default:
       return state;

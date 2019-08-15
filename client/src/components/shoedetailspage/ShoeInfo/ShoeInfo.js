@@ -48,6 +48,7 @@ const ShoeInfo = props => {
     oldItems.push(myItem);
 
     localStorage.setItem('itemsArray', JSON.stringify(oldItems));
+    props.updateCartItemCount(oldItems.length);
   };
 
   return (

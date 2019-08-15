@@ -11,6 +11,7 @@ import Alert from './components/layout/Alert/Alert';
 import SideDrawer from './components/layout/NavBar/SideDrawer';
 import Backdrop from './components/layout/Backdrop/Backdrop';
 import { loadUser } from './actions/auth';
+import { updateCartItemCount } from './actions/cart';
 import setAuthToken from './utilities/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 import AdminRoute from './components/routing/AdminRoute';
@@ -28,6 +29,8 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
+var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
+
 const App = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const drawerToggleClickHandler = () => setIsDrawerOpen(!isDrawerOpen);
@@ -40,6 +43,9 @@ const App = () => {
 
   useEffect(() => {
     store.dispatch(loadUser());
+    getCartItems
+      ? store.dispatch(updateCartItemCount(getCartItems.length))
+      : store.dispatch(updateCartItemCount(0));
   }, []);
 
   return (

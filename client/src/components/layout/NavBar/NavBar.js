@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import NavbarToggleButton from './NavbarToggleButton';
 import './NavBar.css';
 
 const NavBar = props => {
+  // var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
+
   return (
     <nav className='navbar_navigation'>
       <div className='logo'>
@@ -22,12 +26,13 @@ const NavBar = props => {
       <ul className='right-nav-links'>
         <li>
           <Link to='/account/login'>
-            <i className='account-nav-item fa fa-user fa-lg' />
+            <i className='fa fa-user fa-lg' />
           </Link>
         </li>
         <li>
           <Link to='/cart'>
-            <i className='cart-nav-item fa fa-shopping-cart fa-lg' />
+            <i className='fa fa-shopping-cart fa-lg' />
+            {props.cartItemCount !== 0 && <span> {props.cartItemCount}</span>}
           </Link>
         </li>
       </ul>
@@ -37,4 +42,12 @@ const NavBar = props => {
   );
 };
 
-export default NavBar;
+NavBar.propTypes = {
+  cartItemCount: PropTypes.number.isRequired
+};
+
+const mapStateToProps = state => ({
+  cartItemCount: state.cart.cartItemCount
+});
+
+export default connect(mapStateToProps)(NavBar);

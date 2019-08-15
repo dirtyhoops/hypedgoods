@@ -1,4 +1,4 @@
-import { SHOE_ERROR, ADD_ITEM_TO_CART, GET_CART } from './types';
+import { SHOE_ERROR, ADD_ITEM_TO_CART, UPDATE_CART_ITEM_COUNT } from './types';
 
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -13,6 +13,20 @@ export const addItemToCart = id => async dispatch => {
     dispatch({
       type: ADD_ITEM_TO_CART,
       payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: SHOE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const updateCartItemCount = itemCount => async dispatch => {
+  try {
+    dispatch({
+      type: UPDATE_CART_ITEM_COUNT,
+      payload: itemCount
     });
   } catch (err) {
     dispatch({

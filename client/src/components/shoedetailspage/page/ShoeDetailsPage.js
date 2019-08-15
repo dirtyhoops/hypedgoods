@@ -8,7 +8,7 @@ import {
   getShoesVariants
 } from '../../../actions/shoe';
 
-import { addItemToCart } from '../../../actions/cart';
+import { addItemToCart, updateCartItemCount } from '../../../actions/cart';
 
 import ShoeImages from '../ShoeImages/ShoeImages';
 import ShoeInfo from '../ShoeInfo/ShoeInfo';
@@ -24,6 +24,7 @@ const ShoeDetailsPage = ({
   clearSelectedShoe,
   getShoesVariants,
   addItemToCart,
+  updateCartItemCount,
   match: {
     params: { id }
   },
@@ -53,6 +54,7 @@ const ShoeDetailsPage = ({
         selectedShoeVariants={selectedShoeVariants}
         isAdmin={isAdmin}
         addItemToCart={addItemToCart}
+        updateCartItemCount={updateCartItemCount}
       />
       <RecommendedShoes recommendedShoes={shoes} click={selectShoe} />
       <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} />
@@ -71,6 +73,7 @@ ShoeDetailsPage.propTypes = {
   getShoes: PropTypes.func,
   getShoesVariants: PropTypes.func.isRequired,
   addItemToCart: PropTypes.func.isRequired,
+  updateCartItemCount: PropTypes.func.isRequired,
   clearSelectedShoe: PropTypes.func,
   shoe: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
@@ -78,5 +81,12 @@ ShoeDetailsPage.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { getShoe, getShoes, clearSelectedShoe, getShoesVariants, addItemToCart }
+  {
+    getShoe,
+    getShoes,
+    clearSelectedShoe,
+    getShoesVariants,
+    addItemToCart,
+    updateCartItemCount
+  }
 )(ShoeDetailsPage);

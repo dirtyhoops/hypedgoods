@@ -37,10 +37,9 @@ nav {
 
 .right-nav-links {
   display: flex;
-  justify-content: flex-end;
-  width: 20%;
-  margin-top: 15px;
-  padding-right: 40px;
+  justify-content: space-evenly;
+  width: 15%;
+  margin: 0;
 }
 
 .nav-links li,
@@ -61,8 +60,18 @@ nav {
   font-size: 18px;
 }
 
-.right-nav-links li {
-  margin-left: 30px;
+.right-nav-links span {
+  font-size: 0.6em;
+  font-weight: bold;
+  background: rgb(223, 37, 37);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  left: -8px;
 }
 
 /************** BURGER BUTTON ************************/
@@ -119,7 +128,7 @@ nav {
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .logo {
-    width: 55%;
+    width: 65%;
     padding-left: 25px;
   }
 
@@ -133,29 +142,25 @@ nav {
   }
 
   .right-nav-links {
-    width: 30%;
-    text-align: right;
-    padding-right: 0px;
-  }
-
-  .account-nav-item {
-    margin-right: -10px;
-  }
-
-  .cart-nav-item {
-    margin-right: 20px;
-  }
-
-  .right-nav-links a {
-    font-size: 18px;
+    width: 20%;
+    padding: 0px;
+    justify-content: space-between;
+    margin: 0;
+    margin-right: 5px;
   }
 
   .nav-burger {
     width: 15%;
+    padding-left: 2px;
   }
 
   .burger-button {
     display: flex;
+  }
+
+  .right-nav-links span {
+    top: 6px;
+    left: -7px;
   }
 
   /**************** SIDE DRAWER ***************/
@@ -172,7 +177,6 @@ nav {
 
   .nav-links-mobile ul {
     list-style: none;
-    margin: 0;
     padding: 0;
   }
 
