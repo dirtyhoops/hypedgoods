@@ -37,9 +37,13 @@ nav {
 
 .right-nav-links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: normal;
   width: 15%;
   margin: 0;
+}
+
+.account-nav-item {
+  margin-right: 30px;
 }
 
 .nav-links li,
@@ -144,11 +148,14 @@ nav {
   .right-nav-links {
     width: 20%;
     padding: 0px;
-    justify-content: space-between;
+    justify-content: normal;
     margin: 0;
     margin-right: 5px;
   }
 
+  .account-nav-item {
+    margin-right: 17px;
+  }
   .nav-burger {
     width: 15%;
     padding-left: 2px;

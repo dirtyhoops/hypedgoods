@@ -24,7 +24,7 @@ const NavBar = props => {
         </li>
       </ul>
       <ul className='right-nav-links'>
-        <li>
+        <li className='account-nav-item'>
           <Link to='/account/login'>
             <i className='fa fa-user fa-lg' />
           </Link>
