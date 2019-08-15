@@ -248,4 +248,25 @@ router.post(
   }
 );
 
+// @route    GET api/shoes/variants/:variant_id
+// @desc     Get variant by ID
+// @access   Public
+router.get('/variants/:variant_id', async (req, res) => {
+  try {
+    let selectedVariant = await Variants.findById(req.params.variant_id);
+
+    if (!selectedVariant) {
+      return res.status(400).json({ msg: 'Shoe Variant is not found' });
+    }
+
+    res.json(selectedVariant);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(400).json({ msg: 'Shoe Variant is not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;

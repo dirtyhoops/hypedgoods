@@ -20,7 +20,8 @@ const initialState = {
   loadingSelectedShoe: true,
   isAddingShoesSuccessful: false,
   selectedShoeVariants: null,
-  isAddingVariantSuccess: false
+  isAddingVariantSuccess: false,
+  cart: []
 };
 
 export default function(state = initialState, action) {
@@ -33,7 +34,6 @@ export default function(state = initialState, action) {
         shoes: payload,
         loadingShoes: false,
         isAddingShoesSuccessful: false
-        // selectedShoe: null
       };
     case GET_SHOE:
       return {

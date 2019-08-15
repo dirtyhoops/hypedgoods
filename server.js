@@ -16,8 +16,6 @@ app.get('/', (req, res) => res.send('App Running'));
 //Define Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/shoes', require('./routes/api/shoes'));
-app.use('/api/clothes', require('./routes/api/clothes'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

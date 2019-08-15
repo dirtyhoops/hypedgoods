@@ -17,6 +17,7 @@ import AdminRoute from './components/routing/AdminRoute';
 import ShoesForm from './components/forms/ShoesForm/ShoesForm';
 import ShoesListPage from './components/shoeslistpage/page/ShoesListPage';
 import ShoesVariantsPage from './components/shoesvariantspage/page/ShoesVariantsPage';
+import CartPage from './components/cartpage/page/CartPage';
 import './App.css';
 
 // Redux
@@ -75,6 +76,7 @@ const App = () => {
                 path='/products/shoes/:shoes_id/variants'
                 component={ShoesVariantsPage}
               />
+              <Route exact path='/cart' component={CartPage} />
             </Switch>
           </section>
           <Footer />

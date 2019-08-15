@@ -26,7 +26,8 @@ const ShoeImages = props => {
             <div
               key={index}
               className='shoes-diff-images-col col-3 col-sm-2 my-2'
-              onClick={changeMainImage.bind(this, shoeImage)}
+              // onClick={changeMainImage.bind(this, shoeImage)}
+              onClick={() => changeMainImage(shoeImage)}
             >
               <img src={shoeImage} alt='small_shoes_images' />
             </div>
