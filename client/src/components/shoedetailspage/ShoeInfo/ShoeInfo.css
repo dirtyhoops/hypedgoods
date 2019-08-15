@@ -72,6 +72,10 @@
   margin-top: 1em;
 }
 
+.button-addtocart {
+  text-transform: uppercase;
+}
+
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .wrapper-shoe-info {

@@ -10,35 +10,39 @@ const ShoeInfo = props => {
     name,
     release_date,
     retail_price,
-    colorway
+    colorway,
+    images
   } = props.selectedShoe;
 
   const [shoePrice, setShoePrice] = useState(retail_price);
   const [variant_id, setVariant_id] = useState('');
   const [shoeSize, setShoeSize] = useState('');
+  const [disableAddToCartButton, setDisableAddToCartButton] = useState(true);
+  const [buttonText, setButtonText] = useState('select size');
 
   const changePrice = (price, variant_id, variant_size) => {
     setShoePrice(price);
     setVariant_id(variant_id);
     setShoeSize(variant_size);
+    setDisableAddToCartButton(false);
+    setButtonText(`add size  ${variant_size} to cart`);
   };
 
   // RIGHT NOW JUST SAVE THE VARIANTID, BUT LATER TRY TO MAKE AN OBJECT OUT OF  ALL THE DATA(SHOE ID, BRAND, NAME, SHOE PORICE, SHOE SIZE, ETC)
   const addCart = variantid => {
-    console.log('shoe id: ', _id, ', variant id: ', variantid);
-
     //the array that holds the objects(items)
     var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
     var myItem = {
       variant_id: variantid,
+      shoe_id: _id,
       shoe_size: shoeSize,
       shoe_price: shoePrice,
       shoe_order_quantity: 1,
       shoe_brand: brand,
       shoe_name: name,
-      shoe_release_date: release_date,
-      shoe_colorway: colorway
+      shoe_colorway: colorway,
+      shoe_image: images[0]
     };
 
     oldItems.push(myItem);
@@ -67,10 +71,9 @@ const ShoeInfo = props => {
         )}
 
         <h1 className='product-info-price'>${shoePrice}</h1>
-        <p>variant id: {variant_id}</p>
       </div>
       <div className='product-sizes'>
-        <p className='product-info-p'>Available Sizes (all sizes in us mens)</p>
+        <p className='product-info-p'>Available Sizes (us men size)</p>
         <div className='product-sizes-buttons'>
           <div className='button-size-container'>
             {props.selectedShoeVariants ? (
@@ -96,11 +99,11 @@ const ShoeInfo = props => {
           </div>
         </div>
         <button
-          className='btn btn-secondary btn-block btn-sm'
+          className='button-addtocart btn btn-secondary btn-block btn-sm'
           onClick={() => addCart(variant_id)}
-          // onClick={() => addCart(variant_id, shoePrice, shoeSize)}
+          disabled={disableAddToCartButton}
         >
-          Add to cart
+          {buttonText}
         </button>
         {props.isAdmin ? (
           <>

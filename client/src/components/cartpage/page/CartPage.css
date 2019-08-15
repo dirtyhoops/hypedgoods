@@ -1,0 +1,88 @@
+.wrapper-cartpage {
+  padding: 2em 0;
+  text-align: center;
+}
+
+.wrapper-cartpage h1 {
+  font-size: 30px;
+  margin-bottom: 1.3em;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+}
+
+.table-cartpage-items {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+}
+
+.table-cartpage-items th {
+  color: gray;
+}
+
+/* CHANGE THIS LATER */
+.cart-item-image {
+  width: 200px;
+}
+
+.cart-item-image img {
+  width: 100%;
+}
+
+.table-text-left-align {
+  text-align: left;
+}
+
+.table-text-right-align {
+  text-align: right;
+}
+
+.table-text-center-align {
+  text-align: center;
+}
+
+.cart-item-information-brand {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cart-item-information-name {
+  text-transform: capitalize;
+  margin-top: -1.1em;
+}
+
+.cart-item-information-colorway {
+  text-transform: capitalize;
+  margin-top: -0.7em;
+}
+
+.cart-item-information-size {
+  text-transform: capitalize;
+  margin-top: -1.1em;
+}
+
+.cart-item-information button {
+  font-size: 0.8em;
+  margin-top: -1em;
+}
+
+.cartpage-summary-subtotal {
+  text-transform: capitalize;
+}
+
+.cartpage-summary-subtotal p {
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.cartpage-summary-buttons {
+  text-align: right;
+}
+
+.cartpage-summary-buttons button {
+  margin-left: 0.3em;
+}
+
+.cart-empty-box {
+  margin: 0 auto;
+  padding: 5em 0;
+}

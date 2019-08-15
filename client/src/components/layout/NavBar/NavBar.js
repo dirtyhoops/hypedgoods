@@ -4,8 +4,6 @@ import NavbarToggleButton from './NavbarToggleButton';
 import './NavBar.css';
 
 const NavBar = props => {
-  // @Todo
-  // 1. check if logged in, if logged in, <Link to='account'>, if not, link to '/account/login'
   return (
     <nav className='navbar_navigation'>
       <div className='logo'>
