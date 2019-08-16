@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import store from '../../../store';
+import { updateCartItemCount } from '../../../actions/cart';
 
 import './CartPage.css';
 
@@ -19,17 +19,31 @@ import './CartPage.css';
 // 11. Change bootstrap table, and make your own, so it's more customizable and doesnt look too generic
 // 12. Change all the buttons too and dont use the bootstrap one
 // 13. make the "your cart is empty" div after finishing the cart items
-const CartPage = () => {
+const CartPage = props => {
   var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
-
-  // to add the total, idea is to keep adding to it every item loop
-  const [subtotal, setSubtotal] = useState(0);
 
   const clearCart = () => {
     localStorage.removeItem('itemsArray');
     console.log('clear cart button clicked');
 
     window.location.reload();
+  };
+
+  const getSubtotal = items => {
+    var subTotal = 0;
+    items.map(item => (subTotal += item.shoe_price));
+    return subTotal;
+  };
+
+  const removeItem = itemIndex => {
+    console.log(itemIndex);
+
+    getCartItems.splice(itemIndex, 1);
+    localStorage.setItem('itemsArray', JSON.stringify(getCartItems));
+    // window.location.reload();
+    // props.updateCartItemCount(getCartItems.length);
+    store.dispatch(updateCartItemCount(getCartItems.length));
+    props.history.push('/cart');
   };
 
   return (
@@ -64,9 +78,11 @@ const CartPage = () => {
                 {getCartItems.map((item, index) => (
                   <tr key={index}>
                     <td className='table-text-left-align'>
-                      <div className='cart-item-image'>
-                        <img src={item.shoe_image} />
-                      </div>
+                      <Link to={`/products/shoes/${item.shoe_id}`}>
+                        <div className='cart-item-image'>
+                          <img src={item.shoe_image} />
+                        </div>
+                      </Link>
                     </td>
                     <td className='table-text-left-align'>
                       <div className='cart-item-information'>
@@ -82,7 +98,10 @@ const CartPage = () => {
                         <p className='cart-item-information-size'>
                           US Size: {item.shoe_size}
                         </p>
-                        <button className='btn btn-sm btn-danger'>
+                        <button
+                          className='btn btn-sm btn-danger'
+                          onClick={() => removeItem(index)}
+                        >
                           REMOVE
                         </button>
                       </div>
@@ -102,16 +121,26 @@ const CartPage = () => {
             </table>
             <div className='cartpage-summary'>
               <div className='cartpage-summary-subtotal'>
-                <p>subtotal: $1500.00</p>
+                <p className='subtotal-text'>
+                  subtotal: ${getSubtotal(getCartItems)}.00
+                </p>
+                <p className='taxes-shipping-text'>
+                  Taxes and Shipping calculated in checkout
+                </p>
               </div>
               <div className='cartpage-summary-buttons'>
-                <button className='btn btn-danger' onClick={() => clearCart()}>
+                <button
+                  className='btn btn-danger btn-sm'
+                  onClick={() => clearCart()}
+                >
                   Clear Cart
                 </button>
                 <Link to='/products/shoes'>
-                  <button className='btn btn-success'>Continue Shopping</button>
+                  <button className='btn btn-success btn-sm'>
+                    Continue Shopping
+                  </button>
                 </Link>
-                <button className='btn btn-primary'>Checkout</button>
+                <button className='btn btn-primary btn-sm'>Checkout</button>
               </div>
             </div>
           </div>
@@ -128,4 +157,4 @@ const CartPage = () => {
   );
 };
 
-export default connect()(CartPage);
+export default withRouter(CartPage);

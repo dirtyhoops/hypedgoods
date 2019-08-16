@@ -69,9 +69,14 @@
   text-transform: capitalize;
 }
 
-.cartpage-summary-subtotal p {
+.subtotal-text {
   text-align: right;
-  font-size: 1.5em;
+  font-size: 1.4em;
+}
+
+.taxes-shipping-text {
+  text-align: right;
+  font-size: 0.9em;
 }
 
 .cartpage-summary-buttons {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
 import './ShoeInfo.css';
 
@@ -49,7 +49,13 @@ const ShoeInfo = props => {
 
     localStorage.setItem('itemsArray', JSON.stringify(oldItems));
     props.updateCartItemCount(oldItems.length);
+    props.history.push('/cart');
   };
+
+  // const determineItemStyle = i => {
+  //   const isItemSelected = this.state.selectedItem === i;
+  //   return isItemSelected ? "bg-light-gray" : "";
+  // }
 
   return (
     <div className='wrapper-shoe-info'>
@@ -82,7 +88,6 @@ const ShoeInfo = props => {
                 <div
                   key={index}
                   className='button-size'
-                  data-value={shoevariant.size}
                   onClick={() =>
                     changePrice(
                       shoevariant.price,
@@ -123,4 +128,4 @@ const ShoeInfo = props => {
   );
 };
 
-export default ShoeInfo;
+export default withRouter(ShoeInfo);
