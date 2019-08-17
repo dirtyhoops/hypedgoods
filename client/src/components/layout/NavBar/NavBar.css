@@ -131,6 +131,10 @@ nav {
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
+  nav {
+    min-height: 7vh;
+  }
+
   .logo {
     width: 65%;
     padding-left: 25px;
@@ -138,7 +142,7 @@ nav {
 
   .logo h2 a {
     letter-spacing: 1px;
-    font-size: 22px;
+    font-size: 23px;
   }
 
   .nav-links {
@@ -156,6 +160,7 @@ nav {
   .account-nav-item {
     margin-right: 17px;
   }
+
   .nav-burger {
     width: 15%;
     padding-left: 2px;

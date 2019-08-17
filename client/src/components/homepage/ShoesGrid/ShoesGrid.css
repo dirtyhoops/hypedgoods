@@ -1,5 +1,5 @@
 .wrapper-latestrelease-homepage {
-  margin-bottom: 2em;
+  margin: 2em 0em;
 }
 
 .header-latestrelease {
@@ -75,7 +75,7 @@
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .wrapper-latestrelease-homepage {
-    margin-bottom: 1em;
+    margin: 1em 0em;
   }
 
   .header-latestrelease {

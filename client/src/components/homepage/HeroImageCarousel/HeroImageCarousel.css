@@ -1,0 +1,111 @@
+.wrapper-men-shirt1 {
+  position: relative;
+}
+
+.wrapper-men-shirt1 img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.shoe-hero-button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.shoe-hero-button button {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.buttonprevious {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-2%, -50%);
+  font-size: 3em;
+  background: transparent;
+  color: rgb(215, 228, 224);
+  border: none;
+}
+
+.buttonnext {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-2%, -50%);
+  font-size: 3em;
+  background: transparent;
+  color: rgb(215, 228, 224);
+  border: none;
+}
+
+.buttonnext:hover,
+.buttonprevious:hover {
+  color: black;
+}
+
+.buttonnext:focus,
+.buttonprevious:focus {
+  outline: 0;
+}
+
+.dotgroup {
+  position: absolute;
+  left: 50%;
+  top: 94%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.dotgroup button {
+  background: rgb(231, 226, 226);
+  height: 5px;
+  width: 80px;
+  border: none;
+  margin: 0px 1px;
+}
+
+.carousel__dot--selected {
+  background-color: rgb(124, 128, 126) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper-men-shirt1 img {
+    height: 420px;
+  }
+
+  .buttonprevious {
+    font-size: 3em;
+    top: 50%;
+    left: -8%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
+  }
+
+  .buttonnext {
+    font-size: 3em;
+    top: 50%;
+    right: -8%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
+  }
+
+  .shoe-hero-button button {
+    font-size: 0.9em;
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .dotgroup button {
+    background: rgb(231, 226, 226);
+    height: 4px;
+    width: 50px;
+  }
+}

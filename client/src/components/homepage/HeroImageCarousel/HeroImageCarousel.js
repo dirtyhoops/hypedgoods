@@ -1,0 +1,154 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+  DotGroup
+} from 'pure-react-carousel';
+
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import './HeroImageCarousel.css';
+
+const HeroImageCarousel = () => {
+  const [naturalSlideH, setNaturalSlideH] = useState(0);
+  const [heroImagesArray, setHeroImagesArray] = useState([]);
+
+  // @Todo:
+  // 1. make sure to make a new file that holds all these heroImages
+  // 2. make everything simpler and shorter
+  // 3. find a better images
+  // 4. play around with different sizes of images
+  // 5. make the button prettier and customized
+  const heroImages1024 = [
+    {
+      brand: 'adidas',
+      link:
+        'https://images.pexels.com/photos/1599005/pexels-photo-1599005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    },
+    {
+      brand: 'nike',
+      link:
+        'https://images.pexels.com/photos/786003/pexels-photo-786003.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    },
+    {
+      brand: 'jordan',
+      link:
+        'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    }
+  ];
+
+  const heroImages480 = [
+    {
+      brand: 'adidas',
+      link:
+        'https://images.pexels.com/photos/1280064/pexels-photo-1280064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    },
+    {
+      brand: 'nike',
+      link:
+        'https://images.pexels.com/photos/2692460/pexels-photo-2692460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    },
+    {
+      brand: 'jordan',
+      link:
+        'https://images.pexels.com/photos/2529157/pexels-photo-2529157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    }
+  ];
+
+  useEffect(() => {
+    checkWindowWidth();
+  }, []);
+
+  const checkWindowWidth = () => {
+    const windowWidth = window.innerWidth;
+
+    switch (true) {
+      case windowWidth <= 480: // phone
+        return setNaturalSlideH(100) & setHeroImagesArray(heroImages480);
+      case windowWidth <= 768: //ipad
+        return setNaturalSlideH(50) & setHeroImagesArray(heroImages1024);
+      case windowWidth <= 1024: //high resolution laptop
+        return setNaturalSlideH(50) & setHeroImagesArray(heroImages1024);
+      default:
+        // resolution higher than 1024, usually desktop computer
+        return setNaturalSlideH(35) & setHeroImagesArray(heroImages1024);
+    }
+  };
+
+  console.log(heroImagesArray);
+
+  // @todo:
+  // 1. make a different set of pictures, inside array, for 480, 768, 1024, default
+
+  return (
+    <CarouselProvider
+      className='carouselprovider'
+      naturalSlideWidth={100}
+      naturalSlideHeight={naturalSlideH}
+      totalSlides={3}
+      isPlaying={true}
+      interval={5000}
+    >
+      <Slider>
+        {heroImagesArray.map((heroImage, ind) => (
+          <Slide key={ind} index={ind}>
+            <div className='wrapper-men-shirt1'>
+              <img src={heroImage.link} />
+              <div className='shoe-hero-button '>
+                <Link to={`/products/shoes/brand/${heroImage.brand}`}>
+                  <button className='btn btn-dark btn-lg'>
+                    shop {heroImage.brand}
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </Slide>
+        ))}
+      </Slider>
+      <ButtonBack className='buttonprevious'>
+        <i class='fa fa-angle-left' />
+      </ButtonBack>
+      <ButtonNext className='buttonnext'>
+        <i class='fa fa-angle-right' aria-hidden='true' />
+      </ButtonNext>
+      <DotGroup className='dotgroup' />
+    </CarouselProvider>
+
+    // <CarouselProvider
+    //   naturalSlideWidth={100}
+    //   naturalSlideHeight={naturalSlideH}
+    //   totalSlides={3}
+    // >
+    //   <Slider>
+    //     <Slide index={0}>
+    //       <div className='wrapper-men-shirt1'>
+    //         <Link to='/shirts/men'>
+    //           <button className='btn btn-dark btn-lg'>shop adidas</button>
+    //         </Link>
+    //       </div>
+    //     </Slide>
+    //     <Slide index={1}>
+    //       <div className='wrapper-men-shirt2'>
+    //         <Link to='/shirts/men'>
+    //           <button className='btn btn-dark btn-lg'>shop jodan</button>
+    //         </Link>
+    //       </div>
+    //     </Slide>
+    //     <Slide index={2}>
+    //       <div className='wrapper-men-shirt3'>
+    //         <Link to='/shirts/men'>
+    //           <button className='btn btn-dark btn-lg'>shop men's shirts</button>
+    //         </Link>
+    //       </div>
+    //     </Slide>
+    //   </Slider>
+    //   <ButtonBack>Back</ButtonBack>
+    //   <ButtonNext>Next</ButtonNext>
+    // </CarouselProvider>
+  );
+};
+
+export default HeroImageCarousel;
