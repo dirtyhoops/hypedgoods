@@ -1,0 +1,120 @@
+.wrapper-recommended-shoes {
+  width: 100%;
+  border-top: 1px solid rgb(235, 214, 214);
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 25px;
+  text-align: center;
+  margin: 2em 0 0.8em 0;
+  height: 400px;
+}
+
+.wrapper-recommended-shoes h1 {
+  text-transform: uppercase;
+  font-size: 27px;
+  margin-bottom: 0.5em;
+}
+
+.recommended-shoes-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.recommended-shoes-image img {
+  width: 95%;
+}
+
+.recommended-shoes-info {
+  color: black;
+  text-align: center;
+  padding: 10px;
+  margin-top: -10px;
+  text-transform: capitalize;
+}
+
+.recommended-shoes-info p {
+  font-size: 13px;
+}
+
+.prevbutton-recommendedshoes {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-0%, -40%);
+  font-size: 3em;
+  background: transparent;
+  color: rgb(77, 100, 93);
+  border: none;
+}
+
+.nextbutton-recommendedshoes {
+  position: absolute;
+  top: 40%;
+  right: 0%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-0%, -40%);
+  font-size: 3em;
+  background: transparent;
+  color: rgb(77, 100, 93);
+  border: none;
+}
+
+.nextbutton-recommendedshoes:hover,
+.prevbutton-recommendedshoes:hover {
+  color: black;
+}
+
+.nextbutton-recommendedshoes:focus,
+.prevbutton-recommendedshoes:focus {
+  outline: 0;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .wrapper-recommended-shoes {
+    margin: 1em 0;
+  }
+
+  .wrapper-recommended-shoes h1 {
+    font-size: 20px;
+  }
+
+  .recommended-shoes-image {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .recommended-shoes-image img {
+    width: 95%;
+  }
+
+  .recommended-shoes-info {
+    color: black;
+    text-align: center;
+    padding: 10px;
+    margin-top: -10px;
+    text-transform: capitalize;
+  }
+
+  .recommended-shoes-info p {
+    font-size: 11px;
+  }
+
+  .prevbutton-recommendedshoes {
+    font-size: 2em;
+    top: 40%;
+    left: -8%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(0%, -40%);
+  }
+
+  .nextbutton-recommendedshoes {
+    font-size: 2em;
+    top: 40%;
+    right: -8%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(0%, -40%);
+  }
+}

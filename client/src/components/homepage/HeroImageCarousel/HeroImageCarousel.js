@@ -24,35 +24,41 @@ const HeroImageCarousel = () => {
   // 5. make the button prettier and customized
   const heroImages1024 = [
     {
-      brand: 'adidas',
+      brand: 'airmax',
+      category: 'airmax',
       link:
-        'https://images.pexels.com/photos/1599005/pexels-photo-1599005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        'https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
     },
     {
       brand: 'nike',
+      category: 'nike',
       link:
         'https://images.pexels.com/photos/786003/pexels-photo-786003.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
       brand: 'jordan',
+      category: 'jordan',
       link:
-        'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        'https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
     }
   ];
 
   const heroImages480 = [
     {
       brand: 'adidas',
+      category: 'adidas',
       link:
         'https://images.pexels.com/photos/1280064/pexels-photo-1280064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
       brand: 'nike',
+      category: 'nike',
       link:
         'https://images.pexels.com/photos/2692460/pexels-photo-2692460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
       brand: 'jordan',
+      category: 'jordan',
       link:
         'https://images.pexels.com/photos/2529157/pexels-photo-2529157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     }
@@ -77,8 +83,6 @@ const HeroImageCarousel = () => {
         return setNaturalSlideH(35) & setHeroImagesArray(heroImages1024);
     }
   };
-
-  console.log(heroImagesArray);
 
   // @todo:
   // 1. make a different set of pictures, inside array, for 480, 768, 1024, default
