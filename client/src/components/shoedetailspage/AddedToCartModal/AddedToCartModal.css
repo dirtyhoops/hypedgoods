@@ -1,0 +1,8 @@
+.wrapper-cartmodal {
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+  background: rgba(23, 219, 233, 0.541);
+  position: absolute;
+  right: 0;
+}

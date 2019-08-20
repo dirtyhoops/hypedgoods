@@ -1,4 +1,5 @@
 .wrapper-shoe-images {
+  margin-top: 20px;
   width: 59.5%;
   display: inline-block;
   padding: 0px 10px;
@@ -34,6 +35,7 @@
     width: 100%;
     display: block;
     padding: 25px;
+    margin-top: 0px;
   }
 
   /* .product-images-main {

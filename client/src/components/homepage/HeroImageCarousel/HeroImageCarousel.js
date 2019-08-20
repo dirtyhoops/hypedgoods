@@ -24,13 +24,13 @@ const HeroImageCarousel = () => {
   // 5. make the button prettier and customized
   const heroImages1024 = [
     {
-      brand: 'airmax',
+      brand: 'nike',
       category: 'airmax',
       link:
-        'https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+        'https://images.unsplash.com/photo-1520316587275-5e4f06f355e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
     },
     {
-      brand: 'nike',
+      brand: 'flyknits',
       category: 'nike',
       link:
         'https://images.pexels.com/photos/786003/pexels-photo-786003.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
