@@ -2,20 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getShoes } from '../../../actions/shoe';
+import { updateShoesPerPage } from '../../../actions/cartAndFilter';
 import ShoesListGrid from '../ShoesListGrid/ShoesListGrid';
+import Spinner from '../../layout/Spinner/Spinner';
 
 import './ShoesListPage.css';
 
-const ShoesListPage = ({ getShoes }) => {
+const ShoesListPage = ({
+  updateShoesPerPage,
+  getShoes,
+  shoes,
+  shoesPerPage
+}) => {
   useEffect(() => {
     getShoes();
-    window.scrollTo(0, 0);
   }, []);
 
   const [toggleFilter, setToggleFilter] = useState(false);
 
+  const shoesPerPageNumber = [30, 60, 90];
+
   const toggle = () => {
     toggleFilter ? setToggleFilter(false) : setToggleFilter(true);
+  };
+
+  const changeShoesPerPage = shoesperpage => {
+    updateShoesPerPage(shoesperpage);
   };
 
   return (
@@ -26,7 +38,20 @@ const ShoesListPage = ({ getShoes }) => {
       {/* maybe takeout container-sorting-options later */}
       <div className='container-sorting-options'>
         <div className='sorting-left'>
-          <p>view 15 30 45</p>
+          <p>
+            View{' '}
+            {shoesPerPageNumber.map(shoesperpage => (
+              <span
+                className={
+                  shoesperpage === shoesPerPage && 'shoesperpage-selected'
+                }
+                key={shoesperpage}
+                onClick={() => changeShoesPerPage(shoesperpage)}
+              >
+                {shoesperpage}{' '}
+              </span>
+            ))}
+          </p>
         </div>
         <div className='sorting-right'>
           Sort by:
@@ -56,17 +81,24 @@ const ShoesListPage = ({ getShoes }) => {
             </button>
           </div>
         </div>
-        <ShoesListGrid />
+        {shoes.length > 0 ? <ShoesListGrid shoes={shoes} /> : <Spinner />}
       </div>
     </div>
   );
 };
 
 ShoesListPage.propTypes = {
-  getShoes: PropTypes.func.isRequired
+  getShoes: PropTypes.func.isRequired,
+  updateShoesPerPage: PropTypes.func.isRequired,
+  shoes: PropTypes.array.isRequired
 };
 
+const mapStateToProps = state => ({
+  shoes: state.shoe.shoes,
+  shoesPerPage: state.cartAndFilter.shoesPerPage
+});
+
 export default connect(
-  null,
-  { getShoes }
+  mapStateToProps,
+  { getShoes, updateShoesPerPage }
 )(ShoesListPage);

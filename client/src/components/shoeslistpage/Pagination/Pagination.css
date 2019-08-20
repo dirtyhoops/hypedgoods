@@ -1,0 +1,19 @@
+.wrapper-pagination {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.wrapper-pagination ul {
+  width: auto;
+  display: inline-block;
+}
+
+.wrapper-pagination ul li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.wrapper-pagination ul li a {
+  text-decoration: none;
+  color: black;
+}

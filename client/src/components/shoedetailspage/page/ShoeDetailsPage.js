@@ -8,7 +8,7 @@ import {
   getShoesVariants
 } from '../../../actions/shoe';
 
-import { addItemToCart, updateCartItemCount } from '../../../actions/cart';
+import { updateCartItemCount } from '../../../actions/cartAndFilter';
 
 import ShoeImages from '../ShoeImages/ShoeImages';
 import ShoeInfo from '../ShoeInfo/ShoeInfo';
@@ -25,7 +25,6 @@ const ShoeDetailsPage = ({
   getShoes,
   clearSelectedShoe,
   getShoesVariants,
-  addItemToCart,
   updateCartItemCount,
   match: {
     params: { id }
@@ -43,7 +42,6 @@ const ShoeDetailsPage = ({
     clearSelectedShoe();
     getShoe(id);
     getShoesVariants(id);
-    window.scrollTo(0, 0);
   };
 
   return selectedShoe === null ? (
@@ -55,7 +53,6 @@ const ShoeDetailsPage = ({
         selectedShoe={selectedShoe}
         selectedShoeVariants={selectedShoeVariants}
         isAdmin={isAdmin}
-        addItemToCart={addItemToCart}
         updateCartItemCount={updateCartItemCount}
       />
       {/* <RecommendedShoes recommendedShoes={shoes} click={selectShoe} /> */}
@@ -76,7 +73,6 @@ ShoeDetailsPage.propTypes = {
   getShoe: PropTypes.func,
   getShoes: PropTypes.func,
   getShoesVariants: PropTypes.func.isRequired,
-  addItemToCart: PropTypes.func.isRequired,
   updateCartItemCount: PropTypes.func.isRequired,
   clearSelectedShoe: PropTypes.func,
   shoe: PropTypes.object.isRequired,
@@ -90,7 +86,6 @@ export default connect(
     getShoes,
     clearSelectedShoe,
     getShoesVariants,
-    addItemToCart,
     updateCartItemCount
   }
 )(ShoeDetailsPage);

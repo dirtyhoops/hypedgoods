@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import NavBar from './components/layout/NavBar/NavBar';
 import HomePage from './components/homepage/page/Homepage';
 import ShoeDetailsPage from './components/shoedetailspage/page/ShoeDetailsPage';
@@ -11,7 +12,7 @@ import Alert from './components/layout/Alert/Alert';
 import SideDrawer from './components/layout/NavBar/SideDrawer';
 import Backdrop from './components/layout/Backdrop/Backdrop';
 import { loadUser } from './actions/auth';
-import { updateCartItemCount } from './actions/cart';
+import { updateCartItemCount } from './actions/cartAndFilter';
 import setAuthToken from './utilities/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 import AdminRoute from './components/routing/AdminRoute';
@@ -19,6 +20,8 @@ import ShoesForm from './components/forms/ShoesForm/ShoesForm';
 import ShoesListPage from './components/shoeslistpage/page/ShoesListPage';
 import ShoesVariantsPage from './components/shoesvariantspage/page/ShoesVariantsPage';
 import CartPage from './components/cartpage/page/CartPage';
+
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 import './App.css';
 
@@ -53,6 +56,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
+          <ScrollToTop />
           <NavBar drawerClickHandler={drawerToggleClickHandler} />
           <SideDrawer
             show={isDrawerOpen}

@@ -6,20 +6,18 @@ import Pagination from '../Pagination/Pagination';
 
 import './ShoesListGrid.css';
 
-const ShoesListGrid = ({ shoes }) => {
-  // Sorts the collection (desc date_added)
-
-  const [shoesList, setShoesList] = useState([]);
-  const [loading, setLoading] = useState(false);
+const ShoesListGrid = props => {
+  const [shoesList, setShoesList] = useState(props.shoes);
   const [currentPage, setCurrentPage] = useState(1);
-  const [shoesPerPage, setShoesPerPage] = useState(10);
+  const [shoesPerPage, setShoesPerPage] = useState(props.shoesPerPage);
+
+  // changes the shoesPerPage whenever the redux state changes
+  if (shoesPerPage !== props.shoesPerPage) {
+    setShoesPerPage(props.shoesPerPage);
+    setCurrentPage(1);
+  }
 
   // Copiess the shoes array(all the shoes in the inventory) from redux
-  useEffect(() => {
-    setLoading(true);
-    setShoesList(shoes);
-    setLoading(false);
-  }, []);
 
   // Get current shoes
   const indexOfLastShoes = currentPage * shoesPerPage;
@@ -27,10 +25,9 @@ const ShoesListGrid = ({ shoes }) => {
   const currentShoes = shoesList.slice(indexOfFirstShoes, indexOfLastShoes);
 
   // Change page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
-
-  // Delete this later
-  console.log('shoes list: ', shoesList);
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className='shoes-list-grid'>
@@ -52,27 +49,8 @@ const ShoesListGrid = ({ shoes }) => {
   );
 };
 
-//   return (
-//     <div className='shoes-list-grid'>
-//       <div className='row'>
-//         {shoes ? (
-//           <div className='row'>
-//             {shoes.map(shoe => (
-//               <Shoe key={shoe._id} shoe={shoe} />
-//             ))}
-//           </div>
-//         ) : null}
-//       </div>
-//     </div>
-//   );
-// };
-
-ShoesListGrid.propTypes = {
-  shoes: PropTypes.array.isRequired
-};
-
 const mapStateToProps = state => ({
-  shoes: state.shoe.shoes
+  shoesPerPage: state.cartAndFilter.shoesPerPage
 });
 
 export default connect(mapStateToProps)(ShoesListGrid);

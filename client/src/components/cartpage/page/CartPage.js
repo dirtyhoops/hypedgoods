@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import store from '../../../store';
-import { updateCartItemCount } from '../../../actions/cart';
+import { updateCartItemCount } from '../../../actions/cartAndFilter';
 
 import './CartPage.css';
 

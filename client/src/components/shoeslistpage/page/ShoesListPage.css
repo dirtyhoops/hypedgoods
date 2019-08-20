@@ -16,6 +16,21 @@
 .sorting-left {
   width: 50%;
   text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: rgb(142, 207, 207);
+  word-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.sorting-left p span {
+  cursor: pointer;
+}
+
+.shoesperpage-selected {
+  color: black;
+  font-weight: 800;
 }
 
 .sorting-right {

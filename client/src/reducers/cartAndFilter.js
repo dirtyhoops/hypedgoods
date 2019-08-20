@@ -1,8 +1,11 @@
-import { UPDATE_CART_ITEM_COUNT, ADD_ITEM_TO_CART } from '../actions/types';
+import {
+  UPDATE_CART_ITEM_COUNT,
+  UPDATE_SHOES_PER_PAGE
+} from '../actions/types';
 
 const initialState = {
-  items: [],
-  cartItemCount: 0
+  cartItemCount: 0,
+  shoesPerPage: 30
 };
 
 // @TODO
@@ -11,15 +14,15 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case ADD_ITEM_TO_CART:
-      return {
-        ...state,
-        items: [...state.items, payload]
-      };
     case UPDATE_CART_ITEM_COUNT:
       return {
         ...state,
         cartItemCount: payload
+      };
+    case UPDATE_SHOES_PER_PAGE:
+      return {
+        ...state,
+        shoesPerPage: payload
       };
     default:
       return state;

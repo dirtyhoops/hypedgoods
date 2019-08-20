@@ -6,8 +6,6 @@ import NavbarToggleButton from './NavbarToggleButton';
 import './NavBar.css';
 
 const NavBar = props => {
-  // var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
-
   return (
     <nav className='navbar_navigation'>
       <div className='logo'>
@@ -47,7 +45,7 @@ NavBar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  cartItemCount: state.cart.cartItemCount
+  cartItemCount: state.cartAndFilter.cartItemCount
 });
 
 export default connect(mapStateToProps)(NavBar);

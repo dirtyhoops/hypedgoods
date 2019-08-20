@@ -28,7 +28,6 @@ const ShoeInfo = props => {
     setButtonText(`add size  ${variant_size} to cart`);
   };
 
-  // RIGHT NOW JUST SAVE THE VARIANTID, BUT LATER TRY TO MAKE AN OBJECT OUT OF  ALL THE DATA(SHOE ID, BRAND, NAME, SHOE PORICE, SHOE SIZE, ETC)
   const addCart = variantid => {
     //the array that holds the objects(items)
     var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
@@ -51,11 +50,6 @@ const ShoeInfo = props => {
     props.updateCartItemCount(oldItems.length);
     props.history.push('/cart');
   };
-
-  // const determineItemStyle = i => {
-  //   const isItemSelected = this.state.selectedItem === i;
-  //   return isItemSelected ? "bg-light-gray" : "";
-  // }
 
   return (
     <div className='wrapper-shoe-info'>
