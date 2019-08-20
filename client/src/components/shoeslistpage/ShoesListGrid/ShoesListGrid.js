@@ -17,8 +17,6 @@ const ShoesListGrid = props => {
     setCurrentPage(1);
   }
 
-  // Copiess the shoes array(all the shoes in the inventory) from redux
-
   // Get current shoes
   const indexOfLastShoes = currentPage * shoesPerPage;
   const indexOfFirstShoes = indexOfLastShoes - shoesPerPage;

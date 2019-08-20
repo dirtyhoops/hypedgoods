@@ -17,7 +17,7 @@
   width: 50%;
   text-align: left;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 700;
   color: rgb(142, 207, 207);
   word-spacing: 5px;
@@ -36,15 +36,27 @@
 .sorting-right {
   width: 50%;
   text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sorting-right select {
+  border: none;
+}
+
+.sorting-right select:focus {
+  outline: 0;
 }
 
 .shoes-list-filter {
-  width: 25%;
+  width: 20%;
 }
 
 .shoes-list-filter-content {
   height: 400px;
-  background: pink;
+  text-transform: uppercase;
 }
 
 .container-shoes-list {
@@ -57,6 +69,57 @@
 
 .shoes-list-filter-content-mobile {
   display: none;
+}
+
+/* for filter */
+.found-item-container {
+  border-top: 1px solid rgb(235, 227, 227);
+  border-bottom: 1px solid rgb(214, 195, 195);
+  padding: 0;
+  text-align: center;
+  height: 3.5em;
+  line-height: 3.5em;
+}
+
+/* design this later */
+.filter-refineby {
+  display: none;
+}
+
+.filter-container {
+  border-bottom: 1px solid rgb(214, 195, 195);
+}
+
+.filter-options-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+
+  height: 3em;
+  line-height: 3em;
+}
+
+.filter-show {
+  display: block;
+}
+
+.filter-hide {
+  display: none;
+}
+
+.filter-brand {
+}
+
+.filter-model {
+}
+
+.filter-size {
+}
+
+.filter-price {
+}
+
+.filter-year {
 }
 
 /* for mobile phone(iphone x and lower) */
