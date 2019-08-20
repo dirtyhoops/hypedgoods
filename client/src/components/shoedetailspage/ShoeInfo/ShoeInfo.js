@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
 import './ShoeInfo.css';
@@ -11,7 +11,9 @@ const ShoeInfo = props => {
     release_date,
     retail_price,
     colorway,
-    images
+    images,
+    total_quantity,
+    lowest_price
   } = props.selectedShoe;
 
   const [shoePrice, setShoePrice] = useState(retail_price);
@@ -20,12 +22,21 @@ const ShoeInfo = props => {
   const [disableAddToCartButton, setDisableAddToCartButton] = useState(true);
   const [buttonText, setButtonText] = useState('select size');
 
+  const [selectedSize, setSelectedSize] = useState(5);
+
+  useEffect(() => {
+    if (total_quantity === 0) {
+      setButtonText('SOLD OUT');
+    }
+  }, []);
+
   const changePrice = (price, variant_id, variant_size) => {
     setShoePrice(price);
     setVariant_id(variant_id);
     setShoeSize(variant_size);
     setDisableAddToCartButton(false);
     setButtonText(`add size  ${variant_size} to cart`);
+    setSelectedSize(variant_size);
   };
 
   const addCart = variantid => {
@@ -71,7 +82,11 @@ const ShoeInfo = props => {
           </p>
         )}
 
-        <h1 className='product-info-price'>${shoePrice}</h1>
+        {total_quantity === 0 ? (
+          <h1 className='product-info-price'>SOLD OUT</h1>
+        ) : (
+          <h1 className='product-info-price'>${shoePrice}</h1>
+        )}
       </div>
       <div className='product-sizes'>
         <p className='product-info-p'>Available Sizes (us men size)</p>
@@ -81,7 +96,12 @@ const ShoeInfo = props => {
               props.selectedShoeVariants.map((shoevariant, index) => (
                 <div
                   key={index}
-                  className='button-size'
+                  className={
+                    'button-size' +
+                    (shoevariant.size === selectedSize
+                      ? ' button-size-selected'
+                      : ' button-size-notselected')
+                  }
                   onClick={() =>
                     changePrice(
                       shoevariant.price,

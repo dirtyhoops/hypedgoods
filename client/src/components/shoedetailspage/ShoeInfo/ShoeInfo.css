@@ -69,6 +69,10 @@
   font-size: 1em;
 }
 
+.button-size-selected {
+  background: rgb(196, 196, 206);
+}
+
 .product-sizes button {
   margin-top: 1em;
 }

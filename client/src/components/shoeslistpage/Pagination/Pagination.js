@@ -29,7 +29,10 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
             </li>
           ) : null}
           {pageNumbers.map(number => (
-            <li key={number}>
+            <li
+              key={number}
+              className={currentPage === number && 'currentPage-selected'}
+            >
               <a onClick={() => paginateGrid(number)} href='#'>
                 {number}
               </a>

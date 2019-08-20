@@ -17,3 +17,8 @@
   text-decoration: none;
   color: black;
 }
+
+.currentPage-selected {
+  font-weight: bold;
+  font-size: 1.05em;
+}

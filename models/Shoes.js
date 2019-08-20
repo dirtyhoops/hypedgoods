@@ -34,9 +34,16 @@ const ShoesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  //once everything is working good, make sure to change images to required: true, also try to have a name with it ("1", "2". "3", etc, "1" will be the poster picture that will show up in shoe lists).
   images: {
     type: [String]
+  },
+  total_quantity: {
+    type: Number,
+    default: 0
+  },
+  lowest_price: {
+    type: Number,
+    default: 0
   }
 });
 

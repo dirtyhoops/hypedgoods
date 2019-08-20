@@ -167,7 +167,7 @@ router.get('/:shoes_id/variants', async (req, res) => {
 });
 
 // @route    POST api/shoes/:shoes_id/variants
-// @desc     POST shoe by ID
+// @desc     ADD shoe variant to a pair of shoes
 // @access   Private
 router.post(
   '/:shoes_id/variants',
@@ -207,7 +207,7 @@ router.post(
 
       // Checks if the user is an admin with admin priviledge
       if (isUserAdmin) {
-        const shoes = await Shoes.findById(req.params.shoes_id);
+        let shoes = await Shoes.findById(req.params.shoes_id);
 
         if (shoes) {
           // Creates the new variant
@@ -229,6 +229,23 @@ router.post(
           }
 
           let newVariant = new Variants(variantsFields);
+          let lowestPrice = price;
+
+          if (shoes.lowest_price < lowestPrice && shoes.lowest_price != 0) {
+            lowestPrice = shoes.lowest_price;
+          }
+
+          await Shoes.updateOne(
+            { _id: req.params.shoes_id },
+            {
+              $set: {
+                total_quantity:
+                  parseInt(shoes.total_quantity) + parseInt(quantity),
+                lowest_price: lowestPrice
+              }
+            }
+          );
+
           await newVariant.save();
           res.json(newVariant);
         }
@@ -270,3 +287,31 @@ router.get('/variants/:variant_id', async (req, res) => {
 });
 
 module.exports = router;
+
+// TO UPDATE THE LOWEST PRICED ITEM AND THE TOTAL QUANTITY
+
+// let allVariants = await Variants.find({
+//   shoes_id: req.params.shoes_id
+// });
+
+// let allShoeQuantity = 0;
+// let lowestPrice = newVariant.price;
+
+// allVariants.map(variant => {
+//   allShoeQuantity = allShoeQuantity + parseInt(variant.quantity);
+//   if (variant.price < lowestPrice) {
+//     lowestPrice = variant.price;
+//   }
+// });
+
+// // let newQuantity = parseInt(allShoeQuantity);
+
+// await Shoes.updateOne(
+//   { _id: req.params.shoes_id },
+//   {
+//     $set: {
+//       total_quantity: parseInt(allShoeQuantity) + parseInt(quantity),
+//       lowest_price: lowestPrice
+//     }
+//   }
+// );
