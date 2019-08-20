@@ -93,9 +93,9 @@ const ShoeInfo = props => {
         <div className='product-sizes-buttons'>
           <div className='button-size-container'>
             {props.selectedShoeVariants ? (
-              props.selectedShoeVariants.map((shoevariant, index) => (
+              props.selectedShoeVariants.map(shoevariant => (
                 <div
-                  key={index}
+                  key={shoevariant._id}
                   className={
                     'button-size' +
                     (shoevariant.size === selectedSize
