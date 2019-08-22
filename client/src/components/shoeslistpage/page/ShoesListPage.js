@@ -33,6 +33,7 @@ const ShoesListPage = ({
       <SortingAndViewOptions
         changeShoesPerPage={changeShoesPerPage}
         shoesPerPage={shoesPerPage}
+        shoes={shoes}
       />
 
       <div className='container-shoes-list'>

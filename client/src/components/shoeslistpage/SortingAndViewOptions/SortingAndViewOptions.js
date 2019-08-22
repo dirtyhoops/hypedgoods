@@ -3,8 +3,12 @@ import React from 'react';
 import './SortingAndViewOptions.css';
 
 const SortingAndViewOptions = props => {
-  const { shoesPerPage, changeShoesPerPage } = props;
+  const { shoesPerPage, changeShoesPerPage, shoes } = props;
   const shoesPerPageNumber = [30, 60, 90];
+
+  // const sortedItems_pricelow = []
+  //   .concat(shoes)
+  //   .sort((a, b) => a.lowest_price - b.lowest_price);
 
   return (
     <div className='container-sorting-options'>
