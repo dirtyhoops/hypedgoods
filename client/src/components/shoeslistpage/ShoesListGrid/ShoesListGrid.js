@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import Shoe from './Shoe';
 import Pagination from '../Pagination/Pagination';
 
 import './ShoesListGrid.css';
 
 const ShoesListGrid = props => {
-  const [shoesList, setShoesList] = useState(props.shoes);
+  const { shoesPerPage, shoes } = props;
+
+  const [shoesList, setShoesList] = useState(shoes);
   const [currentPage, setCurrentPage] = useState(1);
-  const [shoesPerPage, setShoesPerPage] = useState(props.shoesPerPage);
+  const [shoesPage, setShoesPage] = useState(shoesPerPage);
 
   // changes the shoesPerPage whenever the redux state changes
-  if (shoesPerPage !== props.shoesPerPage) {
-    setShoesPerPage(props.shoesPerPage);
+  if (shoesPage !== shoesPerPage) {
+    setShoesPage(shoesPerPage);
     setCurrentPage(1);
   }
+
+  // const sortedItems_pricelow = []
+  //   .concat(shoesList)
+  //   .sort((a, b) => a.lowest_price - b.lowest_price);
+
+  // const sortedItems_pricehigh = []
+  //   .concat(shoesList)
+  //   .sort((a, b) => b.lowest_price - a.lowest_price);
 
   // Get current shoes
   const indexOfLastShoes = currentPage * shoesPerPage;
@@ -30,13 +39,11 @@ const ShoesListGrid = props => {
   return (
     <div className='shoes-list-grid'>
       <div className='row'>
-        {shoesList ? (
-          <div className='row'>
-            {currentShoes.map(shoe => (
-              <Shoe key={shoe._id} shoe={shoe} />
-            ))}
-          </div>
-        ) : null}
+        <div className='row'>
+          {currentShoes.map(shoe => (
+            <Shoe key={shoe._id} shoe={shoe} />
+          ))}
+        </div>
       </div>
       <Pagination
         shoesPerPage={shoesPerPage}
@@ -47,8 +54,10 @@ const ShoesListGrid = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  shoesPerPage: state.cartAndFilter.shoesPerPage
-});
+export default ShoesListGrid;
 
-export default connect(mapStateToProps)(ShoesListGrid);
+// const mapStateToProps = state => ({
+//   shoesPerPage: state.cartAndFilter.shoesPerPage
+// });
+
+// export default connect(mapStateToProps)(ShoesListGrid);

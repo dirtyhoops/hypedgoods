@@ -20,8 +20,7 @@ const initialState = {
   loadingSelectedShoe: true,
   isAddingShoesSuccessful: false,
   selectedShoeVariants: null,
-  isAddingVariantSuccess: false,
-  cart: []
+  isAddingVariantSuccess: false
 };
 
 export default function(state = initialState, action) {

@@ -1,0 +1,5 @@
+.wrapper-banner {
+  height: 400px;
+  background: rgb(240, 245, 240);
+  display: flex;
+}

@@ -16,7 +16,7 @@ const ShoeInfo = props => {
     lowest_price
   } = props.selectedShoe;
 
-  const [shoePrice, setShoePrice] = useState(retail_price);
+  const [shoePrice, setShoePrice] = useState(lowest_price);
   const [variant_id, setVariant_id] = useState('');
   const [shoeSize, setShoeSize] = useState('');
   const [disableAddToCartButton, setDisableAddToCartButton] = useState(true);

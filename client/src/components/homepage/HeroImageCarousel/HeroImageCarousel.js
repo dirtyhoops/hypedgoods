@@ -27,7 +27,7 @@ const HeroImageCarousel = () => {
       brand: 'nike',
       category: 'airmax',
       link:
-        'https://images.unsplash.com/photo-1520316587275-5e4f06f355e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+        'https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
     },
     {
       brand: 'flyknits',
@@ -120,38 +120,6 @@ const HeroImageCarousel = () => {
       </ButtonNext>
       <DotGroup className='dotgroup' />
     </CarouselProvider>
-
-    // <CarouselProvider
-    //   naturalSlideWidth={100}
-    //   naturalSlideHeight={naturalSlideH}
-    //   totalSlides={3}
-    // >
-    //   <Slider>
-    //     <Slide index={0}>
-    //       <div className='wrapper-men-shirt1'>
-    //         <Link to='/shirts/men'>
-    //           <button className='btn btn-dark btn-lg'>shop adidas</button>
-    //         </Link>
-    //       </div>
-    //     </Slide>
-    //     <Slide index={1}>
-    //       <div className='wrapper-men-shirt2'>
-    //         <Link to='/shirts/men'>
-    //           <button className='btn btn-dark btn-lg'>shop jodan</button>
-    //         </Link>
-    //       </div>
-    //     </Slide>
-    //     <Slide index={2}>
-    //       <div className='wrapper-men-shirt3'>
-    //         <Link to='/shirts/men'>
-    //           <button className='btn btn-dark btn-lg'>shop men's shirts</button>
-    //         </Link>
-    //       </div>
-    //     </Slide>
-    //   </Slider>
-    //   <ButtonBack>Back</ButtonBack>
-    //   <ButtonNext>Next</ButtonNext>
-    // </CarouselProvider>
   );
 };
 
