@@ -7,7 +7,8 @@ import {
   ADD_PRODUCT_SHOES_SUCCESS,
   GET_SHOES_VARIANTS,
   ADD_SHOES_VARIANTS_SUCCESS,
-  EDIT_SHOES_VARIANTS
+  EDIT_SHOES_VARIANTS,
+  DONE_LOADING_SHOES
 } from './types';
 
 import axios from 'axios';
@@ -27,6 +28,14 @@ export const getShoes = () => async dispatch => {
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
+};
+
+// just to change the 'loading' to true
+export const doneLoading = () => async dispatch => {
+  dispatch({
+    type: DONE_LOADING_SHOES,
+    payload: true
+  });
 };
 
 export const getShoe = id => async dispatch => {

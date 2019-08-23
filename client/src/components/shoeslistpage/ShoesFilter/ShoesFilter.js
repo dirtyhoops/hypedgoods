@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ShoesFilter = props => {
-  const { shoes } = props;
+  const { filteredItems } = props;
   const [toggleFilter, setToggleFilter] = useState(false);
 
   const [toggleFilterArrowBrand, setToggleFilterArrowBrand] = useState(false);
@@ -47,7 +47,7 @@ const ShoesFilter = props => {
     <div className='shoes-list-filter'>
       <div className='shoes-list-filter-content'>
         <div className='found-item-container'>
-          <p>{shoes.length} items found</p>
+          <p>{filteredItems.length} items found</p>
         </div>
         <div className='filter-refineby'>refine by</div>
         {/* <h5>filter content goes here</h5> */}

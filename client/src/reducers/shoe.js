@@ -7,7 +7,8 @@ import {
   ADD_PRODUCT_SHOES_SUCCESS,
   GET_SHOES_VARIANTS,
   ADD_SHOES_VARIANTS_SUCCESS,
-  EDIT_SHOES_VARIANTS
+  EDIT_SHOES_VARIANTS,
+  DONE_LOADING_SHOES
 } from '../actions/types';
 
 const initialState = {
@@ -33,6 +34,11 @@ export default function(state = initialState, action) {
         shoes: payload,
         loadingShoes: false,
         isAddingShoesSuccessful: false
+      };
+    case DONE_LOADING_SHOES:
+      return {
+        ...state,
+        loadingShoes: payload
       };
     case GET_SHOE:
       return {

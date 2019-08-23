@@ -1,11 +1,15 @@
 import {
   UPDATE_CART_ITEM_COUNT,
-  UPDATE_SHOES_PER_PAGE
+  UPDATE_SHOES_PER_PAGE,
+  FILTER_PRODUCTS_BY_BRANDS
 } from '../actions/types';
 
 const initialState = {
   cartItemCount: 0,
-  shoesPerPage: 30
+  shoesPerPage: 30,
+  filteredItems: [],
+  filteredItemsLoading: true,
+  brands: ''
 };
 
 // @TODO
@@ -23,6 +27,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         shoesPerPage: payload
+      };
+    case FILTER_PRODUCTS_BY_BRANDS:
+      return {
+        ...state,
+        filteredItems: payload.items,
+        brands: payload.brands,
+        filteredItemsLoading: false
       };
     default:
       return state;

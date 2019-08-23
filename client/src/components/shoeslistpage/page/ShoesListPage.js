@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getShoes } from '../../../actions/shoe';
-import { updateShoesPerPage } from '../../../actions/cartAndFilter';
+import { getShoes, doneLoading } from '../../../actions/shoe';
+import {
+  updateShoesPerPage,
+  filterProductsByBrands
+} from '../../../actions/cartAndFilter';
 import ShoesListGrid from '../ShoesListGrid/ShoesListGrid';
 import Spinner from '../../layout/Spinner/Spinner';
 import SortingAndViewOptions from '../SortingAndViewOptions/SortingAndViewOptions';
@@ -14,7 +17,11 @@ const ShoesListPage = ({
   updateShoesPerPage,
   getShoes,
   shoes,
-  shoesPerPage
+  shoesPerPage,
+  filterProductsByBrands,
+  filteredItems,
+  loadingShoes,
+  doneLoading
 }) => {
   useEffect(() => {
     getShoes();
@@ -24,8 +31,17 @@ const ShoesListPage = ({
     updateShoesPerPage(shoesperpage);
   };
 
+  if (shoes.length > 0 && !loadingShoes) {
+    filterProductsByBrands(shoes, '');
+    doneLoading();
+    console.log('yeeee');
+  }
+
   return (
     <div className='wrapper-shoelistpage'>
+      <button onClick={() => filterProductsByBrands(shoes, 'adidas')}>
+        filter by brand adidas
+      </button>
       <div className='header-shoelistpage'>
         <h1>all the sneakers</h1>
       </div>
@@ -37,12 +53,9 @@ const ShoesListPage = ({
       />
 
       <div className='container-shoes-list'>
-        <ShoesFilter shoes={shoes} />
-        {shoes.length > 0 ? (
-          <ShoesListGrid shoes={shoes} shoesPerPage={shoesPerPage} />
-        ) : (
-          <Spinner />
-        )}
+        <ShoesFilter filteredItems={filteredItems} />
+
+        <ShoesListGrid shoesPerPage={shoesPerPage} />
       </div>
     </div>
   );
@@ -51,15 +64,19 @@ const ShoesListPage = ({
 ShoesListPage.propTypes = {
   getShoes: PropTypes.func.isRequired,
   updateShoesPerPage: PropTypes.func.isRequired,
-  shoes: PropTypes.array.isRequired
+  shoes: PropTypes.array.isRequired,
+  filteredItems: PropTypes.array.isRequired,
+  doneLoading: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   shoes: state.shoe.shoes,
-  shoesPerPage: state.cartAndFilter.shoesPerPage
+  shoesPerPage: state.cartAndFilter.shoesPerPage,
+  filteredItems: state.cartAndFilter.filteredItems,
+  loadingShoes: state.shoe.loadingShoes
 });
 
 export default connect(
   mapStateToProps,
-  { getShoes, updateShoesPerPage }
+  { getShoes, updateShoesPerPage, filterProductsByBrands, doneLoading }
 )(ShoesListPage);
