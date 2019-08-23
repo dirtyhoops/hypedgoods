@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './SortingAndViewOptions.css';
 
 const SortingAndViewOptions = props => {
-  const { shoesPerPage, changeShoesPerPage, shoes } = props;
+  const {
+    shoesPerPage,
+    changeShoesPerPage,
+    filteredItems,
+    filterProductsByBrands,
+    sortProducts
+  } = props;
   const shoesPerPageNumber = [30, 60, 90];
 
-  // const sortedItems_pricelow = []
-  //   .concat(shoes)
-  //   .sort((a, b) => a.lowest_price - b.lowest_price);
+  const productSort = sortvalue => {
+    sortProducts(filteredItems, sortvalue);
+  };
 
   return (
     <div className='container-sorting-options'>
+      <button onClick={() => filterProductsByBrands(filteredItems, 'adidas')}>
+        filter by brand adidas
+      </button>
+      <button onClick={() => filterProductsByBrands(filteredItems, 'nike')}>
+        filter by brand nike
+      </button>
       <div className='sorting-left'>
         <p>
           View{' '}
@@ -30,10 +42,10 @@ const SortingAndViewOptions = props => {
       </div>
       <div className='sorting-right'>
         Sort by:{' '}
-        <select>
-          <option value='bestseller'>BEST SELLER</option>
-          <option value='pricehigh'>PRICE HIGH</option>
-          <option value='pricelow'>PRICE LOW</option>
+        <select onChange={e => productSort(e.target.value)}>
+          <option value='newarrivals'>NEW ARRIVALS</option>
+          <option value='highestprice'>PRICE HIGH</option>
+          <option value='lowestprice'>PRICE LOW</option>
           <option value='releasenew'>RELEASE NEW</option>
           <option value='releaseold'>RELEASE OLD</option>
         </select>

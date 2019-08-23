@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { getShoes, doneLoading } from '../../../actions/shoe';
 import {
   updateShoesPerPage,
-  filterProductsByBrands
+  filterProductsByBrands,
+  sortProducts
 } from '../../../actions/cartAndFilter';
 import ShoesListGrid from '../ShoesListGrid/ShoesListGrid';
 import Spinner from '../../layout/Spinner/Spinner';
@@ -21,7 +22,8 @@ const ShoesListPage = ({
   filterProductsByBrands,
   filteredItems,
   loadingShoes,
-  doneLoading
+  doneLoading,
+  sortProducts
 }) => {
   useEffect(() => {
     getShoes();
@@ -31,17 +33,19 @@ const ShoesListPage = ({
     updateShoesPerPage(shoesperpage);
   };
 
-  if (shoes.length > 0 && !loadingShoes) {
+  // TRY TO CHANGE THIS. MAYBE DONT LOAD IT ON EVERY REFRESH
+  if (shoes.length > 0 && !loadingShoes && filteredItems.length < 1) {
     filterProductsByBrands(shoes, '');
     doneLoading();
     console.log('yeeee');
   }
 
+  // if (filteredItems.length > 0) {
+  //   sortProducts(filteredItems, '');
+  // }
+
   return (
     <div className='wrapper-shoelistpage'>
-      <button onClick={() => filterProductsByBrands(shoes, 'adidas')}>
-        filter by brand adidas
-      </button>
       <div className='header-shoelistpage'>
         <h1>all the sneakers</h1>
       </div>
@@ -50,6 +54,9 @@ const ShoesListPage = ({
         changeShoesPerPage={changeShoesPerPage}
         shoesPerPage={shoesPerPage}
         shoes={shoes}
+        filterProductsByBrands={filterProductsByBrands}
+        sortProducts={sortProducts}
+        filteredItems={filteredItems}
       />
 
       <div className='container-shoes-list'>
@@ -66,17 +73,25 @@ ShoesListPage.propTypes = {
   updateShoesPerPage: PropTypes.func.isRequired,
   shoes: PropTypes.array.isRequired,
   filteredItems: PropTypes.array.isRequired,
-  doneLoading: PropTypes.func.isRequired
+  doneLoading: PropTypes.func.isRequired,
+  sortProducts: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   shoes: state.shoe.shoes,
   shoesPerPage: state.cartAndFilter.shoesPerPage,
   filteredItems: state.cartAndFilter.filteredItems,
-  loadingShoes: state.shoe.loadingShoes
+  loadingShoes: state.shoe.loadingShoes,
+  sort: state.cartAndFilter.sort
 });
 
 export default connect(
   mapStateToProps,
-  { getShoes, updateShoesPerPage, filterProductsByBrands, doneLoading }
+  {
+    getShoes,
+    updateShoesPerPage,
+    filterProductsByBrands,
+    doneLoading,
+    sortProducts
+  }
 )(ShoesListPage);

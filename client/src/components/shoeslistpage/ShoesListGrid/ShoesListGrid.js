@@ -9,7 +9,6 @@ import './ShoesListGrid.css';
 const ShoesListGrid = props => {
   const { shoesPerPage, shoes, filteredItems } = props;
 
-  const [shoesList, setShoesList] = useState(filteredItems);
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPage, setShoesPage] = useState(shoesPerPage);
 
@@ -19,10 +18,12 @@ const ShoesListGrid = props => {
     setCurrentPage(1);
   }
 
-  // if (filteredItems.length > 0) {
-  //   setShoesList(filteredItems);
-  //   console.log('setting shoe list with filtered items');
-  // }
+  if (
+    (filteredItems.length < 30 && currentPage > 1 && shoesPerPage === 30) ||
+    (filteredItems.length < 60 && currentPage > 1 && shoesPerPage === 60)
+  ) {
+    setCurrentPage(1);
+  }
 
   // const sortedItems_pricelow = []
   //   .concat(shoesList)

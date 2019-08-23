@@ -70,7 +70,7 @@ const ShoeInfo = props => {
         <p className='product-info-p'>
           release date:{' '}
           <span>
-            <Moment format='YYYY/MM/DD'>{release_date}</Moment>
+            <Moment format='MM/DD/YYYY'>{release_date}</Moment>
           </span>
         </p>
         <p className='product-info-p'>
