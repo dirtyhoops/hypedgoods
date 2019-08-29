@@ -60,12 +60,12 @@ const RelatedShoes = ({
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={100}
-          totalSlides={12}
+          totalSlides={14}
           visibleSlides={visSlides}
           step={stepSlide}
         >
           <Slider>
-            {shoesWithModel.slice(0, 12).map((shoe, ind) => (
+            {shoesWithModel.slice(0, 14).map((shoe, ind) => (
               <Slide index={ind}>
                 <Link
                   key={ind}

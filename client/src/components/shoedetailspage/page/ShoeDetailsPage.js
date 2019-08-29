@@ -16,7 +16,7 @@ import RelatedShoes from '../RelatedShoes/RelatedShoes';
 import RecommendedShoes from '../RecommendedShoes/RecommendedShoes';
 import Spinner from '../../layout/Spinner/Spinner';
 
-import RecommendedShoess from '../RecommendedShoes/RecommendedShoess';
+// import RecommendedShoess from '../RecommendedShoes/RecommendedShoess';
 
 import './ShoeDetailsPage.css';
 
@@ -58,7 +58,7 @@ const ShoeDetailsPage = ({
       {/* <RecommendedShoes recommendedShoes={shoes} click={selectShoe} /> */}
       {/* <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} /> */}
       <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} />
-      <RecommendedShoess recommendedShoes={shoes} click={selectShoe} />
+      <RecommendedShoes recommendedShoes={shoes} click={selectShoe} />
     </Fragment>
   );
 };

@@ -5,8 +5,7 @@
 }
 
 .shoes-list-filter-content {
-  height: 400px;
-  text-transform: uppercase;
+  display: block;
 }
 
 .show-filter-button {
@@ -40,7 +39,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 5px;
-
+  text-transform: uppercase;
   height: 3em;
   line-height: 3em;
 }
@@ -63,21 +62,6 @@
 .filter-hide {
   display: none;
 }
-
-/* .filter-brand {
-}
-
-.filter-model {
-}
-
-.filter-size {
-}
-
-.filter-price {
-}
-
-.filter-year {
-} */
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {

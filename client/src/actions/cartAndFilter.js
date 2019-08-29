@@ -71,7 +71,7 @@ export const sortProducts = (products, sort) => async dispatch => {
     newArray.sort((a, b) => {
       var dateA = new Date(a.date_added).getTime();
       var dateB = new Date(b.date_added).getTime();
-      return dateA < dateB ? -1 : 1;
+      return dateA < dateB ? 1 : -1;
     });
   }
 

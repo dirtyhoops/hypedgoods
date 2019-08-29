@@ -1,5 +1,4 @@
 .wrapper-related-shoes {
-  /* background-color: rgb(247, 239, 239); */
   width: 100%;
   border-top: 1px solid rgb(235, 214, 214);
   font-family: 'Montserrat', sans-serif;
@@ -47,6 +46,7 @@
 @media screen and (max-width: 768px) {
   .wrapper-related-shoes {
     margin: 1em 0;
+    padding-top: 15px;
   }
 
   .wrapper-related-shoes h1 {
@@ -67,7 +67,7 @@
   }
 
   .related-shoes-image img {
-    width: 95%;
+    width: 90%;
   }
 
   .related-shoes-info {

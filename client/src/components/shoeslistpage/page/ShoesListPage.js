@@ -45,11 +45,12 @@ const ShoesListPage = ({
   // }
 
   // @todo
-  // 1. maybe take out the container-shoes-list and make the container inside whoes filter inline block and 100% when it's mobile
+  // 1. the header-shoelistpage make it dependant on what the user clicks (new arrivals, BRAND, all sneakers)
+
   return (
     <div className='wrapper-shoelistpage'>
       <div className='header-shoelistpage'>
-        <h1>all the sneakers</h1>
+        <h1>all sneakers</h1>
       </div>
 
       <SortingAndViewOptions

@@ -5,7 +5,7 @@ const ShoesFilter = props => {
   const { filteredItems } = props;
   const [toggleFilter, setToggleFilter] = useState(false);
 
-  const [toggleFilterArrowBrand, setToggleFilterArrowBrand] = useState(false);
+  const [toggleFilterArrowBrand, setToggleFilterArrowBrand] = useState(true);
   const [toggleFilterArrowModel, setToggleFilterArrowModel] = useState(false);
   const [toggleFilterArrowPrice, setToggleFilterArrowPrice] = useState(false);
   const [toggleFilterArrowSize, setToggleFilterArrowSize] = useState(false);
@@ -54,7 +54,7 @@ const ShoesFilter = props => {
         {/* <h5>filter content goes here</h5> */}
 
         {/* FOR BRAND FILTER */}
-        <div className='filter-brand filter-container'>
+        <div className='filter-container'>
           <div className='filter-options-container'>
             <p>brand</p>
             <button onClick={toggleArrowBrand}>
@@ -72,12 +72,22 @@ const ShoesFilter = props => {
               (toggleFilterArrowBrand ? 'filter-show' : 'filter-hide')
             }
           >
-            BRAND OPTIONS FITS HERE
+            <div className='custom-control custom-checkbox'>
+              <input
+                type='checkbox'
+                className='custom-control-input'
+                id='customCheckDisabled'
+                disabled
+              />
+              <label class='custom-control-label' for='customCheckDisabled'>
+                Check this custom checkbox
+              </label>
+            </div>
           </div>
         </div>
 
         {/* FOR MODEL FILTER */}
-        <div className='filter-model filter-container'>
+        <div className='filter-container'>
           <div className='filter-options-container'>
             <p>model</p>
             <button onClick={toggleArrowModel}>
@@ -99,7 +109,7 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR PRICE FILTER */}
-        <div className='filter-price filter-container'>
+        <div className='filter-container'>
           <div className='filter-options-container'>
             <p>price</p>
             <button onClick={toggleArrowPrice}>
@@ -121,7 +131,7 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR SIZE FILTER */}
-        <div className='filter-size filter-container'>
+        <div className='filter-container'>
           <div className='filter-options-container'>
             <p>size</p>
             <button onClick={toggleArrowSize}>
@@ -143,7 +153,7 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR YEAR FILTER */}
-        <div className='filter-year filter-container'>
+        <div className='filter-container'>
           <div className='filter-options-container'>
             <p>year</p>
             <button onClick={toggleArrowYear}>
@@ -166,17 +176,20 @@ const ShoesFilter = props => {
       </div>
 
       {/* FOR MOBILE FILTER */}
+      <div className='show-filter-button'>
+        <button className='btn btn-block btn-sm btn-dark' onClick={toggle}>
+          {toggleFilter ? (
+            <>Hide Filter ({filteredItems.length} products)</>
+          ) : (
+            <>Show Filter ({filteredItems.length} products)</>
+          )}
+        </button>
+      </div>
       {toggleFilter ? (
         <div className='shoes-list-filter-content-mobile'>
           <h5>filter content goes here</h5>
         </div>
       ) : null}
-
-      <div className='show-filter-button'>
-        <button className='btn btn-block btn-sm btn-dark' onClick={toggle}>
-          {toggleFilter ? <>Hide Filter</> : <>Show Filter</>}
-        </button>
-      </div>
     </div>
   );
 };
