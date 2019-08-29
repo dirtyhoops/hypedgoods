@@ -1,0 +1,44 @@
+.container-sorting-options {
+  display: flex;
+}
+
+.sorting-left {
+  width: 50%;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: rgb(142, 207, 207);
+  word-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.sorting-left p span {
+  cursor: pointer;
+}
+
+.shoesperpage-selected {
+  color: black;
+  font-weight: 800;
+}
+
+.sorting-right {
+  width: 50%;
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sorting-right select {
+  border: none;
+}
+
+.sorting-right select:focus {
+  outline: 0;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+}

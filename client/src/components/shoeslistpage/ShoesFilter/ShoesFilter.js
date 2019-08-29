@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ShoesFilter.css';
 
 const ShoesFilter = props => {
   const { filteredItems } = props;
@@ -44,7 +45,7 @@ const ShoesFilter = props => {
       : setToggleFilterArrowYear(true);
   };
   return (
-    <div className='shoes-list-filter'>
+    <div className='wrapper-shoes-list-filter'>
       <div className='shoes-list-filter-content'>
         <div className='found-item-container'>
           <p>{filteredItems.length} items found</p>
@@ -53,19 +54,16 @@ const ShoesFilter = props => {
         {/* <h5>filter content goes here</h5> */}
 
         {/* FOR BRAND FILTER */}
-        <div
-          className='filter-brand filter-container'
-          onClick={toggleArrowBrand}
-        >
+        <div className='filter-brand filter-container'>
           <div className='filter-options-container'>
             <p>brand</p>
-            <p>
+            <button onClick={toggleArrowBrand}>
               {toggleFilterArrowBrand ? (
                 <i className='fa fa-angle-up' />
               ) : (
                 <i className='fa fa-angle-down' />
               )}
-            </p>
+            </button>
           </div>
           {/* hides it at first and then it pops out when brand is chosen */}
           <div
@@ -79,19 +77,16 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR MODEL FILTER */}
-        <div
-          className='filter-model filter-container'
-          onClick={toggleArrowModel}
-        >
+        <div className='filter-model filter-container'>
           <div className='filter-options-container'>
             <p>model</p>
-            <p>
+            <button onClick={toggleArrowModel}>
               {toggleFilterArrowModel ? (
                 <i className='fa fa-angle-up' />
               ) : (
                 <i className='fa fa-angle-down' />
               )}
-            </p>
+            </button>
           </div>
           <div
             className={
@@ -104,19 +99,16 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR PRICE FILTER */}
-        <div
-          className='filter-price filter-container'
-          onClick={toggleArrowPrice}
-        >
+        <div className='filter-price filter-container'>
           <div className='filter-options-container'>
             <p>price</p>
-            <p>
+            <button onClick={toggleArrowPrice}>
               {toggleFilterArrowPrice ? (
                 <i className='fa fa-angle-up' />
               ) : (
                 <i className='fa fa-angle-down' />
               )}
-            </p>
+            </button>
           </div>
           <div
             className={
@@ -129,16 +121,16 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR SIZE FILTER */}
-        <div className='filter-size filter-container' onClick={toggleArrowSize}>
+        <div className='filter-size filter-container'>
           <div className='filter-options-container'>
             <p>size</p>
-            <p>
+            <button onClick={toggleArrowSize}>
               {toggleFilterArrowSize ? (
                 <i className='fa fa-angle-up' />
               ) : (
                 <i className='fa fa-angle-down' />
               )}
-            </p>
+            </button>
           </div>
           <div
             className={
@@ -151,16 +143,16 @@ const ShoesFilter = props => {
         </div>
 
         {/* FOR YEAR FILTER */}
-        <div className='filter-year filter-container' onClick={toggleArrowYear}>
+        <div className='filter-year filter-container'>
           <div className='filter-options-container'>
             <p>year</p>
-            <p>
+            <button onClick={toggleArrowYear}>
               {toggleFilterArrowYear ? (
                 <i className='fa fa-angle-up' />
               ) : (
                 <i className='fa fa-angle-down' />
               )}
-            </p>
+            </button>
           </div>
           <div
             className={

@@ -10,6 +10,10 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
     pageNumbers.push(i);
   }
 
+  if (totalShoes < shoesPerPage && currentPage === 2) {
+    setCurrentPage(1);
+  }
+
   const paginateGrid = number => {
     paginate(number);
     setCurrentPage(number);

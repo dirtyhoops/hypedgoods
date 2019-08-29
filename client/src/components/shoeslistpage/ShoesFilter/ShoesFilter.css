@@ -1,0 +1,102 @@
+.wrapper-shoes-list-filter {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.shoes-list-filter-content {
+  height: 400px;
+  text-transform: uppercase;
+}
+
+.show-filter-button {
+  display: none;
+}
+
+.shoes-list-filter-content-mobile {
+  display: none;
+}
+
+/* for filter */
+.found-item-container {
+  border-top: 1px solid rgb(235, 227, 227);
+  border-bottom: 1px solid rgb(214, 195, 195);
+  padding: 0;
+  text-align: center;
+  height: 3.5em;
+  line-height: 3.5em;
+}
+
+/* design this later */
+.filter-refineby {
+  display: none;
+}
+
+.filter-container {
+  border-bottom: 1px solid rgb(214, 195, 195);
+}
+
+.filter-options-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+
+  height: 3em;
+  line-height: 3em;
+}
+
+.filter-options-container button {
+  width: 3em;
+  border: none;
+  background: transparent;
+  text-align: right;
+}
+
+.filter-options-container button:focus {
+  outline: none;
+}
+
+.filter-show {
+  display: block;
+}
+
+.filter-hide {
+  display: none;
+}
+
+/* .filter-brand {
+}
+
+.filter-model {
+}
+
+.filter-size {
+}
+
+.filter-price {
+}
+
+.filter-year {
+} */
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .wrapper-shoes-list-filter {
+    width: 100%;
+    margin: 0.5em auto;
+  }
+
+  .shoes-list-filter-content-mobile {
+    height: 400px;
+    background: pink;
+    display: block;
+  }
+
+  .show-filter-button {
+    display: block;
+  }
+
+  .shoes-list-filter-content {
+    display: none;
+  }
+}

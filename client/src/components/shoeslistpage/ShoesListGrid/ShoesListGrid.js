@@ -7,7 +7,7 @@ import Spinner from '../../layout/Spinner/Spinner';
 import './ShoesListGrid.css';
 
 const ShoesListGrid = props => {
-  const { shoesPerPage, shoes, filteredItems } = props;
+  const { shoesPerPage, filteredItems } = props;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [shoesPage, setShoesPage] = useState(shoesPerPage);
@@ -17,21 +17,6 @@ const ShoesListGrid = props => {
     setShoesPage(shoesPerPage);
     setCurrentPage(1);
   }
-
-  if (
-    (filteredItems.length < 30 && currentPage > 1 && shoesPerPage === 30) ||
-    (filteredItems.length < 60 && currentPage > 1 && shoesPerPage === 60)
-  ) {
-    setCurrentPage(1);
-  }
-
-  // const sortedItems_pricelow = []
-  //   .concat(shoesList)
-  //   .sort((a, b) => a.lowest_price - b.lowest_price);
-
-  // const sortedItems_pricehigh = []
-  //   .concat(shoesList)
-  //   .sort((a, b) => b.lowest_price - a.lowest_price);
 
   // Get current shoes
   const indexOfLastShoes = currentPage * shoesPerPage;
@@ -44,7 +29,7 @@ const ShoesListGrid = props => {
   };
 
   return (
-    <div className='shoes-list-grid'>
+    <div className='wrapper-shoes-list-grid'>
       {filteredItems.length > 0 ? (
         <div className='row'>
           {currentShoes.map(shoe => (

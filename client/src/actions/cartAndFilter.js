@@ -80,18 +80,3 @@ export const sortProducts = (products, sort) => async dispatch => {
     payload: { sort: sort, items: newArray }
   });
 };
-
-// if (sort !== '') {
-//   newArray.sort((a, b) =>
-//     sort === 'lowestprice'
-//       ? a.lowest_price > b.lowest_price
-//         ? 1
-//         : -1
-//       : a.lowest_price < b.lowest_price
-//       ? 1
-//       : -1
-//   );
-// } else {
-//   newArray.sort((a, b) => (a.date_added > b.date_added ? 1 : -1));
-// }
-// (sort === 'releasenew' && a.date_added > b.date_added ? 1 : -1)

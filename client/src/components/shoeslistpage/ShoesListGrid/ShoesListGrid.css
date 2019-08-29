@@ -3,8 +3,9 @@
   margin: 0 auto;
 }
 
-.shoes-list-grid {
+.wrapper-shoes-list-grid {
   width: 80%;
+  display: inline-block;
 }
 
 .shoes-grid-column {
@@ -66,7 +67,7 @@
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
-  .shoes-list-grid {
+  .wrapper-shoes-list-grid {
     width: 100%;
   }
 }

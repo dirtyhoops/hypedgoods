@@ -18,12 +18,12 @@ const SortingAndViewOptions = props => {
 
   return (
     <div className='container-sorting-options'>
-      <button onClick={() => filterProductsByBrands(filteredItems, 'adidas')}>
+      {/* <button onClick={() => filterProductsByBrands(filteredItems, 'adidas')}>
         filter by brand adidas
       </button>
       <button onClick={() => filterProductsByBrands(filteredItems, 'nike')}>
         filter by brand nike
-      </button>
+      </button> */}
       <div className='sorting-left'>
         <p>
           View{' '}
@@ -43,7 +43,9 @@ const SortingAndViewOptions = props => {
       <div className='sorting-right'>
         Sort by:{' '}
         <select onChange={e => productSort(e.target.value)}>
-          <option value='newarrivals'>NEW ARRIVALS</option>
+          <option selected='selected' value='newarrivals'>
+            NEW ARRIVALS
+          </option>
           <option value='highestprice'>PRICE HIGH</option>
           <option value='lowestprice'>PRICE LOW</option>
           <option value='releasenew'>RELEASE NEW</option>

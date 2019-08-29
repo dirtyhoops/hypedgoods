@@ -44,6 +44,8 @@ const ShoesListPage = ({
   //   sortProducts(filteredItems, '');
   // }
 
+  // @todo
+  // 1. maybe take out the container-shoes-list and make the container inside whoes filter inline block and 100% when it's mobile
   return (
     <div className='wrapper-shoelistpage'>
       <div className='header-shoelistpage'>
@@ -59,11 +61,8 @@ const ShoesListPage = ({
         filteredItems={filteredItems}
       />
 
-      <div className='container-shoes-list'>
-        <ShoesFilter filteredItems={filteredItems} />
-
-        <ShoesListGrid shoesPerPage={shoesPerPage} />
-      </div>
+      <ShoesFilter filteredItems={filteredItems} />
+      <ShoesListGrid />
     </div>
   );
 };

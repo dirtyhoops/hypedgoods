@@ -22,6 +22,8 @@ const HeroImageCarousel = () => {
   // 3. find a better images
   // 4. play around with different sizes of images
   // 5. make the button prettier and customized
+  // 6. fix the button make sure it's always showing, 50% or so of the height of the heroimage
+  // 7. change the .shoe-hero-button margin make sure it shows everytime regardless of the size of the screen. look at #6
   const heroImages1024 = [
     {
       brand: 'nike',
