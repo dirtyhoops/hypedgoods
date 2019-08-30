@@ -18,7 +18,7 @@ const NavBar = props => {
           <Link to='/products/shoes'>shop sneakers</Link>
         </li>
         <li>
-          <Link to='/products/shirts'>shop shirts</Link>
+          <Link to='/products/shoes'>new releases</Link>
         </li>
       </ul>
       <ul className='right-nav-links'>

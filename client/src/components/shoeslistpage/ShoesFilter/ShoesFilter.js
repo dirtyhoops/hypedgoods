@@ -68,19 +68,26 @@ const ShoesFilter = props => {
           {/* hides it at first and then it pops out when brand is chosen */}
           <div
             className={
-              'filter-brand-options ' +
+              'filter-options ' +
               (toggleFilterArrowBrand ? 'filter-show' : 'filter-hide')
             }
           >
             <div className='custom-control custom-checkbox'>
-              <input
-                type='checkbox'
-                className='custom-control-input'
-                id='customCheckDisabled'
-                disabled
-              />
+              <input type='checkbox' className='custom-control-input' />
               <label class='custom-control-label' for='customCheckDisabled'>
-                Check this custom checkbox
+                nike
+              </label>
+            </div>
+            <div className='custom-control custom-checkbox'>
+              <input type='checkbox' className='custom-control-input' />
+              <label class='custom-control-label' for='customCheckDisabled'>
+                nike
+              </label>
+            </div>
+            <div className='custom-control custom-checkbox'>
+              <input type='checkbox' className='custom-control-input' />
+              <label class='custom-control-label' for='customCheckDisabled'>
+                nike
               </label>
             </div>
           </div>
@@ -149,28 +156,6 @@ const ShoesFilter = props => {
             }
           >
             SIZE OPTIONS FITS HERE
-          </div>
-        </div>
-
-        {/* FOR YEAR FILTER */}
-        <div className='filter-container'>
-          <div className='filter-options-container'>
-            <p>year</p>
-            <button onClick={toggleArrowYear}>
-              {toggleFilterArrowYear ? (
-                <i className='fa fa-angle-up' />
-              ) : (
-                <i className='fa fa-angle-down' />
-              )}
-            </button>
-          </div>
-          <div
-            className={
-              'filter-year-options ' +
-              (toggleFilterArrowYear ? 'filter-show' : 'filter-hide')
-            }
-          >
-            YEAR OPTIONS FITS HERE
           </div>
         </div>
       </div>

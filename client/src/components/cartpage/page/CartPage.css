@@ -3,11 +3,11 @@
   text-align: center;
 }
 
-.wrapper-cartpage h1 {
+.header-cartpage h1 {
+  font-family: 'Raleway', sans-serif;
   font-size: 30px;
   margin-bottom: 1.3em;
   text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
 }
 
 .table-cartpage-items {
@@ -90,4 +90,143 @@
 .cart-empty-box {
   margin: 0 auto;
   padding: 5em 0;
+}
+
+.cart-landscape {
+  display: block;
+}
+
+.cart-mobile {
+  display: none;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .cart-landscape {
+    display: none;
+  }
+
+  .cart-mobile {
+    display: block;
+  }
+
+  .header-cartpage-mobile h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .table-summary-mobile {
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+
+  thead th {
+    padding-bottom: 10px;
+    border-bottom: solid 1px rgb(241, 230, 230);
+  }
+
+  tbody tr {
+    height: 10px;
+  }
+
+  .table-left-mobile {
+    text-align: left;
+  }
+
+  .table-right-mobile {
+    text-align: right;
+  }
+
+  .checkout-button-mobile {
+    margin: 1.5em 0;
+  }
+
+  .checkout-button-mobile button {
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+  .cart-item-container-mobile {
+    border-top: solid 1px rgb(241, 230, 230);
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .cart-item-mobile {
+    width: 100%;
+    /* background: yellow; */
+    padding: 0 10px 10px 10px;
+    border-bottom: solid 1px rgb(241, 230, 230);
+  }
+
+  .cart-item-remove {
+    margin-right: 2em;
+    margin-top: 0.7em;
+    right: 0;
+    position: absolute;
+  }
+
+  .cart-item-remove button {
+    background: transparent;
+    width: 2.2em;
+    font-size: 1.5em;
+    text-align: center;
+    color: rgb(194, 153, 153);
+    border: none;
+  }
+
+  .cart-item-remove button:focus {
+    outline: none;
+  }
+
+  .cart-item-mobile img {
+    width: 95%;
+  }
+
+  .cart-item-mobile-info {
+    display: flex;
+    margin-top: 0.5em;
+  }
+
+  .cart-item-mobile-info-left {
+    width: 65%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .cart-item-mobile-info-right {
+    width: 35%;
+    text-align: right;
+    padding: 10px;
+  }
+
+  .cart-item-uppercase {
+    text-transform: uppercase;
+  }
+
+  .cart-item-capitalize {
+    text-transform: capitalize;
+  }
+
+  .cart-item-mobile-info-left p,
+  .cart-item-mobile-info-right p {
+    line-height: 1.3em;
+    font-size: 0.9em;
+    margin-top: -10px;
+  }
+
+  .cart-item-color-gray {
+    color: gray;
+  }
+
+  .cart-item-bold {
+    font-weight: 600;
+  }
+
+  .cart-item-bolder {
+    font-weight: 800;
+  }
 }

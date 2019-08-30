@@ -3,7 +3,6 @@
   display: flex;
   margin: 2em auto;
   width: 90%;
-
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -42,6 +41,6 @@
 
   .variant-shoes-info p {
     font-size: 0.8em;
-    line-height: 5px;
+    margin-top: -12px;
   }
 }

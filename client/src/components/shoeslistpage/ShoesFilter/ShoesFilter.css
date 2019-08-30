@@ -35,6 +35,10 @@
   border-bottom: 1px solid rgb(214, 195, 195);
 }
 
+.custom-checkbox label {
+  text-transform: capitalize;
+}
+
 .filter-options-container {
   display: flex;
   justify-content: space-between;
@@ -42,6 +46,7 @@
   text-transform: uppercase;
   height: 3em;
   line-height: 3em;
+  font-weight: 700;
 }
 
 .filter-options-container button {
@@ -55,6 +60,11 @@
   outline: none;
 }
 
+.filter-options {
+  padding: 0 1em;
+  margin-top: -0.5em;
+  margin-bottom: 0.7em;
+}
 .filter-show {
   display: block;
 }
