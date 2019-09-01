@@ -16,7 +16,7 @@ const ShoesGrid = ({ getShoes, shoes, loadingShoes }) => {
   return (
     <div className='wrapper-latestrelease-homepage'>
       <div className='header-latestrelease'>
-        <p>latest kicks</p>
+        <p>new releases</p>
       </div>
       {shoes.length > 0 ? (
         <div className='grid-latestrelease'>

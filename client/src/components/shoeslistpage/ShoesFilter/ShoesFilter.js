@@ -44,12 +44,14 @@ const ShoesFilter = props => {
       ? setToggleFilterArrowYear(false)
       : setToggleFilterArrowYear(true);
   };
+
   return (
     <div className='wrapper-shoes-list-filter'>
       <div className='shoes-list-filter-content'>
         <div className='found-item-container'>
           <p>{filteredItems.length} items found</p>
         </div>
+
         <div className='filter-refineby'>refine by</div>
         {/* <h5>filter content goes here</h5> */}
 

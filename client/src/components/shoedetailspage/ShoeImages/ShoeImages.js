@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+  DotGroup
+} from 'pure-react-carousel';
+
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import './ShoeImages.css';
 
@@ -15,6 +25,8 @@ const ShoeImages = props => {
   };
 
   return (
+    // @@@@@@@@@@@@@@@ IF THE CAROUSEL DOESNT WORK, REVERT TO THIS ONE
+
     <div className='wrapper-shoe-images'>
       <div className='product-images-main'>
         <img src={mainImage} alt='big_shoes_image' />
