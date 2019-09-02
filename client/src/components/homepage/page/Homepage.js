@@ -3,6 +3,7 @@ import React, { Fragment, useEffect } from 'react';
 import ShoesGrid from '../ShoesGrid/ShoesGrid';
 import HeroImageCarousel from '../HeroImageCarousel/HeroImageCarousel';
 import Banner from '../Banner/Banner';
+import Newsletter from '../Newsletter/Newsletter';
 
 const Homepage = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Homepage = () => {
         <ShoesGrid />
       </section>
       <Banner />
+      <Newsletter />
     </Fragment>
   );
 };

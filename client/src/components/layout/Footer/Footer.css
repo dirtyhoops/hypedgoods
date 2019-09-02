@@ -1,16 +1,79 @@
 .wrapper-footer {
   background-color: black;
   color: white;
+  font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
-  height: 3vh;
-  line-height: 3vh;
+
   font-size: 15px;
+}
+
+.footer-container {
+  display: flex;
+  padding: 1.7em 0 1.5em 0;
+  text-align: left;
+}
+
+.footer-customerservice {
+  width: 30%;
+}
+
+.footer-aboutus {
+  width: 30%;
+}
+
+.footer-newsletter {
+  width: 40%;
+}
+
+.footer-subheader {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  /* font-size: 1.1em; */
+}
+
+.footer-container ul {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+  text-transform: capitalize;
+  font-size: 0.9em;
+}
+
+.footer-container ul li {
+  line-height: 1.8em;
+}
+
+.footer-newsletter .input-group {
+  margin-top: 0.5em;
+}
+
+.footer-newsletter .input-group input[type='text'] {
+  padding: 0 0.5em;
+}
+
+.footer-newsletter button {
+  background: red;
+  color: white;
+  border: none;
+  text-transform: capitalize;
+  font-size: 0.9em;
+}
+
+.footer-copyright {
+  border-top: 1px solid rgb(36, 32, 32);
+  font-size: 0.9em;
+  padding: 1em 0 0.1em 0;
 }
 
 @media screen and (max-width: 768px) {
   .wrapper-footer {
-    height: 4vh;
+    /* height: 4vh; */
     line-height: 4vh;
     font-size: 10px;
   }
+
+  /* .footer-container {
+    display: block;
+  } */
 }
