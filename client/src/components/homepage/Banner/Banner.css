@@ -1,5 +1,6 @@
 .wrapper-banner {
-  height: 200px;
+  /* height: 200px; */
+  height: 500px;
   /* background: #f0f5f0; */
   padding: 5px;
   font-family: 'Montserrat', sans-serif;
@@ -15,6 +16,26 @@
   margin-top: -5px;
   padding: 0 2em;
   font-size: 1em;
+}
+
+.bannerlogos-container {
+  display: flex;
+  font-size: 1.1em;
+}
+
+.banner-logo1,
+.banner-logo2,
+.banner-logo3 {
+  width: 33%;
+  margin: 1px;
+}
+
+.banner-logos-images {
+  height: 300px;
+}
+
+.bannerlogos-container img {
+  width: 70%;
 }
 
 /* for mobile phone(iphone x and lower) */
