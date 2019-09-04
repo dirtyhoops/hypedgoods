@@ -16,6 +16,8 @@ const ShoeInfo = props => {
     lowest_price
   } = props.selectedShoe;
 
+  const { deleteShoes } = props;
+
   const [shoePrice, setShoePrice] = useState(lowest_price);
   const [variant_id, setVariant_id] = useState('');
   const [shoeSize, setShoeSize] = useState('');
@@ -132,7 +134,10 @@ const ShoeInfo = props => {
                 Edit/Add a Size
               </button>
             </Link>
-            <button className='btn btn-danger btn-block btn-sm'>
+            <button
+              className='btn btn-danger btn-block btn-sm'
+              onClick={() => deleteShoes(_id)}
+            >
               Delete Shoes
             </button>
           </>

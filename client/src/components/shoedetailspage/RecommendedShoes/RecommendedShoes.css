@@ -42,9 +42,9 @@
   left: 0%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-0%, -40%);
-  font-size: 3em;
+  font-size: 2em;
   background: transparent;
-  color: rgb(77, 100, 93);
+  color: rgb(182, 212, 203);
   border: none;
 }
 
@@ -54,9 +54,9 @@
   right: 0%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-0%, -40%);
-  font-size: 3em;
+  font-size: 2em;
   background: transparent;
-  color: rgb(77, 100, 93);
+  color: rgb(182, 212, 203);
   border: none;
 }
 

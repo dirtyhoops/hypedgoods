@@ -8,7 +8,8 @@ import {
   GET_SHOES_VARIANTS,
   ADD_SHOES_VARIANTS_SUCCESS,
   EDIT_SHOES_VARIANTS,
-  DONE_LOADING_SHOES
+  DONE_LOADING_SHOES,
+  DONE_DELETING_SHOES
 } from './types';
 
 import axios from 'axios';
@@ -84,6 +85,29 @@ export const getShoesVariants = shoes_id => async dispatch => {
       type: GET_SHOES_VARIANTS,
       payload: res.data
     });
+  } catch (err) {
+    dispatch({
+      type: SHOE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Delete the selected shoes
+export const deleteShoes = shoes_id => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/shoes/${shoes_id}`);
+
+    dispatch({
+      type: CLEAR_SELECTED_SHOE
+    });
+
+    dispatch({
+      type: DONE_DELETING_SHOES,
+      payload: true
+    });
+
+    // dispatch(setAlert(msg, 'sucess')));
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,

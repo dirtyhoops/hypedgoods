@@ -132,7 +132,7 @@ router.post(
         await newShoes.save();
         res.json(newShoes);
       } else {
-        return res.send('You cant add an item because you are not an ADMIN');
+        return res.send('You cant delete an item because you are not an ADMIN');
       }
     } catch (err) {
       console.error(err.message);
@@ -140,6 +140,32 @@ router.post(
     }
   }
 );
+
+// @route    DELETE api/shoes/:shoes_id
+// @desc     Delete shoes
+// @access   Private
+router.delete('/:shoes_id', auth, async (req, res) => {
+  // @TODO: add an admin security check
+  try {
+    let isUserAdmin = req.user.isAdmin;
+
+    // Checks if the user is an admin with admin priviledge
+    if (isUserAdmin) {
+      // Remove variants of the shoes
+      await Variants.deleteMany({ shoes_id: req.params.shoes_id });
+
+      // Remove the shoes
+      await Shoes.findByIdAndRemove({ _id: req.params.shoes_id });
+
+      res.json({ msg: 'Shoes and its Variants are deleted' });
+    } else {
+      return res.send('You cant add an item because you are not an ADMIN');
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 /******************** SHOE VARIANTS ***********************/
 
@@ -285,6 +311,32 @@ router.get('/variants/:variant_id', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// // @route    DELETE api/shoes/variants/:variant_id
+// // @desc     Delete a variant
+// // @access   Private
+// router.delete('/:shoes_id', auth, async (req, res) => {
+//   // @TODO: add an admin security check
+//   try {
+//     let isUserAdmin = req.user.isAdmin;
+
+//     // Checks if the user is an admin with admin priviledge
+//     if (isUserAdmin) {
+//       // Remove variants of the shoes
+//       await Variants.deleteMany({ shoes_id: req.params.shoes_id });
+
+//       // Remove the shoes
+//       await Shoes.findByIdAndRemove({ _id: req.params.shoes_id });
+
+//       res.json({ msg: 'Shoes and its Variants are deleted' });
+//     } else {
+//       return res.send('You cant add an item because you are not an ADMIN');
+//     }
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+//   }
+// });
 
 module.exports = router;
 

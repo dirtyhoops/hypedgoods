@@ -15,6 +15,8 @@ const ShoeInformation = props => {
     colorway
   } = props.selectedShoe;
 
+  const { deleteShoes } = props;
+
   return (
     <div className='variant-shoes-info'>
       <div className='variant-shoes-image'>
@@ -42,6 +44,12 @@ const ShoeInformation = props => {
           Colorway: <span>{colorway}</span>
         </p>
         <button className='btn btn-primary btn-sm'>Edit Shoes</button>
+        <button
+          className='btn btn-danger btn-sm'
+          onClick={() => deleteShoes(_id)}
+        >
+          Delete Shoes
+        </button>
       </div>
     </div>
   );

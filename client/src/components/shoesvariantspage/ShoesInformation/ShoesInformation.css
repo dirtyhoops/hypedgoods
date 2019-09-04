@@ -16,6 +16,10 @@
   padding-top: 2em;
 }
 
+.variant-shoes-text button {
+  margin-right: 10px;
+}
+
 .variant-shoes-image img {
   width: 70%;
 }

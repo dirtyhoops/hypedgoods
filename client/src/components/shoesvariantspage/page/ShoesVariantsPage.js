@@ -11,7 +11,8 @@ import ShoesVariantsForm from '../ShoesVariantsForm/ShoesVariantsForm';
 import {
   getShoesVariants,
   getShoe,
-  addShoesVariants
+  addShoesVariants,
+  deleteShoes
 } from '../../../actions/shoe';
 
 import './ShoesVariantsPage.css';
@@ -20,7 +21,13 @@ const ShoesVariantsPage = ({
   getShoesVariants,
   getShoe,
   addShoesVariants,
-  shoe: { selectedShoeVariants, selectedShoe, isAddingVariantSuccess },
+  deleteShoes,
+  shoe: {
+    selectedShoeVariants,
+    selectedShoe,
+    isAddingVariantSuccess,
+    deletingShoes
+  },
   match: {
     params: { shoes_id }
   }
@@ -35,10 +42,18 @@ const ShoesVariantsPage = ({
     return <Redirect to={`/products/shoes/${shoes_id}/variants`} />;
   }
 
+  // Re-routes after a successful deletion of a shoe
+  if (deletingShoes) {
+    return <Redirect to={'/products/shoes'} />;
+  }
+
   return (
     <Fragment>
       {selectedShoe ? (
-        <ShoesInformation selectedShoe={selectedShoe} />
+        <ShoesInformation
+          selectedShoe={selectedShoe}
+          deleteShoes={deleteShoes}
+        />
       ) : (
         <Spinner />
       )}
@@ -57,7 +72,8 @@ ShoesVariantsPage.propTypes = {
   shoes: PropTypes.object.isRequired,
   getShoesVariants: PropTypes.func.isRequired,
   getShoe: PropTypes.func.isRequired,
-  addShoesVariants: PropTypes.func.isRequired
+  addShoesVariants: PropTypes.func.isRequired,
+  deleteShoes: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -66,5 +82,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getShoesVariants, getShoe, addShoesVariants }
+  { getShoesVariants, getShoe, addShoesVariants, deleteShoes }
 )(ShoesVariantsPage);

@@ -8,7 +8,8 @@ import {
   GET_SHOES_VARIANTS,
   ADD_SHOES_VARIANTS_SUCCESS,
   EDIT_SHOES_VARIANTS,
-  DONE_LOADING_SHOES
+  DONE_LOADING_SHOES,
+  DONE_DELETING_SHOES
 } from '../actions/types';
 
 const initialState = {
@@ -21,7 +22,8 @@ const initialState = {
   loadingSelectedShoe: true,
   isAddingShoesSuccessful: false,
   selectedShoeVariants: null,
-  isAddingVariantSuccess: false
+  isAddingVariantSuccess: false,
+  deletingShoes: false
 };
 
 export default function(state = initialState, action) {
@@ -33,7 +35,8 @@ export default function(state = initialState, action) {
         ...state,
         shoes: payload,
         loadingShoes: false,
-        isAddingShoesSuccessful: false
+        isAddingShoesSuccessful: false,
+        deletingShoes: false
       };
     case DONE_LOADING_SHOES:
       return {
@@ -81,6 +84,11 @@ export default function(state = initialState, action) {
         ...state,
         error: payload,
         loading: false
+      };
+    case DONE_DELETING_SHOES:
+      return {
+        ...state,
+        deletingShoes: payload
       };
     default:
       return state;

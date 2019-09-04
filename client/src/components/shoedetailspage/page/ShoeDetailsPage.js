@@ -1,11 +1,13 @@
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import {
   getShoe,
   getShoes,
   clearSelectedShoe,
-  getShoesVariants
+  getShoesVariants,
+  deleteShoes
 } from '../../../actions/shoe';
 
 import { updateCartItemCount } from '../../../actions/cartAndFilter';
@@ -26,10 +28,11 @@ const ShoeDetailsPage = ({
   clearSelectedShoe,
   getShoesVariants,
   updateCartItemCount,
+  deleteShoes,
   match: {
     params: { id }
   },
-  shoe: { selectedShoe, shoes, selectedShoeVariants },
+  shoe: { selectedShoe, shoes, selectedShoeVariants, deletingShoes },
   auth: { isAdmin }
 }) => {
   // gets the selected shoes and loads the data to this page
@@ -44,6 +47,11 @@ const ShoeDetailsPage = ({
     getShoesVariants(id);
   };
 
+  // Re-routes after a successful deletion of a shoe
+  if (deletingShoes) {
+    return <Redirect to={'/products/shoes'} />;
+  }
+
   return selectedShoe === null ? (
     <Spinner />
   ) : (
@@ -54,6 +62,7 @@ const ShoeDetailsPage = ({
         selectedShoeVariants={selectedShoeVariants}
         isAdmin={isAdmin}
         updateCartItemCount={updateCartItemCount}
+        deleteShoes={deleteShoes}
       />
       {/* <RecommendedShoes recommendedShoes={shoes} click={selectShoe} /> */}
       {/* <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} /> */}
@@ -75,6 +84,7 @@ ShoeDetailsPage.propTypes = {
   getShoesVariants: PropTypes.func.isRequired,
   updateCartItemCount: PropTypes.func.isRequired,
   clearSelectedShoe: PropTypes.func,
+  deleteShoes: PropTypes.func,
   shoe: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -86,6 +96,7 @@ export default connect(
     getShoes,
     clearSelectedShoe,
     getShoesVariants,
-    updateCartItemCount
+    updateCartItemCount,
+    deleteShoes
   }
 )(ShoeDetailsPage);
