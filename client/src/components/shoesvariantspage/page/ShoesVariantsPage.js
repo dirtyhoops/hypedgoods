@@ -12,7 +12,8 @@ import {
   getShoesVariants,
   getShoe,
   addShoesVariants,
-  deleteShoes
+  deleteShoes,
+  deleteVariant
 } from '../../../actions/shoe';
 
 import './ShoesVariantsPage.css';
@@ -22,6 +23,7 @@ const ShoesVariantsPage = ({
   getShoe,
   addShoesVariants,
   deleteShoes,
+  deleteVariant,
   shoe: {
     selectedShoeVariants,
     selectedShoe,
@@ -58,7 +60,11 @@ const ShoesVariantsPage = ({
         <Spinner />
       )}
       {selectedShoeVariants ? (
-        <ShoesVariantTable selectedShoeVariants={selectedShoeVariants} />
+        <ShoesVariantTable
+          selectedShoeVariants={selectedShoeVariants}
+          selectedShoe={selectedShoe}
+          deleteVariant={deleteVariant}
+        />
       ) : null}
       <ShoesVariantsForm
         addShoesVariants={addShoesVariants}
@@ -73,7 +79,8 @@ ShoesVariantsPage.propTypes = {
   getShoesVariants: PropTypes.func.isRequired,
   getShoe: PropTypes.func.isRequired,
   addShoesVariants: PropTypes.func.isRequired,
-  deleteShoes: PropTypes.func.isRequired
+  deleteShoes: PropTypes.func.isRequired,
+  deleteVariant: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -82,5 +89,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getShoesVariants, getShoe, addShoesVariants, deleteShoes }
+  { getShoesVariants, getShoe, addShoesVariants, deleteShoes, deleteVariant }
 )(ShoesVariantsPage);

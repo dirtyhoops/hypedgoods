@@ -132,7 +132,7 @@ router.post(
         await newShoes.save();
         res.json(newShoes);
       } else {
-        return res.send('You cant delete an item because you are not an ADMIN');
+        return res.send('You cant add an item because you are not an ADMIN');
       }
     } catch (err) {
       console.error(err.message);
@@ -159,7 +159,7 @@ router.delete('/:shoes_id', auth, async (req, res) => {
 
       res.json({ msg: 'Shoes and its Variants are deleted' });
     } else {
-      return res.send('You cant add an item because you are not an ADMIN');
+      return res.send('You cant delete an item because you are not an ADMIN');
     }
   } catch (err) {
     console.error(err.message);
@@ -312,31 +312,61 @@ router.get('/variants/:variant_id', async (req, res) => {
   }
 });
 
-// // @route    DELETE api/shoes/variants/:variant_id
-// // @desc     Delete a variant
-// // @access   Private
-// router.delete('/:shoes_id', auth, async (req, res) => {
-//   // @TODO: add an admin security check
-//   try {
-//     let isUserAdmin = req.user.isAdmin;
+// @route    DELETE api/shoes/variants/:variant_id
+// @desc     Delete a variant
+// @access   Private
+router.delete('/variants/:variant_id/:shoes_id', auth, async (req, res) => {
+  // @TODO: add an admin security check
+  try {
+    let isUserAdmin = req.user.isAdmin;
 
-//     // Checks if the user is an admin with admin priviledge
-//     if (isUserAdmin) {
-//       // Remove variants of the shoes
-//       await Variants.deleteMany({ shoes_id: req.params.shoes_id });
+    // Checks if the user is an admin with admin priviledge
+    if (isUserAdmin) {
+      let shoes = await Shoes.findById(req.params.shoes_id);
+      let selectedVariant = await Variants.findById(req.params.variant_id);
 
-//       // Remove the shoes
-//       await Shoes.findByIdAndRemove({ _id: req.params.shoes_id });
+      // let lowestPrice = shoes.lowest_price;
 
-//       res.json({ msg: 'Shoes and its Variants are deleted' });
-//     } else {
-//       return res.send('You cant add an item because you are not an ADMIN');
-//     }
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send('Server Error');
-//   }
-// });
+      // if (shoes.lowest_price < lowestPrice && shoes.lowest_price != 0) {
+      //   lowestPrice = shoes.lowest_price;
+      // }
+
+      // await Shoes.updateOne(
+      //   { _id: req.params.shoes_id },
+      //   {
+      //     $set: {
+      //       total_quantity: parseInt(shoes.total_quantity) + parseInt(quantity),
+      //       lowest_price: lowestPrice
+      //     }
+      //   }
+      // );
+
+      // Updates the total count of the shoes
+      await Shoes.updateOne(
+        { _id: req.params.shoes_id },
+        {
+          $set: {
+            total_quantity:
+              parseInt(shoes.total_quantity) -
+              parseInt(selectedVariant.quantity)
+          }
+        }
+      );
+
+      // Remove the shoes
+      await Variants.findByIdAndRemove({ _id: req.params.variant_id });
+
+      res.json({ msg: 'Shoes variant is successfully deleted' });
+    } else {
+      return res.send(
+        'You cant remove a shoe variant because you are not an ADMIN'
+      );
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
 

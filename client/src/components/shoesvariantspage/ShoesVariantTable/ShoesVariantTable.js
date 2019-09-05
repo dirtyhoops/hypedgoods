@@ -3,7 +3,7 @@ import React from 'react';
 import './ShoesVariantTable.css';
 
 const ShoesVariantTable = props => {
-  const { selectedShoeVariants } = props;
+  const { selectedShoeVariants, deleteVariant, selectedShoe } = props;
   return (
     <div className='table-variants'>
       <table className='table table-sm'>
@@ -23,7 +23,12 @@ const ShoesVariantTable = props => {
               <td>{variant.quantity}</td>
               <td>
                 <button className='btn btn-primary btn-sm'>Edit</button>
-                <button className='btn btn-danger btn-sm'>Delete</button>
+                <button
+                  className='btn btn-danger btn-sm'
+                  onClick={() => deleteVariant(variant._id, selectedShoe._id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

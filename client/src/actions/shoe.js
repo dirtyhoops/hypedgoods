@@ -107,6 +107,10 @@ export const deleteShoes = shoes_id => async dispatch => {
       payload: true
     });
 
+    dispatch(
+      setAlert('Shoes and its variants are successfully deleted', 'success')
+    );
+
     // dispatch(setAlert(msg, 'sucess')));
   } catch (err) {
     dispatch({
@@ -115,6 +119,22 @@ export const deleteShoes = shoes_id => async dispatch => {
     });
   }
 };
+
+export const deleteVariant = (variant_id, shoes_id) => async dispatch => {
+  try {
+    const res = await axios.delete(
+      `/api/shoes/variants${variant_id}/${shoes_id}`
+    );
+    dispatch(setAlert('Shoes variant is successfully deleted', 'success'));
+  } catch (err) {
+    dispatch({
+      type: SHOE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// 'variants/:variant_id/:shoes_id'
 
 // Add shoe variant (size)
 export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
@@ -159,6 +179,7 @@ export const addProductShoes = ({ formData }) => async dispatch => {
       type: ADD_PRODUCT_SHOES_SUCCESS,
       payload: res.data
     });
+    dispatch(setAlert('Shoes is successfully added', 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 
