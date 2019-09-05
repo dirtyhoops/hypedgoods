@@ -4,6 +4,7 @@
   margin: 4em auto;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  min-height: 70vh;
 }
 
 .wrapper-login h1,
@@ -49,9 +50,14 @@
 /*************** ACCOUNT PAGE *********************/
 .wrapper-account {
   width: 80%;
+  min-height: 70vh;
   margin: 4em auto;
   font-family: 'Raleway', sans-serif;
   text-align: center;
+}
+
+.adminbutton {
+  margin-bottom: 15px;
 }
 
 .account-details {
@@ -99,6 +105,7 @@
   .wrapper-login {
     margin: 1.8em auto;
     width: 100%;
+    min-height: 35vh;
   }
 
   .wrapper-login h1,
@@ -138,6 +145,7 @@
   /*************** ACCOUNT PAGE *********************/
   .wrapper-account {
     width: 90%;
+    min-height: 35vh;
     margin: 1.8em auto;
   }
 

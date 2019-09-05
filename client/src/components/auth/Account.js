@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 import Spinner from '../layout/Spinner/Spinner';
 
+import './Login.css';
+
 // @Todo:
 // 1. make the admin button looks better
 // 2. add option to add shoes and shirts (1 button each for shoes and shirt)
@@ -14,7 +16,11 @@ const Account = ({ auth: { loading, user, isAdmin }, logout, admin_check }) => {
     <div className='wrapper-account'>
       <div className='account-header'>
         <h1>my account</h1>
-        {isAdmin && <a href='/products/add/shoes'>Admin ADD Shoes</a>}
+        {isAdmin && (
+          <div className='adminbutton'>
+            <a href='/products/add/shoes'>Admin ADD Shoes</a>
+          </div>
+        )}
       </div>
       {user ? (
         <div className='account-details'>
