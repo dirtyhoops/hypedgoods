@@ -324,36 +324,38 @@ router.delete('/variants/:variant_id/:shoes_id', auth, async (req, res) => {
       let shoes = await Shoes.findById(req.params.shoes_id);
       let selectedVariant = await Variants.findById(req.params.variant_id);
 
-      // let lowestPrice = shoes.lowest_price;
+      // Remove the shoes
+      await Variants.findByIdAndRemove({ _id: req.params.variant_id });
 
-      // if (shoes.lowest_price < lowestPrice && shoes.lowest_price != 0) {
-      //   lowestPrice = shoes.lowest_price;
-      // }
+      let allVariants = await Variants.find({
+        shoes_id: req.params.shoes_id
+      });
 
-      // await Shoes.updateOne(
-      //   { _id: req.params.shoes_id },
-      //   {
-      //     $set: {
-      //       total_quantity: parseInt(shoes.total_quantity) + parseInt(quantity),
-      //       lowest_price: lowestPrice
-      //     }
-      //   }
-      // );
+      // Just initialized it with 100,000 so it wont be the lowestprice
+      let lowestPrice = 100000;
 
-      // Updates the total count of the shoes
+      if (selectedVariant.price === shoes.lowest_price) {
+        allVariants.map(variant => {
+          if (variant.price < lowestPrice) {
+            lowestPrice = variant.price;
+          }
+        });
+      } else {
+        lowestPrice = selectedVariant.price;
+      }
+
+      // Updates the total count of the shoes and the lowest quantity
       await Shoes.updateOne(
         { _id: req.params.shoes_id },
         {
           $set: {
             total_quantity:
               parseInt(shoes.total_quantity) -
-              parseInt(selectedVariant.quantity)
+              parseInt(selectedVariant.quantity),
+            lowest_price: lowestPrice
           }
         }
       );
-
-      // Remove the shoes
-      await Variants.findByIdAndRemove({ _id: req.params.variant_id });
 
       res.json({ msg: 'Shoes variant is successfully deleted' });
     } else {
