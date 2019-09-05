@@ -312,11 +312,10 @@ router.get('/variants/:variant_id', async (req, res) => {
   }
 });
 
-// @route    DELETE api/shoes/variants/:variant_id
-// @desc     Delete a variant
+// @route    DELETE api/shoes/variants/:variant_id/:shoes_id
+// @desc     Delete a variant of a shoe
 // @access   Private
 router.delete('/variants/:variant_id/:shoes_id', auth, async (req, res) => {
-  // @TODO: add an admin security check
   try {
     let isUserAdmin = req.user.isAdmin;
 

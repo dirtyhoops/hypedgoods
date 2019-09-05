@@ -28,7 +28,8 @@ const ShoesVariantsPage = ({
     selectedShoeVariants,
     selectedShoe,
     isAddingVariantSuccess,
-    deletingShoes
+    deletingShoes,
+    deletingVariant
   },
   match: {
     params: { shoes_id }
@@ -47,6 +48,11 @@ const ShoesVariantsPage = ({
   // Re-routes after a successful deletion of a shoe
   if (deletingShoes) {
     return <Redirect to={'/products/shoes'} />;
+  }
+
+  if (deletingVariant) {
+    getShoesVariants(shoes_id);
+    return <Redirect to={`/products/shoes/${shoes_id}/variants`} />;
   }
 
   return (

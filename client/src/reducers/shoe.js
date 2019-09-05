@@ -9,7 +9,8 @@ import {
   ADD_SHOES_VARIANTS_SUCCESS,
   EDIT_SHOES_VARIANTS,
   DONE_LOADING_SHOES,
-  DONE_DELETING_SHOES
+  DONE_DELETING_SHOES,
+  DONE_DELETING_VARIANT
 } from '../actions/types';
 
 const initialState = {
@@ -23,7 +24,8 @@ const initialState = {
   isAddingShoesSuccessful: false,
   selectedShoeVariants: null,
   isAddingVariantSuccess: false,
-  deletingShoes: false
+  deletingShoes: false,
+  deletingVariant: false
 };
 
 export default function(state = initialState, action) {
@@ -65,7 +67,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedShoeVariants: payload,
-        isAddingVariantSuccess: false
+        isAddingVariantSuccess: false,
+        deletingVariant: false
       };
     case ADD_PRODUCT_SHOES_SUCCESS:
       return {
@@ -90,6 +93,12 @@ export default function(state = initialState, action) {
         ...state,
         deletingShoes: payload
       };
+    case DONE_DELETING_VARIANT:
+      return {
+        ...state,
+        deletingVariant: payload
+      };
+
     default:
       return state;
   }

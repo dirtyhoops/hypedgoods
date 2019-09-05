@@ -9,7 +9,8 @@ import {
   ADD_SHOES_VARIANTS_SUCCESS,
   EDIT_SHOES_VARIANTS,
   DONE_LOADING_SHOES,
-  DONE_DELETING_SHOES
+  DONE_DELETING_SHOES,
+  DONE_DELETING_VARIANT
 } from './types';
 
 import axios from 'axios';
@@ -110,8 +111,6 @@ export const deleteShoes = shoes_id => async dispatch => {
     dispatch(
       setAlert('Shoes and its variants are successfully deleted', 'success')
     );
-
-    // dispatch(setAlert(msg, 'sucess')));
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,
@@ -123,8 +122,14 @@ export const deleteShoes = shoes_id => async dispatch => {
 export const deleteVariant = (variant_id, shoes_id) => async dispatch => {
   try {
     const res = await axios.delete(
-      `/api/shoes/variants${variant_id}/${shoes_id}`
+      `/api/shoes/variants/${variant_id}/${shoes_id}`
     );
+
+    dispatch({
+      type: DONE_DELETING_VARIANT,
+      payload: true
+    });
+
     dispatch(setAlert('Shoes variant is successfully deleted', 'success'));
   } catch (err) {
     dispatch({
@@ -133,8 +138,6 @@ export const deleteVariant = (variant_id, shoes_id) => async dispatch => {
     });
   }
 };
-
-// 'variants/:variant_id/:shoes_id'
 
 // Add shoe variant (size)
 export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
