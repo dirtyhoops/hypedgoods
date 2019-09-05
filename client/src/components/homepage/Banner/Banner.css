@@ -1,6 +1,6 @@
 .wrapper-banner {
   /* height: 200px; */
-  height: 500px;
+  /* height: 500px; */
   /* background: #f0f5f0; */
   padding: 5px;
   font-family: 'Montserrat', sans-serif;
@@ -31,11 +31,16 @@
 }
 
 .banner-logos-images {
-  height: 300px;
+  height: 280px;
+  /* background: red; */
 }
 
 .bannerlogos-container img {
   width: 70%;
+}
+
+.banner-logo2 img {
+  margin-top: 9%;
 }
 
 /* for mobile phone(iphone x and lower) */
@@ -43,11 +48,36 @@
   .wrapper-banner {
     margin-top: 1em;
   }
+
   .header-banner-info {
     font-size: 1.2em;
   }
 
-  .subheader-banner-info {
-    font-size: 0.7em;
+  .bannerlogos-container p {
+    font-size: 0.8em;
+  }
+
+  .bannerlogos-container {
+    display: block;
+  }
+
+  .banner-logo1,
+  .banner-logo2,
+  .banner-logo3 {
+    width: 100%;
+    margin: 1px;
+    padding: 10px 30px;
+  }
+
+  .banner-logo2 img {
+    margin-top: 0;
+  }
+  .banner-logos-images {
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .bannerlogos-container img {
+    width: 55%;
   }
 }
