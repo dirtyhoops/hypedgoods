@@ -6,9 +6,9 @@ const Footer = () => {
     <div className='wrapper-footer'>
       <div className='footer-container container'>
         <div className='footer-newsletter'>
-          <p className='footer-subheader'>get releases updates</p>
+          <p className='footer-subheader'>get release updates</p>
           <div className='newsletter-form input-group'>
-            <input type='text' placeholder='Your Email Address'></input>
+            <input type='text' placeholder='Email Address'></input>
             <button>subscribe</button>
           </div>
         </div>

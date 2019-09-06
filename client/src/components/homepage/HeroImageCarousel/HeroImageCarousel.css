@@ -10,7 +10,7 @@
 
 .shoe-hero-button {
   position: absolute;
-  top: 60%;
+  top: 75%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -58,7 +58,7 @@
 .dotgroup {
   position: absolute;
   left: 50%;
-  top: 94%;
+  top: 85%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -96,11 +96,20 @@
     transform: translate(0%, -50%);
   }
 
+  .shoe-hero-button {
+    top: 72%;
+    left: 50%;
+  }
+
   .shoe-hero-button button {
     font-size: 0.9em;
     height: 40px;
     vertical-align: middle;
     text-align: center;
+  }
+
+  .dotgroup {
+    top: 93%;
   }
 
   .dotgroup button {

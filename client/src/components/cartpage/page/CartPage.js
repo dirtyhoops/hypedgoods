@@ -256,3 +256,31 @@ const CartPage = props => {
 };
 
 export default withRouter(CartPage);
+
+// // Addition
+// if(window.localStorage){
+//   localStorage.setItem('myapp-' + new Date().getTime(), 'my value');
+// }
+
+// // Removal of all expired items
+// if(window.localStorage){
+
+//   // two mins - (1000 * 60 * 20) would be 20 mins
+//   var expiryTime = new Date().getTime() - (1000 * 60 * 2);
+
+//   var deleteRows = [];
+//   for(var i=0; i < localStorage.length; i++){
+//       var key = localStorage.key(i);
+//       var partsArray = key.split('-');
+//       // The last value will be a timestamp
+//       var lastRow = partsArray[partsArray.length - 1];
+
+//       if(lastRow && parseInt(lastRow) < expiryTime){
+//           deleteRows.push(key);
+//       }
+//   }
+//   // delete old data
+//   for(var j=0; j < deleteRows.length; j++){
+//       localStorage.removeItem(deleteRows[j]);
+//   }
+// }

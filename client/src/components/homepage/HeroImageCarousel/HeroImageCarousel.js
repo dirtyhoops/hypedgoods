@@ -26,42 +26,41 @@ const HeroImageCarousel = () => {
   const heroImages1024 = [
     {
       brand: 'nike',
-      category: 'airmax',
-      link:
-        'https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+      category: 'off-white',
+      link: 'https://cdn.thesolesupplier.co.uk/2019/04/THE-TEN.jpg'
     },
     {
-      brand: 'flyknits',
-      category: 'nike',
-      link:
-        'https://images.pexels.com/photos/786003/pexels-photo-786003.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-      brand: 'jordan',
+      brand: 'nike',
       category: 'jordan',
       link:
-        'https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+        '  https://cdn.shopify.com/s/files/1/1527/4931/files/TR_AJ5_site_header_1440x640.jpg?v=1558186252'
+    },
+    {
+      brand: 'adidas',
+      category: 'yeezy',
+      link:
+        'https://mk0justfreshkic60v3i.kinstacdn.com/wp-content/uploads/2019/04/https___hypebeast.com_image_2019_03_adidas-yeezy-boost-350-v2-clay-true-form-hyperspace-regional-release-dates-1.jpg'
     }
   ];
 
   const heroImages480 = [
     {
       brand: 'adidas',
-      category: 'adidas',
+      category: 'yeezy',
       link:
-        'https://images.pexels.com/photos/1280064/pexels-photo-1280064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        'http://2app.kicksonfire.com/kofapp/upload/events_images/ipad_1563ab6feef93228f2f7014794a0e719584f3ab5d5e2a.jpg'
     },
     {
       brand: 'nike',
-      category: 'nike',
+      category: 'off-white',
       link:
-        'https://images.pexels.com/photos/2692460/pexels-photo-2692460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        'https://s3.amazonaws.com/stockx-sneaker-analysis/wp-content/uploads/2018/07/stockxoffwhitepresto.jpg'
     },
     {
       brand: 'jordan',
       category: 'jordan',
       link:
-        'https://images.pexels.com/photos/2529157/pexels-photo-2529157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+        'http://d2lllwtzebgpl1.cloudfront.net/0065992216301e2eb724600ca05b660f_listingImg_FfkH88759U.jpg'
     }
   ];
 
@@ -105,7 +104,7 @@ const HeroImageCarousel = () => {
               <div className='shoe-hero-button '>
                 <Link to={`/products/shoes/brand/${heroImage.brand}`}>
                   <button className='btn btn-dark btn-lg'>
-                    shop {heroImage.brand}
+                    shop {heroImage.category}
                   </button>
                 </Link>
               </div>
