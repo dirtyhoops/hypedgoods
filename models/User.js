@@ -24,20 +24,22 @@ const UserSchema = new mongoose.Schema({
   },
   address: {
     street: {
-      type: String,
-      default: '123 awesome st.'
+      type: String
+    },
+    apartmentunit: {
+      type: String
     },
     city: {
-      type: String,
-      default: 'san jose'
+      type: String
     },
     state: {
-      type: String,
-      default: 'CA'
+      type: String
     },
     zipcode: {
-      type: String,
-      default: '90039'
+      type: Number
+    },
+    country: {
+      type: String
     }
   }
 });

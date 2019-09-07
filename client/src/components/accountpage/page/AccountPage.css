@@ -1,0 +1,96 @@
+.wrapper-account {
+  width: 80%;
+  min-height: 70vh;
+  margin: 4em auto;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+.account-header h1 {
+  font-size: 30px;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.account-header-buttons {
+  margin-bottom: 2em;
+}
+
+.account-header-buttons button {
+  margin-right: 5px;
+}
+
+.account-details {
+  text-align: left;
+  display: inline-block;
+  width: 65%;
+}
+
+.recent-orders {
+  vertical-align: top;
+  text-align: left;
+  display: inline-block;
+  width: 35%;
+}
+
+.account-details h4,
+.recent-orders h4 {
+  font-size: 21px;
+  margin-bottom: 1em;
+}
+
+.account-details p,
+.recent-orders p {
+  font-size: 15px;
+  line-height: 13px;
+}
+
+.add-address-button,
+.cancel-address-button {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0em 0em 0em 6em;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .wrapper-account h1 {
+    font-size: 25px;
+    margin-bottom: 0.7em;
+  }
+
+  .wrapper-account {
+    width: 90%;
+    min-height: 35vh;
+    margin: 1.8em auto;
+  }
+
+  .account-details {
+    width: 100%;
+  }
+
+  .recent-orders {
+    width: 100%;
+  }
+
+  .account-details h4,
+  .recent-orders h4 {
+    font-size: 17px;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+  }
+
+  .account-details p,
+  .recent-orders p {
+    font-size: 14px;
+    line-height: 10px;
+  }
+
+  .account-details button {
+    margin: 0em 0em 3em 0em;
+  }
+}

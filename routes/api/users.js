@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../../middleware/auth');
 
 // Importing the User schema
 const User = require('../../models/User');
@@ -84,4 +85,77 @@ router.post(
   }
 );
 
+// @route     PUT api/users/address
+// @desc      Add address
+// @access    Private
+router.put(
+  '/address',
+  [
+    auth,
+    [
+      check('street', 'Street is required')
+        .not()
+        .isEmpty(),
+      check('country', 'Country is required')
+        .not()
+        .isEmpty(),
+      check('city', 'City is required')
+        .not()
+        .isEmpty(),
+      check('state', 'State/Province is required')
+        .not()
+        .isEmpty(),
+      check('zipcode', 'Zip/Postal Code is required')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { street, apartmentunit, country, city, state, zipcode } = req.body;
+
+    const newAddress = {
+      street,
+      apartmentunit,
+      country,
+      city,
+      state,
+      zipcode
+    };
+
+    try {
+      // look for the user with the id and then update the address
+
+      await User.updateOne(
+        { _id: req.user.id },
+        {
+          $set: {
+            address: newAddress
+          }
+        }
+      );
+      const userr = await User.findOne({ _id: req.user.id });
+
+      res.json(userr);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
 module.exports = router;
+
+// updateOne(
+//   { _id: req.params.shoes_id },
+//   {
+//     $set: {
+//       total_quantity:
+//         parseInt(shoes.total_quantity) + parseInt(quantity),
+//       lowest_price: lowestPrice
+//     }
+//   }

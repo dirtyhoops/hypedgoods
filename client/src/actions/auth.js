@@ -89,6 +89,8 @@ export const login = (email, password) => async dispatch => {
       payload: res.data
     });
 
+    dispatch(setAlert('Welcome! Login Successful!', 'success'));
+
     dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
@@ -107,3 +109,5 @@ export const login = (email, password) => async dispatch => {
 export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
 };
+
+//Add Address

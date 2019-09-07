@@ -47,12 +47,12 @@ const SortingAndViewOptions = props => {
           onChange={e => productSort(e.target.value)}
         >
           <option selected='selected' value='newarrivals'>
-            new arrivals
+            New Arrivals
           </option>
-          <option value='highestprice'>price high</option>
-          <option value='lowestprice'>price low</option>
-          <option value='releasenew'>release new</option>
-          <option value='releaseold'>release old</option>
+          <option value='highestprice'>Price High</option>
+          <option value='lowestprice'>Price Low</option>
+          <option value='releasenew'>Release New</option>
+          <option value='releaseold'>Release Old</option>
         </select>
       </div>
     </div>

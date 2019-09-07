@@ -11,11 +11,6 @@ const Banner = () => {
     <div className='wrapper-banner container'>
       <div className='banner-info'>
         <p className='header-banner-info'>why order from hypedgoods?</p>
-        {/* <p className='subheader-banner-info'>
-          we have unbeatable prices, and all our shoes are verified. No waiting
-          on verification, no middle men. you get the shoes the day after you
-          order it.
-        </p> */}
         <div className='bannerlogos-container'>
           <div className='banner-logo1'>
             <div className='banner-logos-images'>

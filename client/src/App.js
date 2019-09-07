@@ -6,7 +6,7 @@ import HomePage from './components/homepage/page/Homepage';
 import ShoeDetailsPage from './components/shoedetailspage/page/ShoeDetailsPage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import Account from './components/auth/Account';
+import AccountPage from './components/accountpage/page/AccountPage';
 import Footer from './components/layout/Footer/Footer';
 import Alert from './components/layout/Alert/Alert';
 import SideDrawer from './components/layout/NavBar/SideDrawer';
@@ -75,7 +75,7 @@ const App = () => {
               />
               <Route exact path='/account/login' component={Login} />
               <Route exact path='/account/register' component={Register} />
-              <PrivateRoute exact path='/account' component={Account} />
+              <PrivateRoute exact path='/account' component={AccountPage} />
               <AdminRoute
                 exact
                 path='/products/add/shoes'
