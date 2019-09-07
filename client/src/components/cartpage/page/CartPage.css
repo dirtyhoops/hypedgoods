@@ -148,6 +148,7 @@
   .checkout-button-mobile button {
     text-transform: uppercase;
     font-size: 0.8em;
+    margin-top: 1em;
   }
 
   .cart-item-container-mobile {

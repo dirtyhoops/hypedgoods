@@ -12,6 +12,9 @@ const CheckoutPage = () => {
     return subTotal;
   };
 
+  // @TODO:
+  // 1. make the itemsummary a table instead of div
+
   return (
     <div className='wrapper-checkoutpage container'>
       <div className='contactinformation-container'>aaa</div>
@@ -26,20 +29,42 @@ const CheckoutPage = () => {
                   </div>
                   <div className='iteminfo'>
                     <p className='uppercase bolder'>{item.shoe_brand}</p>
-                    <p className='capitalize'>{item.shoe_name}</p>
-                    <p>US Size: {item.shoe_size}</p>
+                    <p className='capitalize p-margintop2'>{item.shoe_name}</p>
+                    <p className='capitalize p-margintop mobile-hide'>
+                      colorway: {item.shoe_colorway}
+                    </p>
+                    <p className='p-margintop'>US Size: {item.shoe_size}</p>
                   </div>
                   <div className='itemtotal'>
-                    <p className='uppercase'>quantity</p>
-                    <p>{item.shoe_order_quantity}</p>
+                    <p className='uppercase'>qty</p>
+                    <p className='bold p-margintop3'>
+                      {item.shoe_order_quantity}
+                    </p>
                     <p className='uppercase'>total</p>
-                    <p>${item.shoe_order_quantity * item.shoe_price}</p>
+                    <p className='bold p-margintop3'>
+                      ${item.shoe_order_quantity * item.shoe_price}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
             <div className='itemsummary-total'>
-              <p>subtotal: ${getSubtotal(getCartItems)}</p>
+              <table>
+                <tr>
+                  <td className='itemsummarytable-left-col'>subtotal</td>
+                  <td>${getSubtotal(getCartItems)}.00</td>
+                </tr>
+                <tr>
+                  <td className='itemsummarytable-left-col'>shipping</td>
+                  <td>$20.00</td>
+                </tr>
+                <tr className='table-top-border'>
+                  <td className='itemsummarytable-left-col'>total</td>
+                  <td className='summarytotal-text-bold'>
+                    ${getSubtotal(getCartItems)}
+                  </td>
+                </tr>
+              </table>
             </div>
           </>
         ) : (

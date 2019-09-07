@@ -30,7 +30,6 @@ const CartPage = props => {
   const clearCart = () => {
     localStorage.removeItem('itemsArray');
     console.log('clear cart button clicked');
-
     window.location.reload();
   };
 
@@ -51,7 +50,7 @@ const CartPage = props => {
 
   return (
     <div className='wrapper-cartpage'>
-      {getCartItems ? (
+      {getCartItems.length > 0 ? (
         <>
           <div className='cart-landscape'>
             <div className='header-cartpage'>
@@ -223,7 +222,7 @@ const CartPage = props => {
                       </p>
                     </div>
                     <div className='cart-item-mobile-info-right'>
-                      <p className='cart-item-color-gray'>Quantity</p>
+                      <p className='cart-item-color-gray'>QTY</p>
                       <p className='cart-item-bold'>
                         {item.shoe_order_quantity}
                       </p>
@@ -236,12 +235,12 @@ const CartPage = props => {
             </div>
             <div className='checkout-button-mobile'>
               <Link to={'/checkout'}>
-                <button className='btn btn-dark btn-sm btn-block'>
+                <button className='btn btn-dark btn-lg btn-block'>
                   continue to checkout
                 </button>
               </Link>
               <button
-                className='btn btn-danger btn-sm btn-block'
+                className='btn btn-danger btn-lg btn-block'
                 onClick={() => clearCart()}
               >
                 Clear Cart
