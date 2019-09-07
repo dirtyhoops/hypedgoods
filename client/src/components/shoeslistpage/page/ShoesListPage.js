@@ -34,7 +34,7 @@ const ShoesListPage = ({
   };
 
   // TRY TO CHANGE THIS. MAYBE DONT LOAD IT ON EVERY REFRESH
-  if (shoes.length > 0 && !loadingShoes && filteredItems.length < 1) {
+  if (shoes.length > 0 && !loadingShoes) {
     filterProductsByBrands(shoes, '');
     doneLoading();
     console.log('yeeee');

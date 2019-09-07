@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; //MAYBE TAKE THIS AWAY IF THE ADDRESS ADD FORM WORK WITH PROPS
 import PropTypes from 'prop-types';
 
 import './AddAddressForm.css';
 
-const AddAddressForm = () => {
+const AddAddressForm = props => {
+  const { user, addAddress, isAddingAddressSuccess } = props;
   const [formData, setFormData] = useState({
     street: '',
     apartmentunit: '',
@@ -15,6 +16,7 @@ const AddAddressForm = () => {
     country: 'United States'
   });
 
+  const [isAddSuccess, setIsAddSuccess] = useState(false);
   const { street, apartmentunit, city, state, zipcode, country } = formData;
 
   // this changes the value of the target every keystroke
@@ -24,13 +26,14 @@ const AddAddressForm = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    // @Todo: Call the add address action here.
-
-    // console.log() for now to see if the value is right
-    console.log(formData);
+    addAddress({ formData });
+    setIsAddSuccess(true);
   };
 
-  // @Todo: create a variable that will trigger the redirect if the adding of address is successful, isAddingAddressSuccessful
+  // // This triggers after a user successfully added or edit the address
+  if (isAddSuccess) {
+    return <Redirect to='/account' />;
+  }
 
   return (
     <div className='wrapper-addressform'>

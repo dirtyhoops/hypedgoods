@@ -8,7 +8,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  MAKE_ADMIN
+  MAKE_ADMIN,
+  ADD_ADDRESS_SUCCESS
 } from './types';
 import setAuthToken from '../utilities/setAuthToken';
 
@@ -58,6 +59,7 @@ export const register = ({
     });
 
     dispatch(loadUser());
+    dispatch(setAlert('Registration is successful', 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -110,4 +112,24 @@ export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
 };
 
-//Add Address
+// Add or Edit Address - Add address if it is null, edit it otherwise.
+export const addAddress = ({ formData }) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.put('/api/users/address', formData, config);
+    dispatch({ type: ADD_ADDRESS_SUCCESS });
+    dispatch(loadUser());
+    dispatch(setAlert('Successfully added your address', 'success'));
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+  }
+};

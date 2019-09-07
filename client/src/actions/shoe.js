@@ -35,8 +35,7 @@ export const getShoes = () => async dispatch => {
 // just to change the 'loading' to true
 export const doneLoading = () => async dispatch => {
   dispatch({
-    type: DONE_LOADING_SHOES,
-    payload: true
+    type: DONE_LOADING_SHOES
   });
 };
 
@@ -104,8 +103,7 @@ export const deleteShoes = shoes_id => async dispatch => {
     });
 
     dispatch({
-      type: DONE_DELETING_SHOES,
-      payload: true
+      type: DONE_DELETING_SHOES
     });
 
     dispatch(
@@ -126,8 +124,7 @@ export const deleteVariant = (variant_id, shoes_id) => async dispatch => {
     );
 
     dispatch({
-      type: DONE_DELETING_VARIANT,
-      payload: true
+      type: DONE_DELETING_VARIANT
     });
 
     dispatch(setAlert('Shoes variant is successfully deleted', 'success'));
@@ -141,13 +138,13 @@ export const deleteVariant = (variant_id, shoes_id) => async dispatch => {
 
 // Add shoe variant (size)
 export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
 
+  try {
     const res = await axios.post(
       `/api/shoes/${shoes_id}/variants`,
       formData,
@@ -169,18 +166,17 @@ export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
 
 // Add product
 export const addProductShoes = ({ formData }) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
 
+  try {
     const res = await axios.post('/api/shoes', formData, config);
 
     dispatch({
-      type: ADD_PRODUCT_SHOES_SUCCESS,
-      payload: res.data
+      type: ADD_PRODUCT_SHOES_SUCCESS
     });
     dispatch(setAlert('Shoes is successfully added', 'success'));
   } catch (err) {

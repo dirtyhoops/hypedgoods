@@ -22,6 +22,8 @@ const ShoesForm = ({
     images: ''
   });
 
+  const [isAddingSuccess, setIsAddingSuccess] = useState(false);
+
   const {
     brand,
     name,
@@ -40,6 +42,7 @@ const ShoesForm = ({
   const onSubmit = e => {
     e.preventDefault();
     addProductShoes({ formData });
+    // setIsAddingSuccess(true);
   };
 
   if (isAddingShoesSuccessful) {

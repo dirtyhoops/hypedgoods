@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { logout } from '../../../actions/auth';
+import { logout, addAddress } from '../../../actions/auth';
 import { Link } from 'react-router-dom';
 
 import Spinner from '../../layout/Spinner/Spinner';
@@ -9,13 +9,10 @@ import AddAddressForm from '../../forms/AddAddressForm/AddAddressForm';
 
 import './AccountPage.css';
 
-// @Todo:
-// 1. make the admin button looks better
-// 2. add option to add shoes and shirts (1 button each for shoes and shirt)
 const AccountPage = ({
-  auth: { loading, user, isAdmin },
+  auth: { user, isAdmin, isAddingAddressSuccess },
   logout,
-  admin_check
+  addAddress
 }) => {
   const [toggleAddress, setToggleAddress] = useState(false);
 
@@ -76,7 +73,13 @@ const AccountPage = ({
                 cancel
               </button>
             )}
-            {toggleAddress ? <AddAddressForm /> : null}
+            {toggleAddress ? (
+              <AddAddressForm
+                addAddress={addAddress}
+                user={user}
+                isAddingAddressSuccess={isAddingAddressSuccess}
+              />
+            ) : null}
           </div>
 
           <div className='recent-orders'>
@@ -93,6 +96,7 @@ const AccountPage = ({
 
 AccountPage.propTypes = {
   logout: PropTypes.func.isRequired,
+  addAddress: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -102,5 +106,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logout }
+  { logout, addAddress }
 )(AccountPage);

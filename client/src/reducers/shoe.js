@@ -43,7 +43,7 @@ export default function(state = initialState, action) {
     case DONE_LOADING_SHOES:
       return {
         ...state,
-        loadingShoes: payload
+        loadingShoes: true
       };
     case GET_SHOE:
       return {
@@ -73,13 +73,11 @@ export default function(state = initialState, action) {
     case ADD_PRODUCT_SHOES_SUCCESS:
       return {
         ...state,
-        ...payload,
         isAddingShoesSuccessful: true
       };
     case ADD_SHOES_VARIANTS_SUCCESS:
       return {
         ...state,
-        ...payload,
         isAddingVariantSuccess: true
       };
     case SHOE_ERROR:
@@ -91,12 +89,12 @@ export default function(state = initialState, action) {
     case DONE_DELETING_SHOES:
       return {
         ...state,
-        deletingShoes: payload
+        deletingShoes: true
       };
     case DONE_DELETING_VARIANT:
       return {
         ...state,
-        deletingVariant: payload
+        deletingVariant: true
       };
 
     default:

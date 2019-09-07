@@ -6,7 +6,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  MAKE_ADMIN
+  MAKE_ADMIN,
+  ADD_ADDRESS_SUCCESS
 } from '../actions/types';
 
 //add isAdmin later to authenticate if the current user is an admin (maybe just check user.isAdmin once we get the user and put it in the state)
@@ -15,7 +16,8 @@ const initialState = {
   isAuthenticated: false,
   loading: true,
   user: null,
-  isAdmin: false
+  isAdmin: false,
+  isAddingAddressSuccess: false
 };
 
 export default function(state = initialState, action) {
@@ -54,6 +56,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isAdmin: true
+      };
+    case ADD_ADDRESS_SUCCESS:
+      return {
+        ...state,
+        isAddingAddressSuccess: true
       };
     default:
       return state;
