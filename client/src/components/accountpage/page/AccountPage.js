@@ -5,7 +5,8 @@ import { logout, addAddress } from '../../../actions/auth';
 import { Link } from 'react-router-dom';
 
 import Spinner from '../../layout/Spinner/Spinner';
-import AddAddressForm from '../../forms/AddAddressForm/AddAddressForm';
+import AddAddressForm from '../../forms/AddressForm/AddAddressForm';
+import EditAddressForm from '../../forms/AddressForm/EditAddressForm';
 
 import './AccountPage.css';
 
@@ -56,7 +57,82 @@ const AccountPage = ({
                   {user.address.street}, {user.address.city},{' '}
                   {user.address.state}. {user.address.zipcode}
                 </p>
-                <button className='btn btn-primary btn-sm'>edit address</button>
+              </>
+            ) : null}
+            {/* the buttons that shows depends on the condition, if the user have an address, 
+              it shows the 'edit button', otherwise it shows 'add button', if the form is 
+              displayed, it shows 'cancel' button */}
+            {user.address ? (
+              !toggleAddress ? (
+                <button
+                  onClick={() => onClickToggle()}
+                  className='btn btn-primary btn-sm'
+                >
+                  edit address
+                </button>
+              ) : (
+                <button
+                  onClick={() => onClickToggle()}
+                  className='btn btn-secondary btn-sm cancel-address-button'
+                >
+                  cancel
+                </button>
+              )
+            ) : !toggleAddress ? (
+              <button
+                onClick={() => onClickToggle()}
+                className='btn btn-primary btn-sm add-address-button'
+              >
+                add address
+              </button>
+            ) : (
+              <button
+                onClick={() => onClickToggle()}
+                className='btn btn-secondary btn-sm cancel-address-button'
+              >
+                cancel
+              </button>
+            )}
+            {/* display the form if the toggle is true, if user have an address, it
+            shows the edit form, otherwise it shows add form */}
+            {toggleAddress ? (
+              user.address ? (
+                <EditAddressForm
+                  address={user.address}
+                  addAddress={addAddress}
+                  onClickToggle={onClickToggle}
+                />
+              ) : (
+                <AddAddressForm
+                  addAddress={addAddress}
+                  onClickToggle={onClickToggle}
+                />
+              )
+            ) : null}
+          </div>
+
+          {/* {user.address ? (
+              
+              <>
+                <p className='capitalize'>
+                  {user.address.street}, {user.address.city},{' '}
+                  {user.address.state}. {user.address.zipcode}
+                </p>
+                {!toggleAddress ? (
+                  <button
+                    onClick={() => onClickToggle()}
+                    className='btn btn-primary btn-sm'
+                  >
+                    edit address
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => onClickToggle()}
+                    className='btn btn-secondary btn-sm cancel-address-button'
+                  >
+                    cancel
+                  </button>
+                )}
               </>
             ) : !toggleAddress ? (
               <button
@@ -74,13 +150,20 @@ const AccountPage = ({
               </button>
             )}
             {toggleAddress ? (
-              <AddAddressForm
-                addAddress={addAddress}
-                user={user}
-                isAddingAddressSuccess={isAddingAddressSuccess}
-              />
+              user.address ? (
+                <EditAddressForm
+                  address={user.address}
+                  addAddress={addAddress}
+                  isAddingAddressSuccess={isAddingAddressSuccess}
+                />
+              ) : (
+                <AddAddressForm
+                  addAddress={addAddress}
+                  isAddingAddressSuccess={isAddingAddressSuccess}
+                />
+              )
             ) : null}
-          </div>
+          </div> */}
 
           <div className='recent-orders'>
             <h4>RECENT ORDERS</h4>

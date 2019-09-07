@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux'; //MAYBE TAKE THIS AWAY IF THE ADDRESS ADD FORM WORK WITH PROPS
-import PropTypes from 'prop-types';
 
 import './AddAddressForm.css';
 
-const AddAddressForm = props => {
-  const { user, addAddress, isAddingAddressSuccess } = props;
+const EditAddressForm = props => {
+  const { address, addAddress, onClickToggle } = props;
   const [formData, setFormData] = useState({
-    street: '',
-    apartmentunit: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    country: 'United States'
+    street: `${address.street}`,
+    apartmentunit: address.apartmentunit ? `${address.apartmentunit}` : '',
+    city: `${address.city}`,
+    state: `${address.state}`,
+    zipcode: `${address.zipcode}`,
+    country: `${address.country}`
   });
 
   const [isAddSuccess, setIsAddSuccess] = useState(false);
@@ -28,6 +26,7 @@ const AddAddressForm = props => {
     e.preventDefault();
     addAddress({ formData });
     setIsAddSuccess(true);
+    onClickToggle();
   };
 
   // // This triggers after a user successfully added or edit the address
@@ -37,7 +36,7 @@ const AddAddressForm = props => {
 
   return (
     <div className='wrapper-addressform'>
-      <h3>add address</h3>
+      <h3>edit address</h3>
       <form className='addressform' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <label htmlFor='street'>street address *</label>
@@ -167,11 +166,11 @@ const AddAddressForm = props => {
         <input
           type='submit'
           className='btn btn-primary btn-sm'
-          value='Add Address'
+          value='Save Changes'
         />
       </form>
     </div>
   );
 };
 
-export default AddAddressForm;
+export default EditAddressForm;

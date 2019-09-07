@@ -152,8 +152,7 @@ export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
     );
 
     dispatch({
-      type: ADD_SHOES_VARIANTS_SUCCESS,
-      payload: res.data
+      type: ADD_SHOES_VARIANTS_SUCCESS
     });
   } catch (err) {
     const errors = err.response.data.errors;

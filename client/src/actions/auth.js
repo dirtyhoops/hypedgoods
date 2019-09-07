@@ -8,8 +8,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  MAKE_ADMIN,
-  ADD_ADDRESS_SUCCESS
+  MAKE_ADMIN
 } from './types';
 import setAuthToken from '../utilities/setAuthToken';
 
@@ -122,9 +121,9 @@ export const addAddress = ({ formData }) => async dispatch => {
 
   try {
     const res = await axios.put('/api/users/address', formData, config);
-    dispatch({ type: ADD_ADDRESS_SUCCESS });
+
     dispatch(loadUser());
-    dispatch(setAlert('Successfully added your address', 'success'));
+    dispatch(setAlert('Successfully saved your address', 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 
