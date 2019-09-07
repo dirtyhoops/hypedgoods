@@ -21,7 +21,7 @@ import ShoesListPage from './components/shoeslistpage/page/ShoesListPage';
 import ShoesVariantsPage from './components/shoesvariantspage/page/ShoesVariantsPage';
 import CartPage from './components/cartpage/page/CartPage';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
+import CheckoutPage from './components/checkoutpage/page/CheckoutPage';
 import './App.css';
 
 // Redux
@@ -87,6 +87,7 @@ const App = () => {
                 component={ShoesVariantsPage}
               />
               <Route exact path='/cart' component={CartPage} />
+              <Route exact path='/checkout' component={CheckoutPage} />
             </Switch>
           </section>
           <Footer />

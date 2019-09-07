@@ -144,7 +144,9 @@ const CartPage = props => {
                       Continue Shopping
                     </button>
                   </Link>
-                  <button className='btn btn-primary btn-sm'>Checkout</button>
+                  <Link to={'/checkout'}>
+                    <button className='btn btn-primary btn-sm'>Checkout</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -189,9 +191,11 @@ const CartPage = props => {
               </table>
             </div>
             <div className='checkout-button-mobile'>
-              <button className='btn btn-dark btn-block'>
-                continue to checkout
-              </button>
+              <Link to={'/checkout'}>
+                <button className='btn btn-dark btn-block'>
+                  continue to checkout
+                </button>
+              </Link>
             </div>
             <div className='cart-item-container-mobile'>
               {getCartItems.map((item, index) => (
@@ -231,9 +235,11 @@ const CartPage = props => {
               ))}
             </div>
             <div className='checkout-button-mobile'>
-              <button className='btn btn-dark btn-sm btn-block'>
-                continue to checkout
-              </button>
+              <Link to={'/checkout'}>
+                <button className='btn btn-dark btn-sm btn-block'>
+                  continue to checkout
+                </button>
+              </Link>
               <button
                 className='btn btn-danger btn-sm btn-block'
                 onClick={() => clearCart()}
