@@ -42,22 +42,24 @@ const OrderSummary = props => {
           </div>
           <div className='itemsummary-total'>
             <table>
-              <tr>
-                <td className='itemsummarytable-left-col'>subtotal</td>
-                <td className='itemsummarytable-right-col'>
-                  ${orderSubTotal}.00
-                </td>
-              </tr>
-              <tr>
-                <td className='itemsummarytable-left-col'>shipping</td>
-                <td className='itemsummarytable-right-col'>$20.00</td>
-              </tr>
-              <tr className='table-top-border'>
-                <td className='itemsummarytable-left-col'>total</td>
-                <td className='summarytotal-text-bold itemsummarytable-right-col'>
-                  ${orderSubTotal + 20}
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td className='itemsummarytable-left-col'>subtotal</td>
+                  <td className='itemsummarytable-right-col'>
+                    ${orderSubTotal}.00
+                  </td>
+                </tr>
+                <tr>
+                  <td className='itemsummarytable-left-col'>shipping</td>
+                  <td className='itemsummarytable-right-col'>$20.00</td>
+                </tr>
+                <tr className='table-top-border'>
+                  <td className='itemsummarytable-left-col'>total</td>
+                  <td className='summarytotal-text-bold itemsummarytable-right-col'>
+                    ${orderSubTotal + 20}
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </>

@@ -48,7 +48,8 @@ export default function(state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        isAdmin: false
+        isAdmin: false,
+        user: null
       };
     case MAKE_ADMIN:
       return {

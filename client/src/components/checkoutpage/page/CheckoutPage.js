@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import OrderSummary from '../OrderSummary/OrderSummary';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
 
 import './CheckoutPage.css';
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ auth }) => {
   useEffect(() => {
     getSubtotal();
   }, []);
@@ -28,10 +30,18 @@ const CheckoutPage = () => {
 
   return (
     <div className='wrapper-checkoutpage container'>
-      <CustomerInfo />
+      <CustomerInfo auth={auth} />
       <OrderSummary orderSubTotal={orderSubTotal} />
     </div>
   );
 };
 
-export default CheckoutPage;
+CheckoutPage.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(CheckoutPage);

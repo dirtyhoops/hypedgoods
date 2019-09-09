@@ -10,7 +10,7 @@
 .header-itemsummary {
   height: 50px;
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(226, 203, 203, 0.658);
   margin-bottom: 20px;
 }
 .header-itemsummary h1 {
