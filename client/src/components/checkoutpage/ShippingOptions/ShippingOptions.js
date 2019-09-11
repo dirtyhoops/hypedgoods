@@ -7,7 +7,6 @@ const ShippingOptions = props => {
     firstname,
     lastname,
     email,
-    phone,
     street,
     apartmentunit,
     city,
@@ -20,10 +19,10 @@ const ShippingOptions = props => {
 
   return (
     <div className='shippingoption-container'>
-      <div className='header-shippingoption'>
-        <h1>shipping options</h1>
-      </div>
-      <div className='shipping-summary'>
+      <div className='shipping-summary-table'>
+        <div className='header-shippingoption'>
+          <h1>shipping information</h1>
+        </div>
         <table className='table-shipping-summary'>
           <tbody>
             <tr>
@@ -52,9 +51,59 @@ const ShippingOptions = props => {
             </tr>
           </tbody>
         </table>
-        {/* <p>
-          Shipping to: {street}, {city}, {state} {zipcode}, {country}
-        </p> */}
+      </div>
+      <div className='shipping-summary-options'>
+        <div className='header-shippingoption'>
+          <h1>shipping method</h1>
+        </div>
+        <form>
+          <div className='form-check'>
+            <input
+              className='form-check-input'
+              type='radio'
+              name='shippingoptionradios'
+              id='shippingoptionradio1'
+              value='option1'
+              checked
+            />
+            <label className='form-check-label capitalize' for='exampleRadios1'>
+              standard (3-7 Days)
+            </label>
+          </div>
+          <div className='form-check'>
+            <input
+              className='form-check-input'
+              type='radio'
+              name='shippingoptionradios'
+              id='shippingoptionradio2'
+              value='option2'
+            />
+            <label className='form-check-label capitalize' for='exampleRadios2'>
+              next day shipping
+            </label>
+          </div>
+        </form>
+      </div>
+      <div className='shipping-summary-buttons'>
+        <div className='shipping-summary-button-left'>
+          <button
+            onClick={() => {
+              changeForm('shippingform');
+            }}
+          >
+            &#60; Return to shipping address
+          </button>
+        </div>
+        <div className='shipping-summary-button-right'>
+          <button
+            className='btn btn-primary'
+            onClick={() => {
+              changeForm('billingform');
+            }}
+          >
+            Continue to payment
+          </button>
+        </div>
       </div>
     </div>
   );

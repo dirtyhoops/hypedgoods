@@ -62,10 +62,16 @@
 
 .cart-item-information button {
   font-size: 0.8em;
-  margin-top: -1em;
+
+  padding: 5px 15px 5px 0px;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: red;
+  text-decoration: underline;
 }
 
-.cartpage-summary-subtotal {
+cart-remove-button .cartpage-summary-subtotal {
   text-transform: capitalize;
 }
 

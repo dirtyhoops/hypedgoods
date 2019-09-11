@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import './ShippingAddressForm.css';
+
 const ShippingAddressForm = props => {
   const { auth, saveShippingAddress, saveCustomerInfo, checkout } = props;
 
@@ -86,7 +88,7 @@ const ShippingAddressForm = props => {
               <div className='form-group'>
                 <label htmlFor='firstname'>first name *</label>
                 <input
-                  className='form-control'
+                  className='form-control capitalize'
                   type='text'
                   name='firstname'
                   value={firstname}
@@ -99,7 +101,7 @@ const ShippingAddressForm = props => {
               <div className='form-group'>
                 <label htmlFor='lastname'>last name *</label>
                 <input
-                  className='form-control'
+                  className='form-control capitalize'
                   type='text'
                   name='lastname'
                   value={lastname}
@@ -129,7 +131,7 @@ const ShippingAddressForm = props => {
               <div className='form-group'>
                 <label htmlFor='phone'>phone number *</label>
                 <input
-                  className='form-control'
+                  className='form-control capitalize'
                   type='text'
                   name='phone'
                   value={phone}
@@ -144,7 +146,7 @@ const ShippingAddressForm = props => {
               <div className='form-group'>
                 <label htmlFor='street'>street *</label>
                 <input
-                  className='form-control'
+                  className='form-control capitalize'
                   type='text'
                   name='street'
                   value={street}
@@ -157,7 +159,7 @@ const ShippingAddressForm = props => {
           <div className='row'>
             <div className='col'>
               <div className='form-group'>
-                <label htmlFor='apartmentunit'>
+                <label htmlFor='apartmentunit capitalize'>
                   apartment, suite, unit, buildint, floor, etc.
                 </label>
                 <input
@@ -172,7 +174,7 @@ const ShippingAddressForm = props => {
           </div>
           <div className='row'>
             <div className='col'>
-              <div className='form-group'>
+              <div className='form-group capitalize'>
                 <label htmlFor='country'>country or region *</label>
                 <select
                   className='form-control'
@@ -193,7 +195,7 @@ const ShippingAddressForm = props => {
               <div className='form-group'>
                 <label htmlFor='city'>city *</label>
                 <input
-                  className='form-control'
+                  className='form-control  capitalize'
                   type='text'
                   name='city'
                   value={city}
@@ -205,7 +207,7 @@ const ShippingAddressForm = props => {
           </div>
           <div className='row'>
             <div className='col'>
-              <div className='form-group'>
+              <div className='form-group capitalize'>
                 <label htmlFor='state'>state/province *</label>
                 <select
                   className='form-control'
@@ -288,11 +290,11 @@ const ShippingAddressForm = props => {
               </div>
             </div>
           </div>
-          <div className='row'>
+          <div className='row continuetoshipping-button'>
             <div className='col'>
               <input
                 type='submit'
-                className='btn btn-dark btn-sm'
+                className='btn btn-primary btn-sm'
                 value='Continue To Shipping'
               />
             </div>

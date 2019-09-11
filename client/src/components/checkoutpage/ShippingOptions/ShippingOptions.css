@@ -13,14 +13,18 @@
   margin-bottom: 0px;
 }
 
-.table-shipping-summary {
-  font-size: 15px;
-  border: 1px solid black;
+.shipping-summary-table {
+  margin: 1em 0 2em 0;
+}
 
+.table-shipping-summary {
+  border: 1px solid black;
+  width: 100%;
   border-collapse: collapse;
   border-radius: 10px;
   border-style: hidden;
   box-shadow: 0 0 0 1px rgb(226, 218, 218);
+  font-size: 0.85em;
 }
 
 .table-shipping-summary tr {
@@ -44,5 +48,57 @@
   background: transparent;
   border: none;
   color: blue;
-  text-transform: uppercase;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.shipping-summary-options {
+  margin: 1em 0;
+}
+
+.shipping-summary-options form {
+  border: 1px solid rgb(226, 218, 218);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.shipping-summary-options form label {
+  font-size: 0.85em;
+}
+
+.radiolabel-left {
+  text-align: left;
+}
+
+.radiolabel-right {
+  text-align: right;
+}
+
+.shipping-summary-buttons {
+  display: flex;
+  margin: 1em 0;
+}
+
+.shipping-summary-button-left {
+  width: 50%;
+  text-align: left;
+  margin: auto;
+}
+
+.shipping-summary-button-right {
+  width: 50%;
+  text-align: right;
+  margin: auto;
+}
+
+.shipping-summary-button-left button {
+  font-size: 0.8em;
+  background: transparent;
+  border: none;
+  color: blue;
+  padding: 5px;
+}
+
+.shipping-summary-button-right button {
+  font-size: 0.8em;
 }

@@ -50,7 +50,7 @@ const CartPage = props => {
 
   return (
     <div className='wrapper-cartpage'>
-      {getCartItems.length > 0 ? (
+      {getCartItems && getCartItems.length > 0 ? (
         <>
           <div className='cart-landscape'>
             <div className='header-cartpage'>
@@ -101,11 +101,8 @@ const CartPage = props => {
                           <p className='cart-item-information-size'>
                             US Size: {item.shoe_size}
                           </p>
-                          <button
-                            className='btn btn-sm btn-danger'
-                            onClick={() => removeItem(index)}
-                          >
-                            REMOVE
+                          <button onClick={() => removeItem(index)}>
+                            Remove
                           </button>
                         </div>
                       </td>
