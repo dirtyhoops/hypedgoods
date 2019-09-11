@@ -1,0 +1,48 @@
+.shippingoption-container {
+  margin: 0.5em 0.3em;
+}
+
+.header-shippingoption {
+  margin-bottom: 10px;
+}
+
+.header-shippingoption h1 {
+  font-size: 17px;
+  text-transform: uppercase;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+
+.table-shipping-summary {
+  font-size: 15px;
+  border: 1px solid black;
+
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px rgb(226, 218, 218);
+}
+
+.table-shipping-summary tr {
+  height: 35px;
+}
+
+.table-shipping-summary td {
+  padding: 0 10px;
+}
+
+.table-shipping-summary-firstcol {
+  width: 80px;
+}
+
+.table-shipping-summary-lastrow {
+  text-align: right;
+}
+
+.table-shipping-summary-lastrow button {
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  color: blue;
+  text-transform: uppercase;
+}

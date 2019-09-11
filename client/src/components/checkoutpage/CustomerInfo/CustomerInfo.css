@@ -19,6 +19,10 @@
   font-size: 22px;
 }
 
+.checkout-crumbs {
+  font-size: 0.7em;
+}
+
 .shippingaddress-container {
   margin: 0.5em 0.3em;
 }

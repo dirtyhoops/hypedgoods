@@ -1,7 +1,6 @@
 import React from 'react';
 import fastshipping from '../../../images/fastshipping.jpg';
-import unbeatableprice from '../../../images/unbeatableprice.jpg';
-import unbeatableprice1 from '../../../images/unbeatableprice1.jpg';
+import unbeatableprice from '../../../images/unbeatableprice1.jpg';
 import verified from '../../../images/verified.jpg';
 
 import './Banner.css';
@@ -20,7 +19,7 @@ const Banner = () => {
           </div>
           <div className='banner-logo2'>
             <div className='banner-logos-images'>
-              <img src={unbeatableprice1} />
+              <img src={unbeatableprice} />
             </div>
             <p>we have unbeatable prices</p>
           </div>

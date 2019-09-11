@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './OrderSummary.css';
 
 const OrderSummary = props => {
-  const { orderSubTotal } = props;
+  useEffect(() => {
+    getSubtotal();
+  }, []);
+
+  const { saveSubtotal } = props;
+
+  const [orderSubTotal, setOrderSubTotal] = useState(0);
+
+  // Gets the cart items from localstorage
   var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
+
+  // Gets the subtotal of the order(no shipping, no tax)
+  const getSubtotal = () => {
+    var subTotal = 0;
+    getCartItems.map(item => (subTotal += item.shoe_price));
+    setOrderSubTotal(subTotal);
+    saveSubtotal(subTotal);
+  };
 
   return (
     <div className='itemsummary-container'>
