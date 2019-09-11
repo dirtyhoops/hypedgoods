@@ -66,7 +66,7 @@ const AccountPage = ({
               !toggleAddress ? (
                 <button
                   onClick={() => onClickToggle()}
-                  className='btn btn-primary btn-sm'
+                  className='btn btn-primary btn-sm edit-address-button'
                 >
                   edit address
                 </button>

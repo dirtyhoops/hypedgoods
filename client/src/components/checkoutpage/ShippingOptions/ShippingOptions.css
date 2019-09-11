@@ -48,7 +48,7 @@
   background: transparent;
   border: none;
   color: blue;
-  font-size: 0.9em;
+  font-size: 13px;
   text-transform: capitalize;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .shipping-summary-button-left button {
-  font-size: 0.8em;
+  font-size: 13px;
   background: transparent;
   border: none;
   color: blue;
@@ -100,5 +100,5 @@
 }
 
 .shipping-summary-button-right button {
-  font-size: 0.8em;
+  font-size: 13px;
 }

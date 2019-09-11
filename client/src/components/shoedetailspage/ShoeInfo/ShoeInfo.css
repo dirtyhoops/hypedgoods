@@ -37,6 +37,7 @@
 .product-sizes {
   margin: 20px auto;
 }
+
 .product-sizes-buttons {
   width: 90%;
   margin: 0 auto 20px;
@@ -77,8 +78,9 @@
   margin-top: 1em;
 }
 
-.button-addtocart {
-  text-transform: uppercase;
+.button-shoeinfo-page {
+  text-transform: capitalize;
+  /* font-size: 13px; */
 }
 
 /* for mobile phone(iphone x and lower) */

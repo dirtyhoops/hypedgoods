@@ -121,7 +121,7 @@ const ShoeInfo = props => {
           </div>
         </div>
         <button
-          className='button-addtocart btn btn-secondary btn-block btn-sm'
+          className='button-shoeinfo-page btn btn-secondary btn-block btn-sm'
           onClick={() => addCart(variant_id)}
           disabled={disableAddToCartButton}
         >
@@ -130,12 +130,12 @@ const ShoeInfo = props => {
         {props.isAdmin ? (
           <>
             <Link to={`/products/shoes/${_id}/variants`}>
-              <button className='btn btn-primary btn-block btn-sm'>
+              <button className='button-shoeinfo-page btn btn-primary btn-block btn-sm'>
                 Edit/Add a Size
               </button>
             </Link>
             <button
-              className='btn btn-danger btn-block btn-sm'
+              className='button-shoeinfo-page btn btn-danger btn-block btn-sm'
               onClick={() => deleteShoes(_id)}
             >
               Delete Shoes

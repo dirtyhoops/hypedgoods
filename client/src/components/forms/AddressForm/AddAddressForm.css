@@ -16,4 +16,23 @@
 
 .addressform label {
   font-size: 0.7em;
+  text-transform: uppercase;
+  color: rgb(201, 151, 151);
 }
+
+.addressform .form-group input,
+.addressform .form-group select {
+  font-size: 0.8em;
+  text-transform: capitalize;
+}
+
+.addressform-button {
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+/* .shippingaddress-form label {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  color: rgb(201, 151, 151);
+} */

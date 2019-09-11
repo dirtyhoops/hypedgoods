@@ -165,7 +165,7 @@ const EditAddressForm = props => {
 
         <input
           type='submit'
-          className='btn btn-primary btn-sm'
+          className='btn btn-success btn-sm addressform-button'
           value='Save Changes'
         />
       </form>
