@@ -13,7 +13,8 @@ const CustomerInfo = props => {
     saveShippingAddress,
     saveCustomerInfo,
     saveShippingPrice,
-    changeForm
+    changeForm,
+    enableButton
   } = props;
 
   // @Todo:
@@ -42,6 +43,7 @@ const CustomerInfo = props => {
           checkout={checkout}
           changeForm={changeForm}
           saveShippingPrice={saveShippingPrice}
+          enableButton={enableButton}
         />
       )}
       {checkout.currentForm === 'billingform' && (

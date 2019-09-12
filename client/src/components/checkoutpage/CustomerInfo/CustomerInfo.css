@@ -35,7 +35,7 @@
 .header-shippingaddress h1,
 .header-billing h1 {
   font-size: 17px;
-  text-transform: uppercase;
+  /* text-transform: capitalize; */
   line-height: 30px;
   margin-bottom: 0px;
 }

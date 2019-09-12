@@ -4,7 +4,8 @@ import {
   SAVE_BILLINGADDRESS,
   SAVE_SUBTOTAL,
   CHANGE_FORM,
-  SAVE_SHIPPING_PRICE
+  SAVE_SHIPPING_PRICE,
+  ENABLE_BUTTON
 } from './types';
 
 // Saves the shipping address that the customer provided
@@ -73,6 +74,18 @@ export const changeForm = form => async dispatch => {
   } catch (err) {
     console.log(
       'cant save subtotal, research if try and catch is a must everytime'
+    );
+  }
+};
+
+export const enableButton = () => async dispatch => {
+  try {
+    dispatch({
+      type: ENABLE_BUTTON
+    });
+  } catch (err) {
+    console.log(
+      'cant enable button, research if try and catch is a must everytime'
     );
   }
 };

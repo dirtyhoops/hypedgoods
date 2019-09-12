@@ -72,7 +72,7 @@ const ShippingAddressForm = props => {
   return (
     <div className='shippingaddress-container'>
       <div className='header-shippingaddress'>
-        <h1>shipping address</h1>
+        <h1>Shipping address</h1>
         {!auth.isAuthenticated ? (
           <Link to={'/account/login'}>
             <button className='billingaddresssignin-button'>

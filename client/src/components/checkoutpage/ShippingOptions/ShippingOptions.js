@@ -10,6 +10,7 @@ const ShippingOptions = props => {
   const {
     changeForm,
     saveShippingPrice,
+    enableButton,
     checkout: {
       shippingAddress: {
         firstname,
@@ -22,7 +23,8 @@ const ShippingOptions = props => {
         zipcode,
         country
       },
-      shipping
+      shipping,
+      disableButton
     }
   } = props;
 
@@ -45,6 +47,7 @@ const ShippingOptions = props => {
   const onChangeHandler = shipPrice => {
     setShippingPrice(shipPrice);
     saveShippingPrice(shipPrice);
+    enableButton();
   };
 
   return (
@@ -135,6 +138,7 @@ const ShippingOptions = props => {
         </div>
         <div className='shipping-summary-button-right'>
           <button
+            disabled={disableButton}
             className='btn btn-primary'
             onClick={() => {
               changeForm('billingform');

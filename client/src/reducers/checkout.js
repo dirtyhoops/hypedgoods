@@ -4,7 +4,8 @@ import {
   SAVE_CUSTOMERINFO,
   SAVE_SUBTOTAL,
   CHANGE_FORM,
-  SAVE_SHIPPING_PRICE
+  SAVE_SHIPPING_PRICE,
+  ENABLE_BUTTON
 } from '../actions/types';
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
   subtotal: 0,
   total: 0,
   tax: 0,
-  shipping: 0
+  shipping: 0,
+  disableButton: true
 };
 
 export default function(state = initialState, action) {
@@ -49,6 +51,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         currentForm: payload
+      };
+    case ENABLE_BUTTON:
+      return {
+        ...state,
+        disableButton: false
       };
 
     default:

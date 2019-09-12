@@ -1,0 +1,108 @@
+.table-payment-button {
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  color: blue;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.payment-container {
+  margin: 0.5em 0.3em;
+}
+
+.header-shippingoption,
+.header-billing-address {
+  margin-bottom: 10px;
+}
+
+.header-shippingoption h1,
+.header-billing-address h1 {
+  font-size: 17px;
+  text-transform: capitalize;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+
+.payment-table {
+  margin: 1em 0 2em 0;
+}
+
+.table-payment {
+  border: 1px solid black;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px rgb(226, 218, 218);
+  font-size: 0.85em;
+}
+
+.table-payment tr {
+  height: 35px;
+}
+
+.table-payment td {
+  padding: 0 10px;
+}
+
+.table-payment-firstcol {
+  width: 80px;
+}
+
+.billing-address-option {
+  margin: 1em 0;
+}
+
+.billing-address-option form {
+  border: 1px solid rgb(226, 218, 218);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.billing-address-option form label {
+  font-size: 0.85em;
+}
+
+.radiolabel-left {
+  text-align: left;
+}
+
+.radiolabel-right {
+  text-align: right;
+}
+
+.tr-border-top-payment {
+  border-top: 1px solid rgb(226, 218, 218);
+}
+
+.payment-buttons {
+  display: flex;
+  margin: 1em 0;
+}
+
+.payment-button-left {
+  width: 50%;
+  text-align: left;
+  margin: auto;
+}
+
+.payment-button-right {
+  width: 50%;
+  text-align: right;
+  margin: auto;
+}
+
+.payment-button-left button {
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  color: blue;
+  padding: 5px;
+}
+
+.payment-button-right button {
+  font-size: 13px;
+}
+
+/********************************PAYMENT COMPONENT**************************************/
