@@ -76,19 +76,28 @@ const ShoesFilter = props => {
           >
             <div className='custom-control custom-checkbox'>
               <input type='checkbox' className='custom-control-input' />
-              <label class='custom-control-label' for='customCheckDisabled'>
+              <label
+                className='custom-control-label'
+                htmlFor='customCheckDisabled'
+              >
                 nike
               </label>
             </div>
             <div className='custom-control custom-checkbox'>
               <input type='checkbox' className='custom-control-input' />
-              <label class='custom-control-label' for='customCheckDisabled'>
+              <label
+                className='custom-control-label'
+                htmlFor='customCheckDisabled'
+              >
                 nike
               </label>
             </div>
             <div className='custom-control custom-checkbox'>
               <input type='checkbox' className='custom-control-input' />
-              <label class='custom-control-label' for='customCheckDisabled'>
+              <label
+                className='custom-control-label'
+                htmlFor='customCheckDisabled'
+              >
                 nike
               </label>
             </div>

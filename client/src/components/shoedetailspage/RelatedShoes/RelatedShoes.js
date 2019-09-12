@@ -66,9 +66,8 @@ const RelatedShoes = ({
         >
           <Slider>
             {shoesWithModel.slice(0, 14).map((shoe, ind) => (
-              <Slide index={ind}>
+              <Slide index={ind} key={ind}>
                 <Link
-                  key={ind}
                   to={`/products/shoes/${shoe._id}`}
                   onClick={() => changeShoes(shoe._id, shoe.brand)}
                 >

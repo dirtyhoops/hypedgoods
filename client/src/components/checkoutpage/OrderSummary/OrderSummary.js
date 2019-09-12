@@ -7,7 +7,10 @@ const OrderSummary = props => {
     getSubtotal();
   }, []);
 
-  const { saveSubtotal } = props;
+  const {
+    saveSubtotal,
+    checkout: { shipping }
+  } = props;
 
   const [orderSubTotal, setOrderSubTotal] = useState(0);
 
@@ -66,13 +69,19 @@ const OrderSummary = props => {
                   </td>
                 </tr>
                 <tr>
+                  <td className='itemsummarytable-left-col'>tax</td>
+                  <td className='itemsummarytable-right-col'>$0.00</td>
+                </tr>
+                <tr>
                   <td className='itemsummarytable-left-col'>shipping</td>
-                  <td className='itemsummarytable-right-col'>$20.00</td>
+                  <td className='itemsummarytable-right-col'>
+                    {shipping > 0 ? `$${shipping}.00` : 'will be calculated'}
+                  </td>
                 </tr>
                 <tr className='table-top-border'>
                   <td className='itemsummarytable-left-col'>total</td>
                   <td className='summarytotal-text-bold itemsummarytable-right-col'>
-                    ${orderSubTotal + 20}
+                    ${orderSubTotal + shipping}
                   </td>
                 </tr>
               </tbody>

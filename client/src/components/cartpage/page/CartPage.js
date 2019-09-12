@@ -87,8 +87,54 @@ const CartPage = props => {
                           </div>
                         </Link>
                       </td>
+                      {/* this is the whole product information (brand, name, colorway, size, and remove button) */}
                       <td className='table-text-left-align'>
-                        <div className='cart-item-information'>
+                        <div>
+                          <table className='subtable-cart-iteminfo'>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <p className='uppercase bold p-nomargin'>
+                                    {item.shoe_brand}
+                                  </p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <p className='capitalize  p-lessmargin'>
+                                    {item.shoe_name}
+                                  </p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <p className='capitalize  p-lessmargin'>
+                                    colorway: {item.shoe_colorway}
+                                  </p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <p className='capitalize  p-lessmargin'>
+                                    US Size: {item.shoe_size}
+                                  </p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <button
+                                    onClick={() => removeItem(index)}
+                                    className='button-removecartitem'
+                                  >
+                                    Remove
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        {/* <div className='cart-item-information'>
                           <p className='cart-item-information-brand'>
                             {item.shoe_brand}
                           </p>
@@ -104,7 +150,7 @@ const CartPage = props => {
                           <button onClick={() => removeItem(index)}>
                             Remove
                           </button>
-                        </div>
+                        </div> */}
                       </td>
                       <td className='table-text-left-align'>
                         ${item.shoe_price}.00
@@ -154,13 +200,15 @@ const CartPage = props => {
             <div className='cartpage-summary-mobile'>
               <table className='table-summary-mobile'>
                 <thead>
-                  <th className='table-left-mobile'>summary</th>
-                  <th className='table-right-mobile'>
-                    {getCartItems.length} items
-                  </th>
+                  <tr>
+                    <th className='table-left-mobile'>summary</th>
+                    <th className='table-right-mobile'>
+                      {getCartItems.length} items
+                    </th>
+                  </tr>
                 </thead>
                 <tbody>
-                  <tr className='separator' colspan='2' />
+                  <tr className='separator' colSpan='2' />
                   <tr>
                     <td className='table-left-mobile'>subtotal</td>
                     <td className='table-right-mobile'>
@@ -195,10 +243,10 @@ const CartPage = props => {
             </div>
             <div className='cart-item-container-mobile'>
               {getCartItems.map((item, index) => (
-                <div className='cart-item-mobile'>
+                <div key={index} className='cart-item-mobile'>
                   <div className='cart-item-remove'>
                     <button onClick={() => removeItem(index)}>
-                      <i class='fa fa-times' />
+                      <i className='fa fa-times' />
                     </button>
                   </div>
 

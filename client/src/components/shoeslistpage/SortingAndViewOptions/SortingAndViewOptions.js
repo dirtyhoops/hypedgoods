@@ -46,7 +46,7 @@ const SortingAndViewOptions = props => {
           className='sortselect'
           onChange={e => productSort(e.target.value)}
         >
-          <option selected='selected' value='newarrivals'>
+          <option value='newarrivals' selected>
             New Arrivals
           </option>
           <option value='highestprice'>Price High</option>

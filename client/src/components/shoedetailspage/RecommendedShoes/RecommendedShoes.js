@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 import './RecommendedShoes.css';
 
-const RecommendedShoess = props => {
+const RecommendedShoes = props => {
   const { recommendedShoes, click } = props;
 
   const [visSlides, setVisSlides] = useState(0);
@@ -51,9 +51,8 @@ const RecommendedShoess = props => {
           >
             <Slider>
               {recommendedShoes.slice(0, 14).map((shoe, ind) => (
-                <Slide index={ind}>
+                <Slide index={ind} key={ind}>
                   <Link
-                    key={ind}
                     to={`/products/shoes/${shoe._id}`}
                     onClick={() => click(shoe._id)}
                   >
@@ -82,4 +81,4 @@ const RecommendedShoess = props => {
   );
 };
 
-export default RecommendedShoess;
+export default RecommendedShoes;

@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import './ShippingOptions.css';
+import './Payment.css';
 
-const ShippingOptions = props => {
-  useEffect(() => {
-    saveShippingPrice(shippingPrice);
-  }, []);
-
+const Payment = props => {
   const {
     changeForm,
-    saveShippingPrice,
     checkout: {
       shippingAddress: {
         firstname,
@@ -19,37 +14,16 @@ const ShippingOptions = props => {
         apartmentunit,
         city,
         state,
-        zipcode,
-        country
+        country,
+        zipcode
       },
       shipping
     }
   } = props;
 
-  // const {
-  //   firstname,
-  //   lastname,
-  //   email,
-  //   street,
-  //   apartmentunit,
-  //   city,
-  //   state,
-  //   zipcode,
-  //   country
-  // } = props.checkout.shippingAddress;
-
-  // const { changeForm, saveShippingPrice } = props;
-
-  const [shippingPrice, setShippingPrice] = useState(shipping);
-
-  const onChangeHandler = shipPrice => {
-    setShippingPrice(shipPrice);
-    saveShippingPrice(shipPrice);
-  };
-
   return (
-    <div className='shippingoption-container'>
-      <div className='shipping-summary-table'>
+    <div className='payment-container'>
+      <div className='payment-table'>
         <div className='header-shippingoption'>
           <h1>shipping information</h1>
         </div>
@@ -66,9 +40,7 @@ const ShippingOptions = props => {
               <td className='capitalize'>
                 {street}, {city}, {state} {zipcode}, {country}
               </td>
-            </tr>
-            <tr>
-              <td></td>
+
               <td className='table-shipping-summary-lastrow'>
                 <button
                   onClick={() => {
@@ -79,10 +51,29 @@ const ShippingOptions = props => {
                 </button>
               </td>
             </tr>
+            <tr>
+              <td>Method: </td>
+              <td>
+                {shipping === 9
+                  ? 'Standard (3-7 days) - $ 9.00'
+                  : '1 day shipping - $20.00 '}
+              </td>
+              <td className='table-shipping-summary-lastrow'>
+                <button
+                  onClick={() => {
+                    changeForm('shippingoption');
+                  }}
+                >
+                  change
+                </button>
+              </td>
+            </tr>
+            {/* // ADD ONE MORE TR FOR SHIPPING METHOD */}
           </tbody>
         </table>
       </div>
-      <div className='shipping-summary-options'>
+      {/* // GOING TO CHANGE THIS TO "SAME AS SHIPPING ADDRESS" OR "USE A DIFFERENT BILLING ADDRESS" */}
+      {/* <div className='shipping-summary-options'>
         <div className='header-shippingoption'>
           <h1>shipping method</h1>
         </div>
@@ -118,34 +109,27 @@ const ShippingOptions = props => {
               className='form-check-label capitalize'
               htmlFor='shippingoptionradio2'
             >
-              1 day shipping ($20.00)
+              next day shipping ($20.00)
             </label>
           </div>
         </form>
-      </div>
+      </div> */}
       <div className='shipping-summary-buttons'>
         <div className='shipping-summary-button-left'>
           <button
             onClick={() => {
-              changeForm('shippingform');
+              changeForm('shippingoption');
             }}
           >
-            &#60; Return to shipping address
+            &#60; Return to shipping
           </button>
         </div>
         <div className='shipping-summary-button-right'>
-          <button
-            className='btn btn-primary'
-            onClick={() => {
-              changeForm('billingform');
-            }}
-          >
-            Continue to payment
-          </button>
+          <button className='btn btn-primary'>Process order</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default ShippingOptions;
+export default Payment;

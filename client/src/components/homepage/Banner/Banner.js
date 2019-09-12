@@ -13,19 +13,19 @@ const Banner = () => {
         <div className='bannerlogos-container'>
           <div className='banner-logo1'>
             <div className='banner-logos-images'>
-              <img src={verified} />
+              <img src={verified} alt='verifiedimage_logo' />
             </div>
             <p>all our shoes are verified</p>
           </div>
           <div className='banner-logo2'>
             <div className='banner-logos-images'>
-              <img src={unbeatableprice} />
+              <img src={unbeatableprice} alt='unbeatablepriceimage_logo' />
             </div>
             <p>we have unbeatable prices</p>
           </div>
           <div className='banner-logo3'>
             <div className='banner-logos-images'>
-              <img src={fastshipping} />
+              <img src={fastshipping} alt='fastshippingimage_logo' />
             </div>
             <p>
               No waiting on verification, no middle men. you get the shoes the

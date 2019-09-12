@@ -3,7 +3,8 @@ import {
   SAVE_CUSTOMERINFO,
   SAVE_BILLINGADDRESS,
   SAVE_SUBTOTAL,
-  CHANGE_FORM
+  CHANGE_FORM,
+  SAVE_SHIPPING_PRICE
 } from './types';
 
 // Saves the shipping address that the customer provided
@@ -46,6 +47,19 @@ export const saveSubtotal = subtotal => async dispatch => {
   } catch (err) {
     console.log(
       'cant save subtotal, research if try and catch is a must everytime'
+    );
+  }
+};
+
+export const saveShippingPrice = shippingPrice => async dispatch => {
+  try {
+    dispatch({
+      type: SAVE_SHIPPING_PRICE,
+      payload: shippingPrice
+    });
+  } catch (err) {
+    console.log(
+      'cant save shipping price, research if try and catch is a must everytime'
     );
   }
 };

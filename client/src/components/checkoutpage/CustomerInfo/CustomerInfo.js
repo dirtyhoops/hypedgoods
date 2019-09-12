@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ShippingAddressForm from '../ShippingAddressForm/ShippingAddressForm';
 import BillingAddressForm from '../BillingAddressForm/BillingAddressForm';
 import ShippingOptions from '../ShippingOptions/ShippingOptions';
+import Payment from '../Payment/Payment';
 import './CustomerInfo.css';
 
 const CustomerInfo = props => {
@@ -11,6 +12,7 @@ const CustomerInfo = props => {
     checkout,
     saveShippingAddress,
     saveCustomerInfo,
+    saveShippingPrice,
     changeForm
   } = props;
 
@@ -36,10 +38,14 @@ const CustomerInfo = props => {
         />
       )}
       {checkout.currentForm === 'shippingoption' && (
-        <ShippingOptions checkout={checkout} changeForm={changeForm} />
+        <ShippingOptions
+          checkout={checkout}
+          changeForm={changeForm}
+          saveShippingPrice={saveShippingPrice}
+        />
       )}
       {checkout.currentForm === 'billingform' && (
-        <BillingAddressForm auth={auth} checkout={checkout} />
+        <Payment auth={auth} changeForm={changeForm} checkout={checkout} />
       )}
     </div>
   );

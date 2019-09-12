@@ -3,7 +3,8 @@ import {
   SAVE_BILLINGADDRESS,
   SAVE_CUSTOMERINFO,
   SAVE_SUBTOTAL,
-  CHANGE_FORM
+  CHANGE_FORM,
+  SAVE_SHIPPING_PRICE
 } from '../actions/types';
 
 const initialState = {
@@ -38,6 +39,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         subtotal: payload
+      };
+    case SAVE_SHIPPING_PRICE:
+      return {
+        ...state,
+        shipping: payload
       };
     case CHANGE_FORM:
       return {
