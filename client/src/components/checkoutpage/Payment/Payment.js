@@ -23,49 +23,30 @@ const Payment = props => {
   } = props;
 
   const [isSameAddress, setIsSameAddress] = useState(true);
-  const [isGoodToProccess, setIsGoodToProccess] = useState(false);
-
-  // For the new billing address form
-  const [formDataBilling, setFormDataBilling] = useState({
-    firstnameBilling: '',
-    lastnameBilling: '',
-    streetBilling: '',
-    apartmentunitBilling: '',
-    cityBilling: '',
-    stateBilling: '',
-    zipcodeBilling: '',
-    countryBilling: 'United State'
-  });
-
-  const {
-    firstnameBilling,
-    lastnameBilling,
-    streetBilling,
-    apartmentunitBilling,
-    cityBilling,
-    stateBilling,
-    zipcodeBilling,
-    countryBilling
-  } = formDataBilling;
-
-  const onChangeBilling = e => {
-    setFormDataBilling({ ...formDataBilling, [e.target.name]: e.target.value });
-  };
+  const [isGoodToProccess, setIsGoodToProccess] = useState(true);
+  const [doneBillingAddress, setDoneBillingAddress] = useState(false);
 
   // This saves the billing address, ADD PROCESSING ORDER
   const onProcessHandler = () => {
     if (isSameAddress) {
       saveBillingAddress(props.checkout.shippingAddress);
-    } else {
-      saveBillingAddress(formDataBilling);
     }
-
-    // if not, get the formdata
+    changeForm('revieworder');
   };
 
   // Just a toggler between radio options.
   const onChangeHandler = () => {
+    if (!isSameAddress) {
+      setDoneBillingAddress(false);
+    }
+
+    // Toggles it
     setIsSameAddress(!isSameAddress);
+  };
+
+  const changeDoneBilling = () => {
+    setDoneBillingAddress(true);
+    setIsGoodToProccess(true);
   };
 
   return (
@@ -126,6 +107,11 @@ const Payment = props => {
       <div className='billing-address-option'>
         <div className='header-billing-address'>
           <h1>payment</h1>
+          <p className='payment-small-text'>
+            Since this is a fictional website, everything is free, you don't
+            have to put your credit card number. Please still process your order
+            to see your order summary.
+          </p>
         </div>
       </div>
       {/* BILLING ADDRESS PART */}
@@ -173,188 +159,11 @@ const Payment = props => {
       </div>
 
       {/* FOR NEW BILLING ADDRESS */}
-      {!isSameAddress ? (
-        <div className='billingaddress-container'>
-          <div className='header-billingaddress'>
-            <h1>new billing address</h1>
-          </div>
-          <div className='billingaddress-form-container'>
-            <form className='billingaddress-form'>
-              <div className='row'>
-                <div className='col'>
-                  <div className='form-group'>
-                    <label htmlFor='firstname'>first name *</label>
-                    <input
-                      className='form-control capitalize'
-                      type='text'
-                      name='firstnameBilling'
-                      value={firstnameBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className='col'>
-                  <div className='form-group'>
-                    <label htmlFor='lastname'>last name *</label>
-                    <input
-                      className='form-control capitalize'
-                      type='text'
-                      name='lastnameBilling'
-                      value={lastnameBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col'>
-                  <div className='form-group'>
-                    <label htmlFor='street'>street *</label>
-                    <input
-                      className='form-control capitalize'
-                      type='text'
-                      name='streetBilling'
-                      value={streetBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col'>
-                  <div className='form-group'>
-                    <label htmlFor='apartmentunit capitalize'>
-                      apartment, suite, unit, buildint, floor, etc.
-                    </label>
-                    <input
-                      className='form-control'
-                      type='text'
-                      name='apartmentunitBilling'
-                      value={apartmentunitBilling}
-                      onChange={e => onChangeBilling(e)}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col'>
-                  <div className='form-group'>
-                    <label htmlFor='city'>city *</label>
-                    <input
-                      className='form-control  capitalize'
-                      type='text'
-                      name='cityBilling'
-                      value={cityBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className='col'>
-                  <div className='form-group capitalize'>
-                    <label htmlFor='state'>state/province *</label>
-                    <select
-                      className='form-control'
-                      name='stateBilling'
-                      value={stateBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    >
-                      <option value='' defaultValue>
-                        Select state or region
-                      </option>
-                      <option value='AL'>Alabama</option>
-                      <option value='AK'>Alaska</option>
-                      <option value='AZ'>Arizona</option>
-                      <option value='AR'>Arkansas</option>
-                      <option value='CA'>California</option>
-                      <option value='CO'>Colorado</option>
-                      <option value='CT'>Connecticut</option>
-                      <option value='DE'>Delaware</option>
-                      <option value='DC'>District Of Columbia</option>
-                      <option value='FL'>Florida</option>
-                      <option value='GA'>Georgia</option>
-                      <option value='HI'>Hawaii</option>
-                      <option value='ID'>Idaho</option>
-                      <option value='IL'>Illinois</option>
-                      <option value='IN'>Indiana</option>
-                      <option value='IA'>Iowa</option>
-                      <option value='KS'>Kansas</option>
-                      <option value='KY'>Kentucky</option>
-                      <option value='LA'>Louisiana</option>
-                      <option value='ME'>Maine</option>
-                      <option value='MD'>Maryland</option>
-                      <option value='MA'>Massachusetts</option>
-                      <option value='MI'>Michigan</option>
-                      <option value='MN'>Minnesota</option>
-                      <option value='MS'>Mississippi</option>
-                      <option value='MO'>Missouri</option>
-                      <option value='MT'>Montana</option>
-                      <option value='NE'>Nebraska</option>
-                      <option value='NV'>Nevada</option>
-                      <option value='NH'>New Hampshire</option>
-                      <option value='NJ'>New Jersey</option>
-                      <option value='NM'>New Mexico</option>
-                      <option value='NY'>New York</option>
-                      <option value='NC'>North Carolina</option>
-                      <option value='ND'>North Dakota</option>
-                      <option value='OH'>Ohio</option>
-                      <option value='OK'>Oklahoma</option>
-                      <option value='OR'>Oregon</option>
-                      <option value='PA'>Pennsylvania</option>
-                      <option value='RI'>Rhode Island</option>
-                      <option value='SC'>South Carolina</option>
-                      <option value='SD'>South Dakota</option>
-                      <option value='TN'>Tennessee</option>
-                      <option value='TX'>Texas</option>
-                      <option value='UT'>Utah</option>
-                      <option value='VT'>Vermont</option>
-                      <option value='VA'>Virginia</option>
-                      <option value='WA'>Washington</option>
-                      <option value='WV'>West Virginia</option>
-                      <option value='WI'>Wisconsin</option>
-                      <option value='WY'>Wyoming</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col'>
-                  <div className='form-group'>
-                    <label htmlFor='zipcode'>zipcode *</label>
-                    <input
-                      className='form-control'
-                      type='text'
-                      name='zipcodeBilling'
-                      value={zipcodeBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className='col'>
-                  <div className='form-group capitalize'>
-                    <label htmlFor='country'>country or region *</label>
-                    <select
-                      className='form-control'
-                      name='countryBilling'
-                      value={countryBilling}
-                      onChange={e => onChangeBilling(e)}
-                      required
-                    >
-                      <option value='United States' defaultValue>
-                        United States
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+      {!isSameAddress & !doneBillingAddress ? (
+        <BillingAddressForm
+          saveBillingAddress={saveBillingAddress}
+          changeDoneBilling={changeDoneBilling}
+        />
       ) : null}
 
       <div className='payment-buttons'>
@@ -373,9 +182,9 @@ const Payment = props => {
             onClick={() => {
               onProcessHandler();
             }}
-            disabled={!isGoodToProccess}
+            disabled={!isGoodToProccess && !isSameAddress}
           >
-            Process order
+            Review order
           </button>
         </div>
       </div>

@@ -17,18 +17,31 @@ const CustomerInfo = props => {
     saveBillingAddress
   } = props;
 
-  // @Todo:
-  // 2. have a toggler to display/hide the right component (billing and shipping)
-
-  // 1. just gotta have a state that holds the main state for shipping address, billing addres, and card info, and item summary
-  // 2. make a function where it passes all the shipping, address, and item summary to the checkoutpage
+  const { currentForm } = checkout;
   return (
     <div className='customerinfo-container'>
       <div className='header-customerinfo'>
         <h1>customer information</h1>
       </div>
       <div className='checkout-crumbs'>
-        <p>cart > information > shipping > payment</p>
+        <p>
+          <span>cart</span> >{' '}
+          <span className={currentForm === 'shippingform' && 'crumbs-bold'}>
+            information
+          </span>{' '}
+          >{' '}
+          <span className={currentForm === 'shippingoption' && 'crumbs-bold'}>
+            shipping
+          </span>{' '}
+          >{' '}
+          <span className={currentForm === 'billingform' && 'crumbs-bold'}>
+            payment
+          </span>{' '}
+          >{' '}
+          <span className={currentForm === 'revieworder' && 'crumbs-bold'}>
+            review
+          </span>{' '}
+        </p>
       </div>
       {checkout.currentForm === 'shippingform' && (
         <ShippingAddressForm
@@ -53,6 +66,9 @@ const CustomerInfo = props => {
           checkout={checkout}
           saveBillingAddress={saveBillingAddress}
         />
+      )}
+      {checkout.currentForm === 'revieworder' && (
+        <p>REVIEW ORDER!!!!!!!!!!!!!</p>
       )}
     </div>
   );

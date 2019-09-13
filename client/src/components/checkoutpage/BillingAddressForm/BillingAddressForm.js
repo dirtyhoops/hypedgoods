@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './BillingAddressForm.css';
 
 const BillingAddressForm = props => {
+  const { saveBillingAddress, changeDoneBilling } = props;
+
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -30,12 +32,11 @@ const BillingAddressForm = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Have this function outside of this component, make it pass the value in Payment
-  // const onSubmit = e => {
-  //   e.preventDefault();
-  //   saveShippingAddress(formData);
-  //   saveCustomerInfo(firstname, lastname, email, phone);
-  // };
+  const onSubmit = e => {
+    e.preventDefault();
+    saveBillingAddress(formData);
+    changeDoneBilling();
+  };
 
   return (
     <div className='billingaddress-container'>
@@ -43,7 +44,7 @@ const BillingAddressForm = props => {
         <h1>new billing address</h1>
       </div>
       <div className='billingaddress-form-container'>
-        <form className='billingaddress-form'>
+        <form className='billingaddress-form' onSubmit={e => onSubmit(e)}>
           <div className='row'>
             <div className='col'>
               <div className='form-group'>
@@ -214,6 +215,15 @@ const BillingAddressForm = props => {
                   </option>
                 </select>
               </div>
+            </div>
+          </div>
+          <div className='row continuetoshipping-button'>
+            <div className='col'>
+              <input
+                type='submit'
+                className='btn btn-primary btn-sm'
+                value='Use address'
+              />
             </div>
           </div>
         </form>

@@ -19,10 +19,6 @@
   font-size: 22px;
 }
 
-.checkout-crumbs {
-  font-size: 0.7em;
-}
-
 .shippingaddress-container {
   margin: 0.5em 0.3em;
 }
@@ -63,6 +59,13 @@
 .billingaddress-form .form-group select {
   font-size: 0.8em;
   /* text-transform: capitalize; */
+}
+
+.checkout-crumbs {
+  font-size: 0.7em;
+}
+.crumbs-bold {
+  font-weight: 800;
 }
 
 /* for mobile phone(iphone x and lower) */

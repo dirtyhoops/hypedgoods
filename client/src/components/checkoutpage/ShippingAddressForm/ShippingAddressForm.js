@@ -5,10 +5,19 @@ import './ShippingAddressForm.css';
 
 const ShippingAddressForm = props => {
   const { auth, saveShippingAddress, saveCustomerInfo, checkout } = props;
+  const { shippingAddress } = checkout;
 
   const [formData, setFormData] = useState({
-    firstname: auth.user ? `${auth.user.firstname}` : '',
-    lastname: auth.user ? `${auth.user.lastname}` : '',
+    firstname: auth.user
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.firstname}`
+        : `${auth.user.firstname}`
+      : '',
+    lastname: auth.user
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.lastname}`
+        : `${auth.user.lastname}`
+      : '',
     email: auth.user ? `${auth.user.email}` : '',
     phone: checkout.customerInfo
       ? checkout.customerInfo.phone
@@ -16,32 +25,45 @@ const ShippingAddressForm = props => {
         : ''
       : '',
     street: auth.user
-      ? auth.user.address
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.street}`
+        : auth.user.address
         ? `${auth.user.address.street}`
         : ''
       : '',
+
     apartmentunit: auth.user
-      ? auth.user.address.apartmentunit
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.apartmentunit}`
+        : auth.user.address
         ? `${auth.user.address.apartmentunit}`
         : ''
       : '',
     city: auth.user
-      ? auth.user.address
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.city}`
+        : auth.user.address
         ? `${auth.user.address.city}`
         : ''
       : '',
     state: auth.user
-      ? auth.user.address
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.state}`
+        : auth.user.address
         ? `${auth.user.address.state}`
         : ''
       : '',
     zipcode: auth.user
-      ? auth.user.address
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.zipcode}`
+        : auth.user.address
         ? `${auth.user.address.zipcode}`
         : ''
       : '',
     country: auth.user
-      ? auth.user.address
+      ? checkout.shippingAddress
+        ? `${checkout.shippingAddress.country}`
+        : auth.user.address
         ? `${auth.user.address.country}`
         : 'United State'
       : 'United State'
@@ -290,7 +312,7 @@ const ShippingAddressForm = props => {
               <input
                 type='submit'
                 className='btn btn-primary btn-sm'
-                value='Continue To Shipping'
+                value='Continue to shipping'
               />
             </div>
           </div>
