@@ -28,14 +28,14 @@
 }
 
 .header-shippingaddress,
-.header-billing {
+.header-billingaddress {
   margin-bottom: 10px;
 }
 
 .header-shippingaddress h1,
-.header-billing h1 {
+.header-billingaddress h1 {
   font-size: 17px;
-  /* text-transform: capitalize; */
+  text-transform: capitalize;
   line-height: 30px;
   margin-bottom: 0px;
 }
@@ -50,14 +50,17 @@
   color: gray;
 }
 
-.shippingaddress-form label {
+.shippingaddress-form label,
+.billingaddress-form label {
   font-size: 0.7em;
   text-transform: uppercase;
   color: rgb(201, 151, 151);
 }
 
 .shippingaddress-form .form-group input,
-.shippingaddress-form .form-group select {
+.shippingaddress-form .form-group select,
+.billingaddress-form .form-group input,
+.billingaddress-form .form-group select {
   font-size: 0.8em;
   /* text-transform: capitalize; */
 }

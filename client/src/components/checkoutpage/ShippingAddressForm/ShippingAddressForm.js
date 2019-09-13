@@ -174,24 +174,6 @@ const ShippingAddressForm = props => {
           </div>
           <div className='row'>
             <div className='col'>
-              <div className='form-group capitalize'>
-                <label htmlFor='country'>country or region *</label>
-                <select
-                  className='form-control'
-                  name='country'
-                  value={country}
-                  onChange={e => onChange(e)}
-                  required
-                >
-                  <option value='United States' defaultValue>
-                    United States
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col'>
               <div className='form-group'>
                 <label htmlFor='city'>city *</label>
                 <input
@@ -204,8 +186,6 @@ const ShippingAddressForm = props => {
                 />
               </div>
             </div>
-          </div>
-          <div className='row'>
             <div className='col'>
               <div className='form-group capitalize'>
                 <label htmlFor='state'>state/province *</label>
@@ -274,7 +254,6 @@ const ShippingAddressForm = props => {
               </div>
             </div>
           </div>
-
           <div className='row'>
             <div className='col'>
               <div className='form-group'>
@@ -287,6 +266,22 @@ const ShippingAddressForm = props => {
                   onChange={e => onChange(e)}
                   required
                 />
+              </div>
+            </div>
+            <div className='col'>
+              <div className='form-group capitalize'>
+                <label htmlFor='country'>country or region *</label>
+                <select
+                  className='form-control'
+                  name='country'
+                  value={country}
+                  onChange={e => onChange(e)}
+                  required
+                >
+                  <option value='United States' defaultValue>
+                    United States
+                  </option>
+                </select>
               </div>
             </div>
           </div>

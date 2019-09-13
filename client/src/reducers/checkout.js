@@ -32,6 +32,12 @@ export default function(state = initialState, action) {
         shippingAddress: payload,
         currentForm: 'shippingoption'
       };
+    case SAVE_BILLINGADDRESS:
+      return {
+        ...state,
+        billingAddress: payload
+        // currentForm: 'shippingoption'
+      };
     case SAVE_CUSTOMERINFO:
       return {
         ...state,

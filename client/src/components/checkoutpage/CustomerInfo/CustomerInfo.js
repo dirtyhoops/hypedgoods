@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ShippingAddressForm from '../ShippingAddressForm/ShippingAddressForm';
-import BillingAddressForm from '../BillingAddressForm/BillingAddressForm';
 import ShippingOptions from '../ShippingOptions/ShippingOptions';
 import Payment from '../Payment/Payment';
 import './CustomerInfo.css';
@@ -14,7 +13,8 @@ const CustomerInfo = props => {
     saveCustomerInfo,
     saveShippingPrice,
     changeForm,
-    enableButton
+    enableButton,
+    saveBillingAddress
   } = props;
 
   // @Todo:
@@ -47,7 +47,12 @@ const CustomerInfo = props => {
         />
       )}
       {checkout.currentForm === 'billingform' && (
-        <Payment auth={auth} changeForm={changeForm} checkout={checkout} />
+        <Payment
+          auth={auth}
+          changeForm={changeForm}
+          checkout={checkout}
+          saveBillingAddress={saveBillingAddress}
+        />
       )}
     </div>
   );

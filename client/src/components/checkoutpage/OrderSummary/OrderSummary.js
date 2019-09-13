@@ -53,7 +53,10 @@ const OrderSummary = props => {
                   </p>
                   <p className='uppercase'>total</p>
                   <p className='bold p-margintop3'>
-                    ${item.shoe_order_quantity * item.shoe_price}
+                    $
+                    {(item.shoe_order_quantity * item.shoe_price)
+                      .toFixed(2)
+                      .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                   </p>
                 </div>
               </div>
@@ -65,7 +68,10 @@ const OrderSummary = props => {
                 <tr>
                   <td className='itemsummarytable-left-col'>subtotal</td>
                   <td className='itemsummarytable-right-col'>
-                    ${orderSubTotal}.00
+                    $
+                    {orderSubTotal
+                      .toFixed(2)
+                      .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                   </td>
                 </tr>
                 <tr>
@@ -75,13 +81,20 @@ const OrderSummary = props => {
                 <tr>
                   <td className='itemsummarytable-left-col'>shipping</td>
                   <td className='itemsummarytable-right-col'>
-                    {shipping > 0 ? `$${shipping}.00` : 'will be calculated'}
+                    {shipping > 0
+                      ? `$${shipping
+                          .toFixed(2)
+                          .replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
+                      : 'will be calculated'}
                   </td>
                 </tr>
                 <tr className='table-top-border'>
                   <td className='itemsummarytable-left-col'>total</td>
                   <td className='summarytotal-text-bold itemsummarytable-right-col'>
-                    ${orderSubTotal + shipping}
+                    $
+                    {(orderSubTotal + shipping)
+                      .toFixed(2)
+                      .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                   </td>
                 </tr>
               </tbody>
@@ -98,3 +111,5 @@ const OrderSummary = props => {
 };
 
 export default OrderSummary;
+
+// .toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')

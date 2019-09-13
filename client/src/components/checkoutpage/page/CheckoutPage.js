@@ -7,7 +7,8 @@ import {
   saveSubtotal,
   changeForm,
   saveShippingPrice,
-  enableButton
+  enableButton,
+  saveBillingAddress
 } from '../../../actions/checkout';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
@@ -22,7 +23,8 @@ const CheckoutPage = ({
   saveSubtotal,
   changeForm,
   saveShippingPrice,
-  enableButton
+  enableButton,
+  saveBillingAddress
 }) => {
   // @TODO:
   // 1. make the itemsummary a table instead of div
@@ -38,6 +40,7 @@ const CheckoutPage = ({
         changeForm={changeForm}
         saveShippingPrice={saveShippingPrice}
         enableButton={enableButton}
+        saveBillingAddress={saveBillingAddress}
       />
       <OrderSummary saveSubtotal={saveSubtotal} checkout={checkout} />
     </div>
@@ -51,7 +54,8 @@ CheckoutPage.propTypes = {
   saveSubtotal: PropTypes.func.isRequired,
   changeForm: PropTypes.func.isRequired,
   saveShippingPrice: PropTypes.func.isRequired,
-  enableButton: PropTypes.func.isRequired
+  enableButton: PropTypes.func.isRequired,
+  saveBillingAddress: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -67,6 +71,7 @@ export default connect(
     saveSubtotal,
     changeForm,
     saveShippingPrice,
-    enableButton
+    enableButton,
+    saveBillingAddress
   }
 )(CheckoutPage);

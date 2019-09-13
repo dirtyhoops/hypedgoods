@@ -5,3 +5,7 @@
 .continuetoshipping-button input {
   font-size: 13px;
 }
+
+.shippingaddress-form-container .row .col {
+  padding: 0 5px;
+}

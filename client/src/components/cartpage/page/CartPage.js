@@ -153,13 +153,19 @@ const CartPage = props => {
                         </div> */}
                       </td>
                       <td className='table-text-left-align'>
-                        ${item.shoe_price}.00
+                        $
+                        {item.shoe_price
+                          .toFixed(2)
+                          .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                       </td>
                       <td className='table-text-center-align'>
                         {item.shoe_order_quantity}
                       </td>
                       <td className='table-text-right-align'>
-                        ${item.shoe_price * item.shoe_order_quantity}.00
+                        $
+                        {(item.shoe_price * item.shoe_order_quantity)
+                          .toFixed(2)
+                          .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                       </td>
                     </tr>
                   ))}
@@ -168,7 +174,10 @@ const CartPage = props => {
               <div className='cartpage-summary'>
                 <div className='cartpage-summary-subtotal'>
                   <p className='subtotal-text'>
-                    subtotal: ${getSubtotal(getCartItems)}.00
+                    subtotal: $
+                    {getSubtotal(getCartItems)
+                      .toFixed(2)
+                      .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                   </p>
                   <p className='taxes-shipping-text'>
                     Taxes and Shipping calculated in checkout

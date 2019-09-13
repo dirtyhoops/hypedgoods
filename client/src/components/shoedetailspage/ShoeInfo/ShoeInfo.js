@@ -87,7 +87,9 @@ const ShoeInfo = props => {
         {total_quantity === 0 ? (
           <h1 className='product-info-price'>SOLD OUT</h1>
         ) : (
-          <h1 className='product-info-price'>${shoePrice}.00</h1>
+          <h1 className='product-info-price'>
+            ${shoePrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+          </h1>
         )}
       </div>
       <div className='product-sizes'>

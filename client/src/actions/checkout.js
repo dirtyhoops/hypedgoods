@@ -20,6 +20,18 @@ export const saveShippingAddress = shippingFormData => async dispatch => {
   }
 };
 
+// Saves the shipping address that the customer provided
+export const saveBillingAddress = billingFormData => async dispatch => {
+  try {
+    dispatch({
+      type: SAVE_BILLINGADDRESS,
+      payload: billingFormData
+    });
+  } catch (err) {
+    console.log('cant save billing address... fix this later');
+  }
+};
+
 // Saves the customer information
 export const saveCustomerInfo = (
   firstname,
