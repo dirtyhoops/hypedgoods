@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './OrderSummary.css';
 
@@ -99,6 +100,11 @@ const OrderSummary = props => {
                 </tr>
               </tbody>
             </table>
+            <Link to={'/cart'}>
+              <button className='btn btn-primary btn-sm return-to-cart-button'>
+                Return to cart
+              </button>
+            </Link>
           </div>
         </>
       ) : (

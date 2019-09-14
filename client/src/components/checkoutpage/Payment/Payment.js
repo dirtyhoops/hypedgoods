@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import BillingAddressForm from '../BillingAddressForm/BillingAddressForm';
 
 import './Payment.css';
@@ -23,7 +24,7 @@ const Payment = props => {
   } = props;
 
   const [isSameAddress, setIsSameAddress] = useState(true);
-  const [isGoodToProccess, setIsGoodToProccess] = useState(true);
+  const [isGoodToProccess, setIsGoodToProccess] = useState(false);
   const [doneBillingAddress, setDoneBillingAddress] = useState(false);
 
   // This saves the billing address, ADD PROCESSING ORDER
@@ -31,7 +32,7 @@ const Payment = props => {
     if (isSameAddress) {
       saveBillingAddress(props.checkout.shippingAddress);
     }
-    changeForm('revieworder');
+    changeForm('shippingform');
   };
 
   // Just a toggler between radio options.
@@ -177,15 +178,17 @@ const Payment = props => {
           </button>
         </div>
         <div className='payment-button-right'>
-          <button
-            className='btn btn-primary'
-            onClick={() => {
-              onProcessHandler();
-            }}
-            disabled={!isGoodToProccess && !isSameAddress}
-          >
-            Review order
-          </button>
+          <Link to={'/ordersummary'}>
+            <button
+              className='btn btn-primary'
+              onClick={() => {
+                onProcessHandler();
+              }}
+              disabled={!isGoodToProccess && !isSameAddress}
+            >
+              Process order
+            </button>
+          </Link>
         </div>
       </div>
     </div>

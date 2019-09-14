@@ -125,6 +125,11 @@
   border-top: 1px solid black;
 }
 
+.return-to-cart-button {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .contactinformation-container {

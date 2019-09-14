@@ -36,11 +36,7 @@ const CustomerInfo = props => {
           >{' '}
           <span className={currentForm === 'billingform' && 'crumbs-bold'}>
             payment
-          </span>{' '}
-          >{' '}
-          <span className={currentForm === 'revieworder' && 'crumbs-bold'}>
-            review
-          </span>{' '}
+          </span>
         </p>
       </div>
       {checkout.currentForm === 'shippingform' && (
@@ -66,9 +62,6 @@ const CustomerInfo = props => {
           checkout={checkout}
           saveBillingAddress={saveBillingAddress}
         />
-      )}
-      {checkout.currentForm === 'revieworder' && (
-        <p>REVIEW ORDER!!!!!!!!!!!!!</p>
       )}
     </div>
   );
