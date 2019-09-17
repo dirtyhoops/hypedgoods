@@ -5,6 +5,9 @@ import {
   SAVE_SUBTOTAL,
   CHANGE_FORM,
   SAVE_SHIPPING_PRICE,
+  SAVE_TAX_TOTAL,
+  SAVE_TOTAL,
+  SAVE_PRODUCT,
   ENABLE_BUTTON
 } from '../actions/types';
 
@@ -17,7 +20,8 @@ const initialState = {
   currentForm: 'shippingform',
   subtotal: 0,
   total: 0,
-  tax: 0,
+  taxPercent: 0.09,
+  taxTotal: 0,
   shipping: 0,
   disableButton: true
 };
@@ -53,10 +57,25 @@ export default function(state = initialState, action) {
         ...state,
         shipping: payload
       };
+    case SAVE_TAX_TOTAL:
+      return {
+        ...state,
+        taxTotal: payload
+      };
+    case SAVE_TOTAL:
+      return {
+        ...state,
+        total: payload
+      };
     case CHANGE_FORM:
       return {
         ...state,
         currentForm: payload
+      };
+    case SAVE_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, payload]
       };
     case ENABLE_BUTTON:
       return {

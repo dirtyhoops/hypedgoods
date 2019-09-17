@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ShippingAddressForm from '../ShippingAddressForm/ShippingAddressForm';
 import ShippingOptions from '../ShippingOptions/ShippingOptions';
 import Payment from '../Payment/Payment';
@@ -14,7 +13,10 @@ const CustomerInfo = props => {
     saveShippingPrice,
     changeForm,
     enableButton,
-    saveBillingAddress
+    saveBillingAddress,
+    saveTaxTotal,
+    saveTotal,
+    processOrder
   } = props;
 
   const { currentForm } = checkout;
@@ -52,6 +54,8 @@ const CustomerInfo = props => {
           checkout={checkout}
           changeForm={changeForm}
           saveShippingPrice={saveShippingPrice}
+          saveTaxTotal={saveTaxTotal}
+          saveTotal={saveTotal}
           enableButton={enableButton}
         />
       )}
@@ -61,6 +65,7 @@ const CustomerInfo = props => {
           changeForm={changeForm}
           checkout={checkout}
           saveBillingAddress={saveBillingAddress}
+          processOrder={processOrder}
         />
       )}
     </div>

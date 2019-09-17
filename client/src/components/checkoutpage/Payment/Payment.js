@@ -8,6 +8,7 @@ const Payment = props => {
   const {
     changeForm,
     saveBillingAddress,
+    processOrder,
     checkout: {
       shippingAddress: {
         firstname,
@@ -19,7 +20,11 @@ const Payment = props => {
         country,
         zipcode
       },
-      shipping
+      customerInfo: { email },
+      shipping,
+      subtotal,
+      taxTotal,
+      total
     }
   } = props;
 
@@ -33,6 +38,15 @@ const Payment = props => {
       saveBillingAddress(props.checkout.shippingAddress);
     }
     changeForm('shippingform');
+    processOrder({
+      email,
+      firstname,
+      lastname,
+      subtotal,
+      taxTotal,
+      shipping,
+      total
+    });
   };
 
   // Just a toggler between radio options.
@@ -178,7 +192,7 @@ const Payment = props => {
           </button>
         </div>
         <div className='payment-button-right'>
-          <Link to={'/ordersummary'}>
+          <Link to={'/processingorder'}>
             <button
               className='btn btn-primary'
               onClick={() => {

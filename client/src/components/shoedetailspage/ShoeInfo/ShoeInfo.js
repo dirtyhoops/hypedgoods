@@ -50,6 +50,7 @@ const ShoeInfo = props => {
       shoe_id: _id,
       shoe_size: shoeSize,
       shoe_price: shoePrice,
+      shoe_retail_price: retail_price,
       shoe_order_quantity: 1,
       shoe_brand: brand,
       shoe_name: name,

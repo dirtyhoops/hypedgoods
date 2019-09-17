@@ -16,7 +16,7 @@ const initialState = {
   selectedShoe: null, // for the latest shoe you clicked on // maybve change it to {} instead of null later
   shoes: [], // for all the shoes
   loadingShoes: true,
-  error: {},
+  error: null,
   shoesWithModel: [],
   loadingShoesWithModel: true,
   loadingSelectedShoe: true,

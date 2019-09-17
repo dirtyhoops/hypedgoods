@@ -23,6 +23,7 @@ import CartPage from './components/cartpage/page/CartPage';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CheckoutPage from './components/checkoutpage/page/CheckoutPage';
 import SuccessfulOrderPage from './components/successfulorderpage/page/SuccessfulOrderPage';
+import OrderProcessing from './components/checkoutpage/OrderProcessing/OrderProcessing';
 import './App.css';
 
 // Redux
@@ -89,6 +90,11 @@ const App = () => {
               />
               <Route exact path='/cart' component={CartPage} />
               <Route exact path='/checkout' component={CheckoutPage} />
+              <Route
+                exact
+                path='/processingorder'
+                component={OrderProcessing}
+              />
               <Route
                 exact
                 path='/ordersummary'

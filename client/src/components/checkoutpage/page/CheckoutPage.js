@@ -8,7 +8,11 @@ import {
   changeForm,
   saveShippingPrice,
   enableButton,
-  saveBillingAddress
+  saveBillingAddress,
+  saveTaxTotal,
+  saveTotal,
+  saveProduct,
+  processOrder
 } from '../../../actions/checkout';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
@@ -24,7 +28,11 @@ const CheckoutPage = ({
   changeForm,
   saveShippingPrice,
   enableButton,
-  saveBillingAddress
+  saveBillingAddress,
+  saveTaxTotal,
+  saveTotal,
+  saveProduct,
+  processOrder
 }) => {
   // @TODO:
   // 1. make the itemsummary a table instead of div
@@ -41,8 +49,15 @@ const CheckoutPage = ({
         saveShippingPrice={saveShippingPrice}
         enableButton={enableButton}
         saveBillingAddress={saveBillingAddress}
+        saveTaxTotal={saveTaxTotal}
+        saveTotal={saveTotal}
+        processOrder={processOrder}
       />
-      <OrderSummary saveSubtotal={saveSubtotal} checkout={checkout} />
+      <OrderSummary
+        saveSubtotal={saveSubtotal}
+        saveProduct={saveProduct}
+        checkout={checkout}
+      />
     </div>
   );
 };
@@ -55,7 +70,11 @@ CheckoutPage.propTypes = {
   changeForm: PropTypes.func.isRequired,
   saveShippingPrice: PropTypes.func.isRequired,
   enableButton: PropTypes.func.isRequired,
-  saveBillingAddress: PropTypes.func.isRequired
+  saveBillingAddress: PropTypes.func.isRequired,
+  saveTotal: PropTypes.func.isRequired,
+  saveTaxTotal: PropTypes.func.isRequired,
+  saveProduct: PropTypes.func.isRequired,
+  processOrder: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -72,6 +91,10 @@ export default connect(
     changeForm,
     saveShippingPrice,
     enableButton,
-    saveBillingAddress
+    saveBillingAddress,
+    saveTaxTotal,
+    saveTotal,
+    saveProduct,
+    processOrder
   }
 )(CheckoutPage);

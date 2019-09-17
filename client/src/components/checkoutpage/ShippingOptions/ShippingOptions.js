@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import './ShippingOptions.css';
 
 const ShippingOptions = props => {
-  useEffect(() => {
-    saveShippingPrice(shippingPrice);
-  }, []);
-
   const {
     changeForm,
     saveShippingPrice,
+    saveTaxTotal,
+    saveTotal,
     enableButton,
     checkout: {
       shippingAddress: {
@@ -24,7 +22,9 @@ const ShippingOptions = props => {
         country
       },
       shipping,
-      disableButton
+      disableButton,
+      taxPercent,
+      subtotal
     }
   } = props;
 
@@ -33,6 +33,8 @@ const ShippingOptions = props => {
   const onChangeHandler = shipPrice => {
     setShippingPrice(shipPrice);
     saveShippingPrice(shipPrice);
+    saveTaxTotal(subtotal * taxPercent);
+    saveTotal(subtotal * taxPercent + shipPrice + subtotal);
     enableButton();
   };
 

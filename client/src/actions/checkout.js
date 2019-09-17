@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {
   SAVE_SHIPPINGADDRESS,
   SAVE_CUSTOMERINFO,
@@ -5,6 +7,9 @@ import {
   SAVE_SUBTOTAL,
   CHANGE_FORM,
   SAVE_SHIPPING_PRICE,
+  SAVE_TAX_TOTAL,
+  SAVE_TOTAL,
+  SAVE_PRODUCT,
   ENABLE_BUTTON
 } from './types';
 
@@ -51,6 +56,20 @@ export const saveShippingPrice = shippingPrice => async dispatch => {
   });
 };
 
+export const saveTaxTotal = taxTotal => async dispatch => {
+  dispatch({
+    type: SAVE_TAX_TOTAL,
+    payload: taxTotal
+  });
+};
+
+export const saveTotal = total => async dispatch => {
+  dispatch({
+    type: SAVE_TOTAL,
+    payload: total
+  });
+};
+
 export const changeForm = form => async dispatch => {
   dispatch({
     type: CHANGE_FORM,
@@ -62,4 +81,65 @@ export const enableButton = () => async dispatch => {
   dispatch({
     type: ENABLE_BUTTON
   });
+};
+
+export const saveProduct = (
+  variantId,
+  brand,
+  name,
+  colorway,
+  retail_price,
+  price,
+  size
+) => async dispatch => {
+  dispatch({
+    type: SAVE_PRODUCT,
+    payload: { variantId, brand, name, colorway, retail_price, price, size }
+  });
+};
+
+// Process order
+export const processOrder = ({
+  // variantId,
+  // brand,
+  // name,
+  // colorway,
+  // retail_price,
+  // price,
+  // size
+  email,
+  firstname,
+  lastname,
+  subtotal,
+  taxTotal,
+  shipping,
+  total
+}) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.post(
+      '/api/orders',
+      { email, firstname, lastname, subtotal, taxTotal, shipping, total },
+      config
+    );
+
+    // dispatch({
+    //   type: ADD_PRODUCT_SHOES_SUCCESS
+    // });
+
+    // dispatch(setAlert(res.data.msg, 'success'));
+  } catch (err) {
+    // const errors = err.response.data.errors;
+
+    // if (errors) {
+    //   errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    // }
+
+    console.log(err);
+  }
 };

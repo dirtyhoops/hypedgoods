@@ -10,7 +10,8 @@ const OrderSummary = props => {
 
   const {
     saveSubtotal,
-    checkout: { shipping }
+    saveProduct,
+    checkout: { shipping, taxTotal }
   } = props;
 
   const [orderSubTotal, setOrderSubTotal] = useState(0);
@@ -21,7 +22,18 @@ const OrderSummary = props => {
   // Gets the subtotal of the order(no shipping, no tax)
   const getSubtotal = () => {
     var subTotal = 0;
-    getCartItems.map(item => (subTotal += item.shoe_price));
+    getCartItems.map(item => {
+      subTotal += item.shoe_price;
+      saveProduct(
+        item.variant_id,
+        item.shoe_brand,
+        item.shoe_name,
+        item.shoe_colorway,
+        item.shoe_retail_price,
+        item.shoe_price,
+        item.shoe_size
+      );
+    });
     setOrderSubTotal(subTotal);
     saveSubtotal(subTotal);
   };
@@ -77,7 +89,13 @@ const OrderSummary = props => {
                 </tr>
                 <tr>
                   <td className='itemsummarytable-left-col'>tax</td>
-                  <td className='itemsummarytable-right-col'>$0.00</td>
+                  <td className='itemsummarytable-right-col'>
+                    {taxTotal
+                      ? `$${taxTotal
+                          .toFixed(2)
+                          .replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
+                      : 'will be calculated'}
+                  </td>
                 </tr>
                 <tr>
                   <td className='itemsummarytable-left-col'>shipping</td>
