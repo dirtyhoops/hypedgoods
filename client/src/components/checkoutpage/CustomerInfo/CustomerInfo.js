@@ -57,6 +57,7 @@ const CustomerInfo = props => {
           saveTaxTotal={saveTaxTotal}
           saveTotal={saveTotal}
           enableButton={enableButton}
+          saveBillingAddress={saveBillingAddress}
         />
       )}
       {checkout.currentForm === 'billingform' && (

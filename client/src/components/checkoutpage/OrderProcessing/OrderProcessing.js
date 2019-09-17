@@ -22,6 +22,7 @@ const OrderProcessing = ({ auth, checkout, processOrder }) => {
   // 4. once the adding order to schema is successful, clear the localStorage.
   // 5. have a 4 second spinner that says "order processing"
   // 6. after the 4 second, redirect to successful order page
+  // 7. clear the checkout redux
   return (
     <div>
       <p>

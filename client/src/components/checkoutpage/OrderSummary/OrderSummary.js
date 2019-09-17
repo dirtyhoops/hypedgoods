@@ -31,7 +31,8 @@ const OrderSummary = props => {
         item.shoe_colorway,
         item.shoe_retail_price,
         item.shoe_price,
-        item.shoe_size
+        item.shoe_size,
+        item.shoe_image
       );
     });
     setOrderSubTotal(subTotal);
@@ -111,7 +112,7 @@ const OrderSummary = props => {
                   <td className='itemsummarytable-left-col'>total</td>
                   <td className='summarytotal-text-bold itemsummarytable-right-col'>
                     $
-                    {(orderSubTotal + shipping)
+                    {(orderSubTotal + shipping + taxTotal)
                       .toFixed(2)
                       .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                   </td>

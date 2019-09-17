@@ -10,17 +10,10 @@ const Payment = props => {
     saveBillingAddress,
     processOrder,
     checkout: {
-      shippingAddress: {
-        firstname,
-        lastname,
-        street,
-        apartmentunit,
-        city,
-        state,
-        country,
-        zipcode
-      },
-      customerInfo: { email },
+      shippingAddress,
+      billingAddress,
+      customerInfo,
+      products,
       shipping,
       subtotal,
       taxTotal,
@@ -39,13 +32,14 @@ const Payment = props => {
     }
     changeForm('shippingform');
     processOrder({
-      email,
-      firstname,
-      lastname,
+      customerInfo,
       subtotal,
       taxTotal,
       shipping,
-      total
+      total,
+      shippingAddress,
+      billingAddress,
+      products
     });
   };
 
@@ -53,6 +47,7 @@ const Payment = props => {
   const onChangeHandler = () => {
     if (!isSameAddress) {
       setDoneBillingAddress(false);
+      saveBillingAddress(props.checkout.shippingAddress);
     }
 
     // Toggles it
@@ -75,13 +70,15 @@ const Payment = props => {
             <tr>
               <td className='table-payment-firstcol'>Ship to:</td>
               <td className='capitalize'>
-                {firstname} {lastname}
+                {shippingAddress.firstname} {shippingAddress.lastname}
               </td>
             </tr>
             <tr>
               <td></td>
               <td className='capitalize'>
-                {street}, {city}, {state} {zipcode}, {country}
+                {shippingAddress.street}, {shippingAddress.city},{' '}
+                {shippingAddress.state} {shippingAddress.zipcode},{' '}
+                {shippingAddress.country}
               </td>
 
               <td>

@@ -1,86 +1,18 @@
 const mongoose = require('mongoose');
 
 const OrdersSchema = new mongoose.Schema({
-  user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
+  customerInfo: {
+    type: Object
   },
   shippingAddress: {
-    street: {
-      type: String
-    },
-    apartmentunit: {
-      type: String
-    },
-    city: {
-      type: String
-    },
-    state: {
-      type: String
-    },
-    zipcode: {
-      type: Number
-    },
-    country: {
-      type: String
-    }
+    type: Object
   },
   billingAddress: {
-    street: {
-      type: String
-    },
-    apartmentunit: {
-      type: String
-    },
-    city: {
-      type: String
-    },
-    state: {
-      type: String
-    },
-    zipcode: {
-      type: Number
-    },
-    country: {
-      type: String
-    }
+    type: Object
   },
   products: [
     {
-      product_variant_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-      },
-      brand: {
-        type: String
-      },
-      name: {
-        type: String
-      },
-      colorway: {
-        type: String
-      },
-      retail_price: {
-        type: Number
-      },
-      price: {
-        type: Number
-      },
-      size: {
-        type: Number
-      }
+      type: Object
     }
   ],
   subtotal: {

@@ -9,6 +9,7 @@ const ShippingOptions = props => {
     saveTaxTotal,
     saveTotal,
     enableButton,
+    saveBillingAddress,
     checkout: {
       shippingAddress: {
         firstname,
@@ -35,6 +36,9 @@ const ShippingOptions = props => {
     saveShippingPrice(shipPrice);
     saveTaxTotal(subtotal * taxPercent);
     saveTotal(subtotal * taxPercent + shipPrice + subtotal);
+
+    // Saving billing address so it's default to same as shipping address
+    saveBillingAddress(props.checkout.shippingAddress);
     enableButton();
   };
 

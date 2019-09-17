@@ -51,120 +51,48 @@ router.get('/:order_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const {
-    userId,
-    email,
-    firstname,
-    lastname,
+    customerInfo,
     subtotal,
     taxTotal,
     shipping,
-    total
+    total,
+    shippingAddress,
+    billingAddress,
+    products
   } = req.body;
 
   const orderFields = {};
-  if (userId) orderFields.userId = userId;
-  if (email) orderFields.email = email;
-  if (firstname) orderFields.firstname = firstname;
-  if (lastname) orderFields.lastname = lastname;
+  if (customerInfo) orderFields.customerInfo = customerInfo;
   if (subtotal) orderFields.subtotal = subtotal;
   if (taxTotal) orderFields.tax = taxTotal;
   if (shipping) orderFields.shipping = shipping;
   if (total) orderFields.total = total;
+  if (shippingAddress) orderFields.shippingAddress = shippingAddress;
+  if (billingAddress) orderFields.billingAddress = billingAddress;
+  if (products) orderFields.products = products;
 
   try {
     let newOrder = new Orders(orderFields);
     await newOrder.save();
+
+    // Loop through the products and deduct 1 quantity from the variant
+    products.map(product => {
+      console.log(product.variant_id);
+      Variants.updateOne(
+        { _id: product.variant_id },
+        {
+          $set: {
+            quantity: 5
+          }
+        }
+      );
+    });
+
     res.json(newOrder);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
-
-// // @route     POST api/shoes
-// // @desc      Add or Update shoes
-// // @access    Private
-// router.post(
-//   '/',
-//   [
-//     auth,
-//     [
-//       check('name', 'Name is required')
-//         .not()
-//         .isEmpty(),
-//       check('brand', 'Brand is required')
-//         .not()
-//         .isEmpty(),
-//       check('retail_price', 'Retail Price is required')
-//         .not()
-//         .isEmpty(),
-//       check('release_date', 'Release Date is required')
-//         .not()
-//         .isEmpty(),
-//       check('model', 'Model is required')
-//         .not()
-//         .isEmpty()
-//     ]
-//   ],
-//   async (req, res) => {
-//     const errors = validationResult(req);
-
-//     if (!errors.isEmpty()) {
-//       return res.status(400).json({ errors: errors.array() });
-//     }
-
-//     const {
-//       name,
-//       brand,
-//       colorway,
-//       colors,
-//       retail_price,
-//       release_date,
-//       date_added,
-//       model,
-//       images
-//     } = req.body;
-
-//     const shoesFields = {};
-//     if (name) shoesFields.name = name;
-//     if (brand) shoesFields.brand = brand;
-//     if (colorway) shoesFields.colorway = colorway;
-//     if (retail_price) shoesFields.retail_price = retail_price;
-//     if (release_date) shoesFields.release_date = release_date;
-//     if (date_added) shoesFields.date_added = date_added;
-//     if (model) shoesFields.model = model;
-//     if (colors) {
-//       shoesFields.colors = colors.split(',').map(color => color.trim());
-//     }
-//     if (images) {
-//       shoesFields.images = images.split(',').map(image => image.trim());
-//     }
-
-//     try {
-//       let isUserAdmin = req.user.isAdmin;
-
-//       if (isUserAdmin) {
-//         let shoe = await Shoes.findOne({ name });
-
-//         if (shoe) {
-//           // res.send(shoe.attributes);
-//           return res
-//             .status(400)
-//             .json({ errors: [{ msg: 'This shoes already exists(via name)' }] });
-//         }
-//         let newShoes = new Shoes(shoesFields);
-//         await newShoes.save();
-//         res.json({ msg: 'Successfully added a new shoes' });
-//       } else {
-//         return res.send({
-//           msg: 'You cant delete an item because you are not an ADMIN'
-//         });
-//       }
-//     } catch (err) {
-//       console.error(err.message);
-//       res.status(500).send('Server Error');
-//     }
-//   }
-// );
 
 module.exports = router;

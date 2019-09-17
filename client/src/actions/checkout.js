@@ -84,36 +84,40 @@ export const enableButton = () => async dispatch => {
 };
 
 export const saveProduct = (
-  variantId,
+  variant_id,
   brand,
   name,
   colorway,
   retail_price,
   price,
-  size
+  size,
+  image
 ) => async dispatch => {
   dispatch({
     type: SAVE_PRODUCT,
-    payload: { variantId, brand, name, colorway, retail_price, price, size }
+    payload: {
+      variant_id,
+      brand,
+      name,
+      colorway,
+      retail_price,
+      price,
+      size,
+      image
+    }
   });
 };
 
 // Process order
 export const processOrder = ({
-  // variantId,
-  // brand,
-  // name,
-  // colorway,
-  // retail_price,
-  // price,
-  // size
-  email,
-  firstname,
-  lastname,
+  customerInfo,
   subtotal,
   taxTotal,
   shipping,
-  total
+  total,
+  shippingAddress,
+  billingAddress,
+  products
 }) => async dispatch => {
   const config = {
     headers: {
@@ -124,7 +128,16 @@ export const processOrder = ({
   try {
     const res = await axios.post(
       '/api/orders',
-      { email, firstname, lastname, subtotal, taxTotal, shipping, total },
+      {
+        customerInfo,
+        subtotal,
+        taxTotal,
+        shipping,
+        total,
+        shippingAddress,
+        billingAddress,
+        products
+      },
       config
     );
 
