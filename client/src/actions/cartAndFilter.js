@@ -6,9 +6,6 @@ import {
   SORT_PRODUCTS
 } from './types';
 
-import axios from 'axios';
-import { setAlert } from './alert';
-
 export const updateCartItemCount = itemCount => async dispatch => {
   try {
     dispatch({

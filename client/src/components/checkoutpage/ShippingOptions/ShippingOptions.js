@@ -28,20 +28,6 @@ const ShippingOptions = props => {
     }
   } = props;
 
-  // const {
-  //   firstname,
-  //   lastname,
-  //   email,
-  //   street,
-  //   apartmentunit,
-  //   city,
-  //   state,
-  //   zipcode,
-  //   country
-  // } = props.checkout.shippingAddress;
-
-  // const { changeForm, saveShippingPrice } = props;
-
   const [shippingPrice, setShippingPrice] = useState(shipping);
 
   const onChangeHandler = shipPrice => {
@@ -97,7 +83,7 @@ const ShippingOptions = props => {
               name='shippingoptionradios'
               id='shippingoptionradio1'
               value='option1'
-              checked={shippingPrice == 9}
+              checked={shippingPrice === 9}
               onChange={() => onChangeHandler(20)}
             />
             <label
@@ -114,7 +100,7 @@ const ShippingOptions = props => {
               name='shippingoptionradios'
               id='shippingoptionradio2'
               value='option2'
-              checked={shippingPrice == 20}
+              checked={shippingPrice === 20}
               onChange={() => onChangeHandler(20)}
             />
             <label

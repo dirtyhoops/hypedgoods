@@ -49,7 +49,11 @@ export const getShoe = id => async dispatch => {
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: {
+        msg: err.response.data.msg,
+        status: err.response.status,
+        statusText: err.response.statusText
+      }
     });
   }
 };
@@ -87,7 +91,11 @@ export const getShoesVariants = shoes_id => async dispatch => {
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: {
+        msg: err.response.data.msg,
+        status: err.response.status,
+        statusText: err.response.statusText
+      }
     });
   }
 };
@@ -105,9 +113,7 @@ export const deleteShoes = shoes_id => async dispatch => {
       type: DONE_DELETING_SHOES
     });
 
-    dispatch(
-      setAlert('Shoes and its variants are successfully deleted', 'success')
-    );
+    dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,
@@ -126,7 +132,7 @@ export const deleteVariant = (variant_id, shoes_id) => async dispatch => {
       type: DONE_DELETING_VARIANT
     });
 
-    dispatch(setAlert('Shoes variant is successfully deleted', 'success'));
+    dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,
@@ -153,6 +159,8 @@ export const addShoesVariants = ({ formData }, shoes_id) => async dispatch => {
     dispatch({
       type: ADD_SHOES_VARIANTS_SUCCESS
     });
+
+    dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -176,7 +184,8 @@ export const addProductShoes = ({ formData }) => async dispatch => {
     dispatch({
       type: ADD_PRODUCT_SHOES_SUCCESS
     });
-    dispatch(setAlert('Shoes is successfully added', 'success'));
+
+    dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 

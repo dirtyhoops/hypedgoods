@@ -82,8 +82,7 @@ export default function(state = initialState, action) {
     case SHOE_ERROR:
       return {
         ...state,
-        error: payload,
-        loading: false
+        error: payload
       };
     case DONE_DELETING_SHOES:
       return {

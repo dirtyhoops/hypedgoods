@@ -44,7 +44,9 @@ router.get('/:shoes_id', async (req, res) => {
     let selectedShoe = await Shoes.findById(req.params.shoes_id);
 
     if (!selectedShoe) {
-      return res.status(400).json({ msg: 'Shoe is not found' });
+      return res
+        .status(400)
+        .json({ msg: 'Shoe is not found, invalid shoe id' });
     }
 
     res.json(selectedShoe);
@@ -130,9 +132,11 @@ router.post(
         }
         let newShoes = new Shoes(shoesFields);
         await newShoes.save();
-        res.json(newShoes);
+        res.json({ msg: 'Successfully added a new shoes' });
       } else {
-        return res.send('You cant add an item because you are not an ADMIN');
+        return res.send({
+          msg: 'You cant delete an item because you are not an ADMIN'
+        });
       }
     } catch (err) {
       console.error(err.message);
@@ -159,10 +163,11 @@ router.delete('/:shoes_id', auth, async (req, res) => {
 
       res.json({ msg: 'Shoes and its Variants are deleted' });
     } else {
-      return res.send('You cant delete an item because you are not an ADMIN');
+      return res.send({
+        msg: 'You cant delete an item because you are not an ADMIN'
+      });
     }
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -186,7 +191,7 @@ router.get('/:shoes_id/variants', async (req, res) => {
   } catch (err) {
     console.error(err.message);
     if (err.kind == 'ObjectId') {
-      return res.status(400).json({ msg: 'Shoe is not found' });
+      return res.status(400).json({ msg: 'Shoe Variants are not found' });
     }
     res.status(500).send('Server Error');
   }
@@ -273,7 +278,9 @@ router.post(
           );
 
           await newVariant.save();
-          res.json(newVariant);
+          res.json({
+            msg: `New size variant (size ${size}) of this shoes is added.`
+          });
         }
       } else {
         return res.send('You cant add an item because you are not an ADMIN');
@@ -308,6 +315,7 @@ router.get('/variants/:variant_id', async (req, res) => {
     if (err.kind == 'ObjectId') {
       return res.status(400).json({ msg: 'Shoe Variant is not found' });
     }
+
     res.status(500).send('Server Error');
   }
 });
@@ -370,31 +378,3 @@ router.delete('/variants/:variant_id/:shoes_id', auth, async (req, res) => {
 });
 
 module.exports = router;
-
-// TO UPDATE THE LOWEST PRICED ITEM AND THE TOTAL QUANTITY
-
-// let allVariants = await Variants.find({
-//   shoes_id: req.params.shoes_id
-// });
-
-// let allShoeQuantity = 0;
-// let lowestPrice = newVariant.price;
-
-// allVariants.map(variant => {
-//   allShoeQuantity = allShoeQuantity + parseInt(variant.quantity);
-//   if (variant.price < lowestPrice) {
-//     lowestPrice = variant.price;
-//   }
-// });
-
-// // let newQuantity = parseInt(allShoeQuantity);
-
-// await Shoes.updateOne(
-//   { _id: req.params.shoes_id },
-//   {
-//     $set: {
-//       total_quantity: parseInt(allShoeQuantity) + parseInt(quantity),
-//       lowest_price: lowestPrice
-//     }
-//   }
-// );

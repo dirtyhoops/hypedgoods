@@ -32,7 +32,7 @@ const ShoeDetailsPage = ({
   match: {
     params: { id }
   },
-  shoe: { selectedShoe, shoes, selectedShoeVariants, deletingShoes },
+  shoe: { selectedShoe, shoes, selectedShoeVariants, deletingShoes, error },
   auth: { isAdmin }
 }) => {
   // gets the selected shoes and loads the data to this page
@@ -53,7 +53,13 @@ const ShoeDetailsPage = ({
   }
 
   return selectedShoe === null ? (
-    <Spinner />
+    error ? (
+      <div>
+        <p>{error.msg}</p>
+      </div>
+    ) : (
+      <Spinner />
+    )
   ) : (
     <Fragment>
       <ShoeImages images={selectedShoe.images} />
@@ -64,8 +70,6 @@ const ShoeDetailsPage = ({
         updateCartItemCount={updateCartItemCount}
         deleteShoes={deleteShoes}
       />
-      {/* <RecommendedShoes recommendedShoes={shoes} click={selectShoe} /> */}
-      {/* <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} /> */}
       <RelatedShoes click={selectShoe} shoeBrand={selectedShoe.brand} />
       <RecommendedShoes recommendedShoes={shoes} click={selectShoe} />
     </Fragment>

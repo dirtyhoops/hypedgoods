@@ -86,7 +86,7 @@ router.post(
 );
 
 // @route     PUT api/users/address
-// @desc      Add address
+// @desc      Add/Edit address
 // @access    Private
 router.put(
   '/address',
