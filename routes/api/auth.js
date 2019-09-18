@@ -21,7 +21,7 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// @route     POST api/users
+// @route     POST api/auth
 // @desc      Authenticate (LOGIN) user and get token
 // @access    Public
 router.post(

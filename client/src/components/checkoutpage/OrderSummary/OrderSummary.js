@@ -32,7 +32,8 @@ const OrderSummary = props => {
         item.shoe_retail_price,
         item.shoe_price,
         item.shoe_size,
-        item.shoe_image
+        item.shoe_image,
+        item.shoe_id
       );
     });
     setOrderSubTotal(subTotal);

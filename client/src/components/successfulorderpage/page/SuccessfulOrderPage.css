@@ -1,0 +1,29 @@
+.wrapper-successfulorderpage {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.table-successfulorder {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.successfulorder-item-image {
+  width: 20%;
+}
+
+.successfulorder-item-image img {
+  width: 100%;
+}
+
+.successfulorder-p-capitalize {
+  text-transform: capitalize;
+}
+
+.successfulorder-p-uppercase {
+  text-transform: uppercase;
+}
+
+.successfulorder-p-bolder {
+  font-weight: 700;
+}

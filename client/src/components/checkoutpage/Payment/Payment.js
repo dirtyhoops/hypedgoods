@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import BillingAddressForm from '../BillingAddressForm/BillingAddressForm';
 
 import './Payment.css';
@@ -17,7 +17,8 @@ const Payment = props => {
       shipping,
       subtotal,
       taxTotal,
-      total
+      total,
+      orderSuccess
     }
   } = props;
 
@@ -30,7 +31,7 @@ const Payment = props => {
     if (isSameAddress) {
       saveBillingAddress(props.checkout.shippingAddress);
     }
-    changeForm('shippingform');
+
     processOrder({
       customerInfo,
       subtotal,
@@ -41,6 +42,8 @@ const Payment = props => {
       billingAddress,
       products
     });
+
+    // CLEAR THE LOCALSTORAGE HERE BECAUSE ONCE PAYMENT IS PROCESSED WE HAVE NO NEED FOR THE CART ITEMS
   };
 
   // Just a toggler between radio options.
@@ -58,6 +61,10 @@ const Payment = props => {
     setDoneBillingAddress(true);
     setIsGoodToProccess(true);
   };
+
+  if (orderSuccess) {
+    return <Redirect to={'/ordersummary'} />;
+  }
 
   return (
     <div className='payment-container'>
@@ -189,17 +196,15 @@ const Payment = props => {
           </button>
         </div>
         <div className='payment-button-right'>
-          <Link to={'/processingorder'}>
-            <button
-              className='btn btn-primary'
-              onClick={() => {
-                onProcessHandler();
-              }}
-              disabled={!isGoodToProccess && !isSameAddress}
-            >
-              Process order
-            </button>
-          </Link>
+          <button
+            className='btn btn-primary'
+            onClick={() => {
+              onProcessHandler();
+            }}
+            disabled={!isGoodToProccess && !isSameAddress}
+          >
+            Process order
+          </button>
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const config = require('config');
 const auth = require('../../middleware/auth'); //might not need this
-
+const { ObjectId } = require('mongodb');
 const User = require('../../models/User');
 const Shoes = require('../../models/Shoes');
 const Variants = require('../../models/Variants');
@@ -77,9 +76,8 @@ router.post('/', async (req, res) => {
 
     // Loop through the products and deduct 1 quantity from the variant
     products.map(product => {
-      console.log(product.variant_id);
-      Variants.updateOne(
-        { _id: product.variant_id },
+      Variants.update(
+        { _id: ObjectId(product.variant_id) },
         {
           $set: {
             quantity: 5

@@ -10,7 +10,8 @@ import {
   SAVE_TAX_TOTAL,
   SAVE_TOTAL,
   SAVE_PRODUCT,
-  ENABLE_BUTTON
+  ENABLE_BUTTON,
+  PROCESS_ORDER_SUCCESS
 } from './types';
 
 // Saves the shipping address that the customer provided
@@ -91,7 +92,8 @@ export const saveProduct = (
   retail_price,
   price,
   size,
-  image
+  image,
+  shoe_id
 ) => async dispatch => {
   dispatch({
     type: SAVE_PRODUCT,
@@ -103,7 +105,8 @@ export const saveProduct = (
       retail_price,
       price,
       size,
-      image
+      image,
+      shoe_id
     }
   });
 };
@@ -141,9 +144,10 @@ export const processOrder = ({
       config
     );
 
-    // dispatch({
-    //   type: ADD_PRODUCT_SHOES_SUCCESS
-    // });
+    // check if the order is a success, right now it's all success because we dontr have to check for credit card validity
+    dispatch({
+      type: PROCESS_ORDER_SUCCESS
+    });
 
     // dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {

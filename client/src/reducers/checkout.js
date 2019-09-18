@@ -8,7 +8,8 @@ import {
   SAVE_TAX_TOTAL,
   SAVE_TOTAL,
   SAVE_PRODUCT,
-  ENABLE_BUTTON
+  ENABLE_BUTTON,
+  PROCESS_ORDER_SUCCESS
 } from '../actions/types';
 
 const initialState = {
@@ -23,7 +24,8 @@ const initialState = {
   taxPercent: 0.09,
   taxTotal: 0,
   shipping: 0,
-  disableButton: true
+  disableButton: true,
+  orderSuccess: false
 };
 
 export default function(state = initialState, action) {
@@ -81,6 +83,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         disableButton: false
+      };
+    case PROCESS_ORDER_SUCCESS:
+      return {
+        ...state,
+        orderSuccess: true
       };
 
     default:
