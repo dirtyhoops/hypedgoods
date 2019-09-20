@@ -2,7 +2,7 @@ import { SET_ALERT, REMOVE_ALERT } from '../actions/types';
 
 const initialState = [];
 
-export default function(state = initialState, action) {
+export default function Alerts(state = initialState, action) {
   // Just destructure
   const { type, payload } = action;
   switch (type) {
