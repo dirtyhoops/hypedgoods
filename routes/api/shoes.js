@@ -51,7 +51,6 @@ router.get('/:shoes_id', async (req, res) => {
 
     res.json(selectedShoe);
   } catch (err) {
-    console.error(err.message);
     if (err.kind == 'ObjectId') {
       return res.status(400).json({ msg: 'Shoe is not found' });
     }

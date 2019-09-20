@@ -1,12 +1,4 @@
 import React, { useState } from 'react';
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-  DotGroup
-} from 'pure-react-carousel';
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -17,8 +9,6 @@ const ShoeImages = props => {
   const { images } = props;
 
   const [mainImage, setMainImage] = useState(images[0]);
-
-  console.log(mainImage);
 
   const changeMainImage = image => {
     setMainImage(image);

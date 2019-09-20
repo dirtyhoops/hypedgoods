@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
 import './ShoeInfo.css';
@@ -23,14 +23,14 @@ const ShoeInfo = props => {
   const [shoeSize, setShoeSize] = useState('');
   const [disableAddToCartButton, setDisableAddToCartButton] = useState(true);
   const [buttonText, setButtonText] = useState('select size');
+  const [isSoldOut, setIsSoldOut] = useState(true);
 
   const [selectedSize, setSelectedSize] = useState(5);
 
-  useEffect(() => {
-    if (total_quantity === 0) {
-      setButtonText('SOLD OUT');
-    }
-  }, []);
+  if (total_quantity === 0 && isSoldOut) {
+    setIsSoldOut(false);
+    setButtonText('SOLD OUT');
+  }
 
   const changePrice = (price, variant_id, variant_size) => {
     setShoePrice(price);

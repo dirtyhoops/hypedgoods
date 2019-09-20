@@ -46,17 +46,10 @@ export const getShoe = id => async dispatch => {
       type: GET_SHOE,
       payload: res.data
     });
-
-    // It just clears the error whenever the variant with valid ID loads
-    dispatch({
-      type: SHOE_ERROR,
-      payload: null
-    });
   } catch (err) {
     dispatch({
       type: SHOE_ERROR,
       payload: {
-        msg: err.response.data.msg,
         status: err.response.status,
         statusText: err.response.statusText
       }

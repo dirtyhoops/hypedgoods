@@ -30,7 +30,9 @@ const SortingAndViewOptions = props => {
           {shoesPerPageNumber.map(shoesperpage => (
             <span
               className={
-                shoesperpage === shoesPerPage && 'shoesperpage-selected'
+                shoesperpage === shoesPerPage
+                  ? 'shoesperpage-selected'
+                  : undefined
               }
               key={shoesperpage}
               onClick={() => changeShoesPerPage(shoesperpage)}

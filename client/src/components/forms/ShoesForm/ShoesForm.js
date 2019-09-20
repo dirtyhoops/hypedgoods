@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { addProductShoes } from '../../../actions/shoe';
 
 import './ShoesForm.css';
@@ -22,8 +22,6 @@ const ShoesForm = ({
     images: ''
   });
 
-  const [isAddingSuccess, setIsAddingSuccess] = useState(false);
-
   const {
     brand,
     name,
@@ -42,7 +40,6 @@ const ShoesForm = ({
   const onSubmit = e => {
     e.preventDefault();
     addProductShoes({ formData });
-    // setIsAddingSuccess(true);
   };
 
   if (isAddingShoesSuccessful) {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import BillingAddressForm from '../BillingAddressForm/BillingAddressForm';
 
 import './Payment.css';
@@ -150,7 +150,7 @@ const Payment = props => {
               name='billingoptionradios'
               id='billingoptionradio1'
               value='option1'
-              checked={isSameAddress == true}
+              checked={isSameAddress === true}
               onChange={() => onChangeHandler()}
             />
             <label
@@ -167,7 +167,7 @@ const Payment = props => {
               name='billingoptionradios'
               id='billingoptionradio2'
               value='option2'
-              checked={isSameAddress == false}
+              checked={isSameAddress === false}
               onChange={() => onChangeHandler()}
             />
             <label

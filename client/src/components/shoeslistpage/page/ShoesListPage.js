@@ -26,7 +26,7 @@ const ShoesListPage = ({
 }) => {
   useEffect(() => {
     getShoes();
-  }, []);
+  }, [getShoes]);
 
   const changeShoesPerPage = shoesperpage => {
     updateShoesPerPage(shoesperpage);
@@ -36,7 +36,6 @@ const ShoesListPage = ({
   if (shoes.length > 0 && !loadingShoes) {
     filterProductsByBrands(shoes, '');
     doneLoading();
-    console.log('yeeee');
   }
 
   // if (filteredItems.length > 0) {

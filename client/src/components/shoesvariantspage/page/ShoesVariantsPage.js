@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Spinner from '../../layout/Spinner/Spinner';
 import ShoesInformation from '../ShoesInformation/ShoesInformation';
 import ShoesVariantTable from '../ShoesVariantTable/ShoesVariantTable';
@@ -38,7 +38,7 @@ const ShoesVariantsPage = ({
   useEffect(() => {
     getShoe(shoes_id);
     getShoesVariants(shoes_id);
-  }, []);
+  });
 
   if (isAddingVariantSuccess) {
     getShoesVariants(shoes_id);
@@ -81,7 +81,7 @@ const ShoesVariantsPage = ({
 };
 
 ShoesVariantsPage.propTypes = {
-  shoes: PropTypes.object.isRequired,
+  shoe: PropTypes.object.isRequired,
   getShoesVariants: PropTypes.func.isRequired,
   getShoe: PropTypes.func.isRequired,
   addShoesVariants: PropTypes.func.isRequired,

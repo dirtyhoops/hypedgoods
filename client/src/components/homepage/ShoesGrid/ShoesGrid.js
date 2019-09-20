@@ -11,7 +11,7 @@ import './ShoesGrid.css';
 const ShoesGrid = ({ getShoes, shoes, loadingShoes }) => {
   useEffect(() => {
     getShoes();
-  }, []);
+  }, [getShoes]);
 
   return (
     <div className='wrapper-latestrelease-homepage'>

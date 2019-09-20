@@ -17,7 +17,7 @@ const ShoesVariantTable = props => {
         </thead>
         <tbody>
           {selectedShoeVariants.map(variant => (
-            <tr>
+            <tr key={variant._id}>
               <th scope='row'>{variant.size}</th>
               <td>${variant.price}</td>
               <td>{variant.quantity}</td>

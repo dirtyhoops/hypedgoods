@@ -31,7 +31,7 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
         <ul className='pagination'>
           {currentPage > 1 && pageNumbers.length > 1 ? (
             <li>
-              <a onClick={() => paginateGrid(currentPage - 1)} href='#'>
+              <a onClick={() => paginateGrid(currentPage - 1)} href='# '>
                 Previous
               </a>
             </li>
@@ -39,9 +39,11 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
           {pageNumbers.map(number => (
             <li
               key={number}
-              className={currentPage === number && 'currentPage-selected'}
+              className={
+                currentPage === number ? 'currentPage-selected' : undefined
+              }
             >
-              <a onClick={() => paginateGrid(number)} href='#'>
+              <a onClick={() => paginateGrid(number)} href='# '>
                 {number}
               </a>
             </li>
@@ -49,7 +51,7 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
           {currentPage < pageNumbers.length &&
           currentPage !== pageNumbers.length ? (
             <li>
-              <a onClick={() => paginateGrid(currentPage + 1)} href='#'>
+              <a onClick={() => paginateGrid(currentPage + 1)} href='# '>
                 Next
               </a>
             </li>

@@ -9,7 +9,6 @@ const ShoesFilter = props => {
   const [toggleFilterArrowModel, setToggleFilterArrowModel] = useState(false);
   const [toggleFilterArrowPrice, setToggleFilterArrowPrice] = useState(false);
   const [toggleFilterArrowSize, setToggleFilterArrowSize] = useState(false);
-  const [toggleFilterArrowYear, setToggleFilterArrowYear] = useState(false);
 
   const toggle = () => {
     toggleFilter ? setToggleFilter(false) : setToggleFilter(true);
@@ -37,12 +36,6 @@ const ShoesFilter = props => {
     toggleFilterArrowSize
       ? setToggleFilterArrowSize(false)
       : setToggleFilterArrowSize(true);
-  };
-
-  const toggleArrowYear = () => {
-    toggleFilterArrowYear
-      ? setToggleFilterArrowYear(false)
-      : setToggleFilterArrowYear(true);
   };
 
   return (
