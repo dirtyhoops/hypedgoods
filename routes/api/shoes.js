@@ -133,7 +133,7 @@ router.post(
         await newShoes.save();
         res.json({ msg: 'Successfully added a new shoes' });
       } else {
-        return res.send({
+        return res.status(400).json({
           msg: 'You cant delete an item because you are not an ADMIN'
         });
       }
@@ -162,7 +162,7 @@ router.delete('/:shoes_id', auth, async (req, res) => {
 
       res.json({ msg: 'Shoes and its Variants are deleted' });
     } else {
-      return res.send({
+      res.status(400).json({
         msg: 'You cant delete an item because you are not an ADMIN'
       });
     }
