@@ -3,7 +3,8 @@ import {
   UPDATE_CART_ITEM_COUNT,
   UPDATE_SHOES_PER_PAGE,
   FILTER_PRODUCTS_BY_BRANDS,
-  SORT_PRODUCTS
+  SORT_PRODUCTS,
+  CHANGE_SHOESPERPAGE
 } from './types';
 
 export const updateCartItemCount = itemCount => async dispatch => {

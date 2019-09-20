@@ -113,10 +113,10 @@ const HeroImageCarousel = () => {
         ))}
       </Slider>
       <ButtonBack className='buttonprevious'>
-        <i class='fa fa-angle-left' />
+        <i className='fa fa-angle-left' />
       </ButtonBack>
       <ButtonNext className='buttonnext'>
-        <i class='fa fa-angle-right' aria-hidden='true' />
+        <i className='fa fa-angle-right' aria-hidden='true' />
       </ButtonNext>
       <DotGroup className='dotgroup' />
     </CarouselProvider>

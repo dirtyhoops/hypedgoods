@@ -185,7 +185,7 @@ const ShippingAddressForm = props => {
                   apartment, suite, unit, buildint, floor, etc.
                 </label>
                 <input
-                  className='form-control'
+                  className='form-control capitalize'
                   type='text'
                   name='apartmentunit'
                   value={apartmentunit}

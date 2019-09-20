@@ -14,7 +14,6 @@ const ShippingOptions = props => {
       shippingAddress: {
         firstname,
         lastname,
-        email,
         street,
         apartmentunit,
         city,
@@ -59,7 +58,8 @@ const ShippingOptions = props => {
             <tr>
               <td></td>
               <td className='capitalize'>
-                {street}, {city}, {state} {zipcode}, {country}
+                {street} {apartmentunit ? apartmentunit : null}, {city}, {state}{' '}
+                {zipcode}, {country}
               </td>
             </tr>
             <tr>

@@ -43,6 +43,7 @@ export const saveCustomerInfo = (
   });
 };
 
+// Saves the sub total of all the products
 export const saveSubtotal = subtotal => async dispatch => {
   dispatch({
     type: SAVE_SUBTOTAL,
@@ -50,6 +51,7 @@ export const saveSubtotal = subtotal => async dispatch => {
   });
 };
 
+// Saves the shipping price
 export const saveShippingPrice = shippingPrice => async dispatch => {
   dispatch({
     type: SAVE_SHIPPING_PRICE,
@@ -57,6 +59,7 @@ export const saveShippingPrice = shippingPrice => async dispatch => {
   });
 };
 
+// Saves the tax total amount. right now it's fixed at 9%
 export const saveTaxTotal = taxTotal => async dispatch => {
   dispatch({
     type: SAVE_TAX_TOTAL,
@@ -64,6 +67,7 @@ export const saveTaxTotal = taxTotal => async dispatch => {
   });
 };
 
+// Saves the total amount of the order
 export const saveTotal = total => async dispatch => {
   dispatch({
     type: SAVE_TOTAL,
@@ -71,6 +75,7 @@ export const saveTotal = total => async dispatch => {
   });
 };
 
+// Changes the 'form', just a String that decides what part of checkout the user is on
 export const changeForm = form => async dispatch => {
   dispatch({
     type: CHANGE_FORM,
@@ -78,12 +83,14 @@ export const changeForm = form => async dispatch => {
   });
 };
 
+// Just enable to click the 'Next' button
 export const enableButton = () => async dispatch => {
   dispatch({
     type: ENABLE_BUTTON
   });
 };
 
+// Saves all the product from localstorage to redux so we can just copy the whole object and save it to mongodb
 export const saveProduct = (
   variant_id,
   brand,
@@ -144,18 +151,20 @@ export const processOrder = ({
       config
     );
 
-    // check if the order is a success, right now it's all success because we dontr have to check for credit card validity
+    // check if the order is a success, right now it's all success because we dont have to check for credit card validity
     dispatch({
       type: PROCESS_ORDER_SUCCESS
     });
 
-    // dispatch(setAlert(res.data.msg, 'success'));
+    // just to check if it's working.
+    console.log(res.data.msg);
   } catch (err) {
-    // const errors = err.response.data.errors;
+    const errors = err.response.data.errors;
 
-    // if (errors) {
-    //   errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    // }
+    if (errors) {
+      console.log('processing got errors: ');
+      errors.forEach(error => console.log(error));
+    }
 
     console.log(err);
   }

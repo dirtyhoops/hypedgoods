@@ -54,8 +54,12 @@ const AccountPage = ({
             {user.address ? (
               <>
                 <p className='capitalize'>
-                  {user.address.street}, {user.address.city},{' '}
-                  {user.address.state}. {user.address.zipcode}
+                  {user.address.street}{' '}
+                  {user.address.apartmentunit
+                    ? user.address.apartmentunit
+                    : null}
+                  , {user.address.city}, {user.address.state}.{' '}
+                  {user.address.zipcode}
                 </p>
               </>
             ) : null}

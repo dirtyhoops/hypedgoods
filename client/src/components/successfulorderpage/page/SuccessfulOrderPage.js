@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
@@ -39,42 +39,52 @@ const SuccessfulOrderPage = ({ auth, checkout, processOrder }) => {
       </div>
       <div className='table-successfulorder'>
         <table>
-          {products.map((product, ind) => (
-            <tr key={ind}>
-              <td className='successfulorder-item-image'>
-                <img src={product.image} />
-              </td>
+          <tbody>
+            {products.map((product, ind) => (
+              <tr key={ind}>
+                <td className='successfulorder-item-image'>
+                  <img src={product.image} />
+                </td>
+                <td>
+                  <p className='successfulorder-p-uppercase successfulorder-p-bolder'>
+                    {product.brand}
+                  </p>
+                  <p className='successfulorder-p-capitalize'>{product.name}</p>
+                  <p className='successfulorder-p-capitalize'>
+                    size {product.size} US
+                  </p>
+                  <p>
+                    $
+                    {product.price
+                      .toFixed(2)
+                      .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+                  </p>
+                </td>
+              </tr>
+            ))}
+            <tr>
+              <td className='successfulorder-p-capitalize'>products total</td>
               <td>
-                <p className='successfulorder-p-uppercase successfulorder-p-bolder'>
-                  {product.brand}
-                </p>
-                <p className='successfulorder-p-capitalize'>{product.name}</p>
-                <p className='successfulorder-p-capitalize'>
-                  size {product.size} US
-                </p>
-                <p>
-                  $
-                  {product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
-                </p>
+                ${subtotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
               </td>
             </tr>
-          ))}
-          <tr>
-            <td className='successfulorder-p-capitalize'>products total</td>
-            <td>${subtotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
-          </tr>
-          <tr>
-            <td className='successfulorder-p-capitalize'>tax</td>
-            <td>${taxTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
-          </tr>
-          <tr>
-            <td className='successfulorder-p-capitalize'>shipping cost</td>
-            <td>${shipping.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
-          </tr>
-          <tr>
-            <td>total</td>
-            <td>${total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}}</td>
-          </tr>
+            <tr>
+              <td className='successfulorder-p-capitalize'>tax</td>
+              <td>
+                ${taxTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              </td>
+            </tr>
+            <tr>
+              <td className='successfulorder-p-capitalize'>shipping cost</td>
+              <td>
+                ${shipping.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+              </td>
+            </tr>
+            <tr>
+              <td>total</td>
+              <td>${total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

@@ -83,9 +83,12 @@ const Payment = props => {
             <tr>
               <td></td>
               <td className='capitalize'>
-                {shippingAddress.street}, {shippingAddress.city},{' '}
-                {shippingAddress.state} {shippingAddress.zipcode},{' '}
-                {shippingAddress.country}
+                {shippingAddress.street}{' '}
+                {shippingAddress.apartmentunit
+                  ? shippingAddress.apartmentunit
+                  : null}
+                , {shippingAddress.city}, {shippingAddress.state}{' '}
+                {shippingAddress.zipcode}, {shippingAddress.country}
               </td>
 
               <td>

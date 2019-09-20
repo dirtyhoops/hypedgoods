@@ -123,7 +123,7 @@ export const addAddress = ({ formData }) => async dispatch => {
     const res = await axios.put('/api/users/address', formData, config);
 
     dispatch(loadUser());
-    dispatch(setAlert('Successfully saved your address', 'success'));
+    dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './SortingAndViewOptions.css';
 
@@ -45,10 +45,9 @@ const SortingAndViewOptions = props => {
         <select
           className='sortselect'
           onChange={e => productSort(e.target.value)}
+          defaultValue={'newarrivals'}
         >
-          <option value='newarrivals' selected>
-            New Arrivals
-          </option>
+          <option value='newarrivals'>New Arrivals</option>
           <option value='highestprice'>Price High</option>
           <option value='lowestprice'>Price Low</option>
           <option value='releasenew'>Release New</option>

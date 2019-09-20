@@ -6,12 +6,16 @@ const Pagination = ({ shoesPerPage, totalShoes, paginate }) => {
   const pageNumbers = [];
   const [currentPage, setCurrentPage] = useState(1);
 
-  for (let i = 1; i <= Math.ceil(totalShoes / shoesPerPage); i++) {
-    pageNumbers.push(i);
+  const [shoesPage, setShoesPage] = useState(shoesPerPage);
+
+  // changes the shoesPerPage whenever the redux state changes
+  if (shoesPage !== shoesPerPage) {
+    setShoesPage(shoesPerPage);
+    setCurrentPage(1);
   }
 
-  if (totalShoes < shoesPerPage && currentPage === 2) {
-    setCurrentPage(1);
+  for (let i = 1; i <= Math.ceil(totalShoes / shoesPerPage); i++) {
+    pageNumbers.push(i);
   }
 
   const paginateGrid = number => {

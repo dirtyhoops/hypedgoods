@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getShoes, doneLoading } from '../../../actions/shoe';
@@ -8,7 +8,6 @@ import {
   sortProducts
 } from '../../../actions/cartAndFilter';
 import ShoesListGrid from '../ShoesListGrid/ShoesListGrid';
-import Spinner from '../../layout/Spinner/Spinner';
 import SortingAndViewOptions from '../SortingAndViewOptions/SortingAndViewOptions';
 import ShoesFilter from '../ShoesFilter/ShoesFilter';
 

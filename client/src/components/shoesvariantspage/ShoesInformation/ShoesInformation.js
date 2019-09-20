@@ -21,7 +21,7 @@ const ShoeInformation = props => {
     <div className='variant-shoes-info'>
       <div className='variant-shoes-image'>
         <Link to={`/products/shoes/${_id}`}>
-          <img src={images[0]} />
+          <img src={images[0]} alt='main product shot' />
         </Link>
       </div>
       <div className='variant-shoes-text'>

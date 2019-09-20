@@ -86,7 +86,7 @@ router.post('/', async (req, res) => {
       );
     });
 
-    res.json(newOrder);
+    res.json({ msg: 'Thank you for your order, your order is successful!' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

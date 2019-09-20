@@ -129,7 +129,6 @@ router.put(
 
     try {
       // look for the user with the id and then update the address
-
       await User.updateOne(
         { _id: req.user.id },
         {
@@ -138,9 +137,8 @@ router.put(
           }
         }
       );
-      const userr = await User.findOne({ _id: req.user.id });
 
-      res.json(userr);
+      res.json({ msg: 'Sucessfully saved your address.' });
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');
@@ -149,13 +147,3 @@ router.put(
 );
 
 module.exports = router;
-
-// updateOne(
-//   { _id: req.params.shoes_id },
-//   {
-//     $set: {
-//       total_quantity:
-//         parseInt(shoes.total_quantity) + parseInt(quantity),
-//       lowest_price: lowestPrice
-//     }
-//   }

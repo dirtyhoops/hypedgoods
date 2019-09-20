@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ShippingAddressForm from '../ShippingAddressForm/ShippingAddressForm';
 import ShippingOptions from '../ShippingOptions/ShippingOptions';
 import Payment from '../Payment/Payment';
