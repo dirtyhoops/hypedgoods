@@ -13,8 +13,6 @@ const initialState = {
   brands: []
 };
 
-// @TODO
-// 1. TAKE OUT ADD_ITEM_TO_CART
 export default function(state = initialState, action) {
   const { type, payload } = action;
 

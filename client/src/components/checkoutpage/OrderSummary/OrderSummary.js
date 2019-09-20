@@ -20,6 +20,7 @@ const OrderSummary = props => {
   var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
 
   // Gets the subtotal of the order(no shipping, no tax) and also saves all products from the localStorage to redux.
+  // MAYBE ADD A RETURN VALUE IN THE END. return subtotal
   const getSubtotal = () => {
     var subTotal = 0;
     getCartItems.map(item => {
