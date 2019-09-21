@@ -29,11 +29,11 @@
     "pure-react-carousel": "^1.21.2",
     "react-moment": "^0.9.2",
     "request": "^2.88.0",
-    "webpack": "^4.29.6"
+    "webpack": "^4.29.6",
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.1"
   },
   "devDependencies": {
-    "concurrently": "^4.1.2",
-    "nodemon": "^1.19.1",
     "react-scripts": "^3.1.1"
   },
   "engines": {
