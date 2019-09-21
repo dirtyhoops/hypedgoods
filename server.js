@@ -16,13 +16,21 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/shoes', require('./routes/api/shoes'));
 app.use('/api/orders', require('./routes/api/orders'));
 
-// Serve static assets if in production.      ----------> this is for deployment
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static('client/build'));
+// app.use(express.static(path.join(__dirname, 'client/build')));
+// // Serve static assets if in production.      ----------> this is for deployment
+// if (process.env.NODE_ENV === 'production') {
+//   // Set static folder
+//   app.use(express.static('client/build'));
 
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendfile(path.join((__dirname = 'client/build/index.html')));
   });
 }
 
