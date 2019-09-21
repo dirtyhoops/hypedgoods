@@ -17,22 +17,22 @@ app.use('/api/shoes', require('./routes/api/shoes'));
 app.use('/api/orders', require('./routes/api/orders'));
 
 // app.use(express.static(path.join(__dirname, 'client/build')));
-// // Serve static assets if in production.      ----------> this is for deployment
-// if (process.env.NODE_ENV === 'production') {
-//   // Set static folder
-//   app.use(express.static('client/build'));
-
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//   });
-// }
-
+// Serve static assets if in production.      ----------> this is for deployment
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  // Set static folder
+  app.use(express.static('client/build'));
+
   app.get('*', (req, res) => {
-    res.sendfile(path.join((__dirname = 'client/build/index.html')));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
+
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, 'client/build')));
+//   app.get('*', (req, res) => {
+//     res.sendfile(path.join((__dirname = 'client/build/index.html')));
+//   });
+// }
 
 const PORT = process.env.PORT || 5000;
 
