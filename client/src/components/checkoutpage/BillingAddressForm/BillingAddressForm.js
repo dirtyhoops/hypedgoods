@@ -216,11 +216,11 @@ const BillingAddressForm = props => {
               </div>
             </div>
           </div>
-          <div className='row continuetoshipping-button'>
+          <div className='row useaddress-button'>
             <div className='col'>
               <input
                 type='submit'
-                className='btn btn-primary btn-sm'
+                className='btn btn-dark btn-sm'
                 value='Use address'
               />
             </div>

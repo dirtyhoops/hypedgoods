@@ -98,7 +98,7 @@ const ShippingAddressForm = props => {
         {!auth.isAuthenticated ? (
           <Link to={'/account/login'}>
             <button className='billingaddresssignin-button'>
-              register or sign in for faster checkout
+              Register or sign-in for faster checkout
             </button>
           </Link>
         ) : null}

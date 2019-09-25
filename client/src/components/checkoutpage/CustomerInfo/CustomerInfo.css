@@ -39,7 +39,6 @@
 .billingaddresssignin-button {
   background: transparent;
   border: none;
-  text-transform: uppercase;
   text-decoration: underline;
   font-size: 12px;
   padding: 3px 15px 3px 0px;
@@ -64,6 +63,7 @@
 .checkout-crumbs {
   font-size: 0.7em;
 }
+
 .crumbs-bold {
   font-weight: 800;
 }
@@ -75,5 +75,77 @@
     display: block;
     text-align: left;
     border-right: none;
+    padding: 1em 0 0 0;
+    min-height: 50vh;
+  }
+
+  .header-customerinfo {
+    height: 34px;
+    text-align: center;
+    border-bottom: 1px solid rgba(226, 203, 203, 0.658);
+    margin-bottom: 10px;
+  }
+
+  .shippingaddress-container {
+    margin: 0.5em 0.3em;
+  }
+
+  .header-customerinfo h1 {
+    text-transform: uppercase;
+    font-size: 17px;
+    line-height: 34px;
+  }
+
+  .shippingaddress-container {
+    margin: 0.5em 0.3em;
+  }
+
+  .header-shippingaddress,
+  .header-billingaddress {
+    margin-bottom: 10px;
+  }
+
+  .header-shippingaddress h1,
+  .header-billingaddress h1 {
+    font-size: 14px;
+    text-transform: capitalize;
+    line-height: 22px;
+    margin-bottom: 0px;
+  }
+
+  .shippingaddress-form-container,
+  .billingaddress-form-container {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .billingaddresssignin-button {
+    font-size: 11px;
+  }
+
+  .shippingaddress-form label,
+  .billingaddress-form label {
+    font-size: 0.55em;
+    margin: 0px 0px 4px;
+  }
+
+  .shippingaddress-form .form-group input,
+  .shippingaddress-form .form-group select,
+  .billingaddress-form .form-group input,
+  .billingaddress-form .form-group select {
+    font-size: 0.7em;
+    /* text-transform: capitalize; */
+  }
+
+  .shippingaddress-form .form-group,
+  .billingaddress-form .form-group {
+    margin: 0px 0px 5px 0px;
+  }
+
+  .checkout-crumbs {
+    display: none;
+    /* font-size: 0.7em; */
+  }
+  .crumbs-bold {
+    font-weight: 800;
   }
 }

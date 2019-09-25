@@ -1,3 +1,20 @@
 .billingaddress-form-container .row .col {
-  padding: 0 5px;
+  padding: 0 2px;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .billingaddress-form-container .row .col {
+    padding: 0 1px;
+  }
+
+  .useaddress-button input {
+    font-size: 11px;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .useaddress-button .col {
+    width: 100%;
+  }
 }

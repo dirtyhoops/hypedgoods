@@ -39,7 +39,7 @@ const CheckoutPage = ({
   // 2. make a local state that keeps track of the order summary(total)
 
   return (
-    <div className='wrapper-checkoutpage container'>
+    <div className='wrapper-checkoutpage'>
       <CustomerInfo
         auth={auth}
         checkout={checkout}
