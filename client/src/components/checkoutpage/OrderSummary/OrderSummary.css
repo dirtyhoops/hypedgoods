@@ -139,6 +139,11 @@
     border-right: none;
   }
 
+  .header-itemsummary h1 {
+    text-transform: uppercase;
+    font-size: 17px;
+  }
+
   .itemsummary-container {
     width: 100%;
     display: block;

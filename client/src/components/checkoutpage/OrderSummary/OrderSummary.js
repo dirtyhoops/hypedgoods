@@ -23,20 +23,22 @@ const OrderSummary = props => {
   // MAYBE ADD A RETURN VALUE IN THE END. return subtotal
   const getSubtotal = () => {
     var subTotal = 0;
-    getCartItems.map(item => {
-      subTotal += item.shoe_price;
-      saveProduct(
-        item.variant_id,
-        item.shoe_brand,
-        item.shoe_name,
-        item.shoe_colorway,
-        item.shoe_retail_price,
-        item.shoe_price,
-        item.shoe_size,
-        item.shoe_image,
-        item.shoe_id
-      );
-    });
+    if (getCartItems) {
+      getCartItems.map(item => {
+        subTotal += item.shoe_price;
+        saveProduct(
+          item.variant_id,
+          item.shoe_brand,
+          item.shoe_name,
+          item.shoe_colorway,
+          item.shoe_retail_price,
+          item.shoe_price,
+          item.shoe_size,
+          item.shoe_image,
+          item.shoe_id
+        );
+      });
+    }
     setOrderSubTotal(subTotal);
     saveSubtotal(subTotal);
   };

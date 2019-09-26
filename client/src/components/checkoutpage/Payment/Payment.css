@@ -62,14 +62,7 @@
 
 .billing-address-option form label {
   font-size: 0.85em;
-}
-
-.radiolabel-left {
-  text-align: left;
-}
-
-.radiolabel-right {
-  text-align: right;
+  text-transform: none;
 }
 
 .tr-border-top-payment {
@@ -105,7 +98,113 @@
   font-size: 13px;
 }
 
-/********************************PAYMENT COMPONENT**************************************/
 .payment-small-text {
   font-size: 0.7em;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .table-payment-button {
+    padding: 5px;
+    background: transparent;
+    border: none;
+    color: blue;
+    font-size: 11px;
+    text-transform: capitalize;
+  }
+
+  .payment-container {
+    margin: 0.5em 0.3em;
+  }
+
+  .header-shippingoption,
+  .header-billing-address {
+    margin-bottom: 2px;
+  }
+
+  .header-shippingoption h1,
+  .header-billing-address h1 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .payment-table {
+    margin: 0 0 1em 0;
+  }
+
+  .table-payment {
+    border: 1px solid black;
+    width: 95%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px rgb(226, 218, 218);
+    font-size: 12px;
+    margin: 0 auto;
+  }
+
+  .table-payment tr {
+    height: 25px;
+  }
+
+  .table-payment td {
+    padding: 0 7px;
+  }
+
+  .table-payment-firstcol {
+    width: 70px;
+  }
+
+  .billing-address-option {
+    margin: 1em 0;
+  }
+
+  .billing-address-option form {
+    width: 95%;
+    border: 1px solid rgb(226, 218, 218);
+    border-radius: 10px;
+    padding: 3px 8px;
+    margin: 0 auto;
+  }
+
+  .billing-address-option form label {
+    font-size: 12px;
+  }
+
+  .tr-border-top-payment {
+    border-top: 1px solid rgb(226, 218, 218);
+  }
+
+  .payment-buttons {
+    display: flex;
+    margin: 1em 0;
+  }
+
+  .payment-button-left {
+    width: 55%;
+    text-align: left;
+    margin: auto;
+  }
+
+  .payment-button-right {
+    width: 45%;
+    text-align: right;
+    margin: auto;
+  }
+
+  .payment-button-left button {
+    font-size: 11px;
+    background: transparent;
+    border: none;
+    color: blue;
+    padding: 5px;
+  }
+
+  .payment-button-right button {
+    font-size: 11px;
+  }
+
+  .payment-small-text {
+    font-size: 0.7em;
+  }
 }

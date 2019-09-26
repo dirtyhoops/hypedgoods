@@ -66,14 +66,6 @@
   font-size: 0.85em;
 }
 
-.radiolabel-left {
-  text-align: left;
-}
-
-.radiolabel-right {
-  text-align: right;
-}
-
 .shipping-summary-buttons {
   display: flex;
   margin: 1em 0;
@@ -101,4 +93,101 @@
 
 .shipping-summary-button-right button {
   font-size: 13px;
+}
+
+/* for mobile phone(iphone x and lower) */
+@media screen and (max-width: 768px) {
+  .shippingoption-container {
+    margin: 0.5em 0.3em;
+  }
+
+  .header-shippingoption {
+    margin-bottom: 2px;
+  }
+
+  .header-shippingoption h1 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .shipping-summary-table {
+    margin: 0 0 1em 0;
+  }
+
+  .table-shipping-summary {
+    border: 1px solid black;
+    width: 95%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px rgb(226, 218, 218);
+    font-size: 12px;
+    margin: 0 auto;
+  }
+
+  .table-shipping-summary tr {
+    height: 25px;
+  }
+
+  .table-shipping-summary td {
+    padding: 0 7px;
+  }
+
+  .table-shipping-summary-firstcol {
+    width: 70px;
+  }
+
+  .table-shipping-summary-lastrow {
+    text-align: right;
+  }
+
+  .table-shipping-summary-lastrow button {
+    padding: 0 5px 0 10px;
+    font-size: 12px;
+  }
+
+  .shipping-summary-options {
+    margin: 1em 0;
+  }
+
+  .shipping-summary-options form {
+    width: 95%;
+    border: 1px solid rgb(226, 218, 218);
+    border-radius: 10px;
+    padding: 3px 8px;
+    margin: 0 auto;
+  }
+
+  .shipping-summary-options form label {
+    font-size: 12px;
+  }
+
+  .shipping-summary-buttons {
+    display: flex;
+    margin: 1em 0;
+  }
+
+  .shipping-summary-button-left {
+    width: 55%;
+    text-align: left;
+    margin: auto;
+  }
+
+  .shipping-summary-button-right {
+    width: 45%;
+    text-align: right;
+    margin: auto;
+  }
+
+  .shipping-summary-button-left button {
+    font-size: 11px;
+    background: transparent;
+    border: none;
+    color: blue;
+    padding: 5px;
+  }
+
+  .shipping-summary-button-right button {
+    font-size: 11px;
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   saveShippingAddress,
   saveCustomerInfo,
@@ -37,27 +38,39 @@ const CheckoutPage = ({
   // @TODO:
   // 1. make the itemsummary a table instead of div
   // 2. make a local state that keeps track of the order summary(total)
+  var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
 
   return (
     <div className='wrapper-checkoutpage'>
-      <CustomerInfo
-        auth={auth}
-        checkout={checkout}
-        saveShippingAddress={saveShippingAddress}
-        saveCustomerInfo={saveCustomerInfo}
-        changeForm={changeForm}
-        saveShippingPrice={saveShippingPrice}
-        enableButton={enableButton}
-        saveBillingAddress={saveBillingAddress}
-        saveTaxTotal={saveTaxTotal}
-        saveTotal={saveTotal}
-        processOrder={processOrder}
-      />
-      <OrderSummary
-        saveSubtotal={saveSubtotal}
-        saveProduct={saveProduct}
-        checkout={checkout}
-      />
+      {getCartItems ? (
+        <>
+          <CustomerInfo
+            auth={auth}
+            checkout={checkout}
+            saveShippingAddress={saveShippingAddress}
+            saveCustomerInfo={saveCustomerInfo}
+            changeForm={changeForm}
+            saveShippingPrice={saveShippingPrice}
+            enableButton={enableButton}
+            saveBillingAddress={saveBillingAddress}
+            saveTaxTotal={saveTaxTotal}
+            saveTotal={saveTotal}
+            processOrder={processOrder}
+          />
+          <OrderSummary
+            saveSubtotal={saveSubtotal}
+            saveProduct={saveProduct}
+            checkout={checkout}
+          />
+        </>
+      ) : (
+        <div className='cart-empty-box'>
+          <p>Your cart is empty</p>
+          <Link to='/products/shoes'>
+            <button className='btn btn-dark'>Continue Shopping -></button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

@@ -8,62 +8,65 @@ const ShippingAddressForm = props => {
   const { shippingAddress } = checkout;
 
   const [formData, setFormData] = useState({
-    firstname: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.firstname}`
-        : `${auth.user.firstname}`
+    firstname: checkout.shippingAddress
+      ? `${checkout.shippingAddress.firstname}`
+      : auth.user
+      ? `${auth.user.firstname}`
       : '',
-    lastname: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.lastname}`
-        : `${auth.user.lastname}`
+    lastname: checkout.shippingAddress
+      ? `${checkout.shippingAddress.lastname}`
+      : auth.user
+      ? `${auth.user.lastname}`
       : '',
-    email: auth.user ? `${auth.user.email}` : '',
+    email: checkout.customerInfo
+      ? `${checkout.customerInfo.email}`
+      : auth.user
+      ? `${auth.user.email}`
+      : '',
     phone: checkout.customerInfo
       ? checkout.customerInfo.phone
         ? `${checkout.customerInfo.phone}`
         : ''
       : '',
-    street: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.street}`
-        : auth.user.address
+    street: checkout.shippingAddress
+      ? `${checkout.shippingAddress.street}`
+      : auth.user
+      ? auth.user.address
         ? `${auth.user.address.street}`
         : ''
       : '',
-
-    apartmentunit: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.apartmentunit}`
-        : auth.user.address
+    apartmentunit: checkout.shippingAddress
+      ? `${checkout.shippingAddress.apartmentunit}`
+      : auth.user
+      ? auth.user.address
         ? `${auth.user.address.apartmentunit}`
         : ''
       : '',
-    city: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.city}`
-        : auth.user.address
+    city: checkout.shippingAddress
+      ? `${checkout.shippingAddress.city}`
+      : auth.user
+      ? auth.user.address
         ? `${auth.user.address.city}`
         : ''
       : '',
-    state: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.state}`
-        : auth.user.address
+    state: checkout.shippingAddress
+      ? `${checkout.shippingAddress.state}`
+      : auth.user
+      ? auth.user.address
         ? `${auth.user.address.state}`
         : ''
       : '',
-    zipcode: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.zipcode}`
-        : auth.user.address
+    zipcode: checkout.shippingAddress
+      ? `${checkout.shippingAddress.zipcode}`
+      : auth.user
+      ? auth.user.address
         ? `${auth.user.address.zipcode}`
         : ''
       : '',
-    country: auth.user
-      ? checkout.shippingAddress
-        ? `${checkout.shippingAddress.country}`
-        : auth.user.address
+    country: checkout.shippingAddress
+      ? `${checkout.shippingAddress.country}`
+      : auth.user
+      ? auth.user.address
         ? `${auth.user.address.country}`
         : 'United State'
       : 'United State'

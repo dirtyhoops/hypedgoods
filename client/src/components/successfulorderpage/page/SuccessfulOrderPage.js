@@ -33,7 +33,7 @@ const SuccessfulOrderPage = ({ auth, checkout, processOrder }) => {
   }
 
   return (
-    <div className='wrapper-successfulorderpage container'>
+    <div className='wrapper-successfulorderpage'>
       <div className='header-successfulorderpage'>
         <h1>Thank you for your order!</h1>
       </div>
@@ -42,10 +42,12 @@ const SuccessfulOrderPage = ({ auth, checkout, processOrder }) => {
           <tbody>
             {products.map((product, ind) => (
               <tr key={ind}>
-                <td className='successfulorder-item-image'>
-                  <img src={product.image} />
+                <td className='successfulorder-td-1'>
+                  <div className='successfulorder-item-image'>
+                    <img src={product.image} />
+                  </div>
                 </td>
-                <td>
+                <td className='successfulorder-td-2'>
                   <p className='successfulorder-p-uppercase successfulorder-p-bolder'>
                     {product.brand}
                   </p>

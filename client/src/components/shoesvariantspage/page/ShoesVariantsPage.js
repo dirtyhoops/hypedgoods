@@ -38,7 +38,7 @@ const ShoesVariantsPage = ({
   useEffect(() => {
     getShoe(shoes_id);
     getShoesVariants(shoes_id);
-  });
+  }, []);
 
   if (isAddingVariantSuccess) {
     getShoesVariants(shoes_id);

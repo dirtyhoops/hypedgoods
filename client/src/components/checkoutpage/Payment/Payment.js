@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import BillingAddressForm from '../BillingAddressForm/BillingAddressForm';
 
+import store from '../../../store';
+import { updateCartItemCount } from '../../../actions/cartAndFilter';
+
 import './Payment.css';
 
 const Payment = props => {
@@ -44,6 +47,7 @@ const Payment = props => {
     });
 
     // CLEAR THE LOCALSTORAGE HERE BECAUSE ONCE PAYMENT IS PROCESSED WE HAVE NO NEED FOR THE CART ITEMS
+    // localStorage.removeItem('itemsArray');
   };
 
   // Just a toggler between radio options.
@@ -63,6 +67,12 @@ const Payment = props => {
   };
 
   if (orderSuccess) {
+    // Clears the itemsArray that has all the products in the cart from the localStorage
+    localStorage.removeItem('itemsArray');
+
+    // Change the cart item count to 0
+    store.dispatch(updateCartItemCount(0));
+
     return <Redirect to={'/ordersummary'} />;
   }
 
