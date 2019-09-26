@@ -28,8 +28,8 @@ const Banner = () => {
               <img src={fastshipping} alt='fastshippingimage_logo' />
             </div>
             <p>
-              No waiting on verification, no middle men. you get the shoes the
-              day after you order it.
+              No waiting on verification. No middle man. Shoes will be shipped
+              once order is placed.
             </p>
           </div>
         </div>

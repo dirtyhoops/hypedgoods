@@ -14,7 +14,7 @@ const Shoe = ({ shoe: { _id, name, brand, images, lowest_price } }) => {
         <div className='shoes-info'>
           <p className='shoes-info-brand'>{brand}</p>
           <p className='shoes-info-name'> {name}</p>
-          <p className='shoes-info-price'>{lowest_price}+</p>
+          <p className='shoes-info-price'>${lowest_price}+</p>
         </div>
       </Link>
     </div>
