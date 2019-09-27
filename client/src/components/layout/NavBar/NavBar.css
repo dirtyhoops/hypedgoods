@@ -79,27 +79,8 @@ nav {
 }
 
 /************** BURGER BUTTON ************************/
-.burger-button {
+.nav-burger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  height: 18px;
-  width: 30px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.burger-button:focus {
-  outline: none;
-}
-
-.burger-line {
-  width: 27px;
-  height: 2px;
-  background-color: rgb(255, 255, 255);
 }
 
 /**************** SIDE DRAWER ***************/
@@ -164,6 +145,7 @@ nav {
   .nav-burger {
     width: 15%;
     padding-left: 2px;
+    display: block;
   }
 
   .burger-button {
@@ -173,17 +155,6 @@ nav {
   .right-nav-links span {
     top: 6px;
     left: -7px;
-  }
-
-  /* .burger-close-button {
-    border: none;
-    color: white;
-    background: transparent;
-    font-size: 25px;
-  } */
-
-  .burger-close-button:focus {
-    outline: none;
   }
 
   /**************** SIDE DRAWER ***************/

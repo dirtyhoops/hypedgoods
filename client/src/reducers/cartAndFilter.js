@@ -11,7 +11,10 @@ const initialState = {
   shoesPerPage: 30,
   filteredItems: [],
   filteredItemsLoading: true,
+  selectedFilters: [],
   brands: [],
+  models: [],
+  sizes: [],
   hamburger: true
 };
 

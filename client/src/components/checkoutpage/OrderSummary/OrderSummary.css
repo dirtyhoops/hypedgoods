@@ -135,7 +135,7 @@
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .display-enter {
-    transform: translateY(-100%);
+    transform: translateY(-20%);
     opacity: 0;
   }
 
@@ -152,7 +152,7 @@
 
   .display-exit-active {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-20%);
     transition: 300ms, transform 300ms;
   }
 

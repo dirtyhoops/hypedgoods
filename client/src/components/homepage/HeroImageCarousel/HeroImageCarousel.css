@@ -19,6 +19,7 @@
 .shoe-hero-button button {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
+  border-radius: 2px;
 }
 
 .buttonprevious {
@@ -83,7 +84,7 @@
   .buttonprevious {
     font-size: 3em;
     top: 50%;
-    left: -8%;
+    left: 0%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(0%, -50%);
   }
@@ -91,7 +92,7 @@
   .buttonnext {
     font-size: 3em;
     top: 50%;
-    right: -8%;
+    right: 0%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(0%, -50%);
   }

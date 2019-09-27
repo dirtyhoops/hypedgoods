@@ -50,7 +50,7 @@
 }
 
 .filter-options-container button {
-  width: 3em;
+  width: 80%;
   border: none;
   background: transparent;
   text-align: right;
@@ -73,6 +73,28 @@
   display: none;
 }
 
+.filter-size-options {
+  text-align: center;
+}
+
+/* SIZE FILTER */
+.size-filter-ul {
+  width: 100%;
+  justify-content: space-between;
+  /* background: pink; */
+  padding: 0 7px;
+  font-size: 14px;
+}
+
+.size-filter-ul li {
+  width: 22%;
+  padding: 7px;
+  text-align: center;
+  display: inline-block;
+  margin: 2px;
+  border: 1px solid rgb(196, 181, 181);
+}
+
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
   .wrapper-shoes-list-filter {
@@ -80,17 +102,37 @@
     margin: 0.5em auto;
   }
 
-  .shoes-list-filter-content-mobile {
-    height: 400px;
-    background: pink;
-    display: block;
-  }
-
   .show-filter-button {
     display: block;
   }
 
-  .shoes-list-filter-content {
+  .found-item-container {
     display: none;
+  }
+
+  .filter-options-container {
+    font-size: 13px;
+  }
+
+  .filter-options label {
+    font-size: 13px;
+  }
+
+  /* SIZE FILTER */
+  .size-filter-ul {
+    width: 100%;
+    justify-content: space-between;
+    /* background: pink; */
+    padding: 0 7px;
+    font-size: 14px;
+  }
+
+  .size-filter-ul li {
+    width: 22%;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid rgb(196, 181, 181);
   }
 }

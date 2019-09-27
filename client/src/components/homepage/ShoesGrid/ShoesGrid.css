@@ -94,4 +94,8 @@
   .shoes-info {
     font-size: 12px;
   }
+
+  .grid-latestrelease-column:hover {
+    opacity: 1;
+  }
 }

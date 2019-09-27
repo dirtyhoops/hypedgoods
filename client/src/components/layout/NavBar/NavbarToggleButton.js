@@ -34,22 +34,6 @@ const NavbarToggleButton = props => {
         </button>
       )}
     </div>
-    // <div className='nav-burger'>
-    //   {toggleBurger ? (
-    //     <button className='burger-button' onClick={() => onClickHandler()}>
-    //       <div className='burger-line' />
-    //       <div className='burger-line' />
-    //       <div className='burger-line' />
-    //     </button>
-    //   ) : (
-    //     <button
-    //       className='burger-close-button'
-    //       onClick={() => onClickHandler()}
-    //     >
-    //       <i class='fal fa-times'></i>
-    //     </button>
-    //   )}
-    // </div>
   );
 };
 
