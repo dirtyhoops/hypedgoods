@@ -80,7 +80,7 @@ const OrderSummary = props => {
           </p>
         </div>
       </div>
-      {getCartItems ? (
+      {toggleShowOrder ? (
         <>
           <div className='itemsummary'>
             {getCartItems.map((item, index) => (
@@ -131,7 +131,7 @@ const OrderSummary = props => {
                       ? `$${taxTotal
                           .toFixed(2)
                           .replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
-                      : 'will be calculated'}
+                      : 'Will be calculated'}
                   </td>
                 </tr>
                 <tr>
@@ -141,7 +141,7 @@ const OrderSummary = props => {
                       ? `$${shipping
                           .toFixed(2)
                           .replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
-                      : 'will be calculated'}
+                      : 'Will be calculated'}
                   </td>
                 </tr>
                 <tr className='table-top-border'>
@@ -156,17 +156,13 @@ const OrderSummary = props => {
               </tbody>
             </table>
             <Link to={'/cart'}>
-              <button className='btn btn-primary btn-sm return-to-cart-button'>
+              <button className='btn btn-dark btn-sm return-to-cart-button'>
                 Return to cart
               </button>
             </Link>
           </div>
         </>
-      ) : (
-        <div className='noitemsummary'>
-          <p>cart is empty, continue shopping</p>
-        </div>
-      )}
+      ) : null}
     </div>
   );
 };

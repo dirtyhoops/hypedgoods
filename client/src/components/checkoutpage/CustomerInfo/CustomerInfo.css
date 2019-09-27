@@ -75,7 +75,6 @@
     border-right: none;
     padding: 1em 0 0 0;
     min-height: none;
-
     /* This is the order of flex box, this brings it under the order summary */
     order: 1;
   }
@@ -83,7 +82,7 @@
   .header-customerinfo {
     height: 34px;
     text-align: center;
-    border-bottom: 1px solid rgba(226, 203, 203, 0.658);
+    border-bottom: none;
     margin-bottom: 10px;
   }
 

@@ -96,7 +96,7 @@
   width: 100%;
   margin-top: 0.3em;
   font-size: 0.8em;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .itemsummary-total table tr {
@@ -111,10 +111,11 @@
 .itemsummarytable-right-col {
   text-align: right;
   padding-right: 0.7em;
+  text-transform: none;
 }
 
 .summarytotal-text-bold {
-  font-size: 1.6em;
+  font-size: 1.4em;
   font-weight: bold;
 }
 
@@ -137,6 +138,7 @@
     width: 100%;
     text-align: left;
     border-right: none;
+    border-bottom: 1px solid rgba(226, 203, 203, 0.658);
     /* This is the order of flex box, this brings it on top */
     order: 0;
   }
@@ -158,7 +160,7 @@
   }
 
   .itemsummary {
-    border-bottom: 2px solid rgb(228, 200, 200);
+    border-bottom: 1px solid rgb(236, 221, 221);
   }
 
   .item-row {
@@ -189,6 +191,10 @@
     margin-left: 6px;
   }
 
+  .table-top-border {
+    border-top: 1px solid rgb(236, 221, 221);
+  }
+
   .mobile-hide {
     display: none;
   }
@@ -198,10 +204,10 @@
     margin-right: calc(50% - 50vw);
     display: flex;
     justify-content: flex-start;
-    background: rgb(230, 240, 228);
+    background: rgb(242, 245, 242);
     height: 55px;
     padding: 0 10px;
-    border-bottom: 1px solid rgb(170, 233, 157);
+    border-bottom: 1px solid rgb(218, 247, 212);
   }
 
   .itemsummary-mobile-toggler-right {
