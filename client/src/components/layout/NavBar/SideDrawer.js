@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { changeHamburger } from '../../../actions/cartAndFilter';
 
 import './NavBar.css';
 
 const SideDrawer = props => {
+  const { hamburger, changeHamburger } = props;
   let drawerClasses = 'side-drawer';
   if (props.show) {
     drawerClasses = 'side-drawer open';
   }
+
+  const onClickHandler = () => {
+    props.drawerClickHandler();
+    changeHamburger(!hamburger);
+  };
 
   return (
     <div className={drawerClasses}>
@@ -15,7 +23,7 @@ const SideDrawer = props => {
         <i className='fa fa-window-close' />
       </div> */}
       <div className='nav-links-mobile'>
-        <ul onClick={props.drawerClickHandler}>
+        <ul onClick={() => onClickHandler()}>
           <li className='first'>
             <Link to='/products/shoes'>new releases</Link>
           </li>
@@ -28,4 +36,11 @@ const SideDrawer = props => {
   );
 };
 
-export default SideDrawer;
+const mapStateToProps = state => ({
+  hamburger: state.cartAndFilter.hamburger
+});
+
+export default connect(
+  mapStateToProps,
+  { changeHamburger }
+)(SideDrawer);

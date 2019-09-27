@@ -3,7 +3,8 @@ import {
   UPDATE_CART_ITEM_COUNT,
   UPDATE_SHOES_PER_PAGE,
   FILTER_PRODUCTS_BY_BRANDS,
-  SORT_PRODUCTS
+  SORT_PRODUCTS,
+  CHANGE_HAMBURGER
 } from './types';
 
 export const updateCartItemCount = itemCount => async dispatch => {
@@ -75,5 +76,12 @@ export const sortProducts = (products, sort) => async dispatch => {
   return dispatch({
     type: SORT_PRODUCTS,
     payload: { sort: sort, items: newArray }
+  });
+};
+
+export const changeHamburger = burger => async dispatch => {
+  dispatch({
+    type: CHANGE_HAMBURGER,
+    payload: burger
   });
 };

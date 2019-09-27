@@ -2,7 +2,8 @@ import {
   UPDATE_CART_ITEM_COUNT,
   UPDATE_SHOES_PER_PAGE,
   FILTER_PRODUCTS_BY_BRANDS,
-  SORT_PRODUCTS
+  SORT_PRODUCTS,
+  CHANGE_HAMBURGER
 } from '../actions/types';
 
 const initialState = {
@@ -10,7 +11,8 @@ const initialState = {
   shoesPerPage: 30,
   filteredItems: [],
   filteredItemsLoading: true,
-  brands: []
+  brands: [],
+  hamburger: true
 };
 
 export default function(state = initialState, action) {
@@ -39,6 +41,11 @@ export default function(state = initialState, action) {
         ...state,
         filteredItems: payload.items,
         sort: payload.sort
+      };
+    case CHANGE_HAMBURGER:
+      return {
+        ...state,
+        hamburger: payload
       };
 
     default:

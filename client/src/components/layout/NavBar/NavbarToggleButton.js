@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { changeHamburger } from '../../../actions/cartAndFilter';
 
 import './hamburger.css';
 
 const NavbarToggleButton = props => {
-  const [toggleBurger, setToggleBurger] = useState(true);
+  const { changeHamburger, hamburger } = props;
   const onClickHandler = () => {
     props.click();
-    setToggleBurger(!toggleBurger);
+    changeHamburger(!hamburger);
   };
   return (
     <div className='nav-burger'>
-      {toggleBurger ? (
+      {hamburger ? (
         <button
           className='hamburger hamburger--collapse'
           type='button'
@@ -51,4 +53,11 @@ const NavbarToggleButton = props => {
   );
 };
 
-export default NavbarToggleButton;
+const mapStateToProps = state => ({
+  hamburger: state.cartAndFilter.hamburger
+});
+
+export default connect(
+  mapStateToProps,
+  { changeHamburger }
+)(NavbarToggleButton);
