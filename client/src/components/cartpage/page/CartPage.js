@@ -204,7 +204,7 @@ const CartPage = props => {
           </div>
           <div className='cart-mobile'>
             <div className='header-cartpage-mobile'>
-              <h1>MY CART</h1>
+              <h1>my cart</h1>
             </div>
             <div className='cartpage-summary-mobile'>
               <table className='table-summary-mobile'>
@@ -226,18 +226,14 @@ const CartPage = props => {
                   </tr>
                   <tr>
                     <td className='table-left-mobile'>shipping</td>
-                    <td className='table-right-mobile'>$20.00</td>
+                    <td className='table-right-mobile'>
+                      Calculated at checkout
+                    </td>
                   </tr>
                   <tr>
                     <td className='table-left-mobile'>tax</td>
-                    <td className='table-right-mobile'>$0.00</td>
-                  </tr>
-                  <tr>
-                    <td className='table-left-mobile cart-item-bold'>
-                      total (excl. tax)
-                    </td>
-                    <td className='table-right-mobile cart-item-bold'>
-                      ${getSubtotal(getCartItems) + 20}.00
+                    <td className='table-right-mobile'>
+                      Calculated at checkout
                     </td>
                   </tr>
                 </tbody>
@@ -246,7 +242,7 @@ const CartPage = props => {
             <div className='checkout-button-mobile'>
               <Link to={'/checkout'}>
                 <button className='btn btn-dark btn-block'>
-                  continue to checkout
+                  Continue to Checkout
                 </button>
               </Link>
             </div>
@@ -290,7 +286,7 @@ const CartPage = props => {
             <div className='checkout-button-mobile'>
               <Link to={'/checkout'}>
                 <button className='btn btn-dark btn-lg btn-block'>
-                  continue to checkout
+                  Continue to Checkout
                 </button>
               </Link>
               <button

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import './OrderSummary.css';
 
 const OrderSummary = props => {
   useEffect(() => {
     getSubtotal();
+    checkWindowWidth();
   }, []);
 
   const {
@@ -44,9 +46,23 @@ const OrderSummary = props => {
     saveSubtotal(subTotal);
   };
 
+  const checkWindowWidth = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth > 768) {
+      setToggleShowOrder(true);
+    }
+  };
+
   // Toggles for showing/hiding order summary in mobile viewport
   return (
-    <div className='itemsummary-container'>
+    <div
+      className={
+        toggleShowOrder
+          ? 'itemsummary-container bottomBorder'
+          : 'itemsummary-container'
+      }
+    >
       <div className='header-itemsummary'>
         <h1>order summary</h1>
       </div>
@@ -59,14 +75,14 @@ const OrderSummary = props => {
             <p>
               Hide order summary{' '}
               <span>
-                <i class='fa fa-chevron-up'></i>
+                <i className='fa fa-chevron-up'></i>
               </span>
             </p>
           ) : (
             <p>
               Show order summary{' '}
               <span>
-                <i class='fa fa-chevron-down'></i>
+                <i className='fa fa-chevron-down'></i>
               </span>
             </p>
           )}
@@ -80,38 +96,46 @@ const OrderSummary = props => {
           </p>
         </div>
       </div>
-      {toggleShowOrder ? (
-        <>
-          <div className='itemsummary'>
-            {getCartItems.map((item, index) => (
-              <div key={index} className='item-row'>
-                <div className='itemimage'>
-                  <img src={item.shoe_image} />
+      <CSSTransition
+        in={toggleShowOrder}
+        timeout={130}
+        classNames='display'
+        unmountOnExit
+      >
+        {/* 'display' is just a wrapper for the transition */}
+        <div className='wrapper-display-transition'>
+          {getCartItems && (
+            <div className='itemsummary'>
+              {getCartItems.map((item, index) => (
+                <div key={index} className='item-row'>
+                  <div className='itemimage'>
+                    <img src={item.shoe_image} />
+                  </div>
+                  <div className='iteminfo'>
+                    <p className='uppercase bolder'>{item.shoe_brand}</p>
+                    <p className='capitalize p-margintop2'>{item.shoe_name}</p>
+                    <p className='capitalize p-margintop mobile-hide'>
+                      colorway: {item.shoe_colorway}
+                    </p>
+                    <p className='p-margintop'>US Size: {item.shoe_size}</p>
+                  </div>
+                  <div className='itemtotal'>
+                    <p className='uppercase'>qty</p>
+                    <p className='bold p-margintop3'>
+                      {item.shoe_order_quantity}
+                    </p>
+                    <p className='uppercase'>total</p>
+                    <p className='bold p-margintop3'>
+                      $
+                      {(item.shoe_order_quantity * item.shoe_price)
+                        .toFixed(2)
+                        .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+                    </p>
+                  </div>
                 </div>
-                <div className='iteminfo'>
-                  <p className='uppercase bolder'>{item.shoe_brand}</p>
-                  <p className='capitalize p-margintop2'>{item.shoe_name}</p>
-                  <p className='capitalize p-margintop mobile-hide'>
-                    colorway: {item.shoe_colorway}
-                  </p>
-                  <p className='p-margintop'>US Size: {item.shoe_size}</p>
-                </div>
-                <div className='itemtotal'>
-                  <p className='uppercase'>qty</p>
-                  <p className='bold p-margintop3'>
-                    {item.shoe_order_quantity}
-                  </p>
-                  <p className='uppercase'>total</p>
-                  <p className='bold p-margintop3'>
-                    $
-                    {(item.shoe_order_quantity * item.shoe_price)
-                      .toFixed(2)
-                      .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
           <div className='itemsummary-total'>
             <table>
               <tbody>
@@ -161,8 +185,8 @@ const OrderSummary = props => {
               </button>
             </Link>
           </div>
-        </>
-      ) : null}
+        </div>
+      </CSSTransition>
     </div>
   );
 };

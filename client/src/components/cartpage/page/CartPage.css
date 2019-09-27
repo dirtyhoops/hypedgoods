@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+/* .wrapper-cartpage button {
+  border-radius: 0px;
+} */
+
 .header-cartpage h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
@@ -16,7 +20,7 @@
 }
 
 .table-cartpage-items th {
-  color: gray;
+  color: black;
 }
 
 .subtable-cart-iteminfo {
@@ -113,7 +117,7 @@
 
   .header-cartpage-mobile h1 {
     font-family: 'Raleway', sans-serif;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
   }
@@ -122,7 +126,7 @@
     width: 100%;
     font-family: 'Raleway', sans-serif;
     font-size: 0.9em;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 
   thead th {
@@ -140,6 +144,7 @@
 
   .table-right-mobile {
     text-align: right;
+    text-transform: none;
   }
 
   .checkout-button-mobile {
@@ -147,7 +152,6 @@
   }
 
   .checkout-button-mobile button {
-    text-transform: uppercase;
     font-size: 0.8em;
     margin-top: 1em;
   }

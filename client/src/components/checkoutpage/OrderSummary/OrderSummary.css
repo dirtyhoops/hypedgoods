@@ -134,13 +134,38 @@
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
+  .display-enter {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .display-enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: 300ms, transform 300ms;
+  }
+
+  .display-exit {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  .display-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 300ms, transform 300ms;
+  }
+
   .itemsummary-container {
     width: 100%;
     text-align: left;
     border-right: none;
-    border-bottom: 1px solid rgba(226, 203, 203, 0.658);
     /* This is the order of flex box, this brings it on top */
     order: 0;
+  }
+
+  .bottomBorder {
+    border-bottom: 1px solid rgb(163, 129, 129);
   }
 
   .header-itemsummary {
@@ -208,6 +233,8 @@
     height: 55px;
     padding: 0 10px;
     border-bottom: 1px solid rgb(218, 247, 212);
+    position: sticky;
+    z-index: 99;
   }
 
   .itemsummary-mobile-toggler-right {
