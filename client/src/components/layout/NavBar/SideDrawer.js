@@ -11,19 +11,16 @@ const SideDrawer = props => {
 
   return (
     <div className={drawerClasses}>
-      <div className='drawer-toggleButton' onClick={props.drawerClickHandler}>
+      {/* <div className='drawer-toggleButton' onClick={props.drawerClickHandler}>
         <i className='fa fa-window-close' />
-      </div>
+      </div> */}
       <div className='nav-links-mobile'>
-        <ul>
+        <ul onClick={props.drawerClickHandler}>
           <li className='first'>
-            <Link to='/products/shoes'>shop sneakers</Link>
+            <Link to='/products/shoes'>new releases</Link>
           </li>
           <li>
-            <Link to='/products/shirts/men'>shop men's shirts</Link>
-          </li>
-          <li>
-            <Link to='/products/shirts/women'>shop women's shirts</Link>
+            <Link to='/products/shoes'>brands</Link>
           </li>
         </ul>
       </div>

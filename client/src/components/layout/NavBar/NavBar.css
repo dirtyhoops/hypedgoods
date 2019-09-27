@@ -111,7 +111,7 @@ nav {
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   position: fixed;
   width: 70%;
-  top: 0;
+  top: 1;
   left: 0;
   z-index: 200;
   transform: translateX(143%);
@@ -175,14 +175,26 @@ nav {
     left: -7px;
   }
 
+  /* .burger-close-button {
+    border: none;
+    color: white;
+    background: transparent;
+    font-size: 25px;
+  } */
+
+  .burger-close-button:focus {
+    outline: none;
+  }
+
   /**************** SIDE DRAWER ***************/
   .nav-links-mobile {
-    margin-top: 7px;
+    margin-top: 0px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .nav-links-mobile ul li a {
     color: white;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 18px;
     text-decoration: none;
   }

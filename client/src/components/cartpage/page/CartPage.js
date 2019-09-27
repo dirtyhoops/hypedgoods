@@ -302,7 +302,7 @@ const CartPage = props => {
         <div className='cart-empty-box'>
           <p>Your cart is empty</p>
           <Link to='/products/shoes'>
-            <button className='btn btn-dark'>Continue Shopping -></button>
+            <button className='btn btn-dark'>Continue Shopping</button>
           </Link>
         </div>
       )}
