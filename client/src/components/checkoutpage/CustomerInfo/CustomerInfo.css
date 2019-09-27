@@ -1,6 +1,5 @@
 .customerinfo-container {
   width: 50%;
-  display: inline-block;
   padding: 2em 2em 0 0.5em;
   text-align: left;
   border-right: 1px solid rgba(226, 203, 203, 0.658);
@@ -49,7 +48,7 @@
 .billingaddress-form label {
   font-size: 0.7em;
   text-transform: uppercase;
-  color: rgb(201, 151, 151);
+  color: rgb(63, 61, 61);
 }
 
 .shippingaddress-form .form-group input,
@@ -72,11 +71,13 @@
 @media screen and (max-width: 768px) {
   .customerinfo-container {
     width: 100%;
-    display: block;
     text-align: left;
     border-right: none;
     padding: 1em 0 0 0;
-    min-height: 50vh;
+    min-height: none;
+
+    /* This is the order of flex box, this brings it under the order summary */
+    order: 1;
   }
 
   .header-customerinfo {

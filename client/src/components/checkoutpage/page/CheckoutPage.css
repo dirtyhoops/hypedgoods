@@ -1,8 +1,14 @@
 .wrapper-checkoutpage {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
+  .wrapper-checkoutpage {
+    flex-direction: column;
+  }
 }

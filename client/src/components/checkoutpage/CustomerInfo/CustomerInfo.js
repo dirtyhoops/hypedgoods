@@ -2,6 +2,7 @@ import React from 'react';
 import ShippingAddressForm from '../ShippingAddressForm/ShippingAddressForm';
 import ShippingOptions from '../ShippingOptions/ShippingOptions';
 import Payment from '../Payment/Payment';
+import Crumbs from '../Crumbs/CheckoutCrumbs';
 import './CustomerInfo.css';
 
 const CustomerInfo = props => {
@@ -25,34 +26,8 @@ const CustomerInfo = props => {
       <div className='header-customerinfo'>
         <h1>customer information</h1>
       </div>
-      <div className='checkout-crumbs'>
-        <p>
-          <span>cart</span> >{' '}
-          <span
-            className={
-              currentForm === 'shippingform' ? 'crumbs-bold' : undefined
-            }
-          >
-            information
-          </span>{' '}
-          >{' '}
-          <span
-            className={
-              currentForm === 'shippingoption' ? 'crumbs-bold' : undefined
-            }
-          >
-            shipping
-          </span>{' '}
-          >{' '}
-          <span
-            className={
-              currentForm === 'billingform' ? 'crumbs-bold' : undefined
-            }
-          >
-            payment
-          </span>
-        </p>
-      </div>
+      <Crumbs currentForm={currentForm} />
+
       {checkout.currentForm === 'shippingform' && (
         <ShippingAddressForm
           auth={auth}

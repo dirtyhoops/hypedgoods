@@ -15,6 +15,7 @@ const OrderSummary = props => {
   } = props;
 
   const [orderSubTotal, setOrderSubTotal] = useState(0);
+  const [toggleShowOrder, setToggleShowOrder] = useState(false);
 
   // Gets the cart items from localstorage
   var getCartItems = JSON.parse(localStorage.getItem('itemsArray'));
@@ -43,10 +44,41 @@ const OrderSummary = props => {
     saveSubtotal(subTotal);
   };
 
+  // Toggles for showing/hiding order summary in mobile viewport
   return (
     <div className='itemsummary-container'>
       <div className='header-itemsummary'>
         <h1>order summary</h1>
+      </div>
+      <div
+        className='itemsummary-mobile-toggler'
+        onClick={() => setToggleShowOrder(!toggleShowOrder)}
+      >
+        <div className='itemsummary-mobile-toggler-left'>
+          {toggleShowOrder ? (
+            <p>
+              Hide order summary{' '}
+              <span>
+                <i class='fa fa-chevron-up'></i>
+              </span>
+            </p>
+          ) : (
+            <p>
+              Show order summary{' '}
+              <span>
+                <i class='fa fa-chevron-down'></i>
+              </span>
+            </p>
+          )}
+        </div>
+        <div className='itemsummary-mobile-toggler-right'>
+          <p>
+            $
+            {(orderSubTotal + shipping + taxTotal)
+              .toFixed(2)
+              .replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+          </p>
+        </div>
       </div>
       {getCartItems ? (
         <>

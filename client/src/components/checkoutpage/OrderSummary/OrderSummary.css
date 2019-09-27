@@ -1,7 +1,6 @@
 .itemsummary-container {
   width: 50%;
-  display: inline-block;
-  vertical-align: top;
+
   text-align: right;
   padding: 2em 0.5em 0 2em;
   /* background: green; */
@@ -33,8 +32,6 @@
   border-bottom: 1px solid rgb(236, 221, 221);
   margin: 5px 0 0 0;
   font-size: 0.72em;
-
-  /* background: yellow; */
 }
 
 .itemimage {
@@ -130,19 +127,28 @@
   margin: 10px 0;
 }
 
+.itemsummary-mobile-toggler {
+  display: none;
+}
+
 /* for mobile phone(iphone x and lower) */
 @media screen and (max-width: 768px) {
-  .contactinformation-container {
+  .itemsummary-container {
     width: 100%;
-    display: block;
     text-align: left;
     border-right: none;
+    /* This is the order of flex box, this brings it on top */
+    order: 0;
   }
 
-  .header-itemsummary h1 {
+  .header-itemsummary {
+    display: none;
+  }
+
+  /* .header-itemsummary h1 {
     text-transform: uppercase;
     font-size: 17px;
-  }
+  } */
 
   .itemsummary-container {
     width: 100%;
@@ -185,5 +191,34 @@
 
   .mobile-hide {
     display: none;
+  }
+
+  .itemsummary-mobile-toggler {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    display: flex;
+    justify-content: flex-start;
+    background: rgb(230, 240, 228);
+    height: 55px;
+    padding: 0 10px;
+    border-bottom: 1px solid rgb(170, 233, 157);
+  }
+
+  .itemsummary-mobile-toggler-right {
+    width: 35%;
+    text-align: right;
+    line-height: 55px;
+    font-size: 17px;
+  }
+
+  .itemsummary-mobile-toggler-left {
+    width: 65%;
+    text-align: left;
+    line-height: 55px;
+    font-size: 14px;
+  }
+
+  .itemsummary-mobile-toggler-left span {
+    font-size: 11px;
   }
 }
