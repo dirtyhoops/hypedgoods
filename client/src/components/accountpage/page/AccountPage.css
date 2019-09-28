@@ -1,5 +1,5 @@
 .wrapper-account {
-  width: 80%;
+  width: 85%;
   min-height: 70vh;
   margin: 4em auto;
   font-family: 'Raleway', sans-serif;
@@ -66,7 +66,7 @@
   }
 
   .wrapper-account {
-    width: 90%;
+    width: 100%;
     min-height: 35vh;
     margin: 1.8em auto;
   }
@@ -93,6 +93,6 @@
   }
 
   .account-details button {
-    margin: 0em 0em 3em 0em;
+    margin: 0em 0em 1em 0em;
   }
 }

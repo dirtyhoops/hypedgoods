@@ -8,7 +8,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  MAKE_ADMIN
+  MAKE_ADMIN,
+  RESET_RECENT_ORDERS_LOADING
 } from './types';
 import setAuthToken from '../utilities/setAuthToken';
 
@@ -109,6 +110,8 @@ export const login = (email, password) => async dispatch => {
 // Logout / Clear Profile
 export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
+  // Resets the loading for recent orders incase another user logs in without refreshing the page
+  dispatch({ type: RESET_RECENT_ORDERS_LOADING });
 };
 
 // Add or Edit Address - Add address if it is null, edit it otherwise.

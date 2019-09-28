@@ -1,12 +1,12 @@
 .wrapper-addressform {
   width: 80%;
   text-transform: uppercase;
-  margin: 2em 0;
+  margin: 1em 0;
   /* transition: 1s ease; */
 }
 
 .wrapper-addressform h3 {
-  font-size: 1.25em;
+  font-size: 21px;
 }
 
 .addressform {
@@ -17,7 +17,7 @@
 .addressform label {
   font-size: 0.7em;
   text-transform: uppercase;
-  color: rgb(201, 151, 151);
+  color: rgb(63, 61, 61);
 }
 
 .addressform .form-group input,
@@ -31,8 +31,33 @@
   text-transform: capitalize;
 }
 
-/* .shippingaddress-form label {
-  font-size: 0.7em;
-  text-transform: uppercase;
-  color: rgb(201, 151, 151);
-} */
+@media screen and (max-width: 768px) {
+  .wrapper-addressform {
+    width: 100%;
+    margin: 0em 0;
+  }
+
+  .wrapper-addressform h3 {
+    font-size: 17px;
+  }
+
+  .wrapper-addressform.form-group label {
+    font-size: 0.55em;
+    margin: 0px 0px 4px;
+  }
+
+  .wrapper-addressform .form-group input,
+  .wrapper-addressform .form-group select {
+    font-size: 0.7em;
+    /* text-transform: capitalize; */
+  }
+
+  .wrapper-addressform .form-group {
+    margin: 0px 0px 5px 0px;
+  }
+
+  .addressform {
+    width: 95%;
+    margin: 0 auto;
+  }
+}

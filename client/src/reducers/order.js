@@ -1,8 +1,15 @@
-import { GET_ORDERS, GET_ORDER } from '../actions/types';
+import {
+  GET_ORDERS,
+  GET_ORDER,
+  GET_RECENT_ORDERS,
+  RESET_RECENT_ORDERS_LOADING
+} from '../actions/types';
 
 const initialState = {
   orders: [],
-  selectedOrder: null
+  selectedOrder: null,
+  recentOrders: [],
+  loadingRecentOrders: true
 };
 
 export default function(state = initialState, action) {
@@ -18,6 +25,17 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedOrder: payload
+      };
+    case GET_RECENT_ORDERS:
+      return {
+        ...state,
+        recentOrders: payload,
+        loadingRecentOrders: false
+      };
+    case RESET_RECENT_ORDERS_LOADING:
+      return {
+        ...state,
+        loadingRecentOrders: true
       };
     default:
       return state;
