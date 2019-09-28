@@ -15,6 +15,7 @@ import {
 import axios from 'axios';
 import { setAlert } from './alert';
 
+// Get all the shoes
 export const getShoes = () => async dispatch => {
   try {
     const res = await axios.get('/api/shoes');

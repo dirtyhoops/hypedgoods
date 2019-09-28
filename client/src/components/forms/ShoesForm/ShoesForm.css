@@ -10,7 +10,8 @@
   text-transform: uppercase;
 }
 
-.wrapper-shoesform form .form-group input {
+.wrapper-shoesform form .form-group input,
+.wrapper-shoesform form .form-group textarea {
   margin: 0 auto;
 }
 
@@ -23,7 +24,8 @@
   color: rgb(59, 45, 45);
 }
 
-.wrapper-shoesform form .form-group input {
+.wrapper-shoesform form .form-group input,
+.wrapper-shoesform form .form-group textarea {
   width: 80%;
   min-height: 3vh;
 }
@@ -57,7 +59,8 @@
     width: 95%;
   }
 
-  .wrapper-shoesform form .form-group input {
+  .wrapper-shoesform form .form-group input,
+  .wrapper-shoesform form .form-group textarea {
     width: 95%;
     min-height: 5vh;
   }

@@ -27,11 +27,18 @@ const AccountPage = ({
         <h1>my account</h1>
         <div className='account-header-buttons'>
           {isAdmin && (
-            <Link to='/products/add/shoes'>
-              <button className='btn btn-outline-success'>
-                Admin ADD Shoes
-              </button>
-            </Link>
+            <>
+              <Link to='/products/add/shoes'>
+                <button className='btn btn-outline-success'>
+                  Admin ADD Shoes
+                </button>
+              </Link>
+              <Link to='/orders/admin'>
+                <button className='btn btn-outline-primary'>
+                  Admin ALL Orders
+                </button>
+              </Link>
+            </>
           )}
           <Link to='/'>
             <button

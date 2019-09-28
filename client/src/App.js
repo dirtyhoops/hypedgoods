@@ -23,6 +23,8 @@ import CartPage from './components/cartpage/page/CartPage';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import CheckoutPage from './components/checkoutpage/page/CheckoutPage';
 import SuccessfulOrderPage from './components/successfulorderpage/page/SuccessfulOrderPage';
+import OrdersAdminPage from './components/ordersadminpage/page/OrdersAdminPage';
+import OrderDetailsPage from './components/orderdetailspage/page/OrderDetailsPage';
 
 import './App.css';
 
@@ -96,6 +98,8 @@ const App = () => {
                 path='/ordersummary'
                 component={SuccessfulOrderPage}
               />
+              <Route exact path='/orders/admin' component={OrdersAdminPage} />
+              <Route exact path='/order/:id' component={OrderDetailsPage} />
             </Switch>
           </section>
           <Footer />
