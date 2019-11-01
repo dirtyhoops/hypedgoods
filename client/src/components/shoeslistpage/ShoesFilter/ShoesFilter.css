@@ -12,9 +12,9 @@
   display: none;
 }
 
-.shoes-list-filter-content-mobile {
+/* .shoes-list-filter-content-mobile {
   display: none;
-}
+} */
 
 /* for filter */
 .found-item-container {
@@ -134,5 +134,21 @@
     display: inline-block;
     margin: 3px;
     border: 1px solid rgb(196, 181, 181);
+  }
+
+  .shoes-list-filter-mobile-animate {
+    animation: moveInTopLong 0.3s ease-in-out;
+  }
+
+  @keyframes moveInTopLong {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
   }
 }

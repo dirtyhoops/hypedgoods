@@ -101,13 +101,13 @@ const HeroImageCarousel = () => {
           <Slide key={ind} index={ind}>
             <div className='wrapper-men-shirt1'>
               <img src={heroImage.link} />
-              <div className='shoe-hero-button '>
+              {/* <div className='shoe-hero-button '>
                 <Link to={`/products/shoes/brand/${heroImage.brand}`}>
                   <button className='btn btn-dark btn-lg'>
                     shop {heroImage.category}
                   </button>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </Slide>
         ))}

@@ -62,7 +62,7 @@ const ShoesFilter = props => {
         </button>
       </div>
       {toggleFilter ? (
-        <div className='shoes-list-filter-content'>
+        <div className='shoes-list-filter-content shoes-list-filter-mobile-animate'>
           <div className='found-item-container'>
             <p>{filteredItems.length} items found</p>
           </div>
