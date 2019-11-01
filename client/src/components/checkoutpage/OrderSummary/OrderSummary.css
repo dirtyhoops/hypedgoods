@@ -234,7 +234,7 @@
     padding: 0 10px;
     border-bottom: 1px solid rgb(218, 247, 212);
     position: sticky;
-    z-index: 99;
+    z-index: 10;
   }
 
   .itemsummary-mobile-toggler-right {
