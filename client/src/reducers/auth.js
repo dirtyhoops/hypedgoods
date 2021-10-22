@@ -6,7 +6,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  MAKE_ADMIN
+  MAKE_ADMIN,
 } from '../actions/types';
 
 //add isAdmin later to authenticate if the current user is an admin (maybe just check user.isAdmin once we get the user and put it in the state)
@@ -15,10 +15,10 @@ const initialState = {
   isAuthenticated: false,
   loading: true,
   user: null,
-  isAdmin: false
+  isAdmin: false,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -27,7 +27,7 @@ export default function(state = initialState, action) {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload
+        user: payload,
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
         ...state,
         ...payload,
         isAuthenticated: true,
-        loading: false
+        loading: false,
       };
     case REGISTER_FAIL:
     case LOGIN_FAIL:
@@ -49,12 +49,12 @@ export default function(state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         isAdmin: false,
-        user: null
+        user: null,
       };
     case MAKE_ADMIN:
       return {
         ...state,
-        isAdmin: true
+        isAdmin: true,
       };
     default:
       return state;
