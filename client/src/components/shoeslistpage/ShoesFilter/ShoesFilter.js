@@ -6,13 +6,17 @@ const ShoesFilter = props => {
     checkWindowWidth();
   }, []);
 
-  const { filteredItems } = props;
+  const { filteredItems, filterProductsByBrands, shoes } = props;
   const [toggleFilter, setToggleFilter] = useState(false);
 
   const [toggleFilterArrowBrand, setToggleFilterArrowBrand] = useState(true);
   const [toggleFilterArrowModel, setToggleFilterArrowModel] = useState(false);
   const [toggleFilterArrowPrice, setToggleFilterArrowPrice] = useState(false);
   const [toggleFilterArrowSize, setToggleFilterArrowSize] = useState(true);
+
+  const [brandNike, setBrandNike] = useState(false);
+  const [brandAdidas, setBrandAdidas] = useState(false);
+  const [brandAll, setBrandAll] = useState(true);
 
   const toggle = () => {
     toggleFilter ? setToggleFilter(false) : setToggleFilter(true);
@@ -47,6 +51,27 @@ const ShoesFilter = props => {
 
     if (windowWidth > 768) {
       setToggleFilter(true);
+    }
+  };
+
+  const brandHandler = brand => {
+    filterProductsByBrands(shoes, brand);
+    if (brand === '') {
+      setBrandNike(false);
+      setBrandAdidas(false);
+      setBrandAll(true);
+    }
+
+    if (brand === 'nike') {
+      setBrandNike(true);
+      setBrandAdidas(false);
+      setBrandAll(false);
+    }
+
+    if (brand === 'adidas') {
+      setBrandAdidas(true);
+      setBrandNike(false);
+      setBrandAll(false);
     }
   };
 
@@ -90,36 +115,61 @@ const ShoesFilter = props => {
               }
             >
               <div className='custom-control custom-checkbox'>
-                <input type='checkbox' className='custom-control-input' />
+                <input
+                  type='checkbox'
+                  className='custom-control-input'
+                  checked={brandAll}
+                />
                 <label
                   className='custom-control-label'
                   htmlFor='customCheckDisabled'
+                  onClick={() => brandHandler('')}
+                >
+                  All Brands
+                </label>
+              </div>
+              <div className='custom-control custom-checkbox'>
+                <input
+                  type='checkbox'
+                  className='custom-control-input'
+                  checked={brandNike}
+                />
+                <label
+                  className='custom-control-label'
+                  htmlFor='customCheckDisabled'
+                  onClick={() => brandHandler('nike')}
                 >
                   nike
                 </label>
               </div>
               <div className='custom-control custom-checkbox'>
-                <input type='checkbox' className='custom-control-input' />
+                <input
+                  type='checkbox'
+                  className='custom-control-input'
+                  checked={brandAdidas}
+                />
                 <label
                   className='custom-control-label'
                   htmlFor='customCheckDisabled'
+                  onClick={() => brandHandler('adidas')}
                 >
                   adidas
                 </label>
               </div>
-              <div className='custom-control custom-checkbox'>
+              {/* <div className='custom-control custom-checkbox'>
                 <input type='checkbox' className='custom-control-input' />
                 <label
                   className='custom-control-label'
                   htmlFor='customCheckDisabled'
+                  onClick={() => filterProductsByBrands(shoes, 'puma')}
                 >
                   puma
                 </label>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* FOR PRICE FILTER */}
-          <div className='filter-container'>
+          {/* <div className='filter-container'>
             <div className='filter-options-container'>
               <p>price</p>
               <button onClick={toggleArrowPrice}>
@@ -138,7 +188,7 @@ const ShoesFilter = props => {
             >
               PRICE OPTIONS FITS HERE
             </div>
-          </div>
+          </div> */}
 
           {/* FOR SIZE FILTER */}
           <div className='filter-container'>

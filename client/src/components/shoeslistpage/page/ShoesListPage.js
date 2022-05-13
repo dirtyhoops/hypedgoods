@@ -60,7 +60,11 @@ const ShoesListPage = ({
         filteredItems={filteredItems}
       />
 
-      <ShoesFilter filteredItems={filteredItems} />
+      <ShoesFilter
+        filteredItems={filteredItems}
+        filterProductsByBrands={filterProductsByBrands}
+        shoes={shoes}
+      />
       <ShoesListGrid />
     </div>
   );
@@ -83,13 +87,10 @@ const mapStateToProps = state => ({
   sort: state.cartAndFilter.sort
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    getShoes,
-    updateShoesPerPage,
-    filterProductsByBrands,
-    doneLoading,
-    sortProducts
-  }
-)(ShoesListPage);
+export default connect(mapStateToProps, {
+  getShoes,
+  updateShoesPerPage,
+  filterProductsByBrands,
+  doneLoading,
+  sortProducts
+})(ShoesListPage);
