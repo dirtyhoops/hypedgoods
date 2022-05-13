@@ -38,7 +38,9 @@ const OrderSummary = props => {
           item.shoe_price,
           item.shoe_size,
           item.shoe_image,
-          item.shoe_id
+          item.shoe_id,
+          item.variant_quantity,
+          item.shoe_total_quantity
         );
       });
     }

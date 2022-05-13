@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const config = require('config');
 const auth = require('../../middleware/auth');
 
 const User = require('../../models/User');
@@ -66,22 +65,12 @@ router.post(
   [
     auth,
     [
-      check('name', 'Name is required')
-        .not()
-        .isEmpty(),
-      check('brand', 'Brand is required')
-        .not()
-        .isEmpty(),
-      check('retail_price', 'Retail Price is required')
-        .not()
-        .isEmpty(),
-      check('release_date', 'Release Date is required')
-        .not()
-        .isEmpty(),
-      check('model', 'Model is required')
-        .not()
-        .isEmpty()
-    ]
+      check('name', 'Name is required').not().isEmpty(),
+      check('brand', 'Brand is required').not().isEmpty(),
+      check('retail_price', 'Retail Price is required').not().isEmpty(),
+      check('release_date', 'Release Date is required').not().isEmpty(),
+      check('model', 'Model is required').not().isEmpty(),
+    ],
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -99,7 +88,7 @@ router.post(
       release_date,
       date_added,
       model,
-      images
+      images,
     } = req.body;
 
     const shoesFields = {};
@@ -111,10 +100,10 @@ router.post(
     if (date_added) shoesFields.date_added = date_added;
     if (model) shoesFields.model = model;
     if (colors) {
-      shoesFields.colors = colors.split(',').map(color => color.trim());
+      shoesFields.colors = colors.split(',').map((color) => color.trim());
     }
     if (images) {
-      shoesFields.images = images.split(',').map(image => image.trim());
+      shoesFields.images = images.split(',').map((image) => image.trim());
     }
 
     try {
@@ -134,7 +123,7 @@ router.post(
         res.json({ msg: 'Successfully added a new shoes' });
       } else {
         return res.status(400).json({
-          msg: 'You cant delete an item because you are not an ADMIN'
+          msg: 'You cant add an item because you are not an ADMIN',
         });
       }
     } catch (err) {
@@ -163,7 +152,7 @@ router.delete('/:shoes_id', auth, async (req, res) => {
       res.json({ msg: 'Shoes and its Variants are deleted' });
     } else {
       res.status(400).json({
-        msg: 'You cant delete an item because you are not an ADMIN'
+        msg: 'You cant delete an item because you are not an ADMIN',
       });
     }
   } catch (err) {
@@ -179,7 +168,7 @@ router.delete('/:shoes_id', auth, async (req, res) => {
 router.get('/:shoes_id/variants', async (req, res) => {
   try {
     let selectedShoeVariants = await Variants.find({
-      shoes_id: req.params.shoes_id
+      shoes_id: req.params.shoes_id,
     }).sort({ size: 1 });
 
     if (!selectedShoeVariants) {
@@ -204,16 +193,10 @@ router.post(
   [
     auth,
     [
-      check('size', 'Size is required')
-        .not()
-        .isEmpty(),
-      check('price', 'Price is required')
-        .not()
-        .isEmpty(),
-      check('quantity', 'Quantity is required')
-        .not()
-        .isEmpty()
-    ]
+      check('size', 'Size is required').not().isEmpty(),
+      check('price', 'Price is required').not().isEmpty(),
+      check('quantity', 'Quantity is required').not().isEmpty(),
+    ],
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -244,17 +227,17 @@ router.post(
           const shoeVariant = await Variants.find({
             $and: [
               { shoes_id: variantsFields.shoes_id },
-              { size: variantsFields.size }
-            ]
+              { size: variantsFields.size },
+            ],
           });
 
           if (shoeVariant.length > 0) {
             return res.status(400).json({
               errors: [
                 {
-                  msg: 'You cant add this size, it already is in the inventory'
-                }
-              ]
+                  msg: 'You cant add this size, it already is in the inventory',
+                },
+              ],
             });
           }
 
@@ -271,21 +254,21 @@ router.post(
               $set: {
                 total_quantity:
                   parseInt(shoes.total_quantity) + parseInt(quantity),
-                lowest_price: lowestPrice
-              }
+                lowest_price: lowestPrice,
+              },
             }
           );
 
           await newVariant.save();
           res.json({
-            msg: `New size variant (size ${size}) of this shoes is added.`
+            msg: `New size variant (size ${size}) of this shoes is added.`,
           });
         }
       } else {
         return res.send('You cant add an item because you are not an ADMIN');
       }
     } catch (err) {
-      if (err.kind === 'ObjectId') {
+      if (err.kind == 'ObjectId') {
         console.error('The shoes with the given ID was not found');
         return res
           .status(404)
@@ -335,14 +318,14 @@ router.delete('/variants/:variant_id/:shoes_id', auth, async (req, res) => {
       await Variants.findByIdAndRemove({ _id: req.params.variant_id });
 
       let allVariants = await Variants.find({
-        shoes_id: req.params.shoes_id
+        shoes_id: req.params.shoes_id,
       });
 
       // Just initialized it with 100,000 so it wont be the lowestprice
       let lowestPrice = 100000;
 
       if (selectedVariant.price === shoes.lowest_price) {
-        allVariants.map(variant => {
+        allVariants.map((variant) => {
           if (variant.price < lowestPrice) {
             lowestPrice = variant.price;
           }
@@ -359,8 +342,8 @@ router.delete('/variants/:variant_id/:shoes_id', auth, async (req, res) => {
             total_quantity:
               parseInt(shoes.total_quantity) -
               parseInt(selectedVariant.quantity),
-            lowest_price: lowestPrice
-          }
+            lowest_price: lowestPrice,
+          },
         }
       );
 

@@ -20,6 +20,7 @@ const ShoeInfo = props => {
 
   const [shoePrice, setShoePrice] = useState(lowest_price);
   const [variant_id, setVariant_id] = useState('');
+  const [variant_qty, setVariant_qty] = useState('');
   const [shoeSize, setShoeSize] = useState('');
   const [disableAddToCartButton, setDisableAddToCartButton] = useState(true);
   const [buttonText, setButtonText] = useState('select size');
@@ -32,8 +33,9 @@ const ShoeInfo = props => {
     setButtonText('SOLD OUT');
   }
 
-  const changePrice = (price, variant_id, variant_size) => {
+  const changePrice = (price, variant_id, variant_size, variant_quantity) => {
     setShoePrice(price);
+    setVariant_qty(variant_quantity);
     setVariant_id(variant_id);
     setShoeSize(variant_size);
     setDisableAddToCartButton(false);
@@ -55,7 +57,9 @@ const ShoeInfo = props => {
       shoe_brand: brand,
       shoe_name: name,
       shoe_colorway: colorway,
-      shoe_image: images[0]
+      shoe_image: images[0],
+      variant_quantity: variant_qty,
+      shoe_total_quantity: total_quantity
     };
 
     oldItems.push(myItem);
@@ -99,24 +103,29 @@ const ShoeInfo = props => {
           <div className='button-size-container'>
             {props.selectedShoeVariants ? (
               props.selectedShoeVariants.map(shoevariant => (
-                <div
-                  key={shoevariant._id}
-                  className={
-                    'button-size' +
-                    (shoevariant.size === selectedSize
-                      ? ' button-size-selected'
-                      : ' button-size-notselected')
-                  }
-                  onClick={() =>
-                    changePrice(
-                      shoevariant.price,
-                      shoevariant._id,
-                      shoevariant.size
-                    )
-                  }
-                >
-                  {shoevariant.size}
-                </div>
+                <>
+                  {shoevariant.quantity !== 0 ? (
+                    <div
+                      key={shoevariant._id}
+                      className={
+                        'button-size' +
+                        (shoevariant.size === selectedSize
+                          ? ' button-size-selected'
+                          : ' button-size-notselected')
+                      }
+                      onClick={() =>
+                        changePrice(
+                          shoevariant.price,
+                          shoevariant._id,
+                          shoevariant.size,
+                          shoevariant.quantity
+                        )
+                      }
+                    >
+                      {shoevariant.size}
+                    </div>
+                  ) : null}
+                </>
               ))
             ) : (
               <p>SOLD OUT</p>

@@ -31,17 +31,13 @@ export const saveBillingAddress = billingFormData => async dispatch => {
 };
 
 // Saves the customer information
-export const saveCustomerInfo = (
-  firstname,
-  lastname,
-  email,
-  phone
-) => async dispatch => {
-  dispatch({
-    type: SAVE_CUSTOMERINFO,
-    payload: { firstname, lastname, email, phone }
-  });
-};
+export const saveCustomerInfo =
+  (firstname, lastname, email, phone) => async dispatch => {
+    dispatch({
+      type: SAVE_CUSTOMERINFO,
+      payload: { firstname, lastname, email, phone }
+    });
+  };
 
 // Saves the sub total of all the products
 export const saveSubtotal = subtotal => async dispatch => {
@@ -91,81 +87,89 @@ export const enableButton = () => async dispatch => {
 };
 
 // Saves all the product from localstorage to redux so we can just copy the whole object and save it to mongodb
-export const saveProduct = (
-  variant_id,
-  brand,
-  name,
-  colorway,
-  retail_price,
-  price,
-  size,
-  image,
-  shoe_id
-) => async dispatch => {
-  dispatch({
-    type: SAVE_PRODUCT,
-    payload: {
-      variant_id,
-      brand,
-      name,
-      colorway,
-      retail_price,
-      price,
-      size,
-      image,
-      shoe_id
-    }
-  });
-};
-
-// Process order
-export const processOrder = ({
-  customerInfo,
-  subtotal,
-  taxTotal,
-  shipping,
-  total,
-  shippingAddress,
-  billingAddress,
-  products
-}) => async dispatch => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
+export const saveProduct =
+  (
+    variant_id,
+    brand,
+    name,
+    colorway,
+    retail_price,
+    price,
+    size,
+    image,
+    shoe_id,
+    variant_quantity,
+    shoe_total_quantity
+  ) =>
+  async dispatch => {
+    dispatch({
+      type: SAVE_PRODUCT,
+      payload: {
+        variant_id,
+        brand,
+        name,
+        colorway,
+        retail_price,
+        price,
+        size,
+        image,
+        shoe_id,
+        variant_quantity,
+        shoe_total_quantity
+      }
+    });
   };
 
-  try {
-    const res = await axios.post(
-      '/api/orders',
-      {
-        customerInfo,
-        subtotal,
-        taxTotal,
-        shipping,
-        total,
-        shippingAddress,
-        billingAddress,
-        products
-      },
-      config
-    );
+// Process order
+export const processOrder =
+  ({
+    customerInfo,
+    subtotal,
+    taxTotal,
+    shipping,
+    total,
+    shippingAddress,
+    billingAddress,
+    products
+  }) =>
+  async dispatch => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
 
-    // check if the order is a success, right now it's all success because we dont have to check for credit card validity
-    dispatch({
-      type: PROCESS_ORDER_SUCCESS
-    });
+    try {
+      const res = await axios.post(
+        '/api/orders',
+        {
+          customerInfo,
+          subtotal,
+          taxTotal,
+          shipping,
+          total,
+          shippingAddress,
+          billingAddress,
+          products
+        },
+        config
+      );
 
-    // just to check if it's working.
-    console.log(res.data.msg);
-  } catch (err) {
-    const errors = err.response.data.errors;
+      // check if the order is a success, right now it's all success because we dont have to check for credit card validity
+      dispatch({
+        type: PROCESS_ORDER_SUCCESS
+      });
 
-    if (errors) {
-      console.log('processing got errors: ');
-      errors.forEach(error => console.log(error));
+      // just to check if it's working.
+      console.log(res.data.msg);
+    } catch (err) {
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        console.log('processing got errors: ');
+        errors.forEach(error => console.log(error));
+      }
+
+      console.log(err);
     }
-
-    console.log(err);
-  }
-};
+  };

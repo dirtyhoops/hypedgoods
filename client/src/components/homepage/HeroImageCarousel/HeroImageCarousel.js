@@ -27,19 +27,17 @@ const HeroImageCarousel = () => {
     {
       brand: 'nike',
       category: 'off-white',
-      link: 'https://cdn.thesolesupplier.co.uk/2019/04/THE-TEN.jpg'
+      link: 'https://cms-cdn.thesolesupplier.co.uk/2019/04/THE-TEN.jpg'
     },
     {
       brand: 'nike',
       category: 'jordan',
-      link:
-        '  https://cdn.shopify.com/s/files/1/1527/4931/files/TR_AJ5_site_header_1440x640.jpg?v=1558186252'
+      link: '  https://cdn.shopify.com/s/files/1/1527/4931/files/TR_AJ5_site_header_1440x640.jpg?v=1558186252'
     },
     {
       brand: 'adidas',
       category: 'yeezy',
-      link:
-        'https://mk0justfreshkic60v3i.kinstacdn.com/wp-content/uploads/2019/04/https___hypebeast.com_image_2019_03_adidas-yeezy-boost-350-v2-clay-true-form-hyperspace-regional-release-dates-1.jpg'
+      link: 'https://sneakernews.com/wp-content/uploads/2019/06/adidas-yeezy-350-v2-lundmark-3.jpg?w=1140'
     }
   ];
 
@@ -47,20 +45,17 @@ const HeroImageCarousel = () => {
     {
       brand: 'adidas',
       category: 'yeezy',
-      link:
-        'http://2app.kicksonfire.com/kofapp/upload/events_images/ipad_1563ab6feef93228f2f7014794a0e719584f3ab5d5e2a.jpg'
+      link: 'http://2app.kicksonfire.com/kofapp/upload/events_images/ipad_1563ab6feef93228f2f7014794a0e719584f3ab5d5e2a.jpg'
     },
     {
       brand: 'nike',
       category: 'off-white',
-      link:
-        'https://s3.amazonaws.com/stockx-sneaker-analysis/wp-content/uploads/2018/07/stockxoffwhitepresto.jpg'
+      link: 'https://s3.amazonaws.com/stockx-sneaker-analysis/wp-content/uploads/2018/07/stockxoffwhitepresto.jpg'
     },
     {
       brand: 'jordan',
       category: 'jordan',
-      link:
-        'http://d2lllwtzebgpl1.cloudfront.net/0065992216301e2eb724600ca05b660f_listingImg_FfkH88759U.jpg'
+      link: 'http://d2lllwtzebgpl1.cloudfront.net/0065992216301e2eb724600ca05b660f_listingImg_FfkH88759U.jpg'
     }
   ];
 

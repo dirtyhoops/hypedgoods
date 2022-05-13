@@ -75,12 +75,21 @@ router.post('/', async (req, res) => {
     await newOrder.save();
 
     // Loop through the products and deduct 1 quantity from the variant
-    products.map(product => {
-      Variants.update(
-        { _id: ObjectId(product.variant_id) },
+    products.map(async product => {
+      await Variants.updateOne(
+        { _id: product.variant_id },
         {
           $set: {
-            quantity: 5
+            quantity: product.variant_quantity - 1
+          }
+        }
+      );
+
+      await Shoes.updateOne(
+        { _id: product.shoe_id },
+        {
+          $set: {
+            total_quantity: product.shoe_total_quantity - 1
           }
         }
       );

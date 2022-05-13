@@ -12,7 +12,8 @@ const ShoeInformation = props => {
     images,
     release_date,
     retail_price,
-    colorway
+    colorway,
+    total_quantity
   } = props.selectedShoe;
 
   const { deleteShoes } = props;
@@ -42,6 +43,9 @@ const ShoeInformation = props => {
         </p>
         <p>
           Colorway: <span>{colorway}</span>
+        </p>
+        <p>
+          Total Quantity: <span>{total_quantity}</span>
         </p>
         <button className='btn btn-primary btn-sm'>Edit Shoes</button>
         <button

@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='footer-copyright'>
-        <p>&#0169; 2019 Powered and Designed by Daryll Osis</p>
+        <p>&#0169; Powered and Designed by Daryll Osis</p>
       </div>
     </div>
   );

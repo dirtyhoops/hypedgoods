@@ -104,7 +104,4 @@ const mapStateToProps = state => ({
   checkout: state.checkout
 });
 
-export default connect(
-  mapStateToProps,
-  { processOrder }
-)(SuccessfulOrderPage);
+export default connect(mapStateToProps, { processOrder })(SuccessfulOrderPage);
