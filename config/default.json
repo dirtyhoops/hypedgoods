@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://deighty27:%40Pogiako27@hypedgoods-jxalk.mongodb.net/test?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://dirtyhoops27:dirtyhoops27@cluster0.8efele2.mongodb.net/HypedGoods?retryWrites=true&w=majority",
   "jwtSecret": "mySecretToken"
 }

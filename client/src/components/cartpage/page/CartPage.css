@@ -24,12 +24,13 @@
   color: black;
 }
 
-.subtable-cart-iteminfo {
+/* .subtable-cart-iteminfo {
   line-height: 0px;
-}
+} */
 
 .subtable-cart-iteminfo tbody tr td {
   border: none;
+  padding: 1px;
 }
 
 .p-lessmargin {

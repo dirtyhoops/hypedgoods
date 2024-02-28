@@ -83,7 +83,7 @@ const CartPage = props => {
                       <td className='table-text-left-align'>
                         <Link to={`/products/shoes/${item.shoe_id}`}>
                           <div className='cart-item-image'>
-                            <img src={item.shoe_image} />
+                            <img src={item.shoe_image} alt='shoes item img' />
                           </div>
                         </Link>
                       </td>

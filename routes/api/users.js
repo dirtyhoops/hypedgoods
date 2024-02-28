@@ -15,12 +15,8 @@ const User = require('../../models/User');
 router.post(
   '/',
   [
-    check('firstname', 'First Name is required')
-      .not()
-      .isEmpty(),
-    check('lastname', 'Last Name is required')
-      .not()
-      .isEmpty(),
+    check('firstname', 'First Name is required').not().isEmpty(),
+    check('lastname', 'Last Name is required').not().isEmpty(),
     check('email', 'Include a valid email').isEmail(),
     check(
       'password',
@@ -93,21 +89,11 @@ router.put(
   [
     auth,
     [
-      check('street', 'Street is required')
-        .not()
-        .isEmpty(),
-      check('country', 'Country is required')
-        .not()
-        .isEmpty(),
-      check('city', 'City is required')
-        .not()
-        .isEmpty(),
-      check('state', 'State/Province is required')
-        .not()
-        .isEmpty(),
-      check('zipcode', 'Zip/Postal Code is required')
-        .not()
-        .isEmpty()
+      check('street', 'Street is required').not().isEmpty(),
+      check('country', 'Country is required').not().isEmpty(),
+      check('city', 'City is required').not().isEmpty(),
+      check('state', 'State/Province is required').not().isEmpty(),
+      check('zipcode', 'Zip/Postal Code is required').not().isEmpty()
     ]
   ],
   async (req, res) => {

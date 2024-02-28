@@ -42,7 +42,7 @@ const CheckoutPage = ({
 
   return (
     <div className='wrapper-checkoutpage'>
-      {getCartItems ? (
+      {getCartItems? (
         <>
           <CustomerInfo
             auth={auth}
@@ -67,7 +67,7 @@ const CheckoutPage = ({
         <div className='cart-empty-box'>
           <p>Your cart is empty</p>
           <Link to='/products/shoes'>
-            <button className='btn btn-dark'>Continue Shopping -></button>
+            <button className='btn btn-dark'>Continue Shopping</button>
           </Link>
         </div>
       )}
@@ -95,19 +95,16 @@ const mapStateToProps = state => ({
   checkout: state.checkout
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    saveShippingAddress,
-    saveCustomerInfo,
-    saveSubtotal,
-    changeForm,
-    saveShippingPrice,
-    enableButton,
-    saveBillingAddress,
-    saveTaxTotal,
-    saveTotal,
-    saveProduct,
-    processOrder
-  }
-)(CheckoutPage);
+export default connect(mapStateToProps, {
+  saveShippingAddress,
+  saveCustomerInfo,
+  saveSubtotal,
+  changeForm,
+  saveShippingPrice,
+  enableButton,
+  saveBillingAddress,
+  saveTaxTotal,
+  saveTotal,
+  saveProduct,
+  processOrder
+})(CheckoutPage);
